@@ -1,0 +1,9 @@
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\bin\Debug\Service.Pattern.dll.config
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\bin\Debug\Service.Pattern.dll
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\bin\Debug\Service.Pattern.pdb
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\bin\Debug\Repository.Pattern.dll
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\bin\Debug\System.Net.Http.dll
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\bin\Debug\Repository.Pattern.pdb
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\obj\Debug\Service.Pattern.csprojResolveAssemblyReference.cache
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\obj\Debug\Service.Pattern.dll
+D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Service.Pattern\obj\Debug\Service.Pattern.pdb

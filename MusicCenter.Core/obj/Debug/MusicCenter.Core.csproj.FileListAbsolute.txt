@@ -1,0 +1,10 @@
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\MusicCenter.Core.dll.config
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\MusicCenter.Core.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\MusicCenter.Core.pdb
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\EntityFramework.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\EntityFramework.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\obj\Debug\MusicCenter.Core.csprojResolveAssemblyReference.cache
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\obj\Debug\MusicCenter.Core.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Core\obj\Debug\MusicCenter.Core.pdb

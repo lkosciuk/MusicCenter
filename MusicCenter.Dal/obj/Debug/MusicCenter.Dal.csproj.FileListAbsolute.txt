@@ -1,0 +1,37 @@
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csprojResolveAssemblyReference.cache
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\App_Data\MusicCenterDb.mdf
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\App_Data\MusicCenterDb_log.ldf
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.dll.config
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.pdb
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csprojResolveAssemblyReference.cache
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\App_Data\MusicCenterDb.mdf
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\App_Data\MusicCenterDb_log.ldf
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.dll.config
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\LinqKit.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.Ef6.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Service.Pattern.dll
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.Ef6.xml
+D:\Moje\INFA\MusicCenter\MusicCenter.Dal\bin\Debug\Service.Pattern.xml

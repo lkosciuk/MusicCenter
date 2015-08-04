@@ -1,0 +1,141 @@
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\MusicCenter.dll.config
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\MusicCenter.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\MusicCenter.pdb
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Antlr3.Runtime.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\EntityFramework.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\EntityFramework.SqlServer.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Google.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Web.Infrastructure.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Newtonsoft.Json.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Owin.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Helpers.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Mvc.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Optimization.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Razor.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.WebPages.Deployment.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.WebPages.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.WebPages.Razor.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\WebGrease.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\EntityFramework.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\EntityFramework.SqlServer.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Helpers.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Mvc.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Optimization.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.Razor.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.WebPages.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.WebPages.Deployment.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\System.Web.WebPages.Razor.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Newtonsoft.Json.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Antlr3.Runtime.pdb
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Google.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csprojResolveAssemblyReference.cache
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\obj\Debug\MusicCenter.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\obj\Debug\MusicCenter.pdb
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb.mdf
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb_log.ldf
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\MusicCenter.Dao.dll
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\bin\MusicCenter.Dao.pdb
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\obj\Debug\MusicCenter.Migrations.init1.resources
+D:\Moje\INFA\Praca Inzynierska\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csproj.GenerateResource.Cache
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb.mdf
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb_log.ldf
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\MusicCenter.dll.config
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\MusicCenter.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\MusicCenter.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Antlr3.Runtime.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\EntityFramework.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\EntityFramework.SqlServer.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\LinqKit.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Google.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Web.Infrastructure.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\MusicCenter.Dao.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Newtonsoft.Json.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Owin.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Repository.Pattern.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Repository.Pattern.Ef6.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Service.Pattern.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Helpers.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Mvc.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Optimization.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Razor.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.WebPages.Deployment.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.WebPages.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.WebPages.Razor.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\WebGrease.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\MusicCenter.Dao.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\EntityFramework.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\EntityFramework.SqlServer.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Repository.Pattern.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Repository.Pattern.Ef6.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Service.Pattern.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Helpers.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Mvc.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Optimization.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.Razor.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.WebPages.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.WebPages.Deployment.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\System.Web.WebPages.Razor.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Newtonsoft.Json.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Antlr3.Runtime.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Google.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csprojResolveAssemblyReference.cache
+D:\Moje\INFA\MusicCenter\MusicCenter\obj\Debug\MusicCenter.Migrations.init1.resources
+D:\Moje\INFA\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csproj.GenerateResource.Cache
+D:\Moje\INFA\MusicCenter\MusicCenter\obj\Debug\MusicCenter.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\obj\Debug\MusicCenter.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.Mvc.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\WebActivatorEx.dll
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.ServiceLocation.xml
+D:\Moje\INFA\MusicCenter\MusicCenter\bin\Microsoft.Practices.Unity.Mvc.xml
