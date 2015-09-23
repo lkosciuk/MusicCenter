@@ -8,6 +8,7 @@ namespace MusicCenter.Controllers
 {
     public class HomeController : Controller
     {
+        //moja super zmiana
         public ActionResult Index()
         {
             return View();
