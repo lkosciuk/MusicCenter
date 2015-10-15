@@ -221,9 +221,6 @@ D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.Migrations.init1.
 D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csproj.GenerateResource.Cache
 D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.dll
 D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.pdb
-C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csprojResolveAssemblyReference.cache
-C:\MVC\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb.mdf
-C:\MVC\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb_log.ldf
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.dll.config
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.dll
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.pdb
@@ -269,6 +266,8 @@ C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.Common.pdb
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.Dao.pdb
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.Services.pdb
 C:\MVC\MusicCenter\MusicCenter\bin\Autofac.Integration.Mvc.xml
+C:\MVC\MusicCenter\MusicCenter\bin\EntityFramework.xml
+C:\MVC\MusicCenter\MusicCenter\bin\EntityFramework.SqlServer.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Helpers.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Mvc.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Razor.xml
@@ -276,5 +275,6 @@ C:\MVC\MusicCenter\MusicCenter\bin\System.Web.WebPages.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.WebPages.Deployment.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.WebPages.Razor.xml
 C:\MVC\MusicCenter\MusicCenter\bin\Microsoft.Web.Infrastructure.xml
+C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csprojResolveAssemblyReference.cache
 C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.dll
 C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.pdb

@@ -62,9 +62,6 @@ D:\Programowanie\MusicCenter\MusicCenter.Dal\bin\Debug\Microsoft.Practices.Servi
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csprojResolveAssemblyReference.cache
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.dll
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.pdb
-C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csprojResolveAssemblyReference.cache
-C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\App_Data\MusicCenterDb.mdf
-C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\App_Data\MusicCenterDb_log.ldf
 C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.dll.config
 C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.dll
 C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\MusicCenter.Dao.pdb
@@ -77,5 +74,10 @@ C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.dll
 C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.Ef6.dll
 C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.Ef6.pdb
 C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\Repository.Pattern.pdb
+C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.xml
+C:\MVC\MusicCenter\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.xml
+C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csprojResolveAssemblyReference.cache
 C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.dll
 C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.pdb
+C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.init1.resources
+C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache

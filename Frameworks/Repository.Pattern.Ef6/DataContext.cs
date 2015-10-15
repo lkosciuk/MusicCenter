@@ -15,6 +15,7 @@ namespace Repository.Pattern.Ef6
         bool _disposed;
         #endregion Private Fields
 
+        
         public DataContext(string nameOrConnectionString) : base(nameOrConnectionString)
         {
             _instanceId = Guid.NewGuid();

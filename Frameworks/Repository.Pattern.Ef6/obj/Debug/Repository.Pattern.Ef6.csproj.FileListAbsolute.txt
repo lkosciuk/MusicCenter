@@ -34,7 +34,6 @@ D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Microso
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll.config
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.pdb
@@ -45,7 +44,10 @@ C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Microsoft.Practic
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.dll
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\System.Net.Http.dll
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.pdb
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.xml
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.SqlServer.xml
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\LinqKit.pdb
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\LinqKit.xml
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb

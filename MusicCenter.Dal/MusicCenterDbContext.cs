@@ -13,6 +13,7 @@ namespace MusicCenter.Dal
 {
     public class MusicCenterDbContext : DataContext
     {
+        public MusicCenterDbContext() : base("MusicCenterCs") { } //default connection string
         public MusicCenterDbContext(string connectionStringName) : base(connectionStringName) { }
 
 
