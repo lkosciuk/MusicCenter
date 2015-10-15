@@ -222,8 +222,6 @@ D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csproj.GenerateRe
 D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.dll
 D:\Programowanie\MusicCenter\MusicCenter\obj\Debug\MusicCenter.pdb
 C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csprojResolveAssemblyReference.cache
-C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.Migrations.init1.resources
-C:\MVC\MusicCenter\MusicCenter\obj\Debug\MusicCenter.csproj.GenerateResource.Cache
 C:\MVC\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb.mdf
 C:\MVC\MusicCenter\MusicCenter\bin\App_Data\MusicCenterDb_log.ldf
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.dll.config
