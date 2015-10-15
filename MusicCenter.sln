@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicCenter", "MusicCenter\MusicCenter.csproj", "{176275AE-3827-4D8C-B375-190875B42FBB}"
 EndProject
@@ -16,6 +16,62 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.Pattern", "Frameworks\Repository.Pattern\Repository.Pattern.csproj", "{6E682A14-C872-4813-B620-76E108DEA683}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository.Pattern.Ef6", "Frameworks\Repository.Pattern.Ef6\Repository.Pattern.Ef6.csproj", "{F68A1D19-93FB-47C1-A22B-42BEA3E4FD8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{704D9296-280C-4BE0-BC7A-29716C53A7C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MusicCenter", "MusicCenter", "{53743EA2-7B70-43DA-A31B-5964515D33DF}"
+	ProjectSection(SolutionItems) = preProject
+		MusicCenter\Lib\MusicCenter\Antlr3.Runtime.dll = MusicCenter\Lib\MusicCenter\Antlr3.Runtime.dll
+		MusicCenter\Lib\MusicCenter\Autofac.dll = MusicCenter\Lib\MusicCenter\Autofac.dll
+		MusicCenter\Lib\MusicCenter\Autofac.Integration.Mvc.dll = MusicCenter\Lib\MusicCenter\Autofac.Integration.Mvc.dll
+		MusicCenter\Lib\MusicCenter\AutoMapper.dll = MusicCenter\Lib\MusicCenter\AutoMapper.dll
+		MusicCenter\Lib\MusicCenter\EntityFramework.dll = MusicCenter\Lib\MusicCenter\EntityFramework.dll
+		MusicCenter\Lib\MusicCenter\EntityFramework.SqlServer.dll = MusicCenter\Lib\MusicCenter\EntityFramework.SqlServer.dll
+		MusicCenter\Lib\MusicCenter\LinqKit.dll = MusicCenter\Lib\MusicCenter\LinqKit.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.AspNet.Identity.Core.dll = MusicCenter\Lib\MusicCenter\Microsoft.AspNet.Identity.Core.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.AspNet.Identity.EntityFramework.dll = MusicCenter\Lib\MusicCenter\Microsoft.AspNet.Identity.EntityFramework.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.AspNet.Identity.Owin.dll = MusicCenter\Lib\MusicCenter\Microsoft.AspNet.Identity.Owin.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Host.SystemWeb.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Host.SystemWeb.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Cookies.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Cookies.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Facebook.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Facebook.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Google.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Google.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.MicrosoftAccount.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.MicrosoftAccount.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.OAuth.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.OAuth.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Twitter.dll = MusicCenter\Lib\MusicCenter\Microsoft.Owin.Security.Twitter.dll
+		MusicCenter\Lib\MusicCenter\Microsoft.Practices.ServiceLocation.dll = MusicCenter\Lib\MusicCenter\Microsoft.Practices.ServiceLocation.dll
+		MusicCenter\Lib\MusicCenter\Newtonsoft.Json.dll = MusicCenter\Lib\MusicCenter\Newtonsoft.Json.dll
+		MusicCenter\Lib\MusicCenter\Owin.dll = MusicCenter\Lib\MusicCenter\Owin.dll
+		MusicCenter\Lib\MusicCenter\System.Web.Optimization.dll = MusicCenter\Lib\MusicCenter\System.Web.Optimization.dll
+		MusicCenter\Lib\MusicCenter\WebGrease.dll = MusicCenter\Lib\MusicCenter\WebGrease.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MusicCenter.Dal", "MusicCenter.Dal", "{8B402344-59A4-4A04-AAFB-53A951FE556F}"
+	ProjectSection(SolutionItems) = preProject
+		MusicCenter\Lib\MusicCenter.Dal\EntityFramework.dll = MusicCenter\Lib\MusicCenter.Dal\EntityFramework.dll
+		MusicCenter\Lib\MusicCenter.Dal\EntityFramework.SqlServer.dll = MusicCenter\Lib\MusicCenter.Dal\EntityFramework.SqlServer.dll
+		MusicCenter\Lib\MusicCenter.Dal\LinqKit.dll = MusicCenter\Lib\MusicCenter.Dal\LinqKit.dll
+		MusicCenter\Lib\MusicCenter.Dal\Microsoft.Practices.ServiceLocation.dll = MusicCenter\Lib\MusicCenter.Dal\Microsoft.Practices.ServiceLocation.dll
+		MusicCenter\Lib\MusicCenter.Dal\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll = MusicCenter\Lib\MusicCenter.Dal\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MusicCenter.Services", "MusicCenter.Services", "{6D891A44-8BB1-44D2-86EB-291BB511BFB4}"
+	ProjectSection(SolutionItems) = preProject
+		MusicCenter\Lib\MusicCenter.Services\AutoMapper.dll = MusicCenter\Lib\MusicCenter.Services\AutoMapper.dll
+		MusicCenter\Lib\MusicCenter.Services\EntityFramework.dll = MusicCenter\Lib\MusicCenter.Services\EntityFramework.dll
+		MusicCenter\Lib\MusicCenter.Services\LinqKit.dll = MusicCenter\Lib\MusicCenter.Services\LinqKit.dll
+		MusicCenter\Lib\MusicCenter.Services\Microsoft.Practices.ServiceLocation.dll = MusicCenter\Lib\MusicCenter.Services\Microsoft.Practices.ServiceLocation.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository.Pattern.Ef6", "Repository.Pattern.Ef6", "{B74FA716-3960-415A-ABFC-D0542D989581}"
+	ProjectSection(SolutionItems) = preProject
+		MusicCenter\Lib\Repository.Pattern.Ef6\EntityFramework.dll = MusicCenter\Lib\Repository.Pattern.Ef6\EntityFramework.dll
+		MusicCenter\Lib\Repository.Pattern.Ef6\EntityFramework.SqlServer.dll = MusicCenter\Lib\Repository.Pattern.Ef6\EntityFramework.SqlServer.dll
+		MusicCenter\Lib\Repository.Pattern.Ef6\LinqKit.dll = MusicCenter\Lib\Repository.Pattern.Ef6\LinqKit.dll
+		MusicCenter\Lib\Repository.Pattern.Ef6\Microsoft.Practices.ServiceLocation.dll = MusicCenter\Lib\Repository.Pattern.Ef6\Microsoft.Practices.ServiceLocation.dll
+		MusicCenter\Lib\Repository.Pattern.Ef6\System.Net.Http.dll = MusicCenter\Lib\Repository.Pattern.Ef6\System.Net.Http.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,5 +126,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6E682A14-C872-4813-B620-76E108DEA683} = {494D7679-F6ED-4F10-A1BB-2FB4A4AEC697}
 		{F68A1D19-93FB-47C1-A22B-42BEA3E4FD8C} = {494D7679-F6ED-4F10-A1BB-2FB4A4AEC697}
+		{53743EA2-7B70-43DA-A31B-5964515D33DF} = {704D9296-280C-4BE0-BC7A-29716C53A7C0}
+		{8B402344-59A4-4A04-AAFB-53A951FE556F} = {704D9296-280C-4BE0-BC7A-29716C53A7C0}
+		{6D891A44-8BB1-44D2-86EB-291BB511BFB4} = {704D9296-280C-4BE0-BC7A-29716C53A7C0}
+		{B74FA716-3960-415A-ABFC-D0542D989581} = {704D9296-280C-4BE0-BC7A-29716C53A7C0}
 	EndGlobalSection
 EndGlobal

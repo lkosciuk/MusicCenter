@@ -18,3 +18,9 @@ D:\Programowanie\MusicCenter\MusicCenter.Common\bin\Debug\AutoMapper.xml
 D:\Programowanie\MusicCenter\MusicCenter.Common\bin\Debug\AutoMapper.Net4.pdb
 D:\Programowanie\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.dll
 D:\Programowanie\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.pdb
+C:\MVC\MusicCenter\MusicCenter.Common\bin\Debug\MusicCenter.Common.dll.config
+C:\MVC\MusicCenter\MusicCenter.Common\bin\Debug\MusicCenter.Common.dll
+C:\MVC\MusicCenter\MusicCenter.Common\bin\Debug\MusicCenter.Common.pdb
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.csprojResolveAssemblyReference.cache
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.dll
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.pdb
