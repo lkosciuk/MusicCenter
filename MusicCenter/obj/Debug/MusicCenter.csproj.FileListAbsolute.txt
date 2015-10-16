@@ -252,7 +252,10 @@ C:\MVC\MusicCenter\MusicCenter\bin\Newtonsoft.Json.dll
 C:\MVC\MusicCenter\MusicCenter\bin\Owin.dll
 C:\MVC\MusicCenter\MusicCenter\bin\Repository.Pattern.dll
 C:\MVC\MusicCenter\MusicCenter\bin\Repository.Pattern.Ef6.dll
+C:\MVC\MusicCenter\MusicCenter\bin\System.Net.Http.Formatting.dll
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Helpers.dll
+C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Http.dll
+C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Http.WebHost.dll
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Mvc.dll
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Optimization.dll
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Razor.dll
@@ -265,10 +268,13 @@ C:\MVC\MusicCenter\MusicCenter\bin\Repository.Pattern.pdb
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.Common.pdb
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.Dao.pdb
 C:\MVC\MusicCenter\MusicCenter\bin\MusicCenter.Services.pdb
-C:\MVC\MusicCenter\MusicCenter\bin\Autofac.Integration.Mvc.xml
 C:\MVC\MusicCenter\MusicCenter\bin\EntityFramework.xml
 C:\MVC\MusicCenter\MusicCenter\bin\EntityFramework.SqlServer.xml
+C:\MVC\MusicCenter\MusicCenter\bin\Newtonsoft.Json.xml
+C:\MVC\MusicCenter\MusicCenter\bin\System.Net.Http.Formatting.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Helpers.xml
+C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Http.xml
+C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Http.WebHost.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Mvc.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.Razor.xml
 C:\MVC\MusicCenter\MusicCenter\bin\System.Web.WebPages.xml

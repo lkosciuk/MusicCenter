@@ -20,6 +20,7 @@ namespace MusicCenter
             AutofacConfig.ConfigureContainer();
             AutoMapperWebConfig.Configure();
             
+            
         }
     }
 }
