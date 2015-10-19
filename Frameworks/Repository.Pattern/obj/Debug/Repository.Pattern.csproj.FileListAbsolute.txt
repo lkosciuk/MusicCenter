@@ -4,11 +4,6 @@ D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\R
 D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Repository.Pattern\obj\Debug\Repository.Pattern.csprojResolveAssemblyReference.cache
 D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Repository.Pattern\obj\Debug\Repository.Pattern.dll
 D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Repository.Pattern\obj\Debug\Repository.Pattern.pdb
-D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll.config
-D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll
-D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.pdb
-D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.dll
-D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.pdb
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll.config
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.pdb
