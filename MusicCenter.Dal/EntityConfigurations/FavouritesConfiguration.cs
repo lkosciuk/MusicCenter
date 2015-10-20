@@ -19,6 +19,8 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.HasMany(a => a.albums).WithMany(a => a.favourites);
             this.HasMany(a => a.tracks).WithMany(a => a.favourites);
             this.HasRequired(a => a.user).WithRequiredDependent(a => a.favourites);
+            this.HasMany(a => a.concerts).WithMany(a => a.favouritess);
+            this.HasMany(a => a.tours).WithMany(a => a.favourites);
 
             //configure table map
             this.ToTable("Favourites");

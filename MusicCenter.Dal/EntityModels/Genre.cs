@@ -12,5 +12,6 @@ namespace MusicCenter.Dal.EntityModels
         public string name { get; set; }
         public virtual ICollection<Band> bands { get; set; }
         public virtual ICollection<Album> albums { get; set; }
+        public virtual ICollection<Track> tracks { get; set; }
     }
 }

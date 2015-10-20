@@ -9,12 +9,13 @@ namespace MusicCenter.Dal.EntityModels
     public class Band
         : BaseEntity
     {
-        public string login { get; set; }
-        public string password { get; set; }
         public string email { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string phoneNumber { get; set; }
+        public DateTime addDate { get; set; }
+        public DateTime bandCreationDate { get; set; }
+        public DateTime bandResolveDate { get; set; }
         public virtual ICollection<BandMember> members { get; set; }
         public virtual ICollection<Files> images { get; set; }
         public virtual ICollection<Genre> genres { get; set; }
@@ -25,5 +26,6 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Message> receivedMessages { get; set; }
         public virtual ICollection<Message> sentMessages { get; set; }
         public virtual ICollection<Favourites> favourites { get; set; }
+        public virtual Users user { get; set; }
     }
 }

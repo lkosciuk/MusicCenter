@@ -23,7 +23,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.HasMany(a => a.favourites).WithMany(a => a.tracks);
             this.HasMany(a => a.albums).WithMany(a => a.trackList);
             this.HasOptional(a => a.band).WithMany(a => a.singles);
-
+            this.HasMany(a => a.genres).WithMany(a => a.tracks);
             //configure table map
             this.ToTable("Track");
         }
