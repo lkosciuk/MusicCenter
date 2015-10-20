@@ -19,6 +19,7 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Favourites> favourites { get; set; }
         //public int BandID { get; set; }
         public virtual Band band { get; set; }
+        public int rating { get; set; }
         
     }
 }

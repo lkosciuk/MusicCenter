@@ -22,10 +22,10 @@ namespace MusicCenter.Dal.EntityConfigurations
 
             //relationships
             this.HasMany(a => a.images).WithOptional(a => a.concert);
-            this.HasMany(a => a.users).WithMany(a => a.concerts);
+            //this.HasMany(a => a.users).WithMany(a => a.concerts);
             this.HasOptional(a => a.tour).WithMany(a => a.concerts);
             this.HasRequired(a => a.band).WithMany(a => a.concerts);
-
+            this.HasMany(a => a.favouritess).WithMany(a => a.concerts);
             //configure table map
             this.ToTable("Concert");
         }

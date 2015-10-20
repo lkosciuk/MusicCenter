@@ -20,9 +20,9 @@ namespace MusicCenter.Dal.EntityConfigurations
             //relationships
             this.HasMany(a => a.images).WithOptional(a => a.tour);
             this.HasMany(a => a.concerts).WithOptional(a => a.tour);
-            this.HasMany(a => a.users).WithMany(a => a.tours);
+            //this.HasMany(a => a.users).WithMany(a => a.tours);
             this.HasRequired(a => a.band).WithMany(a => a.tours);
-
+            this.HasMany(a => a.favourites).WithMany(a => a.tours);
             //configure table map
             this.ToTable("Tour");
         }
