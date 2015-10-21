@@ -13,15 +13,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav col-lg-4" style="height: 25px">
                     <li class="navbar-header">
-                        @Html.ActionLink("MusicCenter", "Index", "Home", null, new { @class = "navbar-brand" })
+                        @Html.ActionLink(Resources.Global.AppName, "Index", "Home", null, new { @class = "navbar-brand" })
                     </li>
                 </ul>
                 @Html.Partial("_LoginPanel")
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Bands", "BandList", "Band")</li>
-                    <li>@Html.ActionLink("Albums", "AlbumList", "Music")</li>
-                    <li>@Html.ActionLink("Songs", "SongList", "Music")</li>
-                    <li>@Html.ActionLink("Concerts", "ConcertList", "Band")</li>
+                    <li>@Html.ActionLink(Resources.Global.Bands, "BandList", "Band")</li>
+                    <li>@Html.ActionLink(Resources.Global.Albums, "AlbumList", "Music")</li>
+                    <li>@Html.ActionLink(Resources.Global.Songs, "SongList", "Music")</li>
+                    <li>@Html.ActionLink(Resources.Global.Concerts, "ConcertList", "Band")</li>
                 </ul>
                 @Html.Partial("_SearchPanel")
             </div>

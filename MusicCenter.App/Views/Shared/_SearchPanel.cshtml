@@ -1,9 +1,9 @@
 ﻿@using (Html.BeginForm())
 {
     <form class="form-inline">
-        <button type="submit" style="margin-top: 10px; float: right; margin-left:5px; height:25px" class="btn btn-default col-lg-1">Search</button>
+        <button type="submit" style="margin-top: 10px; float: right; margin-left:5px; height:25px" class="btn btn-default col-lg-1">@Resources.Global.Search</button>
         <div class="form-group">
-            <input type="text" class="form-control" style="margin-top: 10px; float: right; height: 25px" id="exampleInputEmail3" placeholder="search...">
+            <input type="text" class="form-control" style="margin-top: 10px; float: right; height: 25px" id="exampleInputEmail3" placeholder="@Resources.Global.SearchPlaceHolder">
         </div>       
     </form>
 }
