@@ -10,3 +10,9 @@ C:\MVC\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.pd
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.csprojResolveAssemblyReference.cache
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.dll
 C:\MVC\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.pdb
+D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll.config
+D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll
+D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.pdb
+D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.csprojResolveAssemblyReference.cache
+D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.dll
+D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.pdb

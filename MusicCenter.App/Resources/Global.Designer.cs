@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Albums.
+        ///   Looks up a localized string similar to Albumy.
         /// </summary>
         public static string Albums {
             get {
@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bands.
+        ///   Looks up a localized string similar to Zespoły.
         /// </summary>
         public static string Bands {
             get {
@@ -88,7 +88,25 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Concerts.
+        ///   Looks up a localized string similar to en.
+        /// </summary>
+        public static string ChangeLanguageEn {
+            get {
+                return ResourceManager.GetString("ChangeLanguageEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pl.
+        /// </summary>
+        public static string ChangeLanguagePl {
+            get {
+                return ResourceManager.GetString("ChangeLanguagePl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Koncerty.
         /// </summary>
         public static string Concerts {
             get {
@@ -97,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email address.
+        ///   Looks up a localized string similar to Adres email.
         /// </summary>
         public static string Email {
             get {
@@ -106,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Hasło.
         /// </summary>
         public static string Password {
             get {
@@ -115,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register.
+        ///   Looks up a localized string similar to Rejestracja.
         /// </summary>
         public static string Register {
             get {
@@ -124,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remember me.
+        ///   Looks up a localized string similar to Zapamiętaj mnie.
         /// </summary>
         public static string RememberMe {
             get {
@@ -133,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search.
+        ///   Looks up a localized string similar to Szukaj.
         /// </summary>
         public static string Search {
             get {
@@ -142,7 +160,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to search....
+        ///   Looks up a localized string similar to szukaj....
         /// </summary>
         public static string SearchPlaceHolder {
             get {
@@ -151,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign in.
+        ///   Looks up a localized string similar to Zaloguj.
         /// </summary>
         public static string SignIn {
             get {
@@ -160,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Songs.
+        ///   Looks up a localized string similar to Utwory.
         /// </summary>
         public static string Songs {
             get {

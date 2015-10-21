@@ -15,6 +15,12 @@
                     <li class="navbar-header">
                         @Html.ActionLink(Resources.Global.AppName, "Index", "Home", null, new { @class = "navbar-brand" })
                     </li>
+                    <li>
+                        @Html.ActionLink(Resources.Global.ChangeLanguagePl, "SetCulture", new { @culture = "pl" })
+                    </li>
+                    <li>
+                        @Html.ActionLink(Resources.Global.ChangeLanguageEn, "SetCulture", new { @culture = "en" })
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPanel")
                 <ul class="nav navbar-nav">

@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Albums" xml:space="preserve">
-    <value>Albumy</value>
+    <value>Albums</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>MusicCenter</value>
   </data>
   <data name="Bands" xml:space="preserve">
-    <value>Zespoły</value>
+    <value>Bands</value>
   </data>
   <data name="ChangeLanguageEn" xml:space="preserve">
     <value>en</value>
@@ -133,30 +133,30 @@
     <value>pl</value>
   </data>
   <data name="Concerts" xml:space="preserve">
-    <value>Koncerty</value>
+    <value>Concerts</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Adres email</value>
+    <value>Email address</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Hasło</value>
+    <value>Password</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Rejestracja</value>
+    <value>Register</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
-    <value>Zapamiętaj mnie</value>
+    <value>Remember me</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Szukaj</value>
+    <value>Search</value>
   </data>
   <data name="SearchPlaceHolder" xml:space="preserve">
-    <value>szukaj...</value>
+    <value>search...</value>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>Zaloguj</value>
+    <value>Sign in</value>
   </data>
   <data name="Songs" xml:space="preserve">
-    <value>Utwory</value>
+    <value>Songs</value>
   </data>
 </root>

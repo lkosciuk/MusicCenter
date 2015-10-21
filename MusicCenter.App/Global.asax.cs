@@ -21,7 +21,7 @@ namespace MusicCenter.App
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutofacConfig.ConfigureContainer();
-            AutoMapperWebConfig.Configure();
+            AutoMapperWebConfig.Configure();          
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
