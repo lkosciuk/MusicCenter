@@ -28,6 +28,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.HasMany(a => a.sentMessages).WithOptional(a => a.UserAuthor);
             this.HasOptional(a => a.bandMember).WithOptionalDependent(a => a.user);
             this.HasMany(a => a.bands).WithOptional(a => a.user);
+            this.HasMany(a => a.roles).WithMany(a => a.Users);
             //configure table map
             this.ToTable("Users");
         }

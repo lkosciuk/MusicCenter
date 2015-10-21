@@ -95,6 +95,7 @@
     <Compile Include="EntityConfigurations\FilesConfiguration.cs" />
     <Compile Include="EntityConfigurations\GenreConfiguration.cs" />
     <Compile Include="EntityConfigurations\MessageConfiguration.cs" />
+    <Compile Include="EntityConfigurations\RoleConfiguration.cs" />
     <Compile Include="EntityConfigurations\TourConfiguration.cs" />
     <Compile Include="EntityConfigurations\TrackConfiguration.cs" />
     <Compile Include="EntityConfigurations\UsersConfiguration.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="EntityModels\Files.cs" />
     <Compile Include="EntityModels\Genre.cs" />
     <Compile Include="EntityModels\Message.cs" />
+    <Compile Include="EntityModels\Role.cs" />
     <Compile Include="EntityModels\Tour.cs" />
     <Compile Include="EntityModels\Track.cs" />
     <Compile Include="EntityModels\Users.cs" />

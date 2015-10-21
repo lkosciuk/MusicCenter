@@ -27,6 +27,7 @@ namespace MusicCenter.Dal
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,7 +46,7 @@ namespace MusicCenter.Dal
             modelBuilder.Configurations.Add(new TourConfiguration());
             modelBuilder.Configurations.Add(new TrackConfiguration());
             modelBuilder.Configurations.Add(new UsersConfiguration());
-
+            modelBuilder.Configurations.Add(new RoleConfiguration());
 
         }
     }

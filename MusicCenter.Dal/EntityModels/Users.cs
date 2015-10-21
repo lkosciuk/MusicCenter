@@ -24,6 +24,7 @@ namespace MusicCenter.Dal.EntityModels
         //public int bandMemberId { get; set; }
         public virtual BandMember bandMember { get; set; }
         public virtual ICollection<Band> bands { get; set; }
+        public virtual ICollection<Role> roles { get; set; }
         //TODO: init collectons..
     }
 }
