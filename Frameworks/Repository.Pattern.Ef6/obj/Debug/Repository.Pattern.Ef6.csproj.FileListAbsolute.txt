@@ -15,21 +15,6 @@ D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\R
 D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
 D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
 D:\Moje\INFA\Praca Inzynierska\generic unitofwork and repositories\main\Source\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll.config
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.pdb
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.SqlServer.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\LinqKit.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\System.Net.Http.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.pdb
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.xml
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.SqlServer.xml
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
-C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll.config
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.pdb
@@ -45,3 +30,18 @@ D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityF
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
 D:\Programowanie\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll.config
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.pdb
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.SqlServer.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\LinqKit.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\System.Net.Http.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.pdb
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.xml
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\bin\Debug\EntityFramework.SqlServer.xml
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.csprojResolveAssemblyReference.cache
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.dll
+C:\MVC\MusicCenter\Frameworks\Repository.Pattern.Ef6\obj\Debug\Repository.Pattern.Ef6.pdb
