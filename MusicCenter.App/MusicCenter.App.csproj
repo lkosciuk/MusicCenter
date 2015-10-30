@@ -238,6 +238,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_LoginPanel.cshtml" />
     <Content Include="Views\Shared\_SearchPanel.cshtml" />
+    <Content Include="Views\Shared\_BandsPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Frameworks\Repository.Pattern.Ef6\Repository.Pattern.Ef6.csproj">
