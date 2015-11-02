@@ -6,6 +6,10 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryValidation")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,10 +20,10 @@
                         @Html.ActionLink(Resources.Global.AppName, "Index", "Home", null, new { @class = "navbar-brand" })
                     </li>
                     <li>
-                        @Html.ActionLink(Resources.Global.ChangeLanguagePl, "SetCulture", new { @culture = "pl" })
+                        @Html.ActionLink(Resources.Global.ChangeLanguagePl, "SetCulture", "Home", new { @culture = "pl" }, null)
                     </li>
                     <li>
-                        @Html.ActionLink(Resources.Global.ChangeLanguageEn, "SetCulture", new { @culture = "en" })
+                        @Html.ActionLink(Resources.Global.ChangeLanguageEn, "SetCulture", "Home", new { @culture = "en" }, null)
                     </li>
                 </ul>
                 @Html.Partial("_LoginPanel")
@@ -44,9 +48,5 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

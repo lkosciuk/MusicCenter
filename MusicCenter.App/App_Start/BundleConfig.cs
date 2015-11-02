@@ -22,7 +22,14 @@ namespace MusicCenter.App
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                       "~/Content/zabuto_calendar.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/zabuto").Include(
+                      "~/Scripts/zabuto_calendar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryValidation").Include(
+                       "~/Scripts/jquery.validate.js"));
         }
     }
 }

@@ -2,15 +2,27 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    @Scripts.Render("~/bundles/zabuto")
+</head>
+
 <div class="container">
     <div class="row">
             <div class="col-md-6" id="BandsPanel">
                 @Html.Partial("_BandsPanel")
             </div>
             <div class="col-md-6" id="CalendarPanel">
-
+                @Html.Partial("_CalendarPanel")
             </div>
-</div>
+    </div>
+    <div class="row">
+            <div class="col-md-6" id="AlbumsPanel">
+                @Html.Partial("_AlbumsPanel")
+            </div>
+            <div class="col-md-6" id="SongsPanel">
+                @Html.Partial("_SongsPanel")
+            </div>
+    </div>
 </div>
 
 

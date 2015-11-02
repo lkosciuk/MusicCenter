@@ -11,6 +11,8 @@ namespace MusicCenter.Dal.EntityModels
     {
         public string password { get; set; }
         public string email { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
         //public int FileID { get; set; }
         public virtual Files profilePhoto { get; set; }
         //public virtual ICollection<Concert> concerts { get; set; }
