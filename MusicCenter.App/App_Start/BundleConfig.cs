@@ -30,6 +30,9 @@ namespace MusicCenter.App
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryValidation").Include(
                        "~/Scripts/jquery.validate.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/unobtrusive").Include(
+                       "~/Scripts/jquery.validate.unobtrusive.js"));
         }
     }
 }

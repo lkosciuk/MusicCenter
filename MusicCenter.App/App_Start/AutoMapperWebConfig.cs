@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MusicCenter.Common.ViewModels;
+using MusicCenter.Common.ViewModels.User;
 using MusicCenter.Dal.EntityModels;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace MusicCenter.App.App_Start
 
         private static void ConfigureUserMapping()
         {
-            Mapper.CreateMap<Users, UserRegisterViewModel>();
+            Mapper.CreateMap<Users, RegisterViewModel>();
         } 
     }
 }
