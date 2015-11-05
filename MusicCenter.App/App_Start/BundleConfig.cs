@@ -33,6 +33,9 @@ namespace MusicCenter.App
 
             bundles.Add(new ScriptBundle("~/bundles/unobtrusive").Include(
                        "~/Scripts/jquery.validate.unobtrusive.js"));
+
+            bundles.Add(new StyleBundle("~/Content/RegisterCss/css").Include(
+                      "~/Content/RegisterCss/Register.css"));
         }
     }
 }

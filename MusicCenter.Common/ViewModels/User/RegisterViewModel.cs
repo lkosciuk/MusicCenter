@@ -10,15 +10,16 @@ namespace MusicCenter.Common.ViewModels.User
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage="Email is required")]
-        [EmailAddress(ErrorMessage="It's not valid email address")]
+        [Required(ErrorMessageResourceName = "EmailRequired", ErrorMessageResourceType = typeof(Resources.Global))]//ErrorMessage = Resources.Global.EmailRequired)]
+        [EmailAddress(ErrorMessageResourceName = "EmailValid", ErrorMessageResourceType = typeof(Resources.Global))]
         public string Email { get; set; }
 
-        [Required(ErrorMessage="Password is required")]
+        [Required(ErrorMessageResourceName = "PasswordRequired", ErrorMessageResourceType = typeof(Resources.Global))]
+        [MinLength(5, ErrorMessageResourceName = "PasswordLength", ErrorMessageResourceType = typeof(Resources.Global))]
         public string Password { get; set; }
 
-        [Required(ErrorMessage="You need to confirm password")]
-        [Compare("Password", ErrorMessage="Password not match")]
+        [Required(ErrorMessageResourceName = "PasswordConfirmRequired", ErrorMessageResourceType = typeof(Resources.Global))]
+        [Compare("Password", ErrorMessageResourceName = "PasswordConfirmMatch", ErrorMessageResourceType = typeof(Resources.Global))]
         public string PasswordConfirm { get; set; }
 
         [DataType(DataType.Upload)]

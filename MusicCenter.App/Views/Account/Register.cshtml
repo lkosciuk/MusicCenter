@@ -4,53 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Styles.Render("~/Content/RegisterCss/css")
+
 <script>
 
     function RegisterScope() {
 
         this.Init = function () {
-            //this.ValidateRegisterForm();
             this.EnableOrDisableSubmitBtn();
             $('#avatar').change(this.UpdateUsersAvatar);
         }
-
-        //this.ValidateRegisterForm = function () {
-
-        //    $("#register-form").validate({
-
-        //        errorClass: "text-danger",
-
-        //        // Specify the validation rules
-        //        rules: {
-        //            email: {
-        //                required: true,
-        //                email: true
-        //            },
-        //            password: {
-        //                required: true,
-        //                minlength: 5
-        //            },
-        //            password_confirm: {
-        //                equalTo: "#password"
-        //            }
-
-        //        },
-
-        //        // Specify the validation error messages
-        //        messages: {
-        //            password: {
-        //                required: "Password is required",
-        //                minlength: "Password is too short"
-        //            },
-        //            email: {
-        //                email: "Please enter a valid email address",
-        //                required: "Email is required"
-        //            },
-        //            password_confirm: "Password not match"
-        //        },
-
-        //    });
-        //}
 
         this.EnableOrDisableSubmitBtn = function () {
 
@@ -93,48 +56,48 @@
     <form action='www.google.pl' method="POST" style="display:inline-block;" id="register-form" novalidate="novalidate" enctype="multipart/form-data">
         <fieldset>
             <div id="legend">
-                <legend class="">Register</legend>
+                <legend class="">@MusicCenter.Common.Resources.Global.Register</legend>
             </div>
             <div class="control-group">
                 <img src="~/Content/Uploads/DefaultUserAv.jpg" alt="..." class="img-thumbnail" style="display:block;margin-left:auto;margin-right:auto;" width="200" height="200" id="userAvatar">
-                @*<input type="file" id="avatar" value="Browse" style="margin-top:2%"/>*@
-                @Html.TextBoxFor(m => m.Avatar, new { type = "file", @id = "avatar" })
+                <br/>
+                <span class="btn btn-primary btn-file">
+                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar, new { type = "file", @id = "avatar"})
+                </span>
             </div>
+            <br />
             <div class="control-group">
                 <!-- E-mail -->
-                <label class="control-label" for="email">E-mail</label>
+                <label class="control-label" for="email">@MusicCenter.Common.Resources.Global.Email</label>
                 <div class="controls">
-                    @*<input type="text" id="email" name="email" placeholder="" class="form-control">*@
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "email"})
                     @Html.ValidationMessageFor(m => m.Email)
-                    <p class="help-block">Please provide your E-mail</p>
                 </div>
             </div>
 
             <div class="control-group">
                 <!-- Password-->
-                <label class="control-label" for="password">Password</label>
+                <label class="control-label" for="password">@MusicCenter.Common.Resources.Global.Password</label>
                 <div class="controls">
-                    @*<input type="password" id="password" name="password" placeholder="" class="form-control">*@
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password" })
-                    <p class="help-block">Password should be at least 5 characters</p>
+                    @Html.ValidationMessageFor(m => m.Password)
                 </div>
             </div>
 
             <div class="control-group">
                 <!-- Password -->
-                <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                <label class="control-label" for="password_confirm">@MusicCenter.Common.Resources.Global.PasswordConfirm</label>
                 <div class="controls">
-                    @*<input type="password" id="password_confirm" name="password_confirm" placeholder="" class="form-control">*@
                     @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" , @id = "password_confirm"})
-                    <p class="help-block">Please confirm password</p>
+                    @Html.ValidationMessageFor(m => m.PasswordConfirm)
                 </div>
             </div>
 
             <div class="control-group">
                 <!-- Button -->
                 <div class="controls">
-                    <button id="registerBtn" type="submit" class="btn btn-success">Register</button>
+                    <br/>
+                    <button id="registerBtn" type="submit" class="btn btn-success">@MusicCenter.Common.Resources.Global.Register</button>
                 </div>
             </div>
         </fieldset>

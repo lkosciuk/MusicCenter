@@ -54,3 +54,8 @@ C:\MVC\MusicCenter\MusicCenter.Common\bin\Debug\System.Web.WebPages.Razor.xml
 C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.csprojResolveAssemblyReference.cache
 C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.dll
 C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.pdb
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.Resources.Global.resources
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.Resources.Global.en.resources
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.csproj.GenerateResource.Cache
+C:\MVC\MusicCenter\MusicCenter.Common\bin\Debug\en\MusicCenter.Common.resources.dll
+C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\en\MusicCenter.Common.resources.dll
