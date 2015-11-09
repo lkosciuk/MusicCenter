@@ -2,6 +2,8 @@
 using Autofac.Integration.Mvc;
 using MusicCenter.App;
 using MusicCenter.Dal;
+using MusicCenter.Services.Intefaces;
+using MusicCenter.Services.Services;
 using Repository.Pattern.DataContext;
 using Repository.Pattern.Ef6;
 using Repository.Pattern.UnitOfWork;
@@ -30,8 +32,8 @@ namespace MusicCenter.App.App_Start
 
             builder.Register(c => new MusicCenterDbContext("MusicCenterCs")).As<IDataContextAsync>().InstancePerRequest();
 
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWorkAsync>().InstancePerRequest();
-            
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
+            builder.RegisterType<UsersService>().As<IUserService>().InstancePerRequest();
 
             var container = builder.Build();
 

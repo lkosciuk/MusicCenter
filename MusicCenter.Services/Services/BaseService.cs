@@ -1,13 +1,6 @@
 ﻿using MusicCenter.Dal.EntityModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Repository.Pattern.Ef6;
 using Repository.Pattern.Repositories;
-using MusicCenter.Dal.EntityModels;
-using Repository.Pattern;
 using Repository.Pattern.UnitOfWork;
 
 namespace MusicCenter.Services.Services
