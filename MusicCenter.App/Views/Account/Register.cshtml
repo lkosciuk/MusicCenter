@@ -90,6 +90,7 @@
                 <div class="controls">
                     @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" , @id = "password_confirm"})
                     @Html.ValidationMessageFor(m => m.PasswordConfirm)
+                    @Html.ValidationSummary();
                 </div>
             </div>
 
