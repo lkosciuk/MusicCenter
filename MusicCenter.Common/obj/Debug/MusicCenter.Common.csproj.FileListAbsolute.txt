@@ -59,3 +59,8 @@ C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.Resources.Glo
 C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.csproj.GenerateResource.Cache
 C:\MVC\MusicCenter\MusicCenter.Common\bin\Debug\en\MusicCenter.Common.resources.dll
 C:\MVC\MusicCenter\MusicCenter.Common\obj\Debug\en\MusicCenter.Common.resources.dll
+D:\Programowanie\MusicCenter\MusicCenter.Common\bin\Debug\en\MusicCenter.Common.resources.dll
+D:\Programowanie\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.Resources.Global.resources
+D:\Programowanie\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.Resources.Global.en.resources
+D:\Programowanie\MusicCenter\MusicCenter.Common\obj\Debug\MusicCenter.Common.csproj.GenerateResource.Cache
+D:\Programowanie\MusicCenter\MusicCenter.Common\obj\Debug\en\MusicCenter.Common.resources.dll

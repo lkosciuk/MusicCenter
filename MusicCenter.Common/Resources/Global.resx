@@ -160,7 +160,7 @@
     <value>Weryfikacja hasła jest wymagana</value>
   </data>
   <data name="PasswordLength" xml:space="preserve">
-    <value>Hasło jest za krótkie</value>
+    <value>Hasło jest za krótkie, wymagane 5 znaków</value>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
     <value>Hasło jest wymagane</value>

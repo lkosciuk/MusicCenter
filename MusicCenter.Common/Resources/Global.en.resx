@@ -160,7 +160,7 @@
     <value>You need to confirm password</value>
   </data>
   <data name="PasswordLength" xml:space="preserve">
-    <value>Password is too short</value>
+    <value>Password is too short, 5 characters required</value>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
     <value>Password is required</value>

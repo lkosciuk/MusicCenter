@@ -187,7 +187,7 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hasło jest za krótkie.
+        ///   Looks up a localized string similar to Hasło jest za krótkie, wymagane 5 znaków.
         /// </summary>
         public static string PasswordLength {
             get {
