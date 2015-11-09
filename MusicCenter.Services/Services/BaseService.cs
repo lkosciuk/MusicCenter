@@ -9,10 +9,12 @@ namespace MusicCenter.Services.Services
         where Entity : BaseEntity
     {
         protected readonly IRepository<Entity> _repo;
+        protected readonly IUnitOfWork _unitOfWork;
 
         public BaseService(IUnitOfWork u)
         {
             _repo = u.Repository<Entity>();
+            _unitOfWork = u;
         }
 
         public bool IsExists(int id)

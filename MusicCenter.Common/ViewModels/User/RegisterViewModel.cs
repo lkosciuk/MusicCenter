@@ -24,5 +24,7 @@ namespace MusicCenter.Common.ViewModels.User
 
         [DataType(DataType.Upload)]
         public HttpPostedFileBase Avatar { get; set; }
+
+        public string AvatarRelativePath { get; set; }
     }
 }

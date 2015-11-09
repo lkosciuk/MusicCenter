@@ -34,6 +34,8 @@ namespace MusicCenter.App.App_Start
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<UsersService>().As<IUserService>().InstancePerRequest();
+            builder.RegisterType<RoleService>().As<IRoleService>().InstancePerRequest();
+            builder.RegisterType<FilesService>().As<IFilesService>().InstancePerRequest();
 
             var container = builder.Build();
 

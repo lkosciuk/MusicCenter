@@ -72,3 +72,4 @@ C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.init1.re
 C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache
 C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.dll
 C:\MVC\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.pdb
+D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.Test.resources

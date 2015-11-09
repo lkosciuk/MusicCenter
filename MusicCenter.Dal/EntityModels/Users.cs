@@ -28,5 +28,13 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Band> bands { get; set; }
         public virtual ICollection<Role> roles { get; set; }
         //TODO: init collectons..
+
+        public Users()
+        {
+            receivedMessages = new List<Message>();
+            sentMessages = new List<Message>();
+            bands = new List<Band>();
+            roles = new List<Role>();
+        }
     }
 }

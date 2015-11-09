@@ -18,12 +18,15 @@ namespace MusicCenter.Services.Services
     public class UsersService
          : BaseService<Users>, IUserService
     {
+        private IRoleService RoleService;
+        private IFilesService FilesService;
 
-
-        public UsersService(IUnitOfWork u)
+        public UsersService(IUnitOfWork u, IRoleService roleService, IFilesService fileService)
             : base(u)
         {
-
+            RoleService = roleService;
+            FilesService = fileService;
+            
         }
 
         public bool IfUserExists(string email)
@@ -38,43 +41,22 @@ namespace MusicCenter.Services.Services
 
         public void Register(RegisterViewModel RegisterModel)
         {
-            string avatarPath = "~/Content/Uploads";
-
-            Files avatar = new Files();
             Users newUser = new Users();
-            Role role = new Role();
+
+            newUser.email = RegisterModel.Email;
+            newUser.password = RegisterModel.Password; 
 
             if (RegisterModel.Avatar.ContentLength > 0)
             {
-                avatar = new Files()
-                {
-                    name = RegisterModel.Avatar.FileName,
-                    path = avatarPath,
-                    ObjectState = ObjectState.Added
-                };
-                
-                newUser = new Users()
-                {
-                    ObjectState = ObjectState.Added,
-                    email = RegisterModel.Email,
-                    password = RegisterModel.Password,
-                    profilePhoto = avatar
-                    //roles = new Role() { }
-                };
+                Files addedFile = FilesService.AddFile(RegisterModel.Avatar.FileName, "~/Content/Uploads/" + RegisterModel.Avatar.FileName);
+                RegisterModel.Avatar.SaveAs(RegisterModel.AvatarRelativePath);
+                newUser.profilePhoto = addedFile;
             }
 
-            
-
-
-            //newUser = Mapper.Map<RegisterViewModel, Users>(urvm);
-            //newUser.login = urvm.login;
-            //newUser.password = urvm.password;
-            //newUser.email = urvm.email;
-            //...
-
-            //TODO: automaper
+            newUser.roles.Add(RoleService.GetRoleByName("user"));
 
             _repo.Insert(newUser);
+            _unitOfWork.SaveChanges();
         }
     }
 }

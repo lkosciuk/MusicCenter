@@ -26,6 +26,8 @@ namespace MusicCenter.Dal.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            
         }
     }
 }
