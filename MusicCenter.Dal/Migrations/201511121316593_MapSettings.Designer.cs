@@ -7,13 +7,13 @@ namespace MusicCenter.Dal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class init1 : IMigrationMetadata
+    public sealed partial class MapSettings : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MapSettings));
         
         string IMigrationMetadata.Id
         {
-            get { return "201510151213589_init1"; }
+            get { return "201511121316593_MapSettings"; }
         }
         
         string IMigrationMetadata.Source

@@ -18,12 +18,12 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.email).HasMaxLength(20).IsRequired();
 
             //relationships
-            this.HasOptional(a => a.profilePhoto).WithOptionalPrincipal(a => a.user);
+            this.HasOptional(a => a.profilePhoto).WithOptionalDependent(a => a.user);
             //this.HasMany(a => a.concerts).WithMany(a => a.users);
             //this.HasMany(a => a.tours).WithMany(a => a.users);
             //this.HasMany(a => a.followed).WithMany(a => a.spectators);
             //this.HasMany(a => a.spectators).WithMany(a => a.followed);
-            this.HasRequired(a => a.favourites).WithRequiredPrincipal(a => a.user);
+            this.HasRequired(a => a.favourites).WithRequiredDependent(a => a.user);
             this.HasMany(a => a.receivedMessages).WithMany(a => a.UserReceivers);
             this.HasMany(a => a.sentMessages).WithOptional(a => a.UserAuthor);
             this.HasOptional(a => a.bandMember).WithOptionalDependent(a => a.user);

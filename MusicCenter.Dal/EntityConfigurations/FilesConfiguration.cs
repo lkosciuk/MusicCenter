@@ -18,7 +18,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.path).HasMaxLength(100).IsRequired();
 
             //relationships
-            this.HasOptional(a => a.user).WithOptionalDependent(a => a.profilePhoto);
+            //this.HasOptional(a => a.user).WithOptionalDependent(a => a.profilePhoto);
             this.HasOptional(a => a.band).WithMany(a => a.images);
             this.HasOptional(a => a.concert).WithMany(a => a.images);
             this.HasOptional(a => a.tour).WithMany(a => a.images);

@@ -112,13 +112,9 @@
     <Compile Include="EntityModels\Tour.cs" />
     <Compile Include="EntityModels\Track.cs" />
     <Compile Include="EntityModels\Users.cs" />
-    <Compile Include="Migrations\201510151213589_init1.cs" />
-    <Compile Include="Migrations\201510151213589_init1.Designer.cs">
-      <DependentUpon>201510151213589_init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511091657539_Test.cs" />
-    <Compile Include="Migrations\201511091657539_Test.Designer.cs">
-      <DependentUpon>201511091657539_Test.cs</DependentUpon>
+    <Compile Include="Migrations\201511121316593_MapSettings.cs" />
+    <Compile Include="Migrations\201511121316593_MapSettings.Designer.cs">
+      <DependentUpon>201511121316593_MapSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
@@ -160,11 +156,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510151213589_init1.resx">
-      <DependentUpon>201510151213589_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511091657539_Test.resx">
-      <DependentUpon>201511091657539_Test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511121316593_MapSettings.resx">
+      <DependentUpon>201511121316593_MapSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
