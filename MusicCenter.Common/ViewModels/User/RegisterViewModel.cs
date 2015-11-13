@@ -10,7 +10,7 @@ namespace MusicCenter.Common.ViewModels.User
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessageResourceName = "EmailRequired", ErrorMessageResourceType = typeof(Resources.Global))]//ErrorMessage = Resources.Global.EmailRequired)]
+        [Required(ErrorMessageResourceName = "EmailRequired", ErrorMessageResourceType = typeof(Resources.Global))]
         [EmailAddress(ErrorMessageResourceName = "EmailValid", ErrorMessageResourceType = typeof(Resources.Global))]
         public string Email { get; set; }
 

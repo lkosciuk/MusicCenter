@@ -142,6 +142,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podany adres email jest już używany.
+        /// </summary>
+        public static string EmailUnique {
+            get {
+                return ResourceManager.GetString("EmailUnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To nie jest poprawny adres email.
         /// </summary>
         public static string EmailValid {

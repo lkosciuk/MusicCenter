@@ -144,6 +144,9 @@
   <data name="EmailRequired" xml:space="preserve">
     <value>Email is required</value>
   </data>
+  <data name="EmailUnique" xml:space="preserve">
+    <value>Email is already in use</value>
+  </data>
   <data name="EmailValid" xml:space="preserve">
     <value>It's not valid email address</value>
   </data>

@@ -13,6 +13,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public UsersConfiguration()
         {
+            HasKey(a => a.Id);
             //this.Property(a => a.login).HasMaxLength(20).IsRequired();
             this.Property(a => a.password).HasMaxLength(10).IsRequired();
             this.Property(a => a.email).HasMaxLength(20).IsRequired();
@@ -23,7 +24,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             //this.HasMany(a => a.tours).WithMany(a => a.users);
             //this.HasMany(a => a.followed).WithMany(a => a.spectators);
             //this.HasMany(a => a.spectators).WithMany(a => a.followed);
-            this.HasRequired(a => a.favourites).WithRequiredDependent(a => a.user);
+            this.HasOptional(a => a.favourites).WithOptionalDependent(a => a.user);
             this.HasMany(a => a.receivedMessages).WithMany(a => a.UserReceivers);
             this.HasMany(a => a.sentMessages).WithOptional(a => a.UserAuthor);
             this.HasOptional(a => a.bandMember).WithOptionalDependent(a => a.user);

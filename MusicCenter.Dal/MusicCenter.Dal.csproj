@@ -116,6 +116,22 @@
     <Compile Include="Migrations\201511121316593_MapSettings.Designer.cs">
       <DependentUpon>201511121316593_MapSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511131304070_start.cs" />
+    <Compile Include="Migrations\201511131304070_start.Designer.cs">
+      <DependentUpon>201511131304070_start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511131315300_start2.cs" />
+    <Compile Include="Migrations\201511131315300_start2.Designer.cs">
+      <DependentUpon>201511131315300_start2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511131345466_start3.cs" />
+    <Compile Include="Migrations\201511131345466_start3.Designer.cs">
+      <DependentUpon>201511131345466_start3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511131431307_start666.cs" />
+    <Compile Include="Migrations\201511131431307_start666.Designer.cs">
+      <DependentUpon>201511131431307_start666.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +174,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511121316593_MapSettings.resx">
       <DependentUpon>201511121316593_MapSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131304070_start.resx">
+      <DependentUpon>201511131304070_start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131315300_start2.resx">
+      <DependentUpon>201511131315300_start2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131345466_start3.resx">
+      <DependentUpon>201511131345466_start3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131431307_start666.resx">
+      <DependentUpon>201511131431307_start666.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

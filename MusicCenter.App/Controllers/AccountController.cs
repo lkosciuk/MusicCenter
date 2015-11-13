@@ -27,24 +27,34 @@ namespace MusicCenter.App.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel RegisterModel)
         {
-            string trailingPath = RegisterModel.Avatar.FileName;
-            string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
+            if (RegisterModel.Avatar != null)
+            {
+                string trailingPath = RegisterModel.Avatar.FileName;
+                string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
 
-            RegisterModel.AvatarRelativePath = fullPath;
+                RegisterModel.AvatarRelativePath = fullPath;
+            }         
 
             if (ModelState.IsValid)
             {
                 if (!UserService.IfUserExists(RegisterModel.Email))
                 {
                     UserService.Register(RegisterModel);
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Email is already in use.");
-                }
+                }               
             }
 
             return View();
+        }
+
+        [HttpPost]
+        public bool IsEmailValid(string email)
+        {
+            if (UserService.IfUserExists(email))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

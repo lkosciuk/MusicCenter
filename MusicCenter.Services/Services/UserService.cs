@@ -18,14 +18,14 @@ namespace MusicCenter.Services.Services
     public class UsersService
          : BaseService<Users>, IUserService
     {
-        private IRoleService RoleService;
-        private IFilesService FilesService;
+        //private IRoleService RoleService;
+        //private IFilesService FilesService;
 
         public UsersService(IUnitOfWork u, IRoleService roleService, IFilesService fileService)
             : base(u)
         {
-            RoleService = roleService;
-            FilesService = fileService;
+            //RoleService = roleService;
+            //FilesService = fileService;
             
         }
 
@@ -44,19 +44,36 @@ namespace MusicCenter.Services.Services
             Users newUser = new Users();
 
             newUser.email = RegisterModel.Email;
-            newUser.password = RegisterModel.Password; 
+            newUser.password = RegisterModel.Password;
 
             if (RegisterModel.Avatar.ContentLength > 0)
             {
-                Files addedFile = FilesService.AddFile(RegisterModel.Avatar.FileName, "~/Content/Uploads/" + RegisterModel.Avatar.FileName);
+                Files addedFile = new Files();
+                addedFile.name = RegisterModel.Avatar.FileName;
+                addedFile.path = "~/Content/Uploads/" + RegisterModel.Avatar.FileName;
+
+                addedFile.ObjectState = ObjectState.Added;
+                _unitOfWork.Repository<Files>().Insert(addedFile);
+                _unitOfWork.SaveChanges();
+
                 RegisterModel.Avatar.SaveAs(RegisterModel.AvatarRelativePath);
                 newUser.profilePhoto = addedFile;
             }
 
-            newUser.roles.Add(RoleService.GetRoleByName("user"));
+            Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
+            userRole.ObjectState = ObjectState.Unchanged;
+            newUser.roles.Add(userRole);
 
+            Favourites favourites = new Favourites();
+            favourites.ObjectState = ObjectState.Added;
+            _unitOfWork.Repository<Favourites>().Insert(favourites);
+            _unitOfWork.SaveChanges();
+
+            newUser.favourites = favourites;
+            newUser.ObjectState = ObjectState.Added;
             _repo.Insert(newUser);
             _unitOfWork.SaveChanges();
+            
         }
     }
 }

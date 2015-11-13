@@ -92,3 +92,7 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.dll
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dao.pdb
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.MapSettings.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.start.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.start2.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.start3.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.start666.resources

@@ -13,6 +13,7 @@
         this.Init = function () {
             this.EnableOrDisableSubmitBtn();
             $('#avatar').change(this.UpdateUsersAvatar);
+            $('#email').focusout(this.ValidateEmail);
         }
 
         this.EnableOrDisableSubmitBtn = function () {
@@ -43,11 +44,44 @@
 
             }
         }
+
+        this.ValidateEmail = function () {
+
+            var email = $('#email').val();
+
+            $.ajax({
+                url: '@Url.Action("IsEmailValid", "Account")',
+                type: "POST",
+                data: {email: email},
+                success: function (data) {
+                    if (data == "False") 
+                    {
+                        alert("istnieje taki email");
+                    }
+                }
+            })
+        }
+
+        this.ValidationInit = function () { // nie dziala poooooooooooooooooooooooooopraw
+
+            $.validator.addMethod("ValidateEmail");
+
+            $('#register-form').validate({
+                rules: {
+                    email: {
+                        ValidateEmail: true
+                    }
+                }
+            });
+
+           
+        }
     }
 
     $(document).ready((function() {
         var RegScope = new RegisterScope();
         RegScope.Init();
+        
     }));
 
 </script>
@@ -90,7 +124,6 @@
                 <div class="controls">
                     @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" , @id = "password_confirm"})
                     @Html.ValidationMessageFor(m => m.PasswordConfirm)
-                    @Html.ValidationSummary();
                 </div>
             </div>
 
