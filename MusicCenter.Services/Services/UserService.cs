@@ -46,7 +46,7 @@ namespace MusicCenter.Services.Services
             newUser.email = RegisterModel.Email;
             newUser.password = RegisterModel.Password;
 
-            if (RegisterModel.Avatar.ContentLength > 0)
+            if (RegisterModel.Avatar != null)
             {
                 Files addedFile = new Files();
                 addedFile.name = RegisterModel.Avatar.FileName;

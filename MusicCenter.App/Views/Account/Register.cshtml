@@ -11,20 +11,8 @@
     function RegisterScope() {
 
         this.Init = function () {
-            this.EnableOrDisableSubmitBtn();
             $('#avatar').change(this.UpdateUsersAvatar);
             $('#email').focusout(this.ValidateEmail);
-        }
-
-        this.EnableOrDisableSubmitBtn = function () {
-
-            $('#register-form input').on('keyup blur', function () {
-                if ($('#register-form').valid()) {
-                    $('#registerBtn').prop('disabled', false);
-                } else {
-                    $('#registerBtn').prop('disabled', 'disabled');
-                }
-            });
         }
 
         this.UpdateUsersAvatar = function () {
@@ -41,7 +29,6 @@
             } else {
                 $('#userAvatar').attr('src', '/Content/Uploads/DefaultUserAv.jpg');
                 $('#avatar').val("");
-
             }
         }
 
@@ -56,25 +43,16 @@
                 success: function (data) {
                     if (data == "False") 
                     {
-                        alert("istnieje taki email");
+                        $('#EmailControls').addClass("has-error");
+                        $('#EmailUnique').text('@MusicCenter.Common.Resources.Global.EmailUnique');
+                    }
+                    else
+                    {
+                        $('#EmailControls').removeClass("has-error");
+                        $('#EmailUnique').text("");
                     }
                 }
             })
-        }
-
-        this.ValidationInit = function () { // nie dziala poooooooooooooooooooooooooopraw
-
-            $.validator.addMethod("ValidateEmail");
-
-            $('#register-form').validate({
-                rules: {
-                    email: {
-                        ValidateEmail: true
-                    }
-                }
-            });
-
-           
         }
     }
 
@@ -103,9 +81,10 @@
             <div class="control-group">
                 <!-- E-mail -->
                 <label class="control-label" for="email">@MusicCenter.Common.Resources.Global.Email</label>
-                <div class="controls">
+                <div class="controls" id="EmailControls">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "email"})
-                    @Html.ValidationMessageFor(m => m.Email)
+                    <b>@Html.ValidationMessageFor(m => m.Email)</b>
+                    <label class="control-label" id="EmailUnique"></label>
                 </div>
             </div>
 
@@ -114,7 +93,7 @@
                 <label class="control-label" for="password">@MusicCenter.Common.Resources.Global.Password</label>
                 <div class="controls">
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password" })
-                    @Html.ValidationMessageFor(m => m.Password)
+                    <b>@Html.ValidationMessageFor(m => m.Password)</b>
                 </div>
             </div>
 
@@ -123,7 +102,7 @@
                 <label class="control-label" for="password_confirm">@MusicCenter.Common.Resources.Global.PasswordConfirm</label>
                 <div class="controls">
                     @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" , @id = "password_confirm"})
-                    @Html.ValidationMessageFor(m => m.PasswordConfirm)
+                    <b>@Html.ValidationMessageFor(m => m.PasswordConfirm)</b>
                 </div>
             </div>
 
