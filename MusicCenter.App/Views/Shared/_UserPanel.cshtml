@@ -1,0 +1,20 @@
+﻿@model MusicCenter.Common.ViewModels.User.UserPanelViewModel
+
+        
+        <div class="col-lg-3">
+            <div class="row">
+                @Model.Email
+            </div>
+            <div class="row">
+                Wiadomosci @Model.MessagesCount
+            </div>
+        </div> 
+        <div class="col-lg-3">
+            <div class="row">
+                <img src="@Model.AvatarPath" class="img-circle" width="50" height="50">
+            </div>
+            <div class="row">
+                @Html.ActionLink("Log out", "LogOut", "Account")
+            </div>
+        </div>
+

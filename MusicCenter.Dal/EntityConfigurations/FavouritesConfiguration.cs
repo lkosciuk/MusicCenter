@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class FavouritesConfiguration : EntityTypeConfiguration<Favourites>
     {
         public FavouritesConfiguration()
+            : base()
         {
             this.ToTable("Favourites");
 

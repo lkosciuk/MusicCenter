@@ -13,7 +13,7 @@ namespace MusicCenter.Dal.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201511181912098_start00"; }
+            get { return "201511182003374_start00"; }
         }
         
         string IMigrationMetadata.Source

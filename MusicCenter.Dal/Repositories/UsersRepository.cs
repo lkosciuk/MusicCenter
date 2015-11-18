@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MusicCenter.Dal.RepoExt;
+using System.Data.Entity;
 
 namespace MusicCenter.Dal.Repositories
 {
@@ -29,7 +30,10 @@ namespace MusicCenter.Dal.Repositories
 
         public static Users GetUserByEmail(this IRepository<Users> repo, string email)
         {
-            return repo.Queryable().FirstOrDefault(u => u.email.ToLower() == email.ToLower());
+            return repo.Queryable().Include(d => d.favourites)
+                   .Include(d => d.profilePhoto)
+                   .Include(d => d.roles)
+                   .FirstOrDefault(u => u.email.ToLower() == email.ToLower());
         }
     }
 }

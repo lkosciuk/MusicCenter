@@ -11,7 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     class UsersConfiguration 
         : BaseEntityMap<Users>
     {
-        public UsersConfiguration()
+        public UsersConfiguration() : base()
         {
             this.ToTable("Users");
 

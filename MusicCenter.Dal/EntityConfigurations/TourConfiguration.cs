@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class TourConfiguration : EntityTypeConfiguration<Tour>
     {
         public TourConfiguration()
+            : base()
         {
             this.ToTable("Tour");
 

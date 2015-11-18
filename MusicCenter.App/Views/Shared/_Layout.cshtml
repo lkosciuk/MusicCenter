@@ -16,7 +16,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav col-lg-4" style="height: 25px">
+                <ul class="nav navbar-nav" style="height: 25px">
                     <li class="navbar-header">
                         @Html.ActionLink(MusicCenter.Common.Resources.Global.AppName, "Index", "Home", null, new { @class = "navbar-brand" })
                     </li>
@@ -27,22 +27,30 @@
                         @Html.ActionLink(MusicCenter.Common.Resources.Global.ChangeLanguageEn, "SetCulture", "Home", new { @culture = "en" }, null)
                     </li>
                 </ul>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @Html.Action("GetUserPanel", "Home"); 
-                }
-                else
-                {
-                    @Html.Partial("_LoginPanel");
-                }
-                
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Bands, "BandList", "Band")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Albums, "AlbumList", "Music")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Songs, "SongList", "Music")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Concerts, "ConcertList", "Band")</li>
                 </ul>
-                @Html.Partial("_SearchPanel")
+                <ul class="nav navbar-nav">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        
+                            @Html.Partial("_LoginPanel")
+                        
+                    }
+                    
+                   @*<li>@Html.Partial("_SearchPanel")</li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.Action("GetUserPanel", "Home")
+                        </li>
+                    }*@
+                </ul>
+                
             </div>
             
         </div>

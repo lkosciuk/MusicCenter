@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class GenreConfiguration : EntityTypeConfiguration<Genre>
     {
         public GenreConfiguration()
+            : base()
         {
             this.ToTable("Genre");
 

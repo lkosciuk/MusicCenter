@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class BandMemberConfiguration : EntityTypeConfiguration<BandMember>
     {
         public BandMemberConfiguration()
+            : base()
         {
             this.ToTable("BandMember");
 

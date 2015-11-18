@@ -10,6 +10,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class RoleConfiguration : BaseEntityMap<Role>
     {
         public RoleConfiguration()
+            : base()
         {
             this.ToTable("Role");
 

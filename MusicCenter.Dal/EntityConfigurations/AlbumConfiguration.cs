@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class AlbumConfiguration : EntityTypeConfiguration<Album>
     {
         public AlbumConfiguration()
+            : base()
         {
             this.ToTable("Album");
 

@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class FilesConfiguration : EntityTypeConfiguration<Files>
     {
         public FilesConfiguration()
+            : base()
         {
             this.ToTable("Files");
 

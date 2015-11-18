@@ -11,6 +11,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     public class MessageConfiguration : EntityTypeConfiguration<Message>
     {
         public MessageConfiguration()
+            : base()
         {
             this.ToTable("Message");
 
