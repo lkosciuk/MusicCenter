@@ -18,14 +18,10 @@ namespace MusicCenter.Services.Services
     public class UsersService
          : BaseService<Users>, IUserService
     {
-        //private IRoleService RoleService;
-        //private IFilesService FilesService;
 
-        public UsersService(IUnitOfWork u, IRoleService roleService, IFilesService fileService)
+        public UsersService(IUnitOfWork u)
             : base(u)
         {
-            //RoleService = roleService;
-            //FilesService = fileService;
             
         }
 
@@ -42,23 +38,33 @@ namespace MusicCenter.Services.Services
         public void Register(RegisterViewModel RegisterModel)
         {
             Users newUser = new Users();
+            Files userAvatar = new Files();
 
             newUser.email = RegisterModel.Email;
             newUser.password = RegisterModel.Password;
 
             if (RegisterModel.Avatar != null)
             {
-                Files addedFile = new Files();
-                addedFile.name = RegisterModel.Avatar.FileName;
-                addedFile.path = "~/Content/Uploads/" + RegisterModel.Avatar.FileName;
-
-                addedFile.ObjectState = ObjectState.Added;
-                _unitOfWork.Repository<Files>().Insert(addedFile);
-                _unitOfWork.SaveChanges();
-
-                RegisterModel.Avatar.SaveAs(RegisterModel.AvatarRelativePath);
-                newUser.profilePhoto = addedFile;
+                userAvatar = new Files();
+                userAvatar.name = RegisterModel.Avatar.FileName;
+                userAvatar.path = "~/Content/Uploads/" + RegisterModel.Avatar.FileName;
+                RegisterModel.Avatar.SaveAs(RegisterModel.AvatarRelativePath); 
             }
+            else
+            {
+                userAvatar = new Files();
+                userAvatar.name = "DefaultUserAv.jpg";
+                userAvatar.path = "~/Content/Uploads/DefaultUserAv.jpg";
+            }
+
+            _unitOfWork.BeginTransaction();
+
+            userAvatar.ObjectState = ObjectState.Added;
+            userAvatar.user = newUser;
+            _unitOfWork.Repository<Files>().Insert(userAvatar);
+            _unitOfWork.SaveChanges();
+
+            newUser.profilePhoto = userAvatar;
 
             Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
             userRole.ObjectState = ObjectState.Unchanged;
@@ -73,7 +79,31 @@ namespace MusicCenter.Services.Services
             newUser.ObjectState = ObjectState.Added;
             _repo.Insert(newUser);
             _unitOfWork.SaveChanges();
-            
+
+            userAvatar.user = newUser;
+            userAvatar.ObjectState = ObjectState.Modified;
+            favourites.user = newUser;
+            favourites.ObjectState = ObjectState.Modified;
+            _unitOfWork.Repository<Files>().Update(userAvatar);
+            _unitOfWork.Repository<Favourites>().Update(favourites);
+            _unitOfWork.SaveChanges();
+            _unitOfWork.Commit();
+
+        }
+
+
+        public UserPanelViewModel GerUserPanelViewModelByEmail(string email)
+        {
+            Users loggedUser = _repo.GetUserByEmail(email);
+
+            UserPanelViewModel model = new UserPanelViewModel()
+            {
+                Email = loggedUser.email,
+                AvatarPath = loggedUser.profilePhoto.path,
+                MessagesCount = loggedUser.receivedMessages.Where(m => m.isReaded == false).Count()
+            };
+
+            return model;
         }
     }
 }

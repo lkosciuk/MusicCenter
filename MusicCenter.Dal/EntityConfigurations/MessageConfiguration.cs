@@ -12,7 +12,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public MessageConfiguration()
         {
-            this.HasKey(a => a.Id);
+            //this.HasKey(a => a.Id);
 
             this.Property(a => a.title).HasMaxLength(50).IsRequired();
             this.Property(a => a.content).HasMaxLength(1000).IsRequired();

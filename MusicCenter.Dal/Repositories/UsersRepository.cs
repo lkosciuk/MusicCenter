@@ -26,5 +26,10 @@ namespace MusicCenter.Dal.Repositories
 
             return false;
         }
+
+        public static Users GetUserByEmail(this IRepository<Users> repo, string email)
+        {
+            return repo.Queryable().FirstOrDefault(u => u.email.ToLower() == email.ToLower());
+        }
     }
 }

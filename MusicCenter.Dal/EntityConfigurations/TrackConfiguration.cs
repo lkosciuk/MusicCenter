@@ -12,7 +12,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public TrackConfiguration()
         {
-            this.HasKey(a => a.Id);
+            //this.HasKey(a => a.Id);
 
             this.Property(a => a.name).HasMaxLength(20).IsRequired();
             this.Property(a => a.duration).HasMaxLength(10).IsOptional();

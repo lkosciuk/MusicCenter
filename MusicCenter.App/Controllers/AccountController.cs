@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using MusicCenter.Services.Services;
 using MusicCenter.Services.Intefaces;
 using System.IO;
+using System.Web.Security;
 
 namespace MusicCenter.App.Controllers
 {
@@ -43,7 +44,9 @@ namespace MusicCenter.App.Controllers
                 }               
             }
 
-            return View();
+            FormsAuthentication.SetAuthCookie(RegisterModel.Email, false);
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -55,6 +58,13 @@ namespace MusicCenter.App.Controllers
             }
 
             return true;
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

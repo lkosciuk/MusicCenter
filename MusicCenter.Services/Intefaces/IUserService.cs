@@ -11,5 +11,7 @@ namespace MusicCenter.Services.Intefaces
     {
         bool IfUserExists(string login);
         void Register(RegisterViewModel urvm);
+
+        UserPanelViewModel GerUserPanelViewModelByEmail(string email);
     }
 }

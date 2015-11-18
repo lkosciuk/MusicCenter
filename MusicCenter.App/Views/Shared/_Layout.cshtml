@@ -27,7 +27,15 @@
                         @Html.ActionLink(MusicCenter.Common.Resources.Global.ChangeLanguageEn, "SetCulture", "Home", new { @culture = "en" }, null)
                     </li>
                 </ul>
-                @Html.Partial("_LoginPanel")
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.Action("GetUserPanel", "Home"); 
+                }
+                else
+                {
+                    @Html.Partial("_LoginPanel");
+                }
+                
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Bands, "BandList", "Band")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Albums, "AlbumList", "Music")</li>

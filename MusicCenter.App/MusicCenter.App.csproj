@@ -248,6 +248,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_UserPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

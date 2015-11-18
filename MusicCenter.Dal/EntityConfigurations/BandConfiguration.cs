@@ -12,7 +12,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public BandConfiguration()
         {
-            this.HasKey(a => a.Id);
+            //this.HasKey(a => a.Id);
             //this.Property(a => a.login).HasMaxLength(15).IsRequired();
             //this.Property(a => a.password).HasMaxLength(15).IsRequired();
             this.Property(a => a.email).HasMaxLength(15).IsRequired();

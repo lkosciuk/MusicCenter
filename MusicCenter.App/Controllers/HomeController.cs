@@ -1,5 +1,7 @@
 
-﻿using System;
+﻿using MusicCenter.Common.ViewModels.User;
+using MusicCenter.Services.Intefaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,8 +12,16 @@ namespace MusicCenter.App.Controllers
 {
     public class HomeController : BaseController
     {
+        private IUserService UserService;
+
+        public HomeController(IUserService service)
+        {
+            UserService = service;
+        }
+
         public ActionResult Index()
-        {            
+        {
+            //UserPanelViewModel a = UserService.GerUserPanelViewModelByEmail("qwe11@qwe.qwe");
             return View();
         }
 
@@ -32,5 +42,14 @@ namespace MusicCenter.App.Controllers
             Response.Cookies.Add(cookie);
             return Redirect(Request.UrlReferrer.ToString());
         }   
+
+        [Authorize]
+        public ActionResult GetUserPanel()
+        {
+            UserPanelViewModel model = new UserPanelViewModel();
+            model = UserService.GerUserPanelViewModelByEmail(User.Identity.Name);
+
+            return PartialView("_UserPanel", model);
+        }
     }
 }

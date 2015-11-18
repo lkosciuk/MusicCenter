@@ -12,13 +12,13 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public FilesConfiguration()
         {
-            this.HasKey(a => a.Id);
+            //this.HasKey(a => a.Id);
 
             this.Property(a => a.name).HasMaxLength(100).IsRequired();
             this.Property(a => a.path).HasMaxLength(100).IsRequired();
 
             //relationships
-            //this.HasOptional(a => a.user).WithOptionalDependent(a => a.profilePhoto);
+            this.HasRequired(a => a.user).WithRequiredDependent(a => a.profilePhoto);
             this.HasOptional(a => a.band).WithMany(a => a.images);
             this.HasOptional(a => a.concert).WithMany(a => a.images);
             this.HasOptional(a => a.tour).WithMany(a => a.images);

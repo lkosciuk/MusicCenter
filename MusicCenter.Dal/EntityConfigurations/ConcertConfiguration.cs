@@ -12,7 +12,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public ConcertConfiguration()
         {
-            this.HasKey(a => a.Id);
+            //this.HasKey(a => a.Id);
             this.Property(a => a.date).IsRequired();
             this.Property(a => a.ticketPrice).HasMaxLength(15).IsOptional();
             this.Property(a => a.ticketUrl).HasMaxLength(200).IsOptional();
