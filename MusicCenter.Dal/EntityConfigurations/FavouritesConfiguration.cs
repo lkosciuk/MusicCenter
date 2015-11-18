@@ -12,18 +12,53 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public FavouritesConfiguration()
         {
-            this.HasKey(a => a.Id);
+            this.ToTable("Favourites");
 
             //relationships
-            this.HasMany(a => a.bands).WithMany(a => a.favourites);
-            this.HasMany(a => a.albums).WithMany(a => a.favourites);
-            this.HasMany(a => a.tracks).WithMany(a => a.favourites);
-            this.HasRequired(a => a.user).WithRequiredDependent(a => a.favourites);
-            this.HasMany(a => a.concerts).WithMany(a => a.favouritess);
-            this.HasMany(a => a.tours).WithMany(a => a.favourites);
+            this.HasMany(t => t.bands)
+                .WithMany(t => t.favourites)
+                .Map(m =>
+                {
+                    m.ToTable("BandFavourites");
+                    m.MapLeftKey("BandID");
+                    m.MapRightKey("FavouritesID");
+                });
 
-            //configure table map
-            this.ToTable("Favourites");
+            this.HasMany(t => t.albums)
+                .WithMany(t => t.favourites)
+                .Map(m =>
+                {
+                    m.ToTable("AlbumFavourites");
+                    m.MapLeftKey("AlbumID");
+                    m.MapRightKey("FavouritesID");
+                });
+
+            this.HasMany(t => t.tracks)
+                .WithMany(t => t.favourites)
+                .Map(m =>
+                {
+                    m.ToTable("TrackFavourites");
+                    m.MapLeftKey("TrackID");
+                    m.MapRightKey("FavouritesID");
+                });
+
+            this.HasMany(t => t.concerts)
+                .WithMany(t => t.favourites)
+                .Map(m =>
+                {
+                    m.ToTable("ConcertFavourites");
+                    m.MapLeftKey("ConcertID");
+                    m.MapRightKey("FavouritesID");
+                });
+
+            this.HasMany(t => t.tours)
+                .WithMany(t => t.favourites)
+                .Map(m =>
+                {
+                    m.ToTable("TourFavourites");
+                    m.MapLeftKey("TourID");
+                    m.MapRightKey("FavouritesID");
+                });
         }
     }
 }

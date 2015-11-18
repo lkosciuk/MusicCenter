@@ -12,19 +12,23 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public FilesConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("Files");
 
             this.Property(a => a.name).HasMaxLength(100).IsRequired();
             this.Property(a => a.path).HasMaxLength(100).IsRequired();
 
             //relationships
-            this.HasRequired(a => a.user).WithRequiredDependent(a => a.profilePhoto);
-            this.HasOptional(a => a.band).WithMany(a => a.images);
-            this.HasOptional(a => a.concert).WithMany(a => a.images);
-            this.HasOptional(a => a.tour).WithMany(a => a.images);
+            this.HasOptional(t => t.band)
+                 .WithMany(t => t.images)
+                 .HasForeignKey(d => d.BandID);
 
-            //configure table map
-            this.ToTable("Files");
+            this.HasOptional(t => t.concert)
+                 .WithMany(t => t.images)
+                 .HasForeignKey(d => d.ConcertID);
+
+            this.HasOptional(t => t.tour)
+                 .WithMany(t => t.images)
+                 .HasForeignKey(d => d.TourID);
         }
     }
 }

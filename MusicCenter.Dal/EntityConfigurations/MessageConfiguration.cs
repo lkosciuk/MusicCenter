@@ -12,7 +12,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public MessageConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("Message");
 
             this.Property(a => a.title).HasMaxLength(50).IsRequired();
             this.Property(a => a.content).HasMaxLength(1000).IsRequired();
@@ -20,13 +20,31 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.isReaded).IsRequired();
             
             //relationships
-            this.HasOptional(a => a.UserAuthor).WithMany(a => a.sentMessages);
-            this.HasOptional(a => a.BandAuthor).WithMany(a => a.sentMessages);
-            this.HasMany(a => a.UserReceivers).WithMany(a => a.receivedMessages);
-            this.HasMany(a => a.BandReceivers).WithMany(a => a.receivedMessages);
+            this.HasOptional(t => t.BandAuthor)
+                .WithMany(t => t.receivedMessages)
+                .HasForeignKey(d => d.BandID);
 
-            //configure table map
-            this.ToTable("Message");
+            this.HasOptional(t => t.UserAuthor)
+                .WithMany(t => t.receivedMessages)
+                .HasForeignKey(d => d.UserID);
+
+            this.HasMany(t => t.UserReceivers)
+                .WithMany(t => t.sentMessages)
+                .Map(m =>
+                {
+                    m.ToTable("MessageUser");
+                    m.MapLeftKey("MessageID");
+                    m.MapRightKey("UserID");
+                });
+
+            this.HasMany(t => t.BandReceivers)
+                .WithMany(t => t.sentMessages)
+                .Map(m =>
+                {
+                    m.ToTable("MessageBand");
+                    m.MapLeftKey("MessageID");
+                    m.MapRightKey("BandID");
+                });
         }
     }
 }

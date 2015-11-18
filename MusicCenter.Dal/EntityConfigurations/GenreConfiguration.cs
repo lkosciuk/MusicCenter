@@ -12,16 +12,37 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public GenreConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("Genre");
 
             this.Property(a => a.name).HasMaxLength(20).IsRequired();
 
             //relationships
-            this.HasMany(a => a.bands).WithMany(a => a.genres);
-            this.HasMany(a => a.albums).WithMany(a => a.genres);
+            this.HasMany(t => t.tracks)
+                .WithMany(t => t.genres)
+                .Map(m =>
+                {
+                    m.ToTable("TrackGenre");
+                    m.MapLeftKey("TrackID");
+                    m.MapRightKey("GenreID");
+                });
 
-            //configure table map
-            this.ToTable("Genre");
+            this.HasMany(t => t.bands)
+                .WithMany(t => t.genres)
+                .Map(m =>
+                {
+                    m.ToTable("BandGenre");
+                    m.MapLeftKey("BandID");
+                    m.MapRightKey("GenreID");
+                });
+
+            this.HasMany(t => t.albums)
+                .WithMany(t => t.genres)
+                .Map(m =>
+                {
+                    m.ToTable("AlbumGenre");
+                    m.MapLeftKey("AlbumID");
+                    m.MapRightKey("GenreID");
+                });
         }
     }
 }

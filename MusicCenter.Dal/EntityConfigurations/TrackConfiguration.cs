@@ -12,7 +12,7 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public TrackConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("Track");
 
             this.Property(a => a.name).HasMaxLength(20).IsRequired();
             this.Property(a => a.duration).HasMaxLength(10).IsOptional();
@@ -20,12 +20,18 @@ namespace MusicCenter.Dal.EntityConfigurations
 
 
             //relationships
-            this.HasMany(a => a.favourites).WithMany(a => a.tracks);
-            this.HasMany(a => a.albums).WithMany(a => a.trackList);
-            this.HasOptional(a => a.band).WithMany(a => a.singles);
-            this.HasMany(a => a.genres).WithMany(a => a.tracks);
-            //configure table map
-            this.ToTable("Track");
+            this.HasRequired(t => t.band)
+                 .WithMany(t => t.singles)
+                 .HasForeignKey(d => d.BandID);
+
+            this.HasMany(t => t.albums)
+                .WithMany(t => t.trackList)
+                .Map(m =>
+                {
+                    m.ToTable("AlbumTrack");
+                    m.MapLeftKey("AlbumID");
+                    m.MapRightKey("TrackID");
+                });
         }
     }
 }

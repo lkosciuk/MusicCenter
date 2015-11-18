@@ -14,7 +14,6 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Track> tracks { get; set; }
         public virtual ICollection<Concert> concerts { get; set; }
         public virtual ICollection<Tour> tours { get; set; }
-        //public int UsersID { get; set; }
         public virtual Users user { get; set; }
     }
 }

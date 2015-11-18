@@ -16,6 +16,7 @@ namespace MusicCenter.Dal.EntityModels
         public DateTime addDate { get; set; }
         public DateTime bandCreationDate { get; set; }
         public DateTime bandResolveDate { get; set; }
+        public int UserID { get; set; }
         public virtual ICollection<BandMember> members { get; set; }
         public virtual ICollection<Files> images { get; set; }
         public virtual ICollection<Genre> genres { get; set; }

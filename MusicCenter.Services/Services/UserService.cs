@@ -61,34 +61,25 @@ namespace MusicCenter.Services.Services
 
             userAvatar.ObjectState = ObjectState.Added;
             userAvatar.user = newUser;
-            _unitOfWork.Repository<Files>().Insert(userAvatar);
-            _unitOfWork.SaveChanges();
 
             newUser.profilePhoto = userAvatar;
 
             Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
             userRole.ObjectState = ObjectState.Unchanged;
             newUser.roles.Add(userRole);
+            userRole.Users.Add(newUser);
 
             Favourites favourites = new Favourites();
             favourites.ObjectState = ObjectState.Added;
-            _unitOfWork.Repository<Favourites>().Insert(favourites);
-            _unitOfWork.SaveChanges();
 
             newUser.favourites = favourites;
-            newUser.ObjectState = ObjectState.Added;
-            _repo.Insert(newUser);
-            _unitOfWork.SaveChanges();
-
-            userAvatar.user = newUser;
-            userAvatar.ObjectState = ObjectState.Modified;
             favourites.user = newUser;
-            favourites.ObjectState = ObjectState.Modified;
-            _unitOfWork.Repository<Files>().Update(userAvatar);
-            _unitOfWork.Repository<Favourites>().Update(favourites);
+
+            newUser.ObjectState = ObjectState.Added;
+
+            _repo.InsertOrUpdateGraph(newUser);
             _unitOfWork.SaveChanges();
             _unitOfWork.Commit();
-
         }
 
 

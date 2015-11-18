@@ -11,8 +11,16 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public RoleConfiguration()
         {
-            //this.HasKey(a => a.Id);
-            this.HasMany(a => a.Users).WithMany(a => a.roles);
+            this.ToTable("Role");
+
+            this.HasMany(t => t.Users)
+                .WithMany(t => t.roles)
+                .Map(m =>
+                {
+                    m.ToTable("RoleUser");
+                    m.MapLeftKey("RoleID");
+                    m.MapRightKey("UserID");
+                });
         }
     }
 }

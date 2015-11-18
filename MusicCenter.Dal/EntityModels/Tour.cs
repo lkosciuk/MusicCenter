@@ -14,7 +14,7 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Files> images { get; set; }
         public virtual ICollection<Concert> concerts {get;set;}
         public virtual ICollection<Favourites> favourites { get; set; }
-        //public int BandID { get; set; }
+        public int BandID { get; set; }
         public virtual Band band { get; set; }
     }
 }

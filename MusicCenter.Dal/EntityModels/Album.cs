@@ -17,7 +17,7 @@ namespace MusicCenter.Dal.EntityModels
         public string label { get; set; } //wytwornia
         public string producer { get; set; }
         public virtual ICollection<Favourites> favourites { get; set; }
-        //public int BandID { get; set; }
+        public int BandID { get; set; }
         public virtual Band band { get; set; }
         public int rating { get; set; }
         

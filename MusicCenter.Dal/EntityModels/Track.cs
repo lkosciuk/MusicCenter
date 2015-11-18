@@ -15,7 +15,7 @@ namespace MusicCenter.Dal.EntityModels
         public DateTime releaseDate { get; set; }
         public virtual ICollection<Genre> genres { get; set; }
         public virtual ICollection<Favourites> favourites { get; set; }
-        //public int BandID { get; set; }
+        public int BandID { get; set; }
         public virtual Band band { get; set; }
         public virtual ICollection<Album> albums { get; set; }
         public int rating { get; set; }

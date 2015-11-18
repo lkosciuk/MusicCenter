@@ -16,10 +16,10 @@ namespace MusicCenter.Dal.EntityModels
         public float coordinatesX { get; set; }
         public float coordinatesY { get; set; }
         public virtual ICollection<Files> images { get; set; }
-        public virtual ICollection<Favourites> favouritess { get; set; }
-        //public int TourID { get; set; }
+        public virtual ICollection<Favourites> favourites { get; set; }
+        public int? TourID { get; set; }
         public virtual Tour tour { get; set; }
-        //public int BandID { get; set; }
+        public int BandID { get; set; }
         public virtual Band band { get; set; }
 
 

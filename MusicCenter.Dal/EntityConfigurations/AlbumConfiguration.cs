@@ -12,7 +12,8 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public AlbumConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("Album");
+
             this.Property(a => a.name).HasMaxLength(100).IsRequired();
             this.Property(a => a.releaseDate).IsRequired();
             this.Property(a => a.duration).HasMaxLength(50).IsRequired();
@@ -20,14 +21,9 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.producer).HasMaxLength(50).IsRequired();
             
             //relationships
-            this.HasRequired(a => a.band).WithMany(a => a.albums);
-            this.HasMany(a => a.favourites).WithMany(a => a.albums);
-            this.HasMany(a => a.genres).WithMany(a => a.albums);
-            this.HasMany(a => a.trackList).WithMany(a => a.albums);
-            
-
-            //configure table map
-            this.ToTable("Album");
+            this.HasRequired(t => t.band)
+                 .WithMany(t => t.albums)
+                 .HasForeignKey(d => d.BandID);
         }
     }
 }

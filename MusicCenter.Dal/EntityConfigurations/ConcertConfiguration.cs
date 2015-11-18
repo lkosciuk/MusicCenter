@@ -12,7 +12,8 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public ConcertConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("Concert");
+
             this.Property(a => a.date).IsRequired();
             this.Property(a => a.ticketPrice).HasMaxLength(15).IsOptional();
             this.Property(a => a.ticketUrl).HasMaxLength(200).IsOptional();
@@ -21,13 +22,13 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.coordinatesY).IsOptional();
 
             //relationships
-            this.HasMany(a => a.images).WithOptional(a => a.concert);
-            //this.HasMany(a => a.users).WithMany(a => a.concerts);
-            this.HasOptional(a => a.tour).WithMany(a => a.concerts);
-            this.HasRequired(a => a.band).WithMany(a => a.concerts);
-            this.HasMany(a => a.favouritess).WithMany(a => a.concerts);
-            //configure table map
-            this.ToTable("Concert");
+            this.HasRequired(t => t.band)
+                 .WithMany(t => t.concerts)
+                 .HasForeignKey(d => d.BandID);
+
+            this.HasOptional(t => t.tour)
+                 .WithMany(t => t.concerts)
+                 .HasForeignKey(d => d.TourID);
         }
     }
 }

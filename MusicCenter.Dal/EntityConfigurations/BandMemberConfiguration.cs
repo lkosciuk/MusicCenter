@@ -12,15 +12,12 @@ namespace MusicCenter.Dal.EntityConfigurations
     {
         public BandMemberConfiguration()
         {
-            //this.HasKey(a => a.Id);
+            this.ToTable("BandMember");
+
             this.Property(a => a.fullName).HasMaxLength(50).IsRequired();
 
             //relationships
-            this.HasMany(a => a.bands).WithMany(a => a.members);
-            //this.HasOptional(a => a.user).WithOptionalDependent(a => a.bandMember);
-
-            //configure table map
-            this.ToTable("BandMember");
+            
         }
     }
 }
