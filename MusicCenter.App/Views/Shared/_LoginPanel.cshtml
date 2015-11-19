@@ -1,21 +1,26 @@
-﻿
-            <li>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> @MusicCenter.Common.Resources.Global.RememberMe
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="form-group">
-                    <input type="email" class="form-control" style="margin-top: 10px; float: right; height:25px" id="exampleInputEmail3" placeholder="@MusicCenter.Common.Resources.Global.Email">
-                </div>
-            </li>
-            <li>
-                <div class="form-group">
-                    <input type="password" class="form-control" style="margin-top: 10px; float: right; height: 25px" id="exampleInputPassword3" placeholder="@MusicCenter.Common.Resources.Global.Password">
-                </div>
-            </li>
-            <li><button type="submit" class="btn btn-default text-center">@MusicCenter.Common.Resources.Global.SignIn</button></li>
-            <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Register, "Register", "Account", null, new { @class = "navbar-brand col-lg-1" })</li>             
+﻿@model MusicCenter.Common.ViewModels.User.LoginViewModel
 
+<form>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Email, new { placeholder = @MusicCenter.Common.Resources.Global.Email, @class="form-control", style="margin-top: 10px; float: right; height:25px; width:120px; margin-right: 10px" })
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+                @Html.PasswordFor(m => m.Password)
+                <input type="password" class="form-control" style="margin-top: 10px; float: right; height: 25px; width:120px; margin-right: 10px" id="exampleInputPassword3" placeholder="@MusicCenter.Common.Resources.Global.Password">
+            </div>
+        </li>
+        <li>
+            <div class="checkbox" style="margin-top:12px; margin-right:10px; color:gray">
+                <label>
+                    <input type="checkbox"> @MusicCenter.Common.Resources.Global.RememberMe
+                </label>
+            </div>
+        </li>
+        <li><button type="submit" class="btn btn-default text-center" style="margin-top:5px; margin-right:10px">@MusicCenter.Common.Resources.Global.SignIn</button></li>
+        <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Register, "Register", "Account", null, new { @class = "navbar-brand col-lg-1" })</li>
+    </ul>
+</form>

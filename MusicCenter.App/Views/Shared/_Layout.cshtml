@@ -27,30 +27,27 @@
                         @Html.ActionLink(MusicCenter.Common.Resources.Global.ChangeLanguageEn, "SetCulture", "Home", new { @culture = "en" }, null)
                     </li>
                 </ul>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+
+                        @Html.Partial("_LoginPanel")
+
+                    }
+                    else
+                    {
+                            @Html.Action("GetUserPanel", "Home")
+                    }
+                <br />
+                <br />
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Bands, "BandList", "Band")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Albums, "AlbumList", "Music")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Songs, "SongList", "Music")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Concerts, "ConcertList", "Band")</li>
                 </ul>
-                <ul class="nav navbar-nav">
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-                        
-                            @Html.Partial("_LoginPanel")
-                        
-                    }
-                    
-                   @*<li>@Html.Partial("_SearchPanel")</li>
-
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>
-                            @Html.Action("GetUserPanel", "Home")
-                        </li>
-                    }*@
-                </ul>
-                
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_SearchPanel")
+                </ul>                
             </div>
             
         </div>

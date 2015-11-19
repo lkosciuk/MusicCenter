@@ -60,6 +60,11 @@ namespace MusicCenter.App.Controllers
             return true;
         }
 
+        public ActionResult LogIn(LoginViewModel model)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();

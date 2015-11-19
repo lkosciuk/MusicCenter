@@ -99,6 +99,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="ViewModels\User\LoginViewModel.cs" />
     <Compile Include="ViewModels\User\RegisterViewModel.cs" />
     <Compile Include="ViewModels\User\UserPanelViewModel.cs" />
   </ItemGroup>
