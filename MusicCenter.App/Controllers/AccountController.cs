@@ -71,5 +71,10 @@ namespace MusicCenter.App.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult SoundCloudCallback()
+        {
+            return View();
+        }
     }
 }
