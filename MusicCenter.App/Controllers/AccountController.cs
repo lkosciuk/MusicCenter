@@ -74,7 +74,7 @@ namespace MusicCenter.App.Controllers
 
         public ActionResult SoundCloudCallback()
         {
-            return View();
+            return PartialView();
         }
     }
 }

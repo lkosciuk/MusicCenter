@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Connect with SoundCloud</title>
 </head>
-<body onload="window.opener.setTimeout(window.opener.SC.connectCallback, 1)">
+<body>
     <b style="text-align: center;">This popup should automatically close in a few seconds</b>
+    <script type="text/javascript">
+        window.opener.SC.connectCallback.call(this);
+    </script>
 </body>
 </html>
