@@ -150,6 +150,12 @@
   <data name="EmailValid" xml:space="preserve">
     <value>To nie jest poprawny adres email</value>
   </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="NewMessages" xml:space="preserve">
+    <value>Nowe wiadomości:</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>
   </data>

@@ -1,20 +1,25 @@
 ﻿@model MusicCenter.Common.ViewModels.User.UserPanelViewModel
 
-        
-        <div class="col-lg-3">
-            <div class="row">
-                @Model.Email
-            </div>
-            <div class="row">
-                Wiadomosci @Model.MessagesCount
-            </div>
-        </div> 
-        <div class="col-lg-3">
-            <div class="row">
-                <img src="@Model.AvatarPath" class="img-circle" width="50" height="50">
-            </div>
-            <div class="row">
-                @Html.ActionLink("Log out", "LogOut", "Account")
-            </div>
-        </div>
+<form>
+    <ul class="nav navbar-nav navbar-right" style="color: white">
+        <li>
+            @Model.Email <br/>
+            @MusicCenter.Common.Resources.Global.NewMessages @Model.MessagesCount 
+        </li>
+        <li>
+            <img src="@Model.AvatarPath" class="img-circle" width="50" height="50" style="margin-left: 5px">
+        </li>
+        <li>
+            @Html.ActionLink(MusicCenter.Common.Resources.Global.LogOut, "LogOut", "Account", null, new { id = "LogOutUrl" })
+        </li>
+    </ul>
 
+</form>     
+
+<script>
+    $(document).ready(function () {
+        $('#LogOutUrl').click(function () {
+            sessionStorage['scToken'] = null;
+        })
+    });
+</script>

@@ -30,9 +30,11 @@ namespace MusicCenter.Dal.Repositories
 
         public static Users GetUserByEmail(this IRepository<Users> repo, string email)
         {
-            return repo.Queryable().Include(d => d.favourites)
+            return repo.Queryable()
+                .Include(d => d.favourites)
                    .Include(d => d.profilePhoto)
                    .Include(d => d.roles)
+                   .Include(d => d.receivedMessages)
                    .FirstOrDefault(u => u.email.ToLower() == email.ToLower());
         }
     }

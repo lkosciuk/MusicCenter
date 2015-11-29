@@ -41,10 +41,10 @@ namespace MusicCenter.App.Controllers
                 if (!UserService.IfUserExists(RegisterModel.Email))
                 {
                     UserService.Register(RegisterModel);
+
+                    FormsAuthentication.SetAuthCookie(RegisterModel.Email, false);
                 }               
             }
-
-            FormsAuthentication.SetAuthCookie(RegisterModel.Email, false);
 
             return RedirectToAction("Index", "Home");
         }
@@ -62,6 +62,11 @@ namespace MusicCenter.App.Controllers
 
         public ActionResult LogIn(LoginViewModel model)
         {
+            if (UserService.VerifyLoginAndPassword(model))
+            {
+                 FormsAuthentication.SetAuthCookie(model.Email, false);
+            }               
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -75,6 +80,18 @@ namespace MusicCenter.App.Controllers
         public ActionResult SoundCloudCallback()
         {
             return PartialView();
+        }
+
+        public ActionResult SoundCloudConnect(SoundCloudRegisterViewModel userData)
+        {
+            if (!UserService.IfUserExists(userData.username))
+            {
+                UserService.SoundCloudRegister(userData);
+            }
+
+            FormsAuthentication.SetAuthCookie(userData.username, false);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="ViewModels\User\LoginViewModel.cs" />
     <Compile Include="ViewModels\User\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\User\SoundCloudRegisterViewModel.cs" />
     <Compile Include="ViewModels\User\UserPanelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

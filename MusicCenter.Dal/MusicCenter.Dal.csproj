@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201511182003374_start00.Designer.cs">
       <DependentUpon>201511182003374_start00.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511291744080_passwordNotRequired.cs" />
+    <Compile Include="Migrations\201511291744080_passwordNotRequired.Designer.cs">
+      <DependentUpon>201511291744080_passwordNotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +162,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511182003374_start00.resx">
       <DependentUpon>201511182003374_start00.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511291744080_passwordNotRequired.resx">
+      <DependentUpon>201511291744080_passwordNotRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

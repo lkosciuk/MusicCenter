@@ -1,15 +1,7 @@
 ﻿@model MusicCenter.Common.ViewModels.User.LoginViewModel
 
-<form>
+<form action="@Url.Action("LogIn", "Account")">
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            <input type="button" id="upload" value="upload" />
-        </li>
-        <li>
-            <p style="color:white">
-                Hello There, <span id="name"></span>
-            </p>
-        </li>
         <li>
             <div class="form-group">
                 @Html.TextBoxFor(m => m.Email, new { placeholder = @MusicCenter.Common.Resources.Global.Email, @class="form-control", style="margin-top: 10px; float: right; height:25px; width:120px; margin-right: 10px" })
@@ -39,7 +31,6 @@
         this.Init = function () {
             this.SetupSoundCloud();
             $('#SoundCloudLogo').click(this.ConnectSoundCloud);
-            $('#upload').click(this.UploadSound);
         }
 
         this.SetupSoundCloud = function () {
@@ -48,6 +39,7 @@
                 client_id: '6895e74306f08ac18acb7b703672ee62',
                 client_secret: 'b9b5b82f716f3322149d1fa038573e0e',
                 redirect_uri: url,
+                access_token: sessionStorage['scToken'],
             });
         }
 
@@ -55,31 +47,17 @@
             // initiate authentication popup
             SC.connect(function () {
                 // This gets the authenticated user's username
+                sessionStorage['scToken'] = SC.accessToken();
+
                 SC.get('/me', function (me) {
-                    $('#name').text(me.username);
+                    $.post('@Url.Action("SoundCloudConnect", "Account")', me, function () {
+                        window.location.reload();
+                    });
                 });
+               
             });
-        }
-
-        this.UploadSound = function () {
-
-            SC.connect(function () {
-                SC.record({
-                    start: function () {
-                        window.setTimeout(function () {
-                            SC.recordStop();
-                            SC.recordUpload({
-                                track: { title: 'This is my sound' }
-                            });
-                        }, 5000);
-                    }
-                })
-            });
-
         }
     }
-
-    
 
     $(document).ready((function () {
         var SCScope = new SoundCloudScope();

@@ -114,5 +114,60 @@ namespace MusicCenter.Services.Services
 
             return model;
         }
+
+
+        public void SoundCloudRegister(SoundCloudRegisterViewModel userData)
+        {
+            Users newUser = new Users();
+            Files userAvatar = new Files();
+
+            newUser.email = userData.username;
+            userAvatar.path = userData.avatar_url;
+            userAvatar.name = userData.username + " " + "SoundCloud";
+
+            _unitOfWork.BeginTransaction();
+
+            userAvatar.ObjectState = ObjectState.Added;
+            userAvatar.user = newUser;
+
+            newUser.profilePhoto = userAvatar;
+
+            Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
+            userRole.ObjectState = ObjectState.Unchanged;
+            newUser.roles.Add(userRole);
+            userRole.Users.Add(newUser);
+
+            Favourites favourites = new Favourites();
+            favourites.ObjectState = ObjectState.Added;
+
+            newUser.favourites = favourites;
+            favourites.user = newUser;
+
+            newUser.ObjectState = ObjectState.Added;
+
+            _repo.InsertOrUpdateGraph(newUser);
+            try
+            {
+                _unitOfWork.SaveChanges();
+                _unitOfWork.Commit();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+        }
+
+        public bool VerifyLoginAndPassword(LoginViewModel model)
+        {
+            return _repo.Queryable().Any(u => u.email == model.Email && u.password == model.Password);
+        }
     }
 }
