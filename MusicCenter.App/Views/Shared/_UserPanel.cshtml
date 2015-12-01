@@ -3,8 +3,8 @@
 <form>
     <ul class="nav navbar-nav navbar-right" style="color: white">
         <li>
-            @Model.Email <br/>
-            @MusicCenter.Common.Resources.Global.NewMessages @Model.MessagesCount 
+            @Html.ActionLink(@Model.Email, "UserProfile", "User", null, new { style = "height: 15px"} )
+            @Html.ActionLink(@MusicCenter.Common.Resources.Global.NewMessages + @Model.MessagesCount, "UserMessages", "User", null, new { style = "height: 15px; margin-bottom: 10px" }) 
         </li>
         <li>
             <img src="@Model.AvatarPath" class="img-circle" width="50" height="50" style="margin-left: 5px">
@@ -16,10 +16,3 @@
 
 </form>     
 
-<script>
-    $(document).ready(function () {
-        $('#LogOutUrl').click(function () {
-            sessionStorage['scToken'] = null;
-        })
-    });
-</script>

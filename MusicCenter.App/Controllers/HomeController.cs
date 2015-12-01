@@ -43,13 +43,5 @@ namespace MusicCenter.App.Controllers
             return Redirect(Request.UrlReferrer.ToString());
         }   
 
-        [Authorize]
-        public ActionResult GetUserPanel()
-        {
-            UserPanelViewModel model = new UserPanelViewModel();
-            model = UserService.GerUserPanelViewModelByEmail(User.Identity.Name);
-
-            return PartialView("_UserPanel", model);
-        }
     }
 }

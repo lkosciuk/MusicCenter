@@ -17,5 +17,6 @@ namespace MusicCenter.Services.Intefaces
         void SoundCloudRegister(SoundCloudRegisterViewModel userData);
 
         bool VerifyLoginAndPassword(LoginViewModel model);
+        UserProfileViewModel GetUserProfile(string email);
     }
 }

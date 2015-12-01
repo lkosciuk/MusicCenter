@@ -10,6 +10,8 @@
     @Scripts.Render("~/bundles/jqueryValidation")
     @Scripts.Render("~/bundles/unobtrusive")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/Layout/LoginPanel.js")
+    @Scripts.Render("~/Scripts/Layout/UserPanel.js")
     @RenderSection("scripts", required: false)
     <script type="text/javascript" src="http://connect.soundcloud.com/sdk.js"></script>
 </head>
@@ -36,7 +38,7 @@
                     }
                     else
                     {
-                        @Html.Action("GetUserPanel", "Home")
+                        @Html.Action("GetUserPanel", "User")
                     }
                 <br />
                 <br />

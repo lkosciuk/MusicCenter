@@ -169,5 +169,10 @@ namespace MusicCenter.Services.Services
         {
             return _repo.Queryable().Any(u => u.email == model.Email && u.password == model.Password);
         }
+
+        public UserProfileViewModel GetUserProfile(string email)
+        {
+            return _repo.
+        }
     }
 }

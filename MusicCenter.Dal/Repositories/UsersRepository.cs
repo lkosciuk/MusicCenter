@@ -13,19 +13,13 @@ namespace MusicCenter.Dal.Repositories
     public static class UsersRepository
     {
         public static Users GetUserById(this IRepository<Users> repository, int userId)
-        {
-            
+        {            
             return repository.GetById(userId);
         }
 
         public static bool IsUserExists(this IRepository<Users> repo, string email)
         {
-            if (repo.Queryable().Any(u => u.email.ToLower().Equals(email.ToLower())))
-            {
-                return true;
-            }
-
-            return false;
+            return repo.Queryable().Any(u => u.email.ToLower().Equals(email.ToLower()));                     
         }
 
         public static Users GetUserByEmail(this IRepository<Users> repo, string email)
