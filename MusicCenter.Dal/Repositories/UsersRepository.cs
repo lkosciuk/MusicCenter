@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MusicCenter.Dal.RepoExt;
 using System.Data.Entity;
+using System.Linq.Expressions;
+using MusicCenter.Common.Extensions;
 
 namespace MusicCenter.Dal.Repositories
 {
@@ -22,14 +24,9 @@ namespace MusicCenter.Dal.Repositories
             return repo.Queryable().Any(u => u.email.ToLower().Equals(email.ToLower()));                     
         }
 
-        public static Users GetUserByEmail(this IRepository<Users> repo, string email)
+        public static Users GetUserByEmail(this IRepository<Users> repo, string email, params Expression<Func<Users, object>>[] includes)
         {
-            return repo.Queryable()
-                .Include(d => d.favourites)
-                   .Include(d => d.profilePhoto)
-                   .Include(d => d.roles)
-                   .Include(d => d.receivedMessages)
-                   .FirstOrDefault(u => u.email.ToLower() == email.ToLower());
+            return repo.Queryable().IncludeAll(includes).FirstOrDefault(u => u.email.ToLower() == email.ToLower());
         }
     }
 }

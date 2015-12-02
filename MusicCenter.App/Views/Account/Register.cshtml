@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Styles.Render("~/Content/RegisterCss/css")
+@Styles.Render("~/Content/Account/Register.css")
 @Scripts.Render("~/Scripts/Account/Register.js")
 
 <div class="container text-center">
@@ -17,7 +17,7 @@
                 <img src="~/Content/Uploads/DefaultUserAv.jpg" alt="..." class="img-thumbnail" style="display:block;margin-left:auto;margin-right:auto;" width="200" height="200" id="userAvatar">
                 <br/>
                 <span class="btn btn-primary btn-file">
-                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar, new { type = "file", @id = "avatar"})
+                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar.PostedFile, new { type = "file", @id = "avatar"})
                 </span>
             </div>
             <br />

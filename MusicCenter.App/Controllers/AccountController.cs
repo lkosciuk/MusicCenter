@@ -28,12 +28,12 @@ namespace MusicCenter.App.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel RegisterModel)
         {
-            if (RegisterModel.Avatar != null)
+            if (RegisterModel.Avatar.PostedFile != null)
             {
-                string trailingPath = RegisterModel.Avatar.FileName;
+                string trailingPath = RegisterModel.Avatar.PostedFile.FileName;
                 string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
 
-                RegisterModel.AvatarRelativePath = fullPath;
+                RegisterModel.Avatar.RelativePathToSave = fullPath;
             }         
 
             if (ModelState.IsValid)

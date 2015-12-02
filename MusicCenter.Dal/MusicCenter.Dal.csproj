@@ -120,9 +120,14 @@
     <Compile Include="Migrations\201511291744080_passwordNotRequired.Designer.cs">
       <DependentUpon>201511291744080_passwordNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512021458255_EmailLength60.cs" />
+    <Compile Include="Migrations\201512021458255_EmailLength60.Designer.cs">
+      <DependentUpon>201512021458255_EmailLength60.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoExt\QueryableExt.cs" />
     <Compile Include="RepoExt\RepositoryExt.cs" />
     <Compile Include="Repositories\FileRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
@@ -165,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511291744080_passwordNotRequired.resx">
       <DependentUpon>201511291744080_passwordNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512021458255_EmailLength60.resx">
+      <DependentUpon>201512021458255_EmailLength60.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

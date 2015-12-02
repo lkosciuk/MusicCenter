@@ -16,7 +16,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.ToTable("Users");
 
             this.Property(a => a.password).HasMaxLength(10);
-            this.Property(a => a.email).HasMaxLength(20).IsRequired();
+            this.Property(a => a.email).HasMaxLength(60).IsRequired();
 
             //relationships
             HasOptional(u => u.profilePhoto).WithRequired();

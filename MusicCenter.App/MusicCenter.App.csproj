@@ -198,12 +198,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\RegisterCss\Register.css" />
+    <Content Include="Content\Account\Register.css" />
     <Content Include="Content\Uploads\DefaultAlbumAv.jpg" />
     <Content Include="Content\Uploads\DefaultBandAv.png" />
     <Content Include="Content\Uploads\DefaultUserAv.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\User\UserProfile.css" />
     <Content Include="Content\zabuto_calendar.css" />
     <Content Include="Content\zabuto_calendar.min.css" />
     <Content Include="favicon.ico" />
@@ -228,6 +229,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\User\UserProfile.js" />
     <Content Include="Scripts\zabuto_calendar.js" />
     <Content Include="Scripts\zabuto_calendar.min.js" />
     <Content Include="Scripts\_references.js" />

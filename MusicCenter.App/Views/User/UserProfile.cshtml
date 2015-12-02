@@ -4,4 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Styles.Render("~/Content/User/UserProfile.css")
+@Scripts.Render("~/Scripts/User/UserProfile.js")
 
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand glyphicon-align-center">
+            <img src="@Model.Avatar.PathToShow" class="img-circle" width="50" height="50"> 
+        </li>
+        <li class="sidebar-brand">
+            <span style="color:white">@Model.Email</span>
+        </li>
+        <li>
+            <a href="#">Profile</a>
+        </li>
+        <li>
+            <a href="#">Messages</a>
+        </li>
+        <li>
+            <a href="#">Favourites</a>
+        </li>
+        <li>
+            <a href="#">Your bands</a>
+        </li>
+    </ul>
+</div>

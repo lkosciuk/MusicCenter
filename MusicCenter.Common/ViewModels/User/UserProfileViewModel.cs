@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicCenter.Common.ViewModels.File;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -30,9 +31,6 @@ namespace MusicCenter.Common.ViewModels.User
         [Compare("Password", ErrorMessageResourceName = "PasswordConfirmMatch", ErrorMessageResourceType = typeof(Resources.Global))]
         public string PasswordConfirm { get; set; }
 
-        [DataType(DataType.Upload)]
-        public HttpPostedFileBase Avatar { get; set; }
-
-        public string AvatarRelativePath { get; set; }
+        public FileViewModel Avatar { get; set; }
     }
 }

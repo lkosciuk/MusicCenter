@@ -14,6 +14,8 @@ using MusicCenter.Dal.Repositories;
 using System.IO;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.Web;
+using MusicCenter.Common.ViewModels.File;
 
 namespace MusicCenter.Services.Services
 {
@@ -45,12 +47,12 @@ namespace MusicCenter.Services.Services
             newUser.email = RegisterModel.Email;
             newUser.password = RegisterModel.Password;
 
-            if (RegisterModel.Avatar != null)
+            if (RegisterModel.Avatar.PostedFile != null)
             {
                 userAvatar = new Files();
-                userAvatar.name = RegisterModel.Avatar.FileName;
-                userAvatar.path = "/Content/Uploads/" + RegisterModel.Avatar.FileName;
-                RegisterModel.Avatar.SaveAs(RegisterModel.AvatarRelativePath); 
+                userAvatar.name = RegisterModel.Avatar.PostedFile.FileName;
+                userAvatar.path = "/Content/Uploads/" + RegisterModel.Avatar.PostedFile.FileName;
+                RegisterModel.Avatar.PostedFile.SaveAs(RegisterModel.Avatar.RelativePathToSave); 
             }
             else
             {
@@ -103,7 +105,7 @@ namespace MusicCenter.Services.Services
 
         public UserPanelViewModel GerUserPanelViewModelByEmail(string email)
         {
-            Users loggedUser = _repo.GetUserByEmail(email);
+            Users loggedUser = _repo.GetUserByEmail(email, u => u.favourites, u => u.profilePhoto, u => u.roles, u => u.receivedMessages);
 
             UserPanelViewModel model = new UserPanelViewModel()
             {
@@ -172,7 +174,15 @@ namespace MusicCenter.Services.Services
 
         public UserProfileViewModel GetUserProfile(string email)
         {
-            return _repo.
+            Users currentUser = _repo.GetUserByEmail(email, u => u.profilePhoto);
+
+            return new UserProfileViewModel()
+                       {
+                            Email = currentUser.email,
+                            FirstName = currentUser.firstName,
+                            LastName = currentUser.lastName,
+                            Avatar = new FileViewModel() { PathToShow = currentUser.profilePhoto.path}
+                       };
         }
     }
 }
