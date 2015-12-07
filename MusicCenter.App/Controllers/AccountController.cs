@@ -62,7 +62,7 @@ namespace MusicCenter.App.Controllers
 
         public ActionResult LogIn(LoginViewModel model)
         {
-            if (UserService.VerifyLoginAndPassword(model))
+            if (UserService.VerifyLoginAndPassword(model.Email, model.Password))
             {
                  FormsAuthentication.SetAuthCookie(model.Email, false);
             }               

@@ -105,6 +105,7 @@
     <Compile Include="ViewModels\User\SoundCloudRegisterViewModel.cs" />
     <Compile Include="ViewModels\User\UserPanelViewModel.cs" />
     <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
+    <Compile Include="ViewModels\User\UserSoundcloudProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

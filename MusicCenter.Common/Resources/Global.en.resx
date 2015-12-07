@@ -150,11 +150,29 @@
   <data name="EmailValid" xml:space="preserve">
     <value>It's not valid email address</value>
   </data>
+  <data name="Favourites" xml:space="preserve">
+    <value>Favourites</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
   <data name="LogOut" xml:space="preserve">
     <value>Log out</value>
   </data>
+  <data name="Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
   <data name="NewMessages" xml:space="preserve">
     <value>New messages:</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Old password</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -174,11 +192,17 @@
   <data name="PasswordRequired" xml:space="preserve">
     <value>Password is required</value>
   </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Remember me</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
@@ -191,5 +215,8 @@
   </data>
   <data name="Songs" xml:space="preserve">
     <value>Songs</value>
+  </data>
+  <data name="YourBands" xml:space="preserve">
+    <value>Your bands</value>
   </data>
 </root>

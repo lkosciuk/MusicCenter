@@ -124,9 +124,12 @@ namespace MusicCenter.Services.Services
             Files userAvatar = new Files();
 
             newUser.email = userData.username;
+            newUser.firstName = userData.FirstName;
+            newUser.lastName = userData.LastName;
+
             userAvatar.path = userData.avatar_url;
             userAvatar.name = userData.username + " " + "SoundCloud";
-
+            
             _unitOfWork.BeginTransaction();
 
             userAvatar.ObjectState = ObjectState.Added;
@@ -167,9 +170,9 @@ namespace MusicCenter.Services.Services
             }
         }
 
-        public bool VerifyLoginAndPassword(LoginViewModel model)
+        public bool VerifyLoginAndPassword(string email, string password)
         {
-            return _repo.Queryable().Any(u => u.email == model.Email && u.password == model.Password);
+            return _repo.Queryable().Any(u => u.email == email && u.password == password);
         }
 
         public UserProfileViewModel GetUserProfile(string email)
@@ -178,11 +181,64 @@ namespace MusicCenter.Services.Services
 
             return new UserProfileViewModel()
                        {
-                            Email = currentUser.email,
                             FirstName = currentUser.firstName,
                             LastName = currentUser.lastName,
                             Avatar = new FileViewModel() { PathToShow = currentUser.profilePhoto.path}
                        };
+        }
+
+
+        public void UpdateUser(UserProfileViewModel model)
+        {
+            Users currentUser = _repo.GetUserByEmail(model.email, u => u.profilePhoto);
+            currentUser.firstName = model.FirstName;
+            currentUser.lastName = model.LastName;
+            currentUser.password = model.Password;
+
+            if (model.Avatar.PostedFile != null)
+            {
+                currentUser.profilePhoto.ObjectState = ObjectState.Modified;
+                currentUser.profilePhoto.name = model.Avatar.PostedFile.FileName;
+                currentUser.profilePhoto.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
+                model.Avatar.PostedFile.SaveAs(model.Avatar.RelativePathToSave);
+            }
+            currentUser.ObjectState = ObjectState.Modified;
+
+            _repo.InsertOrUpdateGraph(currentUser);
+            _unitOfWork.SaveChanges();
+        }
+
+
+        public UserSoundcloudProfileViewModel GetUserSoundcloudProfile(string email)
+        {
+            Users currentUser = _repo.GetUserByEmail(email, u => u.profilePhoto);
+
+            return new UserSoundcloudProfileViewModel()
+            {
+                FirstName = currentUser.firstName,
+                LastName = currentUser.lastName,
+                Avatar = new FileViewModel() { PathToShow = currentUser.profilePhoto.path }
+            };
+        }
+
+
+        public void UpdateSoundCloudUser(UserSoundcloudProfileViewModel model)
+        {
+            Users currentUser = _repo.GetUserByEmail(model.email, u => u.profilePhoto);
+            currentUser.firstName = model.FirstName;
+            currentUser.lastName = model.LastName;
+
+            if (model.Avatar.PostedFile != null)
+            {
+                currentUser.profilePhoto.ObjectState = ObjectState.Modified;
+                currentUser.profilePhoto.name = model.Avatar.PostedFile.FileName;
+                currentUser.profilePhoto.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
+                model.Avatar.PostedFile.SaveAs(model.Avatar.RelativePathToSave);
+            }
+            currentUser.ObjectState = ObjectState.Modified;
+
+            _repo.InsertOrUpdateGraph(currentUser);
+            _unitOfWork.SaveChanges();
         }
     }
 }

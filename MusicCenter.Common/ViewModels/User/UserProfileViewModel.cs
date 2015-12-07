@@ -11,9 +11,7 @@ namespace MusicCenter.Common.ViewModels.User
 {
     public class UserProfileViewModel
     {
-        [Required(ErrorMessageResourceName = "EmailRequired", ErrorMessageResourceType = typeof(Resources.Global))]
-        [EmailAddress(ErrorMessageResourceName = "EmailValid", ErrorMessageResourceType = typeof(Resources.Global))]
-        public string Email { get; set; }
+        public string email { get; set; }
 
         public string FirstName { get; set; }
 

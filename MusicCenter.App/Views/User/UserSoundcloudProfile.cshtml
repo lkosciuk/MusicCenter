@@ -1,4 +1,4 @@
-﻿@model MusicCenter.Common.ViewModels.User.UserProfileViewModel
+﻿@model MusicCenter.Common.ViewModels.User.UserSoundcloudProfileViewModel
 
 @{
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -8,7 +8,7 @@
 @Scripts.Render("~/Scripts/User/UserProfile.js")
 
 <div class="container text-center">
-    <form action="@Url.Action("UserProfile", "User")" method="POST" style="display:inline-block;" id="register-form" novalidate="novalidate" enctype="multipart/form-data">
+    <form action="@Url.Action("UserSoundcloudProfile", "User")" method="POST" style="display:inline-block;" id="register-form" novalidate="novalidate" enctype="multipart/form-data">
         <fieldset>
             @Html.HiddenFor(m => m.email)
             <div class="control-group">
@@ -32,30 +32,6 @@
                 </div>
             </div>
             <div class="control-group">
-                <!-- Password-->
-                <label class="control-label" for="password">@MusicCenter.Common.Resources.Global.OldPassword</label>
-                <div class="controls">
-                    @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control", @id = "password" })
-                    <b>@Html.ValidationMessageFor(m => m.OldPassword)</b>
-                </div>
-            </div>
-            <div class="control-group">
-                <!-- Password-->
-                <label class="control-label" for="password">@MusicCenter.Common.Resources.Global.NewPassword</label>
-                <div class="controls">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password" })
-                    <b>@Html.ValidationMessageFor(m => m.Password)</b>
-                </div>
-            </div><div class="control-group">
-                <!-- Password -->
-                <label class="control-label" for="password_confirm">@MusicCenter.Common.Resources.Global.PasswordConfirm</label>
-                <div class="controls">
-                    @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control", @id = "password_confirm" })
-                    <b>@Html.ValidationMessageFor(m => m.PasswordConfirm)</b>
-                </div>
-            </div>
-
-            <div class="control-group">
                 <!-- Button -->
                 <div class="controls">
                     <br />
@@ -65,3 +41,4 @@
         </fieldset>
     </form>
 </div>
+

@@ -94,3 +94,4 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.start00.re
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.passwordNotRequired.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.passwordNotRequired.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.EmailLength60.resources
+D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.EmailLength60.resources

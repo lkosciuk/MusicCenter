@@ -2,7 +2,6 @@
 
         this.Init = function () {
             $('#avatar').change(this.UpdateUsersAvatar);
-            $('#email').focusout(this.ValidateEmail);
         }
 
         this.UpdateUsersAvatar = function () {
@@ -20,29 +19,6 @@
                 $('#userAvatar').attr('src', '/Content/Uploads/DefaultUserAv.jpg');
                 $('#avatar').val("");
             }
-        }
-
-        this.ValidateEmail = function () {
-
-            var email = $('#email').val();
-
-            $.ajax({
-                url: '@Url.Action("IsEmailValid", "Account")',
-                type: "POST",
-                data: {email: email},
-                success: function (data) {
-                    if (data == "False") 
-                    {
-                        $('#EmailControls').addClass("has-error");
-                        $('#EmailUnique').text('@MusicCenter.Common.Resources.Global.EmailUnique');
-                    }
-                    else
-                    {
-                        $('#EmailControls').removeClass("has-error");
-                        $('#EmailUnique').text("");
-                    }
-                }
-            })
         }
     }
 

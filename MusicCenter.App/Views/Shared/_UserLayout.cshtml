@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/User/UserPage.css")
+
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <span style="color:white">@User.Identity.Name</span>
+        </li>
+        <li>
+            <a href="#" id="UserProfile">@MusicCenter.Common.Resources.Global.Profile</a>
+        </li>
+        <li>
+            <a href="@Url.Action("UserMessages", "User")" id="UserMessages">@MusicCenter.Common.Resources.Global.Messages</a>
+        </li>
+        <li>
+            <a href="@Url.Action("UserFavourites", "User")" id="UserFavourites">@MusicCenter.Common.Resources.Global.Favourites</a>
+        </li>
+        <li>
+            <a href="@Url.Action("UserBands", "User")" id="UserBands">@MusicCenter.Common.Resources.Global.YourBands</a>
+        </li>
+    </ul>
+</div>
+
+@RenderBody()
+
+<script>
+    $(document).ready(function () {
+
+        if (sessionStorage['scToken'] !== null) {
+            $("#UserProfile").attr("href", '@Url.Action("UserSoundcloudProfile", "User")')
+        }
+        else {
+            $("#UserProfile").attr("href", '@Url.Action("UserProfile", "User")')
+        }
+
+
+    })
+</script>
