@@ -28,5 +28,6 @@ namespace MusicCenter.Dal.Repositories
         {
             return repo.Queryable().IncludeAll(includes).FirstOrDefault(u => u.email.ToLower() == email.ToLower());
         }
+
     }
 }

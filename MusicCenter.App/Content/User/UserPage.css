@@ -14,7 +14,7 @@
     z-index: 1000;
     position: fixed;
     left: 250px;
-    width: 0;
+    width: 150px;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
@@ -98,7 +98,7 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 150px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

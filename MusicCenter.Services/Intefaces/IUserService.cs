@@ -1,4 +1,5 @@
-﻿using MusicCenter.Common.ViewModels.User;
+﻿using MusicCenter.Common.ViewModels.Message;
+using MusicCenter.Common.ViewModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,7 @@ namespace MusicCenter.Services.Intefaces
         UserSoundcloudProfileViewModel GetUserSoundcloudProfile(string email);
 
         void UpdateSoundCloudUser(UserSoundcloudProfileViewModel model);
+
+        List<MessageLisItemViewModel> GetUserReceivedMessages(string email);
     }
 }

@@ -16,6 +16,8 @@ using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Web;
 using MusicCenter.Common.ViewModels.File;
+using MusicCenter.Common.ViewModels.Message;
+using MusicCenter.Dal.Repositories;
 
 namespace MusicCenter.Services.Services
 {
@@ -239,6 +241,23 @@ namespace MusicCenter.Services.Services
 
             _repo.InsertOrUpdateGraph(currentUser);
             _unitOfWork.SaveChanges();
+        }
+
+
+        public List<MessageLisItemViewModel> GetUserReceivedMessages(string email)
+        {
+            var userMessages = _unitOfWork.Repository<Message>()
+                                .Queryable().Where(m => m.UserReceivers.Any(u => u.email == email))
+                                .Select(msg => new MessageLisItemViewModel()
+                                                {
+                                                    Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
+                                                    Title = msg.title,
+                                                    Content = msg.content,
+                                                    IsReaded = msg.isReaded,
+                                                    SentDate = msg.sentDate
+                                                }).OrderBy(d => d.SentDate);
+
+            return userMessages.ToList();
         }
     }
 }

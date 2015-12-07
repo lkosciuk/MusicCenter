@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddBand" xml:space="preserve">
+    <value>Dodaj zespół</value>
+  </data>
+  <data name="AddBandInfo" xml:space="preserve">
+    <value>Nie posiadasz żadnego zespołu, kliknij przycisk poniżej aby jakiś dodać...</value>
+  </data>
   <data name="Albums" xml:space="preserve">
     <value>Albumy</value>
   </data>
@@ -138,6 +144,9 @@
   <data name="Concerts" xml:space="preserve">
     <value>Koncerty</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Adres email</value>
   </data>
@@ -156,6 +165,9 @@
   <data name="FirstName" xml:space="preserve">
     <value>Imię</value>
   </data>
+  <data name="Genres" xml:space="preserve">
+    <value>Gatunki</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Nazwisko</value>
   </data>
@@ -164,6 +176,9 @@
   </data>
   <data name="Messages" xml:space="preserve">
     <value>Wiadomości</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
   </data>
   <data name="NewMessages" xml:space="preserve">
     <value>Nowe wiadomości:</value>
@@ -215,6 +230,9 @@
   </data>
   <data name="Songs" xml:space="preserve">
     <value>Utwory</value>
+  </data>
+  <data name="YearsActive" xml:space="preserve">
+    <value>Lata aktywności</value>
   </data>
   <data name="YourBands" xml:space="preserve">
     <value>Twoje zespoły</value>

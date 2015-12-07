@@ -124,6 +124,10 @@
     <Compile Include="Migrations\201512021458255_EmailLength60.Designer.cs">
       <DependentUpon>201512021458255_EmailLength60.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512071631225_AddedIsAvatarToFiles.cs" />
+    <Compile Include="Migrations\201512071631225_AddedIsAvatarToFiles.Designer.cs">
+      <DependentUpon>201512071631225_AddedIsAvatarToFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512021458255_EmailLength60.resx">
       <DependentUpon>201512021458255_EmailLength60.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071631225_AddedIsAvatarToFiles.resx">
+      <DependentUpon>201512071631225_AddedIsAvatarToFiles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

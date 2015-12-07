@@ -58,10 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Intefaces\IBandService.cs" />
     <Compile Include="Intefaces\IFilesService.cs" />
     <Compile Include="Intefaces\IRoleService.cs" />
     <Compile Include="Intefaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BandService.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\FilesService.cs" />
     <Compile Include="Services\RoleService.cs" />

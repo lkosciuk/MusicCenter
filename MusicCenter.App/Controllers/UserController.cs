@@ -1,4 +1,6 @@
-﻿using MusicCenter.Common.ViewModels.User;
+﻿using MusicCenter.Common.ViewModels.Band;
+using MusicCenter.Common.ViewModels.Message;
+using MusicCenter.Common.ViewModels.User;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -12,10 +14,12 @@ namespace MusicCenter.App.Controllers
     public class UserController : BaseController
     {
         IUserService userService;
+        IBandService bandService;
 
-        public UserController(IUserService service)
+        public UserController(IUserService service, IBandService bandServ)
         {
             userService = service;
+            bandService = bandServ;
         }
 
         [Authorize]
@@ -37,7 +41,9 @@ namespace MusicCenter.App.Controllers
         [Authorize]
         public ActionResult UserMessages()
         {
-            return View();
+            List<MessageLisItemViewModel> userMessages = userService.GetUserReceivedMessages(User.Identity.Name);
+
+            return View(userMessages);
         }
 
         [Authorize]
@@ -107,7 +113,9 @@ namespace MusicCenter.App.Controllers
         [Authorize]
         public ActionResult UserBands()
         {
-            return View();
+            List<BandListItemViewModel> userBands = bandService.GetUserBandList(User.Identity.Name);
+
+            return View(userBands);
         }
     }
 }
