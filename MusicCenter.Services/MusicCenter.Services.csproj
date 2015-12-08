@@ -59,14 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Intefaces\IBandService.cs" />
-    <Compile Include="Intefaces\IFilesService.cs" />
-    <Compile Include="Intefaces\IRoleService.cs" />
+    <Compile Include="Intefaces\IFavouritesService.cs" />
+    <Compile Include="Intefaces\IMessageService.cs" />
     <Compile Include="Intefaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BandService.cs" />
     <Compile Include="Services\BaseService.cs" />
-    <Compile Include="Services\FilesService.cs" />
-    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\FavouritesService.cs" />
+    <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

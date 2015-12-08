@@ -1,0 +1,33 @@
+﻿@model MusicCenter.Common.ViewModels.Message.MessageDetailsViewModel
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<ul class="nav nav-tabs" style="margin-bottom:10px">
+    <li role="presentation"><a href="@Url.Action("UserMessages", "Message")">Received</a></li>
+    <li role="presentation"><a href="@Url.Action("UserSentMessages", "Message")">Sent</a></li>
+    <li role="presentation" class="active"><a href="@Url.Action("UserNewMessage", "Message")">New message</a></li>
+</ul>
+
+    <div class="form-group">
+        <label>Author</label>
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control", disabled="disabled", @placeholder = "separated by comma" })
+    </div>
+    <div class="form-group">
+        <label>Title</label>
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", disabled = "disabled" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <div class="form-group">
+        <label>Message</label>
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control", disabled="disabled", @rows = "4" })
+    </div>
+    <div class="form-group">
+        <a class="btn btn-default" href="@Url.Action("UserNewMessage", "Message", new { MessageId = @Model.Id })" role="button">Reply</a>
+    </div>
+
+    
+
+
+

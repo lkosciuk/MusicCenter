@@ -22,15 +22,15 @@ namespace MusicCenter.Dal.EntityConfigurations
             
             //relationships
             this.HasOptional(t => t.BandAuthor)
-                .WithMany(t => t.receivedMessages)
+                .WithMany(t => t.sentMessages)
                 .HasForeignKey(d => d.BandID);
 
             this.HasOptional(t => t.UserAuthor)
-                .WithMany(t => t.receivedMessages)
+                .WithMany(t => t.sentMessages)
                 .HasForeignKey(d => d.UserID);
 
             this.HasMany(t => t.UserReceivers)
-                .WithMany(t => t.sentMessages)
+                .WithMany(t => t.receivedMessages)
                 .Map(m =>
                 {
                     m.ToTable("MessageUser");
@@ -39,7 +39,7 @@ namespace MusicCenter.Dal.EntityConfigurations
                 });
 
             this.HasMany(t => t.BandReceivers)
-                .WithMany(t => t.sentMessages)
+                .WithMany(t => t.receivedMessages)
                 .Map(m =>
                 {
                     m.ToTable("MessageBand");

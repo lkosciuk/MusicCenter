@@ -11,6 +11,7 @@ namespace MusicCenter.Services.Intefaces
     public interface IUserService
     {
         bool IfUserExists(string login);
+
         void Register(RegisterViewModel urvm);
 
         UserPanelViewModel GerUserPanelViewModelByEmail(string email);
@@ -25,7 +26,6 @@ namespace MusicCenter.Services.Intefaces
         UserSoundcloudProfileViewModel GetUserSoundcloudProfile(string email);
 
         void UpdateSoundCloudUser(UserSoundcloudProfileViewModel model);
-
-        List<MessageLisItemViewModel> GetUserReceivedMessages(string email);
+     
     }
 }

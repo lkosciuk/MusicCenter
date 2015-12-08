@@ -13,13 +13,13 @@
             <a href="#" id="UserProfile">@MusicCenter.Common.Resources.Global.Profile</a>
         </li>
         <li>
-            <a href="@Url.Action("UserMessages", "User")" id="UserMessages">@MusicCenter.Common.Resources.Global.Messages</a>
+            <a href="@Url.Action("UserMessages", "Message")" id="UserMessages">@MusicCenter.Common.Resources.Global.Messages</a>
         </li>
         <li>
-            <a href="@Url.Action("UserFavourites", "User")" id="UserFavourites">@MusicCenter.Common.Resources.Global.Favourites</a>
+            <a href="@Url.Action("UserFavourites", "Favourites")" id="UserFavourites">@MusicCenter.Common.Resources.Global.Favourites</a>
         </li>
         <li>
-            <a href="@Url.Action("UserBands", "User")" id="UserBands">@MusicCenter.Common.Resources.Global.YourBands</a>
+            <a href="@Url.Action("UserBands", "Band")" id="UserBands">@MusicCenter.Common.Resources.Global.YourBands</a>
         </li>
     </ul>
 </div>
@@ -29,7 +29,8 @@
 <script>
     $(document).ready(function () {
 
-        if (sessionStorage['scToken'] !== null) {
+        debugger;
+        if (sessionStorage['scToken']) {
             $("#UserProfile").attr("href", '@Url.Action("UserSoundcloudProfile", "User")')
         }
         else {

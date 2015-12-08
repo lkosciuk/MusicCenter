@@ -1,5 +1,79 @@
-﻿@{
+﻿@model MusicCenter.Common.ViewModels.Band.AddBandViewModel
+
+@{
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+@Styles.Render("~/Content/Account/Register.css")
+@Scripts.Render("~/Scripts/Band/AddBand.js")
+@Scripts.Render("~/Scripts/Datepicker.js")
 
-No to dodajemy pierwszy zespół
+<br />
+<form>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <img src="~/Content/Uploads/DefaultBandAv.png" alt="..." class="img-thumbnail" style="display:block;margin-left:auto;margin-right:auto;" width="200" height="200" id="bandAvatar">
+        </div>
+        <div class="col-md-2">
+            <br /><br /><br /><br /><br /><br />
+            <span class="btn btn-primary btn-file">
+                @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar.PostedFile, new { type = "file", @class = "input-sm", @id = "avatar" })
+            </span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label class="control-label input-sm">Nazwa:</label>
+        </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label class="control-label input-sm">Email:</label>
+        </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm" })
+        </div>
+        <div class="col-md-2">
+            <label class="control-label input-sm">Telefon:</label>
+        </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <label class="control-label input-sm">Creation date:</label>
+        </div>
+        <div class="col-md-2">
+            <div class='input-group input-sm date' id='createDate'>
+                <input type='text' class="form-control input-sm" />
+                <span class="input-group-addon input-sm">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label class="control-label input-sm">Resolve date:</label>
+        </div>
+        <div class="col-md-2">
+            <div class='input-group input-sm date' id='resolveDate'>
+                <input type='text' class="form-control input-sm" />
+                <span class="input-group-addon input-sm">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-1">
+            <label class="control-label input-sm">Opis:</label>
+        </div>
+        <div class="col-md-11">
+            <textarea rows="5" style="width:100%; max-width:none"></textarea>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-default pull-right" value="Create" />
+</form>

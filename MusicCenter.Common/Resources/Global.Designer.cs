@@ -196,6 +196,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pole jest wymagane.
+        /// </summary>
+        public static string FieldRequired {
+            get {
+                return ResourceManager.GetString("FieldRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Imię.
         /// </summary>
         public static string FirstName {
@@ -228,6 +237,15 @@ namespace MusicCenter.Common.Resources {
         public static string LogOut {
             get {
                 return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odbiorcy muszą być oddzieleni przecinkami.
+        /// </summary>
+        public static string MessageRecipientsError {
+            get {
+                return ResourceManager.GetString("MessageRecipientsError", resourceCulture);
             }
         }
         

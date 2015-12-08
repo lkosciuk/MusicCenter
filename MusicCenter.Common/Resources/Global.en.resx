@@ -162,6 +162,9 @@
   <data name="Favourites" xml:space="preserve">
     <value>Favourites</value>
   </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Field is required</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>First name</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>Log out</value>
+  </data>
+  <data name="MessageRecipientsError" xml:space="preserve">
+    <value>Recipients must be separated by semicolon</value>
   </data>
   <data name="Messages" xml:space="preserve">
     <value>Messages</value>

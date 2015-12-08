@@ -20,5 +20,10 @@ namespace MusicCenter.Dal.EntityModels
         public virtual Band BandAuthor { get; set; }
         public virtual ICollection<Band> BandReceivers { get; set; }
 
+        public Message()
+        {
+            UserReceivers = new List<Users>();
+            BandReceivers = new List<Band>();
+        }
     }
 }

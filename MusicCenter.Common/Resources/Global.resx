@@ -162,6 +162,9 @@
   <data name="Favourites" xml:space="preserve">
     <value>Ulubione</value>
   </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Pole jest wymagane</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>Imię</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>Wyloguj</value>
+  </data>
+  <data name="MessageRecipientsError" xml:space="preserve">
+    <value>Odbiorcy muszą być oddzieleni przecinkami</value>
   </data>
   <data name="Messages" xml:space="preserve">
     <value>Wiadomości</value>

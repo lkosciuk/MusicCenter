@@ -16,10 +16,9 @@ namespace MusicCenter.App.Controllers
         IUserService userService;
         IBandService bandService;
 
-        public UserController(IUserService service, IBandService bandServ)
+        public UserController(IUserService service)
         {
             userService = service;
-            bandService = bandServ;
         }
 
         [Authorize]
@@ -29,21 +28,6 @@ namespace MusicCenter.App.Controllers
             model = userService.GerUserPanelViewModelByEmail(User.Identity.Name);
 
             return PartialView("_UserPanel", model);
-        }
-
-        // GET: User
-        [Authorize]
-        public ActionResult UserFavourites()
-        {
-            return View();
-        }
-
-        [Authorize]
-        public ActionResult UserMessages()
-        {
-            List<MessageLisItemViewModel> userMessages = userService.GetUserReceivedMessages(User.Identity.Name);
-
-            return View(userMessages);
         }
 
         [Authorize]
@@ -109,13 +93,5 @@ namespace MusicCenter.App.Controllers
             return View(updatedUser);
         }
 
-
-        [Authorize]
-        public ActionResult UserBands()
-        {
-            List<BandListItemViewModel> userBands = bandService.GetUserBandList(User.Identity.Name);
-
-            return View(userBands);
-        }
     }
 }

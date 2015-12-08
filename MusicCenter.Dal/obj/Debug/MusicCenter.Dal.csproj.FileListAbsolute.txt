@@ -96,3 +96,4 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.passwordNo
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.EmailLength60.resources
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.EmailLength60.resources
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.AddedIsAvatarToFiles.resources
+D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.poprawaRelacjiWiadomosci.resources

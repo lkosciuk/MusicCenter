@@ -189,7 +189,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BandController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FavouritesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +214,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Band\AddBand.js" />
+    <Content Include="Scripts\Datepicker.js" />
     <Content Include="Scripts\Layout\LoginPanel.js" />
     <Content Include="Scripts\Account\Register.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -261,11 +265,14 @@
     <Content Include="Views\Account\SoundCloudCallback.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
-    <Content Include="Views\User\UserFavourites.cshtml" />
+    <Content Include="Views\Favourites\UserFavourites.cshtml" />
     <Content Include="Views\User\UserSoundcloudProfile.cshtml" />
-    <Content Include="Views\User\UserBands.cshtml" />
+    <Content Include="Views\Band\UserBands.cshtml" />
     <Content Include="Views\Band\AddBand.cshtml" />
-    <Content Include="Views\User\UserMessages.cshtml" />
+    <Content Include="Views\Message\UserMessages.cshtml" />
+    <Content Include="Views\Message\UserSentMessages.cshtml" />
+    <Content Include="Views\Message\UserNewMessage.cshtml" />
+    <Content Include="Views\Message\MessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

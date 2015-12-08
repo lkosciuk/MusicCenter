@@ -128,6 +128,10 @@
     <Compile Include="Migrations\201512071631225_AddedIsAvatarToFiles.Designer.cs">
       <DependentUpon>201512071631225_AddedIsAvatarToFiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.cs" />
+    <Compile Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.Designer.cs">
+      <DependentUpon>201512081147294_poprawaRelacjiWiadomosci.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512071631225_AddedIsAvatarToFiles.resx">
       <DependentUpon>201512071631225_AddedIsAvatarToFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.resx">
+      <DependentUpon>201512081147294_poprawaRelacjiWiadomosci.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
