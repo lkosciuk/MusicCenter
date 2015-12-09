@@ -97,3 +97,6 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.EmailLengt
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.EmailLength60.resources
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.AddedIsAvatarToFiles.resources
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.poprawaRelacjiWiadomosci.resources
+D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.NullableDateBand.resources
+D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.UserNIeMozeBycCzlonkiemZespolu.resources
+D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.niedziala.resources

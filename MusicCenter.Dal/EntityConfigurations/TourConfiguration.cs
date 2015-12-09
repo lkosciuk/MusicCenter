@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MusicCenter.Dal.EntityConfigurations
 {
-    public class TourConfiguration : EntityTypeConfiguration<Tour>
+    public class TourConfiguration : BaseEntityMap<Tour>
     {
         public TourConfiguration()
             : base()

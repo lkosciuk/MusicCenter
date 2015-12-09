@@ -1,5 +1,6 @@
 ﻿using MusicCenter.Common.ViewModels.Band;
 using MusicCenter.Dal.EntityModels;
+using MusicCenter.Dal.Repositories;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ using MusicCenter.Dal.RepoExt;
 using System.Data.Entity;
 using MusicCenter.Common.ViewModels.File;
 using Repository.Pattern.UnitOfWork;
+using Repository.Pattern.Infrastructure;
+using System.Text.RegularExpressions;
 
 namespace MusicCenter.Services.Services
 {
@@ -40,6 +43,93 @@ namespace MusicCenter.Services.Services
                 });
 
             return bands.ToList();
+        }
+
+
+        public bool IfBandExists(string name)
+        {
+            return _repo.Queryable().Any(b => b.name.ToLower() == name.ToLower());
+        }
+
+        public void AddBand(AddBandViewModel model)
+        {
+            Users currentUser = _unitOfWork.Repository<Users>().Queryable().FirstOrDefault(u => u.email == model.UserEmail);
+
+            Band newBand = new Band()
+            {
+                name = model.Name,
+                email = model.Email,
+                phoneNumber = model.Phone,
+                addDate = DateTime.Now,
+                bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.Parse(model.CreationDate),
+                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.Parse(model.ResolveDate),
+                ObjectState = ObjectState.Added,
+                user = currentUser,
+                UserID = currentUser.Id,
+                description = model.Description
+            };
+
+            currentUser.bands.Add(newBand);
+
+            List<Genre> BandGenres = new List<Genre>();
+            List<BandMember> Members = new List<BandMember>();
+            Files bandAvatar;
+
+            Regex.Replace(model.Genres, @"\s+", "");
+
+            string[] Genres = model.Genres.Split(',');
+
+            foreach (var genre in Genres)
+            {
+                if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                {
+                    Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                    newGenre.bands.Add(newBand);
+                    BandGenres.Add(newGenre);
+                }
+                else
+                {
+                    Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                    existingGenre.bands.Add(newBand);
+                    BandGenres.Add(existingGenre);
+                }
+
+                
+            }
+
+            foreach (var member in model.BandMembers)
+            {
+                BandMember newMember = new BandMember() { fullName = member, ObjectState = ObjectState.Added };
+                newMember.bands.Add(newBand);
+                Members.Add(newMember);
+            }
+
+            if (model.Avatar.PostedFile != null)
+            {
+                bandAvatar = new Files();
+                bandAvatar.band = newBand;
+                bandAvatar.IsAvatar = true;
+                bandAvatar.ObjectState = ObjectState.Added;
+                bandAvatar.name = model.Avatar.PostedFile.FileName;
+                bandAvatar.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
+                model.Avatar.PostedFile.SaveAs(model.Avatar.RelativePathToSave);
+            }
+            else
+            {
+                bandAvatar = new Files();
+                bandAvatar.band = newBand;
+                bandAvatar.IsAvatar = true;
+                bandAvatar.ObjectState = ObjectState.Added;
+                bandAvatar.name = "DefaultUserAv.jpg";
+                bandAvatar.path = "/Content/Uploads/DefaultUserAv.jpg";
+            }
+
+            newBand.genres = BandGenres;
+            newBand.members = Members;
+            newBand.images.Add(bandAvatar);
+
+            _repo.InsertOrUpdateGraph(newBand);
+            _unitOfWork.SaveChanges();
         }
     }
 }

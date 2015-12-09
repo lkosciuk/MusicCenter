@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MusicCenter.Dal.EntityConfigurations
 {
-    public class MessageConfiguration : EntityTypeConfiguration<Message>
+    public class MessageConfiguration : BaseEntityMap<Message>
     {
         public MessageConfiguration()
             : base()

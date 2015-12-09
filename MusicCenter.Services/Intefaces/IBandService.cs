@@ -11,5 +11,9 @@ namespace MusicCenter.Services.Intefaces
     {
 
         List<BandListItemViewModel> GetUserBandList(string email);
+
+        bool IfBandExists(string name);
+
+        void AddBand(AddBandViewModel model);
     }
 }

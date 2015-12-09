@@ -1,22 +1,36 @@
 ﻿
 AddBandScope = function () {
 
+    var BandMemberCounter = 0;
+
     this.Init = function () {
-        this.SetupCreationDatePicker();
-        this.SetupResolveDatePicker();
+        this.SetupJQueryDatePicker();
         $('#avatar').change(this.UpdateBandAvatar);
+        $('#AddBandMemberBtn').click(this.AddBandMemberTextBox);
+        $("#AddBandForm").submit(this.CreateBand);
     }
 
-    this.SetupCreationDatePicker = function () {
-
-        $.getScript("/Scripts/bootstrap.js", function () {
-            $('#createDate').datepicker();
-        });
+    this.SetupJQueryDatePicker = function () {
         
-    };
+        $("#CreationDate").datepicker({
+            
+            beforeShow: function () {
+                setTimeout(function () {
+                    $('.ui-datepicker').css('z-index', 99999999999999);
+                }, 0);
+            },
+            dateFormat: 'dd-mm-yy'
+        });
 
-    this.SetupResolveDatePicker = function () {
-        $('#resolveDate').datepicker();
+        $("#ResolveDate").datepicker({
+
+            beforeShow: function () {
+                setTimeout(function () {
+                    $('.ui-datepicker').css('z-index', 99999999999999);
+                }, 0);
+            },
+            dateFormat: 'dd-mm-yy'
+        });
     };
 
     this.UpdateBandAvatar = function () {
@@ -35,9 +49,35 @@ AddBandScope = function () {
             $('#avatar').val("");
         }
     }
+
+    this.AddBandMemberTextBox = function () {
+        
+        BandMemberCounter++;
+
+        var newTextBoxDiv = $(document.createElement('div'))
+	     .attr("id", 'TextBoxDiv' + BandMemberCounter);
+
+        newTextBoxDiv.after().html('<div class="row"><div class="col-sm-3"><input type="text" name="BandMembers" class="form-control input-sm" style="margin-bottom:20px" id="textbox' + BandMemberCounter + '" value="" ></div><div class="col-sm-1"><span class="glyphicon glyphicon-remove" onclick="RemoveMember(this)" id=' + BandMemberCounter + '></span></div></div>');
+
+        newTextBoxDiv.appendTo("#BandMembers");
+    }
+
+    this.CreateBand = function () {
+        $('#AddBandForm').ajaxForm();  
+    }
+
+
 }
           
 $(document).ready(function () {
     var addBandScope = new AddBandScope();
     addBandScope.Init();
+    
 });
+
+RemoveMember = function (btn)
+{
+    var BtnId = $(btn).attr('id');
+    $("#TextBoxDiv" + BtnId).remove();
+    $("span#" + BtnId).remove();
+}

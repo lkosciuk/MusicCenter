@@ -81,7 +81,7 @@ namespace MusicCenter.Services.Services
 
             Regex.Replace(message.Recipients, @"\s+", "");
 
-            string[] Recipients = message.Recipients.Split(';');
+            string[] Recipients = message.Recipients.Split(',');
 
             foreach (var recipient in Recipients)
             {

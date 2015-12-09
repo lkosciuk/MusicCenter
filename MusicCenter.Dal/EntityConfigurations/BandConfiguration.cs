@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MusicCenter.Dal.EntityConfigurations
 {
-    public class BandConfiguration : EntityTypeConfiguration<Band>
+    public class BandConfiguration : BaseEntityMap<Band>
     {
         public BandConfiguration()
             : base()

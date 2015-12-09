@@ -17,8 +17,8 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public string Description { get; set; }
 
-        public DateTime CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; }
 
-        public DateTime ResolveDate { get; set; }
+        public DateTime? ResolveDate { get; set; }
     }
 }

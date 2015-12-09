@@ -11,6 +11,10 @@ namespace MusicCenter.Dal.EntityModels
     {
         public string fullName { get; set; }
         public virtual ICollection<Band> bands { get; set; }
-        public virtual Users user { get; set; }
+
+        public BandMember()
+        {
+            bands = new List<Band>();
+        }
     }
 }

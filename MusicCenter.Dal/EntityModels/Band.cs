@@ -14,8 +14,8 @@ namespace MusicCenter.Dal.EntityModels
         public string description { get; set; }
         public string phoneNumber { get; set; }
         public DateTime addDate { get; set; }
-        public DateTime bandCreationDate { get; set; }
-        public DateTime bandResolveDate { get; set; }
+        public DateTime? bandCreationDate { get; set; }
+        public DateTime? bandResolveDate { get; set; }
         public int UserID { get; set; }
         public virtual ICollection<BandMember> members { get; set; }
         public virtual ICollection<Files> images { get; set; }
@@ -28,5 +28,19 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Message> sentMessages { get; set; }
         public virtual ICollection<Favourites> favourites { get; set; }
         public virtual Users user { get; set; }
+
+        public Band()
+        {
+            members = new List<BandMember>();
+            images = new List<Files>();
+            genres = new List<Genre>();
+            albums = new List<Album>();
+            singles = new List<Track>();
+            concerts = new List<Concert>();
+            tours = new List<Tour>();
+            receivedMessages = new List<Message>();
+            sentMessages = new List<Message>();
+            favourites = new List<Favourites>();
+        }
     }
 }

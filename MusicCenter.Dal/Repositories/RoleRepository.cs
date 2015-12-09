@@ -5,15 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Repository.Pattern.Infrastructure;
 
 namespace MusicCenter.Dal.Repositories
 {
     public static class RoleRepository
     {
-        public static Role GetRoleByName(this IRepository<Role> repo , string RoleName)
+        public static Role GetRoleByName(this IRepository<Role> repo, string name)
         {
-            return repo.Queryable().FirstOrDefault(r => r.Name == RoleName);
+            return repo.Queryable().FirstOrDefault(r => r.Name == name);
         }
     }
 }

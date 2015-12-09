@@ -4,13 +4,15 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 @Styles.Render("~/Content/Account/Register.css")
+@Styles.Render("~/Content/themes/base/all.css")
 @Scripts.Render("~/Scripts/Band/AddBand.js")
-@Scripts.Render("~/Scripts/Datepicker.js")
+@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+@Scripts.Render("~/Scripts/jquery.form.js")
 
 <br />
-<form>
+<form id="AddBandForm" action="@Url.Action("AddBand", "Band")" method="post" enctype="multipart/form-data">
     <div class="row form-group">
-        <div class="col-md-1" >
+        <div class="col-md-1">
             <img src="~/Content/Uploads/DefaultBandAv.png" alt="..." class="img-circle" style="display:block;margin-left:auto;margin-right:auto;" width="100" height="100" id="bandAvatar">
         </div>
         <div class="col-lg-11">
@@ -25,12 +27,7 @@
                     <label class="control-label input-sm">Creation date:</label>
                 </div>
                 <div class="col-sm-2">
-                    <div class='input-group input-sm date' id='createDate'>
-                        <input type='text' class="form-control input-sm" />
-                        <span class="input-group-addon input-sm">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
+                    @Html.TextBoxFor(m => m.CreationDate, new { @class = "form-control input-sm", id="CreationDate" })
                 </div>
             </div>
             <div class="row form-group">
@@ -44,40 +41,54 @@
                     <label class="control-label input-sm">Resolve date:</label>
                 </div>
                 <div class="col-sm-2">
-                    <div class='input-group input-sm date' id='resolveDate'>
-                        <input type='text' class="form-control input-sm" />
-                        <span class="input-group-addon input-sm">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
+                    @Html.TextBoxFor(m => m.ResolveDate, new { @class = "form-control input-sm", name="ResolveDate", id="ResolveDate"})
                 </div>
             </div>
         </div>
-    </div> 
-        <div class="row form-group" style="margin-top:-20px">
-            <div class="col-sm-1">
-                <span class="btn btn-primary btn-file">
-                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar.PostedFile, new { type = "file", @class = "input-sm", @id = "avatar" })
-                </span>
-            </div>
-            <div class="col-lg-11">
-                <div class="row form-group">
-                    <div class="col-sm-1">
-                        <label class="control-label input-sm">Telefon:</label>
-                    </div>
-                    <div class="col-sm-2">
-                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control input-sm" })
-                    </div>
+    </div>
+    <div class="row form-group" style="margin-top:-20px">
+        <div class="col-sm-1">
+            <span class="btn btn-primary btn-file">
+                @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar.PostedFile, new { type = "file", name="Avatar", @class = "input-sm", @id = "avatar" })
+            </span>
+        </div>
+        <div class="col-lg-11">
+            <div class="row form-group">
+                <div class="col-sm-1">
+                    <label class="control-label input-sm">Telefon:</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control input-sm", name="Phone" })
                 </div>
             </div>
-                
         </div>
+
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+            <label class="control-label input-sm">Gatunki:</label>
+        </div>
+        <div class="col-sm-11">
+            @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name="Genres", placeholder = "separated by comma" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-1">
+            <label class="control-label input-sm">Muzycy:</label>
+        </div>
+        <div class="col-sm-11">
+            <div id="BandMembers">
+
+            </div>
+            <input type="button" class="btn btn-default input-sm" value="Dodaj muzyka" id="AddBandMemberBtn" />
+        </div>
+    </div>
     <div class="row form-group">
         <div class="col-sm-1">
             <label class="control-label input-sm">Opis:</label>
         </div>
         <div class="col-sm-11">
-            <textarea rows="5" style="width:100%; max-width:none"></textarea>
+            <textarea rows="5" name="Description" style="width:100%; max-width:none"></textarea>
         </div>
     </div>
 

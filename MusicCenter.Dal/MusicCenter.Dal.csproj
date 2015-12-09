@@ -132,12 +132,24 @@
     <Compile Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.Designer.cs">
       <DependentUpon>201512081147294_poprawaRelacjiWiadomosci.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512091656254_NullableDateBand.cs" />
+    <Compile Include="Migrations\201512091656254_NullableDateBand.Designer.cs">
+      <DependentUpon>201512091656254_NullableDateBand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512091827568_UserNIeMozeBycCzlonkiemZespolu.cs" />
+    <Compile Include="Migrations\201512091827568_UserNIeMozeBycCzlonkiemZespolu.Designer.cs">
+      <DependentUpon>201512091827568_UserNIeMozeBycCzlonkiemZespolu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512092026432_niedziala.cs" />
+    <Compile Include="Migrations\201512092026432_niedziala.Designer.cs">
+      <DependentUpon>201512092026432_niedziala.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoExt\QueryableExt.cs" />
     <Compile Include="RepoExt\RepositoryExt.cs" />
-    <Compile Include="Repositories\FileRepository.cs" />
+    <Compile Include="Repositories\GenreRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
   </ItemGroup>
@@ -187,6 +199,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.resx">
       <DependentUpon>201512081147294_poprawaRelacjiWiadomosci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512091656254_NullableDateBand.resx">
+      <DependentUpon>201512091656254_NullableDateBand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512091827568_UserNIeMozeBycCzlonkiemZespolu.resx">
+      <DependentUpon>201512091827568_UserNIeMozeBycCzlonkiemZespolu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512092026432_niedziala.resx">
+      <DependentUpon>201512092026432_niedziala.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

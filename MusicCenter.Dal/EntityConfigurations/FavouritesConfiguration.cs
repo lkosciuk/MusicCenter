@@ -1,6 +1,7 @@
 ﻿using MusicCenter.Dal.EntityModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace MusicCenter.Dal.EntityConfigurations
 {
-    public class FavouritesConfiguration : EntityTypeConfiguration<Favourites>
+    public class FavouritesConfiguration : BaseEntityMap<Favourites>
     {
         public FavouritesConfiguration()
             : base()
         {
             this.ToTable("Favourites");
-
+            this.Property(f => f.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             //relationships
             this.HasMany(t => t.bands)
                 .WithMany(t => t.favourites)

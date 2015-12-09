@@ -10,6 +10,8 @@ namespace MusicCenter.Common.ViewModels.Band
 {
     public class AddBandViewModel
     {
+        public string UserEmail { get; set; }
+
         public FileViewModel Avatar { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
@@ -20,10 +22,14 @@ namespace MusicCenter.Common.ViewModels.Band
         public string Email { get; set; }
 
         public string Phone { get; set; }
+        
+        public string CreationDate { get; set; }
 
-        public DateTime? CreationDate { get; set; }
+        public string ResolveDate { get; set; }
 
-        public DateTime? ResolveDate { get; set; }
+        public string Genres { get; set; }
+
+        public string[] BandMembers { get; set; }
 
         public string Description { get; set; }
 
