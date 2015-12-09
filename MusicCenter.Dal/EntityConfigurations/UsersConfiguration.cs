@@ -19,9 +19,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.email).HasMaxLength(60).IsRequired();
 
             //relationships
-            HasRequired(u => u.profilePhoto)
-            .WithOptional(c => c.user);
-
+            HasOptional(u => u.profilePhoto).WithRequired();
             HasOptional(u => u.favourites).WithRequired();
         }
     }

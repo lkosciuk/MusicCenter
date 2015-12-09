@@ -75,34 +75,40 @@ namespace MusicCenter.Services.Services
             List<BandMember> Members = new List<BandMember>();
             Files bandAvatar;
 
-            Regex.Replace(model.Genres, @"\s+", "");
-
-            string[] Genres = model.Genres.Split(',');
-
-            foreach (var genre in Genres)
+            if (!String.IsNullOrEmpty(model.Genres))
             {
-                if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
-                {
-                    Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
-                    newGenre.bands.Add(newBand);
-                    BandGenres.Add(newGenre);
-                }
-                else
-                {
-                    Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
-                    existingGenre.bands.Add(newBand);
-                    BandGenres.Add(existingGenre);
-                }
+                Regex.Replace(model.Genres, @"\s+", "");
+                string[] Genres = model.Genres.Split(',');
 
-                
+
+                foreach (var genre in Genres)
+                {
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    {
+                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        newGenre.bands.Add(newBand);
+                        BandGenres.Add(newGenre);
+                    }
+                    else
+                    {
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                        existingGenre.bands.Add(newBand);
+                        BandGenres.Add(existingGenre);
+                    }
+
+
+                }
             }
 
-            foreach (var member in model.BandMembers)
+            if (model.BandMembers != null)
             {
-                BandMember newMember = new BandMember() { fullName = member, ObjectState = ObjectState.Added };
-                newMember.bands.Add(newBand);
-                Members.Add(newMember);
-            }
+                foreach (var member in model.BandMembers)
+                {
+                    BandMember newMember = new BandMember() { fullName = member, ObjectState = ObjectState.Added };
+                    newMember.bands.Add(newBand);
+                    Members.Add(newMember);
+                }
+            }           
 
             if (model.Avatar.PostedFile != null)
             {
