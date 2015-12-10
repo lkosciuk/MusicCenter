@@ -15,5 +15,7 @@ namespace MusicCenter.Services.Intefaces
         bool IfBandExists(string name);
 
         void AddBand(AddBandViewModel model);
+
+        BandPanelViewModel GetBandPanelViewModelByName(string name);
     }
 }

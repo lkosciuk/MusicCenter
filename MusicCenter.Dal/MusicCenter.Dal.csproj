@@ -126,7 +126,6 @@
     <Compile Include="RepoExt\QueryableExt.cs" />
     <Compile Include="RepoExt\RepositoryExt.cs" />
     <Compile Include="Repositories\GenreRepository.cs" />
-    <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>

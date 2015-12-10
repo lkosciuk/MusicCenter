@@ -24,7 +24,7 @@ namespace MusicCenter.Services.Services
 {
     public class UsersService
          : BaseService<Users>, IUserService
-    {
+    {     
 
         public UsersService(IUnitOfWork u)
             : base(u)
@@ -71,10 +71,10 @@ namespace MusicCenter.Services.Services
 
             newUser.profilePhoto = userAvatar;
 
-            Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
-            userRole.ObjectState = ObjectState.Unchanged;
-            newUser.roles.Add(userRole);
-            userRole.Users.Add(newUser);
+            //Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
+            //userRole.ObjectState = ObjectState.Unchanged;
+            //.roles.Add(userRole);
+            //userRole.Users.Add(newUser);
 
             Favourites favourites = new Favourites();
             favourites.ObjectState = ObjectState.Added;
@@ -108,7 +108,7 @@ namespace MusicCenter.Services.Services
 
         public UserPanelViewModel GerUserPanelViewModelByEmail(string email)
         {
-            Users loggedUser = _repo.GetUserByEmail(email, u => u.favourites, u => u.profilePhoto, u => u.roles, u => u.receivedMessages);
+            Users loggedUser = _repo.GetUserByEmail(email, u => u.favourites, u => u.profilePhoto, u => u.receivedMessages);
 
             UserPanelViewModel model = new UserPanelViewModel()
             {
@@ -140,10 +140,10 @@ namespace MusicCenter.Services.Services
 
             newUser.profilePhoto = userAvatar;
 
-            Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
-            userRole.ObjectState = ObjectState.Unchanged;
-            newUser.roles.Add(userRole);
-            userRole.Users.Add(newUser);
+            //Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
+            //userRole.ObjectState = ObjectState.Unchanged;
+            //.roles.Add(userRole);
+            //userRole.Users.Add(newUser);
 
             Favourites favourites = new Favourites();
             favourites.ObjectState = ObjectState.Added;
@@ -243,5 +243,82 @@ namespace MusicCenter.Services.Services
             _repo.InsertOrUpdateGraph(currentUser);
             _unitOfWork.SaveChanges();
         }
+
+
+        public bool IsUserBand(string email, string BandName)
+        {
+            Users currentUser = _repo.GetUserByEmail(email, u => u.bands);
+
+            return currentUser.bands.Any( b => b.name == BandName);
+        }
+
+        //public void LogInAsBand(string BandName)
+        //{
+        //    Users bandOwner = _repo.GetBandOwner(BandName);
+
+        //    Role bandRole = new Role();
+
+        //    if (!_unitOfWork.Repository<Role>().IsRoleExists("band"))
+        //    {
+        //        bandRole = new Role() { Name = "band", ObjectState = ObjectState.Added };
+        //    }
+        //    else
+        //    {
+        //        bandRole = _unitOfWork.Repository<Role>().GetRoleByName("band");
+        //    }
+
+        //    if (!bandOwner.roles.Any(r => r.Name == bandRole.Name))
+        //    {
+        //        bandOwner.roles.Add(bandRole);
+        //        bandOwner.ObjectState = ObjectState.Modified;
+
+        //        _repo.InsertOrUpdateGraph(bandOwner);
+        //        _unitOfWork.SaveChanges();
+        //    }                     
+        //}
+
+        //public void AddUserToRole(string email, string roleName)
+        //{
+        //    Users currentUser = _repo.GetUserByEmail(email, u => u.roles);
+
+        //    if (!currentUser.roles.Any(r => r.Name == roleName))
+        //    {
+        //        Role roleToAdd = _unitOfWork.Repository<Role>().GetRoleByName(roleName);
+        //        currentUser.roles.Add(roleToAdd);
+        //        currentUser.ObjectState = ObjectState.Modified;
+
+        //        _repo.InsertOrUpdateGraph(currentUser);
+        //        _unitOfWork.SaveChanges();
+        //    }
+        //}
+
+        //public void TakeRoleFromUser(string email, string roleName)
+        //{
+        //    Users currentUser = _repo.GetUserByEmail(email, u => u.roles);
+
+        //    if (currentUser.roles.Any(r => r.Name == roleName))
+        //    {
+        //        Role roleToTake = _unitOfWork.Repository<Role>().GetRoleByName(roleName);
+        //        currentUser.roles.Remove(roleToTake);
+        //        currentUser.ObjectState = ObjectState.Modified;
+
+        //        _repo.InsertOrUpdateGraph(currentUser);
+        //        _unitOfWork.SaveChanges();
+        //    }
+        //}
+
+        //public string GetUserRolesAsSemicolonSplitString(string email)
+        //{
+        //    string roles = string.Empty;
+
+        //    Users user = _repo.GetUserByEmail(email);
+
+        //    foreach (Role item in user.roles)
+        //    {
+        //        roles = roles + ';' + item.Name;
+        //    }
+
+        //    return roles;
+        //}
     }
 }

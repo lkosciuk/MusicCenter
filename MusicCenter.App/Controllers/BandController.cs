@@ -1,4 +1,5 @@
-﻿using MusicCenter.Common.ViewModels.Band;
+﻿using MusicCenter.App.Filters;
+using MusicCenter.Common.ViewModels.Band;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,10 @@ namespace MusicCenter.App.Controllers
             bandService = serv;
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserBands()
         {
-            List<BandListItemViewModel> userBands = bandService.GetUserBandList(User.Identity.Name);
+            List<BandListItemViewModel> userBands = bandService.GetUserBandList(Session["user"].ToString());
 
             return View(userBands);
         }
@@ -32,6 +33,7 @@ namespace MusicCenter.App.Controllers
         }
 
         [HttpPost]
+        [UserAuthorize]
         public ActionResult AddBand(AddBandViewModel model)
         {
             if (model.Avatar.PostedFile != null)
@@ -46,12 +48,21 @@ namespace MusicCenter.App.Controllers
             {
                 if (!bandService.IfBandExists(model.Name))
                 {
-                    model.UserEmail = User.Identity.Name;
+                    model.UserEmail = Session["user"].ToString();
                     bandService.AddBand(model);
                 }
             }
 
             return View();
+        }
+
+        [BandAuthorize]
+        public ActionResult GetBandPanel()
+        {
+            BandPanelViewModel model = new BandPanelViewModel();
+            model = bandService.GetBandPanelViewModelByName(Session["band"].ToString());
+
+            return PartialView("_BandPanel", model);
         }
 	}
 }

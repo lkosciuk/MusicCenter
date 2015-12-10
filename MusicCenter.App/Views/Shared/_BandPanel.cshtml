@@ -1,0 +1,19 @@
+﻿@model MusicCenter.Common.ViewModels.Band.BandPanelViewModel
+
+<form>
+    <ul class="nav navbar-nav navbar-right" style="color: white">
+        <li>
+            @Html.ActionLink(@Model.Name, "BandProfile", "Band", null, new { style = "height: 15px" })
+            @Html.ActionLink(@MusicCenter.Common.Resources.Global.NewMessages + @Model.MessagesCount, "BandMessages", "Message", null, new { style = "height: 15px; margin-bottom: 10px" })
+        </li>
+        <li>
+            <img src="@Model.AvatarPath" class="img-circle" width="50" height="50" style="margin-left: 5px">
+        </li>
+        <li>
+            @Html.ActionLink(MusicCenter.Common.Resources.Global.LogOut, "LogOutBand", "Account", null, new { id = "LogOutUrl" })
+        </li>
+    </ul>
+
+</form>
+
+

@@ -1,4 +1,5 @@
-﻿using MusicCenter.Services.Intefaces;
+﻿using MusicCenter.App.Filters;
+using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace MusicCenter.App.Controllers
             favServ = serv;
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserFavourites()
         {
             return View();

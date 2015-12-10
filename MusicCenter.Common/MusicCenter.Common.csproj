@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="ViewModels\Band\AddBandViewModel.cs" />
     <Compile Include="ViewModels\Band\BandListItemViewModel.cs" />
+    <Compile Include="ViewModels\Band\BandPanelViewModel.cs" />
     <Compile Include="ViewModels\File\FileViewModel.cs" />
     <Compile Include="ViewModels\Message\MessageDetailsViewModel.cs" />
     <Compile Include="ViewModels\Message\MessageLisItemViewModel.cs" />

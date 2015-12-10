@@ -1,4 +1,5 @@
-﻿using MusicCenter.Common.ViewModels.Band;
+﻿using MusicCenter.App.Filters;
+using MusicCenter.Common.ViewModels.Band;
 using MusicCenter.Common.ViewModels.Message;
 using MusicCenter.Common.ViewModels.User;
 using MusicCenter.Services.Intefaces;
@@ -14,34 +15,33 @@ namespace MusicCenter.App.Controllers
     public class UserController : BaseController
     {
         IUserService userService;
-        IBandService bandService;
 
         public UserController(IUserService service)
         {
             userService = service;
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult GetUserPanel()
         {
             UserPanelViewModel model = new UserPanelViewModel();
-            model = userService.GerUserPanelViewModelByEmail(User.Identity.Name);
+            model = userService.GerUserPanelViewModelByEmail(Session["user"].ToString());
 
             return PartialView("_UserPanel", model);
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserProfile()
         {
-            UserProfileViewModel model = userService.GetUserProfile(User.Identity.Name);
+            UserProfileViewModel model = userService.GetUserProfile(Session["user"].ToString());
             return View(model);
         }
 
-        [Authorize]
+        [UserAuthorize]
         [HttpPost]
         public ActionResult UserProfile(UserProfileViewModel model)
         {
-            model.email = User.Identity.Name;
+            model.email = Session["user"].ToString();
 
             if (model.Avatar.PostedFile != null)
             {
@@ -56,24 +56,24 @@ namespace MusicCenter.App.Controllers
                 userService.UpdateUser(model);
             }
 
-            UserProfileViewModel updatedUser = userService.GetUserProfile(User.Identity.Name);
+            UserProfileViewModel updatedUser = userService.GetUserProfile(Session["user"].ToString());
 
             return View(updatedUser);
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserSoundcloudProfile()
         {
-            UserSoundcloudProfileViewModel model = userService.GetUserSoundcloudProfile(User.Identity.Name);
+            UserSoundcloudProfileViewModel model = userService.GetUserSoundcloudProfile(Session["user"].ToString());
 
             return View(model);
         }
 
         [HttpPost]
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserSoundcloudProfile(UserSoundcloudProfileViewModel model)
         {
-            model.email = User.Identity.Name;
+            model.email = Session["user"].ToString();
 
             if (model.Avatar.PostedFile != null)
             {
@@ -88,7 +88,7 @@ namespace MusicCenter.App.Controllers
                 userService.UpdateSoundCloudUser(model);
             }
 
-            UserSoundcloudProfileViewModel updatedUser = userService.GetUserSoundcloudProfile(User.Identity.Name);
+            UserSoundcloudProfileViewModel updatedUser = userService.GetUserSoundcloudProfile(Session["user"].ToString());
 
             return View(updatedUser);
         }

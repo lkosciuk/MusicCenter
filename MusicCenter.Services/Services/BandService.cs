@@ -126,8 +126,8 @@ namespace MusicCenter.Services.Services
                 bandAvatar.band = newBand;
                 bandAvatar.IsAvatar = true;
                 bandAvatar.ObjectState = ObjectState.Added;
-                bandAvatar.name = "DefaultUserAv.jpg";
-                bandAvatar.path = "/Content/Uploads/DefaultUserAv.jpg";
+                bandAvatar.name = "DefaultBandAv.png";
+                bandAvatar.path = "/Content/Uploads/DefaultBandAv.png";
             }
 
             newBand.genres = BandGenres;
@@ -136,6 +136,18 @@ namespace MusicCenter.Services.Services
 
             _repo.InsertOrUpdateGraph(newBand);
             _unitOfWork.SaveChanges();
+        }
+
+
+        public BandPanelViewModel GetBandPanelViewModelByName(string name)
+        {
+            return _repo.Queryable().Where(b => b.name == name)
+                    .Select(band => new BandPanelViewModel()
+                    {
+                        Name = band.name,
+                        AvatarPath = band.images.FirstOrDefault(i => i.IsAvatar).path,
+                        MessagesCount = band.receivedMessages.Where(m => !m.isReaded).Count()
+                    }).FirstOrDefault();
         }
     }
 }

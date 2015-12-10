@@ -9,13 +9,13 @@
         
     </div>
     <div class="col-md-2">
-        @MusicCenter.Common.Resources.Global.Name
+        <label>@MusicCenter.Common.Resources.Global.Name</label>
     </div>
     <div class="col-md-2">
-        @MusicCenter.Common.Resources.Global.Genres
+        <label>@MusicCenter.Common.Resources.Global.Genres</label>
     </div>
     <div class="col-md-2">
-        @MusicCenter.Common.Resources.Global.YearsActive
+        <label>@MusicCenter.Common.Resources.Global.YearsActive</label>
     </div>
 </div>
 
@@ -23,7 +23,7 @@
 {
     foreach (var item in Model)
     {
-        <form>
+        <form method="post" action="@Url.Action("LogInAsBand", "Account", new { BandName = @item.Name})">
             <div class="row">
                 <div class="col-md-2">
                     <img src="@item.Avatar.PathToShow" class="img-circle" width="50" height="50" style="margin-left: 5px">
@@ -34,14 +34,14 @@
                 <div class="col-md-2">
                     @foreach (var genre in item.Genres)
                     {
-                        <label>@genre </label>
+                        <div style="display:inline">@genre </div>
                     }
                 </div>
-                <div class="col-md-2">
-                    @item.CreationDate - @if (item.ResolveDate != null)
-                    { <label>@item.ResolveDate</label> }
-                    else
-                    { <label>Present</label> }
+                <div class="col-md-4">
+                    @Html.DisplayFor(m =>item.CreationDate) - @if (item.ResolveDate != null)
+                                                              { <div style="display:inline">@Html.DisplayFor(m => item.ResolveDate)</div> }
+                                                              else
+                                                              { <div style="display:inline">Present</div> }
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="btn btn-default pull-right" value="@MusicCenter.Common.Resources.Global.SignIn" />

@@ -26,6 +26,16 @@ namespace MusicCenter.Services.Intefaces
         UserSoundcloudProfileViewModel GetUserSoundcloudProfile(string email);
 
         void UpdateSoundCloudUser(UserSoundcloudProfileViewModel model);
-     
+
+
+        bool IsUserBand(string email, string BandName);
+
+        //void LogInAsBand(string BandName);
+
+        //string GetUserRolesAsSemicolonSplitString(string email);
+
+        //void TakeRoleFromUser(string email, string roleName);
+
+        //void AddUserToRole(string email, string roleName);
     }
 }

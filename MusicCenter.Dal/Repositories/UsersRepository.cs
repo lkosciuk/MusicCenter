@@ -29,5 +29,10 @@ namespace MusicCenter.Dal.Repositories
             return repo.Queryable().IncludeAll(includes).FirstOrDefault(u => u.email.ToLower() == email.ToLower());
         }
 
+        public static Users GetBandOwner(this IRepository<Users> repo, string BandName)
+        {
+            return repo.Queryable().Where(u => u.bands.Any(b => b.name == BandName)).FirstOrDefault();
+        }
+
     }
 }

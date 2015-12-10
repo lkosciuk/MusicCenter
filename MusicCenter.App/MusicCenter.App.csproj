@@ -193,6 +193,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\BandAuthorize.cs" />
+    <Compile Include="Filters\UserAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -308,6 +310,7 @@
     <Content Include="Views\Message\UserSentMessages.cshtml" />
     <Content Include="Views\Message\UserNewMessage.cshtml" />
     <Content Include="Views\Message\MessageDetails.cshtml" />
+    <Content Include="Views\Shared\_BandPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

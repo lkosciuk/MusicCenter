@@ -30,7 +30,7 @@
                         @Html.ActionLink(MusicCenter.Common.Resources.Global.ChangeLanguageEn, "SetCulture", "Home", new { @culture = "en" }, null)
                     </li>
                 </ul>
-                    @if (!User.Identity.IsAuthenticated)
+                    @if (Session["user"] == null)
                     {
 
                         @Html.Partial("_LoginPanel")
@@ -38,7 +38,15 @@
                     }
                     else
                     {
-                        @Html.Action("GetUserPanel", "User")
+                        if (Session["band"] != null)
+                        {
+                            @Html.Action("GetBandPanel", "Band")
+                        }
+                        else
+                        {
+                            @Html.Action("GetUserPanel", "User")
+                        }
+                        
                     }
                 <br />
                 <br />

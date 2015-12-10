@@ -1,4 +1,5 @@
-﻿using MusicCenter.Common.ViewModels.Message;
+﻿using MusicCenter.App.Filters;
+using MusicCenter.Common.ViewModels.Message;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -17,23 +18,23 @@ namespace MusicCenter.App.Controllers
             msgService = serv;
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserMessages()
         {
-            List<MessageLisItemViewModel> userMessages = msgService.GetUserReceivedMessages(User.Identity.Name);
+            List<MessageLisItemViewModel> userMessages = msgService.GetUserReceivedMessages(Session["user"].ToString());
 
             return View(userMessages);
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserSentMessages()
         {
-            List<MessageLisItemViewModel> userMessages = msgService.GetUserSentMessages(User.Identity.Name);
+            List<MessageLisItemViewModel> userMessages = msgService.GetUserSentMessages(Session["user"].ToString());
 
             return View(userMessages);
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserNewMessage(int? MessageId)
         {
             NewMessageViewModel model = new NewMessageViewModel();
@@ -47,10 +48,10 @@ namespace MusicCenter.App.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [UserAuthorize]
         public ActionResult UserNewMessage(NewMessageViewModel model)
         {
-            model.AuthorEmail = User.Identity.Name;
+            model.AuthorEmail = Session["user"].ToString();
 
             if (ModelState.IsValid)
             {
@@ -72,7 +73,7 @@ namespace MusicCenter.App.Controllers
         public ActionResult MessageDetails(int MessageId)
         {
             MessageDetailsViewModel model = msgService.GetMessageDetailsViewModel(MessageId);
-            if (!User.Identity.Name.ToLower().Equals(model.Author.ToLower()))
+            if (!Session["user"].ToString().ToLower().Equals(model.Author.ToLower()))
             {
                 msgService.SetMessageReaded(model.Id);
             }

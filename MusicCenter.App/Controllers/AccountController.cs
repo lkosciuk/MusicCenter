@@ -8,6 +8,7 @@ using MusicCenter.Services.Services;
 using MusicCenter.Services.Intefaces;
 using System.IO;
 using System.Web.Security;
+using MusicCenter.App.Filters;
 
 namespace MusicCenter.App.Controllers
 {
@@ -42,7 +43,8 @@ namespace MusicCenter.App.Controllers
                 {
                     UserService.Register(RegisterModel);
 
-                    FormsAuthentication.SetAuthCookie(RegisterModel.Email, false);
+                    Session["user"] = RegisterModel.Email;
+                    //FormsAuthentication.SetAuthCookie(RegisterModel.Email, false);
                 }               
             }
 
@@ -64,17 +66,18 @@ namespace MusicCenter.App.Controllers
         {
             if (UserService.VerifyLoginAndPassword(model.Email, model.Password))
             {
-                 FormsAuthentication.SetAuthCookie(model.Email, false);
+                 //FormsAuthentication.SetAuthCookie(model.Email, false);
+                Session["user"] = model.Email;
             }               
 
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize]
+        [UserAuthorize]
         public ActionResult LogOut()
         {
-            FormsAuthentication.SignOut();
-
+            //FormsAuthentication.SignOut();
+            Session["user"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -90,7 +93,21 @@ namespace MusicCenter.App.Controllers
                 UserService.SoundCloudRegister(userData);
             }
 
-            FormsAuthentication.SetAuthCookie(userData.username, false);
+            //FormsAuthentication.SetAuthCookie(userData.username, false);
+            Session["user"] = userData.username;
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [UserAuthorize]
+        public ActionResult LogInAsBand(string BandName)
+        {
+            if (UserService.IsUserBand(Session["user"].ToString(), BandName))
+            {
+                //UserService.LogInAsBand(BandName);
+
+                Session["band"] = BandName;
+            }
 
             return RedirectToAction("Index", "Home");
         }
