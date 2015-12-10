@@ -15,11 +15,12 @@ namespace MusicCenter.Dal.EntityConfigurations
         public UsersConfiguration() : base()
         {
             this.ToTable("Users");
+            this.Property(f => f.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             this.Property(a => a.password).HasMaxLength(10);
             this.Property(a => a.email).HasMaxLength(60).IsRequired();
 
             //relationships
-            HasOptional(u => u.profilePhoto).WithRequired();
+            //HasOptional(u => u.profilePhoto).WithRequired();
             HasOptional(u => u.favourites).WithRequired();
         }
     }

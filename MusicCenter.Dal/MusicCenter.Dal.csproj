@@ -29,7 +29,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MusicCenter.Dal</RootNamespace>
-    <AssemblyName>MusicCenter.Dao</AssemblyName>
+    <AssemblyName>MusicCenter.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -112,37 +112,13 @@
     <Compile Include="EntityModels\Tour.cs" />
     <Compile Include="EntityModels\Track.cs" />
     <Compile Include="EntityModels\Users.cs" />
-    <Compile Include="Migrations\201511182003374_start00.cs" />
-    <Compile Include="Migrations\201511182003374_start00.Designer.cs">
-      <DependentUpon>201511182003374_start00.cs</DependentUpon>
+    <Compile Include="Migrations\201512100924499_init.cs" />
+    <Compile Include="Migrations\201512100924499_init.Designer.cs">
+      <DependentUpon>201512100924499_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511291744080_passwordNotRequired.cs" />
-    <Compile Include="Migrations\201511291744080_passwordNotRequired.Designer.cs">
-      <DependentUpon>201511291744080_passwordNotRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512021458255_EmailLength60.cs" />
-    <Compile Include="Migrations\201512021458255_EmailLength60.Designer.cs">
-      <DependentUpon>201512021458255_EmailLength60.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512071631225_AddedIsAvatarToFiles.cs" />
-    <Compile Include="Migrations\201512071631225_AddedIsAvatarToFiles.Designer.cs">
-      <DependentUpon>201512071631225_AddedIsAvatarToFiles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.cs" />
-    <Compile Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.Designer.cs">
-      <DependentUpon>201512081147294_poprawaRelacjiWiadomosci.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512091656254_NullableDateBand.cs" />
-    <Compile Include="Migrations\201512091656254_NullableDateBand.Designer.cs">
-      <DependentUpon>201512091656254_NullableDateBand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512091827568_UserNIeMozeBycCzlonkiemZespolu.cs" />
-    <Compile Include="Migrations\201512091827568_UserNIeMozeBycCzlonkiemZespolu.Designer.cs">
-      <DependentUpon>201512091827568_UserNIeMozeBycCzlonkiemZespolu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512092026432_niedziala.cs" />
-    <Compile Include="Migrations\201512092026432_niedziala.Designer.cs">
-      <DependentUpon>201512092026432_niedziala.cs</DependentUpon>
+    <Compile Include="Migrations\201512100930161_init1.cs" />
+    <Compile Include="Migrations\201512100930161_init1.Designer.cs">
+      <DependentUpon>201512100930161_init1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
@@ -185,29 +161,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511182003374_start00.resx">
-      <DependentUpon>201511182003374_start00.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512100924499_init.resx">
+      <DependentUpon>201512100924499_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511291744080_passwordNotRequired.resx">
-      <DependentUpon>201511291744080_passwordNotRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512021458255_EmailLength60.resx">
-      <DependentUpon>201512021458255_EmailLength60.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512071631225_AddedIsAvatarToFiles.resx">
-      <DependentUpon>201512071631225_AddedIsAvatarToFiles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512081147294_poprawaRelacjiWiadomosci.resx">
-      <DependentUpon>201512081147294_poprawaRelacjiWiadomosci.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512091656254_NullableDateBand.resx">
-      <DependentUpon>201512091656254_NullableDateBand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512091827568_UserNIeMozeBycCzlonkiemZespolu.resx">
-      <DependentUpon>201512091827568_UserNIeMozeBycCzlonkiemZespolu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512092026432_niedziala.resx">
-      <DependentUpon>201512092026432_niedziala.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512100930161_init1.resx">
+      <DependentUpon>201512100930161_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

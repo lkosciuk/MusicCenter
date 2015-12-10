@@ -3,7 +3,7 @@ namespace MusicCenter.Dal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class start00 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -34,8 +34,8 @@ namespace MusicCenter.Dal.Migrations
                         description = c.String(maxLength: 1000),
                         phoneNumber = c.String(maxLength: 15),
                         addDate = c.DateTime(nullable: false),
-                        bandCreationDate = c.DateTime(nullable: false),
-                        bandResolveDate = c.DateTime(nullable: false),
+                        bandCreationDate = c.DateTime(),
+                        bandResolveDate = c.DateTime(),
                         UserID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -92,51 +92,38 @@ namespace MusicCenter.Dal.Migrations
                 "dbo.Files",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         name = c.String(nullable: false, maxLength: 100),
                         path = c.String(nullable: false, maxLength: 100),
                         BandID = c.Int(),
                         TourID = c.Int(),
                         ConcertID = c.Int(),
-                        user_Id = c.Int(),
+                        IsAvatar = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Band", t => t.BandID)
                 .ForeignKey("dbo.Concert", t => t.ConcertID)
                 .ForeignKey("dbo.Tour", t => t.TourID)
-                .ForeignKey("dbo.Users", t => t.Id)
-                .ForeignKey("dbo.Users", t => t.user_Id)
-                .Index(t => t.Id)
                 .Index(t => t.BandID)
                 .Index(t => t.TourID)
-                .Index(t => t.ConcertID)
-                .Index(t => t.user_Id);
+                .Index(t => t.ConcertID);
             
             CreateTable(
                 "dbo.Users",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        password = c.String(nullable: false, maxLength: 10),
-                        email = c.String(nullable: false, maxLength: 20),
+                        password = c.String(maxLength: 10),
+                        email = c.String(nullable: false, maxLength: 60),
                         firstName = c.String(),
                         lastName = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.BandMember",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                        fullName = c.String(nullable: false, maxLength: 50),
-                        user_Id = c.Int(),
+                        profilePhoto_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.user_Id)
-                .ForeignKey("dbo.Users", t => t.Id)
+                .ForeignKey("dbo.Files", t => t.profilePhoto_Id)
+                .ForeignKey("dbo.Files", t => t.Id)
                 .Index(t => t.Id)
-                .Index(t => t.user_Id);
+                .Index(t => t.profilePhoto_Id);
             
             CreateTable(
                 "dbo.Message",
@@ -187,6 +174,15 @@ namespace MusicCenter.Dal.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         name = c.String(nullable: false, maxLength: 20),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.BandMember",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        fullName = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -382,7 +378,7 @@ namespace MusicCenter.Dal.Migrations
             DropForeignKey("dbo.AlbumTrack", "AlbumID", "dbo.Track");
             DropForeignKey("dbo.TourFavourites", "FavouritesID", "dbo.Tour");
             DropForeignKey("dbo.TourFavourites", "TourID", "dbo.Favourites");
-            DropForeignKey("dbo.Files", "user_Id", "dbo.Users");
+            DropForeignKey("dbo.Users", "Id", "dbo.Files");
             DropForeignKey("dbo.RoleUser", "UserID", "dbo.Users");
             DropForeignKey("dbo.RoleUser", "RoleID", "dbo.Role");
             DropForeignKey("dbo.MessageUser", "UserID", "dbo.Users");
@@ -391,10 +387,8 @@ namespace MusicCenter.Dal.Migrations
             DropForeignKey("dbo.MessageBand", "BandID", "dbo.Band");
             DropForeignKey("dbo.MessageBand", "MessageID", "dbo.Message");
             DropForeignKey("dbo.Message", "BandID", "dbo.Band");
-            DropForeignKey("dbo.Files", "Id", "dbo.Users");
+            DropForeignKey("dbo.Users", "profilePhoto_Id", "dbo.Files");
             DropForeignKey("dbo.Favourites", "Id", "dbo.Users");
-            DropForeignKey("dbo.BandMember", "Id", "dbo.Users");
-            DropForeignKey("dbo.BandMember", "user_Id", "dbo.Users");
             DropForeignKey("dbo.Files", "TourID", "dbo.Tour");
             DropForeignKey("dbo.Files", "ConcertID", "dbo.Concert");
             DropForeignKey("dbo.Files", "BandID", "dbo.Band");
@@ -435,13 +429,11 @@ namespace MusicCenter.Dal.Migrations
             DropIndex("dbo.Track", new[] { "BandID" });
             DropIndex("dbo.Message", new[] { "BandID" });
             DropIndex("dbo.Message", new[] { "UserID" });
-            DropIndex("dbo.BandMember", new[] { "user_Id" });
-            DropIndex("dbo.BandMember", new[] { "Id" });
-            DropIndex("dbo.Files", new[] { "user_Id" });
+            DropIndex("dbo.Users", new[] { "profilePhoto_Id" });
+            DropIndex("dbo.Users", new[] { "Id" });
             DropIndex("dbo.Files", new[] { "ConcertID" });
             DropIndex("dbo.Files", new[] { "TourID" });
             DropIndex("dbo.Files", new[] { "BandID" });
-            DropIndex("dbo.Files", new[] { "Id" });
             DropIndex("dbo.Tour", new[] { "BandID" });
             DropIndex("dbo.Favourites", new[] { "user_Id" });
             DropIndex("dbo.Favourites", new[] { "Id" });
@@ -462,11 +454,11 @@ namespace MusicCenter.Dal.Migrations
             DropTable("dbo.ConcertFavourites");
             DropTable("dbo.BandFavourites");
             DropTable("dbo.AlbumFavourites");
+            DropTable("dbo.BandMember");
             DropTable("dbo.Genre");
             DropTable("dbo.Track");
             DropTable("dbo.Role");
             DropTable("dbo.Message");
-            DropTable("dbo.BandMember");
             DropTable("dbo.Users");
             DropTable("dbo.Files");
             DropTable("dbo.Tour");

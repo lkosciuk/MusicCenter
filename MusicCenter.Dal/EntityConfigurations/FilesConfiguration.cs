@@ -15,7 +15,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             : base()
         {
             this.ToTable("Files");
-            this.Property(f => f.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            //this.Property(f => f.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             this.Property(a => a.name).HasMaxLength(100).IsRequired();
             this.Property(a => a.path).HasMaxLength(100).IsRequired();
 
@@ -32,6 +32,8 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.HasOptional(t => t.tour)
                  .WithMany(t => t.images)
                  .HasForeignKey(d => d.TourID);
+
+            this.HasOptional(f => f.user).WithRequired();
         }
     }
 }

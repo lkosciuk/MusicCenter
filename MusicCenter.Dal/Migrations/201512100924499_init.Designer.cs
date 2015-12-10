@@ -7,13 +7,13 @@ namespace MusicCenter.Dal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class passwordNotRequired : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(passwordNotRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201511291744080_passwordNotRequired"; }
+            get { return "201512100924499_init"; }
         }
         
         string IMigrationMetadata.Source
