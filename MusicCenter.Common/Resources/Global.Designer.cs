@@ -151,6 +151,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dyskografia.
+        /// </summary>
+        public static string Dicography {
+            get {
+                return ResourceManager.GetString("Dicography", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adres email.
         /// </summary>
         public static string Email {

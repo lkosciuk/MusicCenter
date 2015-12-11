@@ -13,7 +13,7 @@ namespace MusicCenter.Services.Intefaces
 
         List<MessageLisItemViewModel> GetUserSentMessages(string email);
 
-        void SendUserMessage(NewMessageViewModel message);
+        void SendMessage(NewMessageViewModel message);
 
         bool MessageRecipientsValid(string recipients);
 
@@ -22,5 +22,9 @@ namespace MusicCenter.Services.Intefaces
         NewMessageViewModel GetNewMessageViewModel(int? MessageId);
 
         void SetMessageReaded(int MessageId);
+
+        List<MessageLisItemViewModel> GetBandReceivedMessages(string BandName);
+
+        List<MessageLisItemViewModel> GetBandSentMessages(string BandName);
     }
 }

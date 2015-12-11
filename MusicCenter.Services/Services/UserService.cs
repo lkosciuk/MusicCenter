@@ -320,5 +320,11 @@ namespace MusicCenter.Services.Services
 
         //    return roles;
         //}
+
+
+        public string GetUserEmailByBandName(string BandName)
+        {
+            return _repo.Queryable().Where(u => u.bands.Any(b => b.name == BandName)).Select(u => u.email).FirstOrDefault();
+        }
     }
 }

@@ -104,10 +104,19 @@ namespace MusicCenter.App.Controllers
         {
             if (UserService.IsUserBand(Session["user"].ToString(), BandName))
             {
-                //UserService.LogInAsBand(BandName);
-
                 Session["band"] = BandName;
+                Session["user"] = null;
+                
             }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [BandAuthorize]
+        public ActionResult LogOutBand()
+        {
+            Session["user"] = UserService.GetUserEmailByBandName(Session["band"].ToString());
+            Session["band"] = null;
 
             return RedirectToAction("Index", "Home");
         }

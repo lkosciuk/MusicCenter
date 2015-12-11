@@ -1,14 +1,15 @@
 ﻿@model List<MusicCenter.Common.ViewModels.Message.MessageLisItemViewModel>
 
 @{
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_BandLayout.cshtml";
 }
+
 <ul class="nav nav-tabs" style="margin-bottom:10px">
-    <li role="presentation" class="active"><a href="@Url.Action("UserMessages", "Message")">Received</a></li>
-    <li role="presentation"><a href="@Url.Action("UserSentMessages", "Message")">Sent</a></li>
-    <li role="presentation"><a href="@Url.Action("UserNewMessage", "Message")">New message</a></li>
+    <li role="presentation" class="active"><a href="@Url.Action("BandMessages", "Message")">Received</a></li>
+    <li role="presentation"><a href="@Url.Action("BandSentMessages", "Message")">Sent</a></li>
+    <li role="presentation"><a href="@Url.Action("BandNewMessage", "Message")">New message</a></li>
 </ul>
-<div class="row" >
+<div class="row">
     <div class="col-md-2">
         Author
     </div>
@@ -52,38 +53,41 @@
                     {<label>No</label>}
                 </div>
                 <div class="col-md-1">
-                    <a class="btn btn-default" href="@Url.Action("UserMessageDetails", "Message", new { MessageId = @item.Id })" role="button">Details</a>
+                    <a class="btn btn-default" href="@Url.Action("BandMessageDetails", "Message", new { MessageId = @item.Id })" role="button">Details</a>
                 </div>
             </div>
         }
         else
         {
             <div class="row">
-            <div class="col-md-2">
-                @item.Author
-            </div>
-            <div class="col-md-2">
-                @item.SentDate
-            </div>
-            <div class="col-md-2">
-                @item.Title
-            </div>
-            <div class="col-md-2">
-                @item.Recipients 
-            </div>
-            <div class="col-md-1">
-                @if(item.IsReaded){<label>Yes</label>}else{<label>No</label>}
-            </div>
+                <div class="col-md-2">
+                    @item.Author
+                </div>
+                <div class="col-md-2">
+                    @item.SentDate
+                </div>
+                <div class="col-md-2">
+                    @item.Title
+                </div>
+                <div class="col-md-2">
+                    @item.Recipients
+                </div>
                 <div class="col-md-1">
-                    <a class="btn btn-default" href="@Url.Action("UserMessageDetails", "Message", new { MessageId = @item.Id })" role="button">Details</a>
+                    @if (item.IsReaded)
+                    {<label>Yes</label>}
+                    else
+                    {<label>No</label>}
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-default" href="@Url.Action("BandMessageDetails", "Message", new { MessageId = @item.Id })" role="button">Details</a>
                 </div>
             </div>
-        } 
+        }
 
     }
 }
 else
 {
-     <h1><small>No messages...</small></h1>
+    <h1><small>No messages...</small></h1>
 }
 

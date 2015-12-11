@@ -57,9 +57,10 @@ namespace MusicCenter.App.Controllers
             {
                 if (msgService.MessageRecipientsValid(model.Recipients))
                 {
-                    msgService.SendUserMessage(model);
+                    msgService.SendMessage(model);
 
                     return RedirectToAction("UserSentMessages");
+                    
                 }
                 else
                 {
@@ -70,10 +71,74 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
-        public ActionResult MessageDetails(int MessageId)
+        [UserAuthorize]
+        public ActionResult UserMessageDetails(int MessageId)
         {
             MessageDetailsViewModel model = msgService.GetMessageDetailsViewModel(MessageId);
             if (!Session["user"].ToString().ToLower().Equals(model.Author.ToLower()))
+            {
+                msgService.SetMessageReaded(model.Id);
+            }
+            return View(model);
+        }
+
+        [BandAuthorize]
+        public ActionResult BandMessages()
+        {
+            List<MessageLisItemViewModel> bandMsgs = msgService.GetBandReceivedMessages(Session["band"].ToString());
+
+            return View(bandMsgs);
+        }
+
+        [BandAuthorize]
+        public ActionResult BandSentMessages()
+        {
+            List<MessageLisItemViewModel> bandMessages = msgService.GetBandSentMessages(Session["band"].ToString());
+
+            return View(bandMessages);
+        }
+
+        [BandAuthorize]
+        public ActionResult BandNewMessage(int? MessageId)
+        {
+            NewMessageViewModel model = new NewMessageViewModel();
+
+            if (MessageId.HasValue)
+            {
+                model = msgService.GetNewMessageViewModel(MessageId);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult BandNewMessage(NewMessageViewModel model)
+        {
+            model.AuthorEmail = Session["band"].ToString();
+
+            if (ModelState.IsValid)
+            {
+                if (msgService.MessageRecipientsValid(model.Recipients))
+                {
+                    msgService.SendMessage(model);
+
+                    return RedirectToAction("BandSentMessages");
+                }
+                else
+                {
+                    model.RecipientsErrorMsg = "Some of recipients doeas not exists";
+                }
+
+            }
+            return View(model);
+        }
+
+        [BandAuthorize]
+        public ActionResult BandMessageDetails(int MessageId)
+        {
+            MessageDetailsViewModel model = msgService.GetMessageDetailsViewModel(MessageId);
+            if (!Session["band"].ToString().ToLower().Equals(model.Author.ToLower()))
             {
                 msgService.SetMessageReaded(model.Id);
             }

@@ -37,5 +37,7 @@ namespace MusicCenter.Services.Intefaces
         //void TakeRoleFromUser(string email, string roleName);
 
         //void AddUserToRole(string email, string roleName);
+
+        string GetUserEmailByBandName(string BandName);
     }
 }

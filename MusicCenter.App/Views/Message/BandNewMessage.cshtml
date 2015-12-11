@@ -1,0 +1,33 @@
+﻿@model MusicCenter.Common.ViewModels.Message.NewMessageViewModel
+
+@{
+    Layout = "~/Views/Shared/_BandLayout.cshtml";
+}
+
+<ul class="nav nav-tabs" style="margin-bottom:10px">
+    <li role="presentation"><a href="@Url.Action("BandMessages", "Message")">Received</a></li>
+    <li role="presentation"><a href="@Url.Action("BandSentMessages", "Message")">Sent</a></li>
+    <li role="presentation" class="active"><a href="@Url.Action("BandNewMessage", "Message")">New message</a></li>
+</ul>
+
+<form action="@Url.Action("BandNewMessage", "Message")" method="post" class="">
+    <div class="form-group">
+        <label>Recipients</label>
+        @Html.TextBoxFor(m => m.Recipients, new { @class = "form-control", @placeholder = "separated by comma" })
+        @Html.ValidationMessageFor(m => m.Recipients)
+        <div class="has-error"><div class="control-label">@Model.RecipientsErrorMsg</div></div>
+    </div>
+    <div class="form-group">
+        <label>Title</label>
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <div class="form-group">
+        <label>Message</label>
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control", @rows = "4" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>
+

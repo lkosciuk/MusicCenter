@@ -30,13 +30,7 @@
                         @Html.ActionLink(MusicCenter.Common.Resources.Global.ChangeLanguageEn, "SetCulture", "Home", new { @culture = "en" }, null)
                     </li>
                 </ul>
-                    @if (Session["user"] == null)
-                    {
-
-                        @Html.Partial("_LoginPanel")
-
-                    }
-                    else
+                    @if (Session["user"] != null || Session["band"] != null)
                     {
                         if (Session["band"] != null)
                         {
@@ -46,15 +40,19 @@
                         {
                             @Html.Action("GetUserPanel", "User")
                         }
-                        
+
+                    }
+                    else
+                    {
+                        @Html.Partial("_LoginPanel")
                     }
                 <br />
                 <br />
                 <br/>
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Bands, "BandList", "Band")</li>
-                    <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Albums, "AlbumList", "Music")</li>
-                    <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Songs, "SongList", "Music")</li>
+                    <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Albums, "AlbumList", "Band")</li>
+                    <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Songs, "SongList", "Band")</li>
                     <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Concerts, "ConcertList", "Band")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

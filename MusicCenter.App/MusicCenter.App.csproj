@@ -309,8 +309,13 @@
     <Content Include="Views\Message\UserMessages.cshtml" />
     <Content Include="Views\Message\UserSentMessages.cshtml" />
     <Content Include="Views\Message\UserNewMessage.cshtml" />
-    <Content Include="Views\Message\MessageDetails.cshtml" />
+    <Content Include="Views\Message\UserMessageDetails.cshtml" />
     <Content Include="Views\Shared\_BandPanel.cshtml" />
+    <Content Include="Views\Shared\_BandLayout.cshtml" />
+    <Content Include="Views\Message\BandMessages.cshtml" />
+    <Content Include="Views\Message\BandSentMessages.cshtml" />
+    <Content Include="Views\Message\BandNewMessage.cshtml" />
+    <Content Include="Views\Message\BandMessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -32,7 +32,7 @@ namespace MusicCenter.Services.Services
                                 {
                                     Id = msg.Id,
                                     Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
-                                    Recipients = string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)),//, msg.BandReceivers.Select(b => b.name)),
+                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
                                     Title = msg.title,
                                     Content = msg.content,
                                     IsReaded = msg.isReaded,
@@ -53,7 +53,7 @@ namespace MusicCenter.Services.Services
                                 {
                                     Id = msg.Id,
                                     Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
-                                    Recipients = string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)),//, msg.BandReceivers.Select(b => b.name)),
+                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
                                     Title = msg.title,
                                     Content = msg.content,
                                     IsReaded = msg.isReaded,
@@ -64,14 +64,15 @@ namespace MusicCenter.Services.Services
         }
 
 
-        public void SendUserMessage(NewMessageViewModel message)
+        public void SendMessage(NewMessageViewModel message)
         {
-            Users msgAuthor = _unitOfWork.Repository<Users>().Queryable().FirstOrDefault(u => u.email == message.AuthorEmail);
+            Users userAuthor = _unitOfWork.Repository<Users>().Queryable().FirstOrDefault(u => u.email == message.AuthorEmail);
+            Band bandAuthor = _unitOfWork.Repository<Band>().Queryable().FirstOrDefault(u => u.name == message.AuthorEmail);
 
             Message newMsg = new Message()
             {
-                UserAuthor = msgAuthor,
-                UserID = msgAuthor.Id,
+                UserAuthor = userAuthor,
+                BandAuthor = bandAuthor,
                 title = message.Title,
                 content = message.Content,
                 sentDate = DateTime.Now,
@@ -160,6 +161,48 @@ namespace MusicCenter.Services.Services
             currentMsg.ObjectState = ObjectState.Modified;
 
             _unitOfWork.SaveChanges();
+        }
+
+
+        public List<MessageLisItemViewModel> GetBandReceivedMessages(string BandName)
+        {
+            var bandMessages = _repo
+                                .Queryable().Where(m => m.BandReceivers.Any(u => u.name == BandName))
+                                .Include(m => m.UserAuthor).Include(m => m.BandAuthor).Include(m => m.BandReceivers).Include(m => m.UserReceivers)
+                                .ToList()
+                                .Select(msg => new MessageLisItemViewModel()
+                                {
+                                    Id = msg.Id,
+                                    Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
+                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
+                                    Title = msg.title,
+                                    Content = msg.content,
+                                    IsReaded = msg.isReaded,
+                                    SentDate = msg.sentDate
+                                }).OrderBy(d => d.SentDate);
+
+            return bandMessages.ToList();
+        }
+
+
+        public List<MessageLisItemViewModel> GetBandSentMessages(string BandName)
+        {
+            var userMsgs = _repo
+                                .Queryable().Where(m => m.BandAuthor.name == BandName)
+                                .Include(m => m.UserAuthor).Include(m => m.BandAuthor).Include(m => m.BandReceivers).Include(m => m.UserReceivers)
+                                .ToList()
+                                .Select(msg => new MessageLisItemViewModel()
+                                {
+                                    Id = msg.Id,
+                                    Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
+                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
+                                    Title = msg.title,
+                                    Content = msg.content,
+                                    IsReaded = msg.isReaded,
+                                    SentDate = msg.sentDate
+                                }).OrderBy(d => d.SentDate);
+
+            return userMsgs.ToList();
         }
     }
 }
