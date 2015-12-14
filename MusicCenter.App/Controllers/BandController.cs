@@ -19,6 +19,11 @@ namespace MusicCenter.App.Controllers
             bandService = serv;
         }
 
+        public PartialViewResult RenderBandLayout(string BandName)
+        {
+            return PartialView("_BandLayout", BandName);
+        }
+
         [UserAuthorize]
         public ActionResult UserBands()
         {
@@ -63,6 +68,35 @@ namespace MusicCenter.App.Controllers
             model = bandService.GetBandPanelViewModelByName(Session["band"].ToString());
 
             return PartialView("_BandPanel", model);
+        }
+
+        public ActionResult BandProfile(string BandName)
+        {
+            BandProfileViewModel model = bandService.GetBandProfileViewModel(BandName);
+
+            return View(model);
+        }
+
+        public ActionResult BandDiscography(string BandName)
+        {
+            return View();
+        }
+
+        public ActionResult BandConcerts(string BandName)
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public bool IsVisitorBandOwner(string BandName)
+        {
+            if (Session["band"] != null)
+            {
+                return Session["band"].ToString().ToLower() == BandName.ToLower();
+            }
+
+            return false;
         }
 	}
 }

@@ -17,5 +17,7 @@ namespace MusicCenter.Services.Intefaces
         void AddBand(AddBandViewModel model);
 
         BandPanelViewModel GetBandPanelViewModelByName(string name);
+
+        BandProfileViewModel GetBandProfileViewModel(string BandName);
     }
 }

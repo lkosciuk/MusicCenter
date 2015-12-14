@@ -3,7 +3,7 @@
 <form>
     <ul class="nav navbar-nav navbar-right" style="color: white">
         <li>
-            @Html.ActionLink(@Model.Name, "BandProfile", "Band", null, new { style = "height: 15px" })
+            @Html.ActionLink(@Model.Name, "BandProfile", "Band", new { BandName = @Model.Name}, new { style = "height: 15px" })
             @Html.ActionLink(@MusicCenter.Common.Resources.Global.NewMessages + @Model.MessagesCount, "BandMessages", "Message", null, new { style = "height: 15px; margin-bottom: 10px" })
         </li>
         <li>

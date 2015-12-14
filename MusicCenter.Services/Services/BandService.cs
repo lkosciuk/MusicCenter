@@ -149,5 +149,10 @@ namespace MusicCenter.Services.Services
                         MessagesCount = band.receivedMessages.Where(m => !m.isReaded).Count()
                     }).FirstOrDefault();
         }
+
+        public BandProfileViewModel GetBandProfileViewModel(string BandName)
+        {
+            return new BandProfileViewModel() { Name = BandName};
+        }
     }
 }

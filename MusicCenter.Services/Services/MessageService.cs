@@ -25,14 +25,15 @@ namespace MusicCenter.Services.Services
         {
 
             var userMessages = _repo
-                                .Queryable().Where(m => m.UserReceivers.Any(u => u.email == email))
+                                .Queryable()
                                 .Include(m => m.UserAuthor).Include(m => m.BandAuthor).Include(m => m.BandReceivers).Include(m => m.UserReceivers)
+                                .Where(m => m.UserReceivers.Any(u => u.email == email))
                                 .ToList()
                                 .Select(msg => new MessageLisItemViewModel()
                                 {
                                     Id = msg.Id,
                                     Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
-                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
+                                    Recipients = string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)) + string.Join(" ", msg.BandReceivers.Select(b => b.name)),
                                     Title = msg.title,
                                     Content = msg.content,
                                     IsReaded = msg.isReaded,
@@ -46,14 +47,15 @@ namespace MusicCenter.Services.Services
         public List<MessageLisItemViewModel> GetUserSentMessages(string email)
         {
             var userMsgs = _repo
-                                .Queryable().Where(m => m.UserAuthor.email == email)
+                                .Queryable()
                                 .Include(m => m.UserAuthor).Include(m => m.BandAuthor).Include(m => m.BandReceivers).Include(m => m.UserReceivers)
+                                .Where(m => m.UserAuthor.email == email)
                                 .ToList()
                                 .Select(msg => new MessageLisItemViewModel()
                                 {
                                     Id = msg.Id,
                                     Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
-                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
+                                    Recipients = string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)) + string.Join(" ", msg.BandReceivers.Select(b => b.name)),
                                     Title = msg.title,
                                     Content = msg.content,
                                     IsReaded = msg.isReaded,
@@ -92,10 +94,14 @@ namespace MusicCenter.Services.Services
                 if (recipientUser != null)
                 {
                     newMsg.UserReceivers.Add(recipientUser);
+                    recipientUser.receivedMessages.Add(newMsg);
+                    recipientUser.ObjectState = ObjectState.Modified;
                 }
                 else if (recipientBand != null)
                 {
                     newMsg.BandReceivers.Add(recipientBand);
+                    recipientBand.receivedMessages.Add(newMsg);
+                    recipientBand.ObjectState = ObjectState.Modified;
                 }
 
                 _repo.InsertOrUpdateGraph(newMsg);
@@ -167,14 +173,15 @@ namespace MusicCenter.Services.Services
         public List<MessageLisItemViewModel> GetBandReceivedMessages(string BandName)
         {
             var bandMessages = _repo
-                                .Queryable().Where(m => m.BandReceivers.Any(u => u.name == BandName))
+                                .Queryable()
                                 .Include(m => m.UserAuthor).Include(m => m.BandAuthor).Include(m => m.BandReceivers).Include(m => m.UserReceivers)
+                                .Where(m => m.BandReceivers.Any(u => u.name == BandName))
                                 .ToList()
                                 .Select(msg => new MessageLisItemViewModel()
                                 {
                                     Id = msg.Id,
                                     Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
-                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
+                                    Recipients = string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)) + string.Join(" ", msg.BandReceivers.Select(b => b.name)),
                                     Title = msg.title,
                                     Content = msg.content,
                                     IsReaded = msg.isReaded,
@@ -188,14 +195,15 @@ namespace MusicCenter.Services.Services
         public List<MessageLisItemViewModel> GetBandSentMessages(string BandName)
         {
             var userMsgs = _repo
-                                .Queryable().Where(m => m.BandAuthor.name == BandName)
+                                .Queryable()
                                 .Include(m => m.UserAuthor).Include(m => m.BandAuthor).Include(m => m.BandReceivers).Include(m => m.UserReceivers)
+                                .Where(m => m.BandAuthor.name == BandName)
                                 .ToList()
                                 .Select(msg => new MessageLisItemViewModel()
                                 {
                                     Id = msg.Id,
                                     Author = msg.UserAuthor != null ? msg.UserAuthor.email : msg.BandAuthor.name,
-                                    Recipients = string.Join(string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)), msg.BandReceivers.Select(b => b.name)),
+                                    Recipients =string.Join(String.Empty, msg.UserReceivers.Select(u => u.email)) + string.Join(" ", msg.BandReceivers.Select(b => b.name)),
                                     Title = msg.title,
                                     Content = msg.content,
                                     IsReaded = msg.isReaded,

@@ -1,27 +1,42 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model String
 
 @Styles.Render("~/Content/User/UserPage.css")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.post('@Url.Action("IsVisitorBandOwner", "Band")', {BandName : '@Model'}, function (IsOwner) {
+            if (IsOwner == "True")
+            {
+                var MsgLink = $('#MsgContainer');
+                MsgLink.after().html('<a href="@Url.Action("BandMessages", "Message")">@MusicCenter.Common.Resources.Global.Messages</a>');
+            }
+            else
+            {
+                var MsgLink = $('#MsgContainer');
+                MsgLink.after().html('<a href="@Url.Action("SendMessageToBand", "Message")">Napisz wiadomość ?? jak to zrobic uzyc gotowych widokow czy nowy?</a>');
+            }
+        })
+    });
+</script>
 
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
-            <span style="color:white">@Session["band"].ToString()</span>
+            <span style="color:white">@Model</span>
         </li>
         <li>
-            <a href="@Url.Action("BandProfile", "Band")">@MusicCenter.Common.Resources.Global.Profile</a>
+            <a href="@Url.Action("BandProfile", "Band", new {BandName = @Model })">@MusicCenter.Common.Resources.Global.Profile</a>
         </li>
         <li>
-            <a href="@Url.Action("BandMessages", "Message")" id="UserMessages">@MusicCenter.Common.Resources.Global.Messages</a>
+            <a href="@Url.Action("BandDicography", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Dicography</a>
         </li>
         <li>
-            <a href="@Url.Action("BandDicography", "Band")" id="UserFavourites">@MusicCenter.Common.Resources.Global.Dicography</a>
+            <a href="@Url.Action("BandConcerts", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Concerts</a>
         </li>
-        <li>
-            <a href="@Url.Action("BandConcerts", "Band")" id="UserBands">@MusicCenter.Common.Resources.Global.Concerts</a>
+        <li id="MsgContainer">        
+            
         </li>
     </ul>
 </div>
 
-<div style="position:relative; left: 50px">@RenderBody()</div>
+@*<div style="position:relative; left: 50px">@RenderBody()</div>*@
