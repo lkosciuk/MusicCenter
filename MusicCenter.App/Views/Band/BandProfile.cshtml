@@ -1,9 +1,185 @@
 ﻿@model MusicCenter.Common.ViewModels.Band.BandProfileViewModel
 
-@{
-    Html.RenderAction("RenderBandLayout", "Band", new { BandName = @Model.Name });
-}
+@Styles.Render("~/Content/Account/Register.css")
+@Styles.Render("~/Content/themes/base/all.css")
+@Scripts.Render("~/Scripts/Band/BandProfile.js")
+@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+@Scripts.Render("~/Scripts/jquery.form.js")
 
-<div id="BodyContent" style="margin-left: 50px">
-    
+
+@Html.Action("RenderBandLayout", "Band", new {BandName = Model.Name})
+<div id="BodyContent" style="margin-left: 50px; margin-top:10px">
+    <form id="EditBandForm" action="@Url.Action("EditProfile", "Band")" method="post" enctype="multipart/form-data">
+        <div class="row form-group">
+            <div class="col-md-1">
+                <img src="@Model.Avatar.PathToShow" alt="..." class="img-circle" style="display:block;margin-left:auto;margin-right:auto;" width="100" height="100" id="bandAvatar">
+            </div>
+            <div class="col-lg-11">
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Nazwa:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                        {
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+                        }
+                        else
+                        {
+                            <label class="control-label input-sm">@Model.Name</label>
+                        }
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Creation date:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                        {
+                            @Html.TextBoxFor(m => m.CreationDate, new { @class = "form-control input-sm", id = "CreationDate" })
+                        }
+                        else
+                        {
+                             <label class="control-label input-sm">@Model.CreationDate</label>
+                        }                       
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Email:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                        {
+                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm" })
+                        }
+                        else 
+                        {
+                             <label class="control-label input-sm">@Model.Email</label>
+                        }                      
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Resolve date:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                        {
+                             @Html.TextBoxFor(m => m.ResolveDate, new { @class = "form-control input-sm", name = "ResolveDate", id = "ResolveDate" })
+                        }
+                        else
+                        {
+                            if (String.IsNullOrEmpty(Model.ResolveDate))
+                            {
+                                <label class="control-label input-sm">Present</label>
+                            }
+                            else
+                            {
+                                <label class="control-label input-sm">@Model.ResolveDate</label>
+                            }                           
+                        }                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group" style="margin-top:-20px">
+            <div class="col-sm-1">
+                @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                {
+                    <span class="btn btn-primary btn-file">               
+                          @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Avatar.PostedFile, new { type = "file", name = "Avatar", @class = "input-sm", @id = "avatar" })
+                    </span>
+                }
+            </div>
+            <div class="col-lg-11">
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Telefon:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                        {
+                              @Html.TextBoxFor(m => m.Phone, new { @class = "form-control input-sm", name = "Phone" })
+                        }
+                        else
+                        {
+                            <label class="control-label input-sm">@Model.Phone</label>
+                        }             
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Gatunki:</label>
+            </div>
+            <div class="col-sm-11">
+                @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                {
+                    @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = "separated by comma" })
+                }
+                else
+                {
+                    <label class="control-label input-sm">@Model.Genres</label>
+                }
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Muzycy:</label>
+            </div>
+            <div class="col-sm-11">
+                @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                {
+                    int MemberCounter = 0;
+                    
+                    <div id="BandMembers">
+                        @foreach (var member in Model.BandMembers)
+                        {
+                            MemberCounter--;
+                            <div id="@MemberCounter">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        @Html.TextBoxFor(m => member, new { @class = "form-control input-sm", id = "textbox" + MemberCounter, style="margin-bottom:20px"})
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <span class="glyphicon glyphicon-remove" onclick="RemoveMember(this)" id="@MemberCounter"></span>
+                                    </div>
+                                </div>
+                            </div>                      
+                        } 
+                    </div>
+                    <input type="button" class="btn btn-default input-sm" value="Dodaj muzyka" id="AddBandMemberBtn" />
+                }
+                else
+                {
+                    foreach (var member in Model.BandMembers)
+                    {
+                        <label class="control-label input-sm">@member</label>
+                    }                   
+                }
+                
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Opis:</label>
+            </div>
+            <div class="col-sm-11">
+                @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+                {
+                    <textarea rows="5" name="Description" style="width:100%; max-width:none"></textarea>
+                }
+                else
+                {
+                    <label class="control-label input-sm">@Model.Description</label>
+                }
+                
+            </div>
+        </div>
+        @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
+        {
+            <input type="submit" class="btn btn-default pull-right" value="Create" />
+        }       
+    </form>
+
 </div>

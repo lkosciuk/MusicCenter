@@ -20,7 +20,13 @@ namespace MusicCenter.App.Controllers
         {
             UserService = service;
         }
-        // GET: Account
+
+        public ActionResult GetLoginPanel()
+        {
+            LoginViewModel model = new LoginViewModel();
+            return PartialView("_LoginPanel", model);
+        }
+
         public ActionResult Register()
         {
             return View();

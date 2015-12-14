@@ -144,5 +144,44 @@ namespace MusicCenter.App.Controllers
             }
             return View(model);
         }
+
+        [SessionAuthorize]
+        public ActionResult SendBandMessage(string Recipient)
+        {
+            NewMessageViewModel model = new NewMessageViewModel();
+            model.Recipients = Recipient;
+
+            if (Session["user"] != null)
+            {
+                model.AuthorEmail = Session["user"].ToString();
+            }
+            else
+            {
+                model.AuthorEmail = Session["band"].ToString();
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [SessionAuthorize]
+        public ActionResult SendBandMessage(NewMessageViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (msgService.MessageRecipientsValid(model.Recipients))
+                {
+                    msgService.SendMessage(model);
+                    return View(model);
+                }
+                else
+                {
+                    model.RecipientsErrorMsg = "Some of recipients doeas not exists";
+                }
+
+            }
+
+            return View(model);
+        }
 	}
 }

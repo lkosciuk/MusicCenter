@@ -152,7 +152,20 @@ namespace MusicCenter.Services.Services
 
         public BandProfileViewModel GetBandProfileViewModel(string BandName)
         {
-            return new BandProfileViewModel() { Name = BandName};
+            Band currentBand = _repo.GetBandByName(BandName, b => b.images, b => b.genres, b => b.members).FirstOrDefault();
+
+            return  new BandProfileViewModel()
+                   {
+                       Avatar = new FileViewModel() { PathToShow = currentBand.images.FirstOrDefault(i => i.IsAvatar).path },
+                       BandMembers = currentBand.members.Select(m => m.fullName).ToArray(),
+                       CreationDate = currentBand.bandCreationDate.Value.ToShortDateString(),
+                       ResolveDate = currentBand.bandResolveDate.Value.ToShortDateString(),
+                       Description = currentBand.description,
+                       Email = currentBand.email,
+                       Genres = String.Join(",", currentBand.genres.Select(g => g.name).ToArray()),
+                       Name = currentBand.name,
+                       Phone = currentBand.phoneNumber
+                   };
         }
     }
 }

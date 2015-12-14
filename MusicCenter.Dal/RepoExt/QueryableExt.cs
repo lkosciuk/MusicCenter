@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
-namespace MusicCenter.Common.Extensions
+namespace MusicCenter.Dal.RepoExt
 {
     public static class QueryableExt
     {

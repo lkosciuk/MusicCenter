@@ -194,6 +194,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\BandAuthorize.cs" />
+    <Compile Include="Filters\SessionAuthorize.cs" />
     <Compile Include="Filters\UserAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +251,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Band\AddBand.js" />
+    <Content Include="Scripts\Band\BandProfile.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.form.js" />
@@ -319,6 +321,7 @@
     <Content Include="Views\Band\BandProfile.cshtml" />
     <Content Include="Views\Band\BandDiscography.cshtml" />
     <Content Include="Views\Band\BandConcerts.cshtml" />
+    <Content Include="Views\Message\SendBandMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

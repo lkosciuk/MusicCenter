@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using MusicCenter.Dal.RepoExt;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using MusicCenter.Common.Extensions;
+using MusicCenter.Dal.RepoExt;
 
 namespace MusicCenter.Dal.Repositories
 {
