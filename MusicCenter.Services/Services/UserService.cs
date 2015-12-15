@@ -53,6 +53,7 @@ namespace MusicCenter.Services.Services
             if (RegisterModel.Avatar.PostedFile != null)
             {
                 userAvatar = new Files();
+                userAvatar.IsAvatar = true;
                 userAvatar.name = RegisterModel.Avatar.PostedFile.FileName;
                 userAvatar.path = "/Content/Uploads/" + RegisterModel.Avatar.PostedFile.FileName;
                 RegisterModel.Avatar.PostedFile.SaveAs(RegisterModel.Avatar.RelativePathToSave); 
@@ -69,7 +70,7 @@ namespace MusicCenter.Services.Services
             userAvatar.ObjectState = ObjectState.Added;
             userAvatar.user = newUser;
 
-            newUser.profilePhoto = userAvatar;
+            newUser.images.Add(userAvatar);
 
             //Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
             //userRole.ObjectState = ObjectState.Unchanged;
@@ -108,12 +109,12 @@ namespace MusicCenter.Services.Services
 
         public UserPanelViewModel GerUserPanelViewModelByEmail(string email)
         {
-            Users loggedUser = _repo.GetUserByEmail(email, u => u.favourites, u => u.profilePhoto, u => u.receivedMessages);
+            Users loggedUser = _repo.GetUserByEmail(email, u => u.favourites, u => u.images, u => u.receivedMessages);
 
             UserPanelViewModel model = new UserPanelViewModel()
             {
                 Email = loggedUser.email,
-                AvatarPath = loggedUser.profilePhoto.path,
+                AvatarPath = loggedUser.images.FirstOrDefault(i => i.IsAvatar).path,
                 MessagesCount = loggedUser.receivedMessages.Where(m => m.isReaded == false).Count()
             };
 
@@ -130,6 +131,7 @@ namespace MusicCenter.Services.Services
             newUser.firstName = userData.FirstName;
             newUser.lastName = userData.LastName;
 
+            userAvatar.IsAvatar = true;
             userAvatar.path = userData.avatar_url;
             userAvatar.name = userData.username + " " + "SoundCloud";
             
@@ -138,7 +140,7 @@ namespace MusicCenter.Services.Services
             userAvatar.ObjectState = ObjectState.Added;
             userAvatar.user = newUser;
 
-            newUser.profilePhoto = userAvatar;
+            newUser.images.Add(userAvatar);
 
             //Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
             //userRole.ObjectState = ObjectState.Unchanged;
@@ -180,29 +182,30 @@ namespace MusicCenter.Services.Services
 
         public UserProfileViewModel GetUserProfile(string email)
         {
-            Users currentUser = _repo.GetUserByEmail(email, u => u.profilePhoto);
+            Users currentUser = _repo.GetUserByEmail(email, u => u.images);
 
             return new UserProfileViewModel()
                        {
                             FirstName = currentUser.firstName,
                             LastName = currentUser.lastName,
-                            Avatar = new FileViewModel() { PathToShow = currentUser.profilePhoto.path}
+                            Avatar = new FileViewModel() { PathToShow = currentUser.images.FirstOrDefault(i => i.IsAvatar).path}
                        };
         }
 
 
         public void UpdateUser(UserProfileViewModel model)
         {
-            Users currentUser = _repo.GetUserByEmail(model.email, u => u.profilePhoto);
+            Users currentUser = _repo.GetUserByEmail(model.email, u => u.images);
             currentUser.firstName = model.FirstName;
             currentUser.lastName = model.LastName;
             currentUser.password = model.Password;
 
             if (model.Avatar.PostedFile != null)
             {
-                currentUser.profilePhoto.ObjectState = ObjectState.Modified;
-                currentUser.profilePhoto.name = model.Avatar.PostedFile.FileName;
-                currentUser.profilePhoto.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
+                Files currentAvatar = currentUser.images.FirstOrDefault(i => i.IsAvatar);
+                currentAvatar.ObjectState = ObjectState.Modified;
+                currentAvatar.name = model.Avatar.PostedFile.FileName;
+                currentAvatar.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
                 model.Avatar.PostedFile.SaveAs(model.Avatar.RelativePathToSave);
             }
             currentUser.ObjectState = ObjectState.Modified;
@@ -214,28 +217,29 @@ namespace MusicCenter.Services.Services
 
         public UserSoundcloudProfileViewModel GetUserSoundcloudProfile(string email)
         {
-            Users currentUser = _repo.GetUserByEmail(email, u => u.profilePhoto);
+            Users currentUser = _repo.GetUserByEmail(email, u => u.images);
 
             return new UserSoundcloudProfileViewModel()
             {
                 FirstName = currentUser.firstName,
                 LastName = currentUser.lastName,
-                Avatar = new FileViewModel() { PathToShow = currentUser.profilePhoto.path }
+                Avatar = new FileViewModel() { PathToShow = currentUser.images.FirstOrDefault(i => i.IsAvatar).path }
             };
         }
 
 
         public void UpdateSoundCloudUser(UserSoundcloudProfileViewModel model)
         {
-            Users currentUser = _repo.GetUserByEmail(model.email, u => u.profilePhoto);
+            Users currentUser = _repo.GetUserByEmail(model.email, u => u.images);
             currentUser.firstName = model.FirstName;
             currentUser.lastName = model.LastName;
 
             if (model.Avatar.PostedFile != null)
             {
-                currentUser.profilePhoto.ObjectState = ObjectState.Modified;
-                currentUser.profilePhoto.name = model.Avatar.PostedFile.FileName;
-                currentUser.profilePhoto.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
+                Files currentAvatar = currentUser.images.FirstOrDefault(i => i.IsAvatar);
+                currentAvatar.ObjectState = ObjectState.Modified;
+                currentAvatar.name = model.Avatar.PostedFile.FileName;
+                currentAvatar.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
                 model.Avatar.PostedFile.SaveAs(model.Avatar.RelativePathToSave);
             }
             currentUser.ObjectState = ObjectState.Modified;

@@ -12,6 +12,7 @@ namespace MusicCenter.Dal.EntityModels
         public string name { get; set; }
         public string path { get; set; }
         public virtual Users user { get; set; }
+        public int? UserID { get; set; }
         public int? BandID { get; set; }
         public virtual Band band { get; set; }
         public int? TourID { get; set; }

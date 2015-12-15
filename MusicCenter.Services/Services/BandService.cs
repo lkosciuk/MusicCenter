@@ -13,6 +13,7 @@ using MusicCenter.Common.ViewModels.File;
 using Repository.Pattern.UnitOfWork;
 using Repository.Pattern.Infrastructure;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace MusicCenter.Services.Services
 {
@@ -61,8 +62,8 @@ namespace MusicCenter.Services.Services
                 email = model.Email,
                 phoneNumber = model.Phone,
                 addDate = DateTime.Now,
-                bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.Parse(model.CreationDate),
-                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.Parse(model.ResolveDate),
+                bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture),
+                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", CultureInfo.InvariantCulture),
                 ObjectState = ObjectState.Added,
                 user = currentUser,
                 UserID = currentUser.Id,
@@ -158,8 +159,8 @@ namespace MusicCenter.Services.Services
                    {
                        Avatar = new FileViewModel() { PathToShow = currentBand.images.FirstOrDefault(i => i.IsAvatar).path },
                        BandMembers = currentBand.members.Select(m => m.fullName).ToArray(),
-                       CreationDate = currentBand.bandCreationDate.Value.ToShortDateString(),
-                       ResolveDate = currentBand.bandResolveDate.Value.ToShortDateString(),
+                       CreationDate = currentBand.bandCreationDate.HasValue ? currentBand.bandCreationDate.Value.ToShortDateString() : null ,
+                       ResolveDate = currentBand.bandResolveDate.HasValue ? currentBand.bandResolveDate.Value.ToShortDateString() : null,
                        Description = currentBand.description,
                        Email = currentBand.email,
                        Genres = String.Join(",", currentBand.genres.Select(g => g.name).ToArray()),

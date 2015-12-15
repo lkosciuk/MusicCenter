@@ -33,7 +33,9 @@ namespace MusicCenter.Dal.EntityConfigurations
                  .WithMany(t => t.images)
                  .HasForeignKey(d => d.TourID);
 
-            this.HasOptional(f => f.user).WithRequired();
+            this.HasOptional(t => t.user)
+                 .WithMany(t => t.images)
+                 .HasForeignKey(d => d.UserID);
         }
     }
 }

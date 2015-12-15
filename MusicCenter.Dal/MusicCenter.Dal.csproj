@@ -120,6 +120,14 @@
     <Compile Include="Migrations\201512100930161_init1.Designer.cs">
       <DependentUpon>201512100930161_init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512151220310_test1.cs" />
+    <Compile Include="Migrations\201512151220310_test1.Designer.cs">
+      <DependentUpon>201512151220310_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512151243115_test2.cs" />
+    <Compile Include="Migrations\201512151243115_test2.Designer.cs">
+      <DependentUpon>201512151243115_test2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512100930161_init1.resx">
       <DependentUpon>201512100930161_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151220310_test1.resx">
+      <DependentUpon>201512151220310_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151243115_test2.resx">
+      <DependentUpon>201512151243115_test2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

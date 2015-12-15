@@ -14,7 +14,7 @@ namespace MusicCenter.Dal.EntityModels
         public string firstName { get; set; }
         public string lastName { get; set; }
         //public int FileID { get; set; }
-        public virtual Files profilePhoto { get; set; }
+        public virtual ICollection<Files> images { get; set; }
         //public virtual ICollection<Concert> concerts { get; set; }
         //public virtual ICollection<Tour> tours { get; set; }
         //public virtual ICollection<Users> followed { get; set; }
@@ -34,6 +34,7 @@ namespace MusicCenter.Dal.EntityModels
             sentMessages = new List<Message>();
             bands = new List<Band>();
             roles = new List<Role>();
+            images = new List<Files>();
         }
     }
 }
