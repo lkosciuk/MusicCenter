@@ -36,6 +36,10 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.HasOptional(t => t.user)
                  .WithMany(t => t.images)
                  .HasForeignKey(d => d.UserID);
+
+            this.HasOptional(t => t.album)
+                 .WithMany(t => t.images)
+                 .HasForeignKey(d => d.AlbumID);
         }
     }
 }

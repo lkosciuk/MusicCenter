@@ -10,6 +10,7 @@ namespace MusicCenter.Dal.EntityModels
         : BaseEntity
     {
         public string name { get; set; }
+        public virtual ICollection<Files> images {get; set;}
         public DateTime releaseDate { get; set; }
         public string duration { get; set; }
         public virtual ICollection<Genre> genres { get; set; }

@@ -63,7 +63,7 @@ BandProfileScope = function () {
     }
 
     this.EditBand = function () {
-        $('#AddBandForm').ajaxForm();
+        $('#EditBandForm').ajaxForm();
     }
 
 

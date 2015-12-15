@@ -79,7 +79,7 @@ namespace MusicCenter.App.Controllers
 
         [HttpPost]
         [BandAuthorize]
-        public ActionResult BandProfile(BandProfileViewModel model)/////sprawdzic jeszcze jak dziala, dziwne rzeczy sie dzialy, usuwalo czlonkow zespolu
+        public ActionResult BandProfile(BandProfileViewModel model)
         {
             if (model.Avatar.PostedFile != null)
             {
@@ -97,10 +97,19 @@ namespace MusicCenter.App.Controllers
                 }
             }
 
-            return View(model.Name);
+            model = bandService.GetBandProfileViewModel(model.Name);
+
+            return View(model);
         }
 
-        public ActionResult BandDiscography(string BandName)
+        public ActionResult BandAlbums(string BandName)
+        {
+            BandAlbumListViewModel albumList = bandService.GetBandAlbums(BandName);
+
+            return View(albumList);
+        }
+
+        public ActionResult BandSingles(string BandName)
         {
             return View();
         }
@@ -111,15 +120,12 @@ namespace MusicCenter.App.Controllers
         }
 
 
-        [HttpPost]
-        public bool IsVisitorBandOwner(string BandName)
+        [BandAuthorize]
+        public ActionResult AddAlbum()
         {
-            if (Session["band"] != null)
-            {
-                return Session["band"].ToString().ToLower() == BandName.ToLower();
-            }
-
-            return false;
+            return View();
         }
+
+
 	}
 }

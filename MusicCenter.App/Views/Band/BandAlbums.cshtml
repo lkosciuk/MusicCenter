@@ -1,0 +1,42 @@
+﻿@model MusicCenter.Common.ViewModels.Band.BandAlbumListViewModel
+
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+
+<div id="BodyContent" style="margin-left: 50px">
+    <ul class="nav nav-tabs" style="margin-bottom:10px">
+        <li role="presentation" class="active"><a href="@Url.Action("BandAlbums", "Band", new { BandName = @Model.BandName })">Albums</a></li>
+        <li role="presentation"><a href="@Url.Action("BandSingles", "Band", new { BandName = @Model.BandName })">Singles</a></li>
+    </ul>
+
+    <div class="row">
+        @foreach (var Album in Model.Albums)
+        {
+            <div class="col-sm-2 col-md-4">
+                <a href="@Url.Action("Album", "Band", new {AlbumName = Album.Name })" style="text-decoration:none">
+                    <div class="thumbnail">
+                        <img src="@Album.Cover.PathToShow" alt="...">
+                        <div class="caption">
+                            <h3>@Album.Name</h3>
+                            <p>@Album.ReleaseDate</p>
+                            <p>
+                                @foreach (var genre in Album.Genres)
+                                {
+                                    @genre
+                                }
+                            </p>
+                            <p>Likes: @Album.Rating</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
+    {
+        <div class="row pull-right">
+            <a href="@Url.Action("AddAlbum", "Band")" class="btn btn-default">Add album</a>
+        </div>
+    }
+    
+</div>

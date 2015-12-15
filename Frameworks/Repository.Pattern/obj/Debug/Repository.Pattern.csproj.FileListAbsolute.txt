@@ -21,9 +21,9 @@ C:\Repository\MC\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll
 C:\Repository\MC\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.pdb
 C:\Repository\MC\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.dll
 C:\Repository\MC\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.pdb
+C:\Repository\MC\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.csprojResolveAssemblyReference.cache
 D:\Programowanie\MC\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll.config
 D:\Programowanie\MC\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll
 D:\Programowanie\MC\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.pdb
 D:\Programowanie\MC\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.dll
 D:\Programowanie\MC\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.pdb
-C:\Repository\MC\Frameworks\Repository.Pattern\obj\Debug\Repository.Pattern.csprojResolveAssemblyReference.cache

@@ -1,22 +1,6 @@
 ﻿@model String
 
 @Styles.Render("~/Content/User/UserPage.css")
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.post('@Url.Action("IsVisitorBandOwner", "Band")', {BandName : '@Model'}, function (IsOwner) {
-            if (IsOwner == "True")
-            {
-                var MsgLink = $('#MsgContainer');
-                MsgLink.after().html('<a href="@Url.Action("BandMessages", "Message")">@MusicCenter.Common.Resources.Global.Messages</a>');
-            }
-            else
-            {
-                var MsgLink = $('#MsgContainer');
-                MsgLink.after().html('<a href="@Url.Action("SendBandMessage", "Message", new {Recipient = Model })">Napisz wiadomość</a>');
-            }
-        })
-    });
-</script>
 
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
@@ -27,13 +11,20 @@
             <a href="@Url.Action("BandProfile", "Band", new {BandName = @Model })">@MusicCenter.Common.Resources.Global.Profile</a>
         </li>
         <li>
-            <a href="@Url.Action("BandDicography", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Dicography</a>
+            <a href="@Url.Action("BandAlbums", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Dicography</a>
         </li>
         <li>
             <a href="@Url.Action("BandConcerts", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Concerts</a>
         </li>
         <li id="MsgContainer">        
-            
+            @if (Session["band"] != null && Session["band"].ToString() == Model)
+            {
+                <a href="@Url.Action("BandMessages", "Message")">@MusicCenter.Common.Resources.Global.Messages</a>
+            }
+            else
+            {
+                <a href="@Url.Action("SendBandMessage", "Message", new {Recipient = Model })">Napisz wiadomość</a>
+            }
         </li>
     </ul>
 </div>

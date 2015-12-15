@@ -19,7 +19,8 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.Property(a => a.name).HasMaxLength(20).IsRequired();
             this.Property(a => a.description).HasMaxLength(1000);
             this.Property(a => a.phoneNumber).HasMaxLength(15);
-
+            this.Property(a => a.bandCreationDate).HasColumnType("datetime2");
+            this.Property(a => a.bandResolveDate).HasColumnType("datetime2");
             //relationships
             this.HasRequired(t => t.user)
                  .WithMany(t => t.bands)

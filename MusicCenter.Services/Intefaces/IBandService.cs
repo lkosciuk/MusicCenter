@@ -21,5 +21,7 @@ namespace MusicCenter.Services.Intefaces
         BandProfileViewModel GetBandProfileViewModel(string BandName);
         bool IsVisitorBandOwner(string visitor, int bandId);
         void EditBandProfile(BandProfileViewModel model);
+
+        BandAlbumListViewModel GetBandAlbums(string BandName);
     }
 }

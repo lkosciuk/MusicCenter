@@ -319,9 +319,11 @@
     <Content Include="Views\Message\BandNewMessage.cshtml" />
     <Content Include="Views\Message\BandMessageDetails.cshtml" />
     <Content Include="Views\Band\BandProfile.cshtml" />
-    <Content Include="Views\Band\BandDiscography.cshtml" />
+    <Content Include="Views\Band\BandAlbums.cshtml" />
     <Content Include="Views\Band\BandConcerts.cshtml" />
     <Content Include="Views\Message\SendBandMessage.cshtml" />
+    <Content Include="Views\Band\AddAlbum.cshtml" />
+    <Content Include="Views\Band\BandSingles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

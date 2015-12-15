@@ -207,12 +207,9 @@ namespace MusicCenter.Services.Services
                     }
                     else
                     {
-                        if (!currentBand.genres.Any(g => g.name == genre))
-                        {
                             Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
                             existingGenre.bands.Add(currentBand);
-                            BandGenres.Add(existingGenre);
-                        }                       
+                            BandGenres.Add(existingGenre);                      
                     }
 
 
@@ -231,13 +228,9 @@ namespace MusicCenter.Services.Services
                     }
                     else
                     {
-                        if (!currentBand.members.Any(m => m.fullName == member))
-                        {
                             BandMember newMember = _unitOfWork.Repository<BandMember>().Queryable().FirstOrDefault(m => m.fullName == member);
                             newMember.bands.Add(currentBand);
-                            Members.Add(newMember);
-                        }
-                        
+                            Members.Add(newMember);                       
                     }                   
                 }
             }
@@ -259,5 +252,28 @@ namespace MusicCenter.Services.Services
             _repo.InsertOrUpdateGraph(currentBand);
             _unitOfWork.SaveChanges();
         }
+
+
+        public BandAlbumListViewModel GetBandAlbums(string BandName)
+        {
+            Band currentBand = _repo.GetBandByName(BandName, b => b.albums).FirstOrDefault();
+
+            return new BandAlbumListViewModel()
+            {
+                BandName = currentBand.name,
+                Albums = currentBand.albums.Select(a => new BandAlbumViewModel()
+                                        {
+                                            BandName = currentBand.name,
+                                            Cover = new FileViewModel() { PathToShow = a.images.FirstOrDefault(i => i.IsAvatar).path },
+                                            Name = a.name,
+                                            Rating = a.rating,
+                                            ReleaseDate = a.releaseDate,
+                                            Genres = a.genres.Select(g => g.name).ToArray()
+                                        }).ToList()
+            };
+            
+            
+        }
+        
     }
 }

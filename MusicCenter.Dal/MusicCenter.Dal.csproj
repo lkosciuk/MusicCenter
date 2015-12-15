@@ -128,6 +128,18 @@
     <Compile Include="Migrations\201512151243115_test2.Designer.cs">
       <DependentUpon>201512151243115_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512151851001_bandDate.cs" />
+    <Compile Include="Migrations\201512151851001_bandDate.Designer.cs">
+      <DependentUpon>201512151851001_bandDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512151900368_bandDate2.cs" />
+    <Compile Include="Migrations\201512151900368_bandDate2.Designer.cs">
+      <DependentUpon>201512151900368_bandDate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512152142517_albumFiles.cs" />
+    <Compile Include="Migrations\201512152142517_albumFiles.Designer.cs">
+      <DependentUpon>201512152142517_albumFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +192,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512151243115_test2.resx">
       <DependentUpon>201512151243115_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151851001_bandDate.resx">
+      <DependentUpon>201512151851001_bandDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151900368_bandDate2.resx">
+      <DependentUpon>201512151900368_bandDate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512152142517_albumFiles.resx">
+      <DependentUpon>201512152142517_albumFiles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

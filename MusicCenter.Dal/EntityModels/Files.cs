@@ -19,6 +19,8 @@ namespace MusicCenter.Dal.EntityModels
         public virtual Tour tour { get; set; }
         public int? ConcertID { get; set; }
         public virtual Concert concert { get; set; }
+        public virtual Album album { get; set; }
+        public int? AlbumID { get; set; }
 
         public bool IsAvatar { get; set; }
     }

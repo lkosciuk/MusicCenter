@@ -1,0 +1,27 @@
+﻿@model MusicCenter.Common.ViewModels.Band.BandSingleListViewModel
+
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+
+<div id="BodyContent" style="margin-left: 50px">
+    <ul class="nav nav-tabs" style="margin-bottom:10px">
+        <li role="presentation"><a href="@Url.Action("BandAlbums", "Band", new { BandName = @Model.BandName })">Albums</a></li>
+        <li role="presentation" class="active"><a href="@Url.Action("BandSingles", "Band", new { BandName = @Model.BandName })">Singles</a></li>
+    </ul>
+
+    <div class="row">
+        @foreach (var Single in Model.Singles)
+        {
+            <div class="col-sm-2 col-md-4">
+
+            </div>
+        }
+    </div>
+    @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
+    {
+        <div class="row pull-right">
+            <a href="@Url.Action("AddSingle", "Band")" class="btn btn-default">Add single</a>
+        </div>
+    }
+
+</div>
