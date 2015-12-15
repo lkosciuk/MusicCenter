@@ -77,6 +77,29 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult BandProfile(BandProfileViewModel model)/////sprawdzic jeszcze jak dziala, dziwne rzeczy sie dzialy, usuwalo czlonkow zespolu
+        {
+            if (model.Avatar.PostedFile != null)
+            {
+                string trailingPath = model.Avatar.PostedFile.FileName;
+                string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
+
+                model.Avatar.RelativePathToSave = fullPath;
+            }
+
+            if (bandService.IsVisitorBandOwner(Session["band"].ToString(), model.BandId))
+            {
+                if (ModelState.IsValid)
+                {
+                    bandService.EditBandProfile(model);
+                }
+            }
+
+            return View(model.Name);
+        }
+
         public ActionResult BandDiscography(string BandName)
         {
             return View();

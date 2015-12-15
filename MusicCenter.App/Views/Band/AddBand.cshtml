@@ -88,7 +88,7 @@
             <label class="control-label input-sm">Opis:</label>
         </div>
         <div class="col-sm-11">
-            <textarea rows="5" name="Description" style="width:100%; max-width:none"></textarea>
+            @Html.TextAreaFor(m => m.Description, new { style = "width:100%; max-width:none" });
         </div>
     </div>
 

@@ -9,7 +9,8 @@
 
 @Html.Action("RenderBandLayout", "Band", new {BandName = Model.Name})
 <div id="BodyContent" style="margin-left: 50px; margin-top:10px">
-    <form id="EditBandForm" action="@Url.Action("EditProfile", "Band")" method="post" enctype="multipart/form-data">
+    <form id="EditBandForm" action="@Url.Action("BandProfile", "Band")" method="post" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.BandId)
         <div class="row form-group">
             <div class="col-md-1">
                 <img src="@Model.Avatar.PathToShow" alt="..." class="img-circle" style="display:block;margin-left:auto;margin-right:auto;" width="100" height="100" id="bandAvatar">
@@ -167,7 +168,7 @@
             <div class="col-sm-11">
                 @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
                 {
-                    <textarea rows="5" name="Description" style="width:100%; max-width:none"></textarea>
+                    @Html.TextAreaFor(m => m.Description, new { style = "width:100%; max-width:none" });
                 }
                 else
                 {
@@ -178,7 +179,7 @@
         </div>
         @if (Session["band"] != null && Session["band"].ToString() == Model.Name)
         {
-            <input type="submit" class="btn btn-default pull-right" value="Create" />
+            <input type="submit" class="btn btn-default pull-right" value="Save" />
         }       
     </form>
 

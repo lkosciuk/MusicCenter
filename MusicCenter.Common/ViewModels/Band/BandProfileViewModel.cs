@@ -10,6 +10,7 @@ namespace MusicCenter.Common.ViewModels.Band
 {
     public class BandProfileViewModel
     {
+        public int BandId { get; set; }
         public FileViewModel Avatar { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]

@@ -19,5 +19,7 @@ namespace MusicCenter.Services.Intefaces
         BandPanelViewModel GetBandPanelViewModelByName(string name);
 
         BandProfileViewModel GetBandProfileViewModel(string BandName);
+        bool IsVisitorBandOwner(string visitor, int bandId);
+        void EditBandProfile(BandProfileViewModel model);
     }
 }

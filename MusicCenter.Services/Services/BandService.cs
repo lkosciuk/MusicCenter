@@ -62,8 +62,8 @@ namespace MusicCenter.Services.Services
                 email = model.Email,
                 phoneNumber = model.Phone,
                 addDate = DateTime.Now,
-                bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", CultureInfo.InvariantCulture),
-                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", CultureInfo.InvariantCulture),
+                bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null),
+                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", null),
                 ObjectState = ObjectState.Added,
                 user = currentUser,
                 UserID = currentUser.Id,
@@ -155,18 +155,109 @@ namespace MusicCenter.Services.Services
         {
             Band currentBand = _repo.GetBandByName(BandName, b => b.images, b => b.genres, b => b.members).FirstOrDefault();
 
-            return  new BandProfileViewModel()
-                   {
+            return new BandProfileViewModel()
+            {
+                       BandId = currentBand.Id,
                        Avatar = new FileViewModel() { PathToShow = currentBand.images.FirstOrDefault(i => i.IsAvatar).path },
                        BandMembers = currentBand.members.Select(m => m.fullName).ToArray(),
-                       CreationDate = currentBand.bandCreationDate.HasValue ? currentBand.bandCreationDate.Value.ToShortDateString() : null ,
-                       ResolveDate = currentBand.bandResolveDate.HasValue ? currentBand.bandResolveDate.Value.ToShortDateString() : null,
+                       CreationDate = currentBand.bandCreationDate.HasValue ? currentBand.bandCreationDate.Value.ToString("dd-MM-yyyy", null) : null ,
+                       ResolveDate = currentBand.bandResolveDate.HasValue ? currentBand.bandResolveDate.Value.ToString("dd-MM-yyyy", null) : null,
                        Description = currentBand.description,
                        Email = currentBand.email,
                        Genres = String.Join(",", currentBand.genres.Select(g => g.name).ToArray()),
                        Name = currentBand.name,
                        Phone = currentBand.phoneNumber
                    };
+        }
+
+        public bool IsVisitorBandOwner(string visitor, int bandId)
+        {
+            return _repo.GetById(bandId).name.ToLower().Equals(visitor.ToLower());
+        }
+
+        public void EditBandProfile(BandProfileViewModel model)
+        {
+            Band currentBand = _repo.GetById(model.BandId, b => b.images, b => b.genres, b => b.members);
+
+            currentBand.name = model.Name;
+            currentBand.bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null);
+            currentBand.bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", null);
+            currentBand.description = model.Description;
+            currentBand.email = model.Email;
+            currentBand.phoneNumber = model.Phone;
+            currentBand.ObjectState = ObjectState.Modified;
+
+            List<Genre> BandGenres = new List<Genre>();
+            List<BandMember> Members = new List<BandMember>();
+            Files bandAvatar;
+
+            if (!String.IsNullOrEmpty(model.Genres))
+            {
+                Regex.Replace(model.Genres, @"\s+", "");
+                string[] Genres = model.Genres.Split(',');
+
+
+                foreach (var genre in Genres)
+                {
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    {
+                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        newGenre.bands.Add(currentBand);
+                        BandGenres.Add(newGenre);
+                    }
+                    else
+                    {
+                        if (!currentBand.genres.Any(g => g.name == genre))
+                        {
+                            Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                            existingGenre.bands.Add(currentBand);
+                            BandGenres.Add(existingGenre);
+                        }                       
+                    }
+
+
+                }
+            }
+
+            if (model.BandMembers != null)
+            {
+                foreach (var member in model.BandMembers)
+                {
+                    if (!_unitOfWork.Repository<BandMember>().Queryable().Any(m => m.fullName == member))
+                    {
+                        BandMember newMember = new BandMember() { fullName = member, ObjectState = ObjectState.Added };
+                        newMember.bands.Add(currentBand);
+                        Members.Add(newMember);
+                    }
+                    else
+                    {
+                        if (!currentBand.members.Any(m => m.fullName == member))
+                        {
+                            BandMember newMember = _unitOfWork.Repository<BandMember>().Queryable().FirstOrDefault(m => m.fullName == member);
+                            newMember.bands.Add(currentBand);
+                            Members.Add(newMember);
+                        }
+                        
+                    }                   
+                }
+            }
+
+            if (model.Avatar.PostedFile != null)
+            {
+                bandAvatar = currentBand.images.FirstOrDefault(i => i.IsAvatar);
+                bandAvatar.band = currentBand;
+                bandAvatar.IsAvatar = true;
+                bandAvatar.ObjectState = ObjectState.Modified;
+                bandAvatar.name = model.Avatar.PostedFile.FileName;
+                bandAvatar.path = "/Content/Uploads/" + model.Avatar.PostedFile.FileName;
+                model.Avatar.PostedFile.SaveAs(model.Avatar.RelativePathToSave);
+            }
+
+            currentBand.genres = BandGenres;
+            currentBand.members = Members;
+
+            _repo.InsertOrUpdateGraph(currentBand);
+            _unitOfWork.SaveChanges();
         }
     }
 }
