@@ -69,7 +69,7 @@
         <input type="submit" class="btn btn-default pull-right" value="Create" />
     </form>
 </div>
-<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+@*<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>*@
 <script>
     $(document).ready(function () {
         $('#AddSongBtn').click(function () {
@@ -83,21 +83,50 @@
                 //    alert(me.username);
             //})
 
-            //var fd = new FormData();
-            //fd.append('oauth_token', sessionStorage["scToken"]);      trzeba testowac
-            //fd.append('format', 'json');
-            //fd.append('track[title]', 'All I Want');
-            //fd.append('track[asset_data]', blob);
+            var fd = new FormData();
+            fd.append('oauth_token', sessionStorage["scToken"]);    
+            fd.append('format', 'json');
+            fd.append('track[title]', 'All I Want');
+            fd.append('track[asset_data]', song);
+            ////var fd = new FormData();
+            ////fd.append('oauth_token', SC.accessToken());
+            ////fd.append('format', 'json');
+            ////fd.append("track[title]", $(this).find('input[name=title]').val());
+            ////fd.append("track[asset_data]", $(this).find('input[name=file]').prop('files')[0]);
 
-            var up = SC.upload({
-                oauth_token: sessionStorage["scToken"],
-                asset_data: song, // a Blob of your WAV, MP3...
-                title: 'This is my sound'
-            });
+            $.ajax({
+                url: 'https://api.soundcloud.com/tracks',
+                type: 'POST',
+                data: fd,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $.ajaxSettings.xhr();
+                    xhr.upload.onprogress = function (e) {
+                        if (e.lengthComputable) {
+                            var percent = Math.floor((e.loaded / e.total) * 100);
+                            console.log(percent + '% uploaded');
+                        }
+                    };
+                    return xhr;
+                },
+                error: function(e)
+                {
 
-            up.request.addEventListener('progress', function (e) {
-                console.log('progress: ', (e.loaded / e.total) * 100, '%');
+                }
+            }).done(function (e) {
+                console.log('Upload Complete!');
+                console.dir(e); // This is the JSON object of the resulting track
             });
+            //var up = SC.upload({
+            //    oauth_token: sessionStorage["scToken"],
+            //    asset_data: song, // a Blob of your WAV, MP3...
+            //    title: 'This is my sound'
+            //});
+
+            //up.request.addEventListener('progress', function (e) {
+            //    console.log('progress: ', (e.loaded / e.total) * 100, '%');
+            //});
                                    
         })
     })
