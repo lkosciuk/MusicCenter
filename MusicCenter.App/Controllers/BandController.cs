@@ -123,7 +123,10 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult AddAlbum()
         {
-            return View();
+            AddAlbumViewModel model = new AddAlbumViewModel();
+            model.BandName = Session["band"].ToString();
+
+            return View(model);
         }
 
 

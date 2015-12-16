@@ -125,3 +125,6 @@ D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateRes
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.dll
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.pdb
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFiles.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.bandDate.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.bandDate2.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFiles.resources

@@ -1,8 +1,104 @@
 ﻿@model MusicCenter.Common.ViewModels.Band.AddAlbumViewModel
 
+@Styles.Render("~/Content/Account/Register.css")
 
-@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 
-<div id="BodyContent" style="margin-left: 50px">
+<div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
+    <form id="AddAlbumForm" action="@Url.Action("AddAlbum", "Band")" method="post" enctype="multipart/form-data">
+        <div class="row form-group">
+            <div class="col-md-2">
+                <img src="~/Content/Uploads/DefaultAlbumAv.jpg" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="albumCover">
+            </div>
+            <div class="col-lg-10">
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Nazwa:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Release date:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control input-sm", id = "CreationDate" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Label:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.Label, new { @class = "form-control input-sm" })
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Producer:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.Producer, new { @class = "form-control input-sm", name = "ResolveDate", id = "ResolveDate" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Gatunki:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = "separated by comma", style = "max-width: none" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1" style="margin-left:40px">
+                <span class="btn btn-primary btn-file">
+                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Cover.PostedFile, new { type = "file", name = "Cover", @class = "input-sm", @id = "cover" })
+                </span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Utwory:</label>
+            </div>
+            <div class="col-sm-11" id="SinglesContainer">
+                <input type="file" id="song"/>
+                <input type="button" id="AddSongBtn" value="Add song" />
+            </div>
+        </div>
 
+        <input type="submit" class="btn btn-default pull-right" value="Create" />
+    </form>
 </div>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#AddSongBtn').click(function () {
+            var song = $('#song')[0].files[0];
+
+            var start = 0;
+            var stop = song.size;
+            var blob = song.slice(start, stop);
+
+                //SC.get('/me?oauth_token='+ sessionStorage['scToken'], function (me) {
+                //    alert(me.username);
+            //})
+
+            //var fd = new FormData();
+            //fd.append('oauth_token', sessionStorage["scToken"]);      trzeba testowac
+            //fd.append('format', 'json');
+            //fd.append('track[title]', 'All I Want');
+            //fd.append('track[asset_data]', blob);
+
+            var up = SC.upload({
+                oauth_token: sessionStorage["scToken"],
+                asset_data: song, // a Blob of your WAV, MP3...
+                title: 'This is my sound'
+            });
+
+            up.request.addEventListener('progress', function (e) {
+                console.log('progress: ', (e.loaded / e.total) * 100, '%');
+            });
+                                   
+        })
+    })
+</script>
