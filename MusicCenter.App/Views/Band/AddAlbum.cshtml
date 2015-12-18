@@ -1,11 +1,16 @@
 ﻿@model MusicCenter.Common.ViewModels.Band.AddAlbumViewModel
 
 @Styles.Render("~/Content/Account/Register.css")
+@Styles.Render("~/Content/Band/AddAlbum.css")
+@Scripts.Render("~/Scripts/Band/AddAlbum.js")
+@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+@Scripts.Render("~/Scripts/jquery.form.js")
 
 @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
-
+@*@*action="@Url.Action("AddAlbum", "Band")" method="post*@
 <div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
-    <form id="AddAlbumForm" action="@Url.Action("AddAlbum", "Band")" method="post" enctype="multipart/form-data">
+    <form id="AddAlbumForm" enctype="multipart/form-data" action="@Url.Action("AddAlbum", "Band")" method="post">
+          @Html.HiddenFor(m => m.BandName)
         <div class="row form-group">
             <div class="col-md-2">
                 <img src="~/Content/Uploads/DefaultAlbumAv.jpg" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="albumCover">
@@ -22,7 +27,7 @@
                         <label class="control-label input-sm">Release date:</label>
                     </div>
                     <div class="col-sm-2">
-                        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control input-sm", id = "CreationDate" })
+                        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control input-sm", id = "ReleaseDate" })
                     </div>
                 </div>
                 <div class="row form-group">
@@ -60,74 +65,16 @@
             <div class="col-sm-1">
                 <label class="control-label input-sm">Utwory:</label>
             </div>
-            <div class="col-sm-11" id="SinglesContainer">
-                <input type="file" id="song"/>
-                <input type="button" id="AddSongBtn" value="Add song" />
+            <div class="col-sm-11">
+                <div class="row form-group">
+                    <div class="col-sm-10">
+                        <input id="songInput" type="file" multiple class="file" data-overwrite-initial="false" name="files">
+
+                    </div>
+                </div>
             </div>
         </div>
 
-        <input type="submit" class="btn btn-default pull-right" value="Create" />
+        <input type="button" id="CreateAlbumBtn" class="btn btn-default pull-right" value="Create album" />
     </form>
 </div>
-@*<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>*@
-<script>
-    $(document).ready(function () {
-        $('#AddSongBtn').click(function () {
-            var song = $('#song')[0].files[0];
-
-            var start = 0;
-            var stop = song.size;
-            var blob = song.slice(start, stop);
-
-                //SC.get('/me?oauth_token='+ sessionStorage['scToken'], function (me) {
-                //    alert(me.username);
-            //})
-
-            var fd = new FormData();
-            fd.append('oauth_token', sessionStorage["scToken"]);    
-            fd.append('format', 'json');
-            fd.append('track[title]', 'All I Want');
-            fd.append('track[asset_data]', song);
-            ////var fd = new FormData();
-            ////fd.append('oauth_token', SC.accessToken());
-            ////fd.append('format', 'json');
-            ////fd.append("track[title]", $(this).find('input[name=title]').val());
-            ////fd.append("track[asset_data]", $(this).find('input[name=file]').prop('files')[0]);
-
-            $.ajax({
-                url: 'https://api.soundcloud.com/tracks',
-                type: 'POST',
-                data: fd,
-                processData: false,
-                contentType: false,
-                xhr: function () {
-                    var xhr = $.ajaxSettings.xhr();
-                    xhr.upload.onprogress = function (e) {
-                        if (e.lengthComputable) {
-                            var percent = Math.floor((e.loaded / e.total) * 100);
-                            console.log(percent + '% uploaded');
-                        }
-                    };
-                    return xhr;
-                },
-                error: function(e)
-                {
-
-                }
-            }).done(function (e) {
-                console.log('Upload Complete!');
-                console.dir(e); // This is the JSON object of the resulting track
-            });
-            //var up = SC.upload({
-            //    oauth_token: sessionStorage["scToken"],
-            //    asset_data: song, // a Blob of your WAV, MP3...
-            //    title: 'This is my sound'
-            //});
-
-            //up.request.addEventListener('progress', function (e) {
-            //    console.log('progress: ', (e.loaded / e.total) * 100, '%');
-            //});
-                                   
-        })
-    })
-</script>

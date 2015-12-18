@@ -129,6 +129,14 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult AddAlbum(AddAlbumViewModel model)//tu skonczylem testujemy
+        {
+
+            return View(model);
+        }
+
 
 	}
 }

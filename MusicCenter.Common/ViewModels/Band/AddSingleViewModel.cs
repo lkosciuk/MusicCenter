@@ -12,10 +12,6 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public string Name { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
-
-        public string Duration { get; set; }
-
         public string UrlAddress { get; set; }
     }
 }

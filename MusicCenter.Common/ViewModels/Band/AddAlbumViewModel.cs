@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MusicCenter.Common.ViewModels.Band
 {
@@ -13,7 +14,7 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public string Name { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
 
         public string Duration { get; set; }
 
@@ -25,6 +26,11 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public FileViewModel Cover { get; set; }
 
-        public List<AddSingleViewModel> Songs { get; set; }
+        //public HttpPostedFileBase[] files { get; set; }
+        public AddSingleViewModel[] Songs { get; set; }
+
+        
+
+        
     }
 }
