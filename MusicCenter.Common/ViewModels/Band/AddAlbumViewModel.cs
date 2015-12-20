@@ -26,8 +26,7 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public FileViewModel Cover { get; set; }
 
-        //public HttpPostedFileBase[] files { get; set; }
-        public AddSingleViewModel[] Songs { get; set; }
+        public List<AddSingleViewModel> Songs { get; set; }
 
         
 

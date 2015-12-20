@@ -131,9 +131,10 @@ namespace MusicCenter.App.Controllers
 
         [HttpPost]
         [BandAuthorize]
-        public ActionResult AddAlbum(AddAlbumViewModel model)//tu skonczylem testujemy
+        public ActionResult AddAlbum(List<AddSingleViewModel> Songs)//AddAlbumViewModel model)
         {
-
+            AddAlbumViewModel model = new AddAlbumViewModel();
+            model.BandName = "Gihi";
             return View(model);
         }
 

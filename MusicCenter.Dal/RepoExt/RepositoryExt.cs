@@ -11,7 +11,10 @@ namespace MusicCenter.Dal.RepoExt
 {
     public static class RepositoryExt
     {
-        public static Entity GetById<Entity>(this IRepository<Entity> repository, int id, params Expression<Func<Entity, object>>[] includes)
+        public static Entity GetById<Entity>(
+            this IRepository<Entity> repository, 
+            int id, 
+            params Expression<Func<Entity, object>>[] includes)
             where Entity : BaseEntity
         {
             return repository

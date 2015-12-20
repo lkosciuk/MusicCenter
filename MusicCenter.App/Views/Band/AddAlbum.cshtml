@@ -7,9 +7,9 @@
 @Scripts.Render("~/Scripts/jquery.form.js")
 
 @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
-@*@*action="@Url.Action("AddAlbum", "Band")" method="post*@
+@*action="@Url.Action("AddAlbum", "Band")" method="post">*@
 <div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
-    <form id="AddAlbumForm" enctype="multipart/form-data" action="@Url.Action("AddAlbum", "Band")" method="post">
+    <form id="AddAlbumForm" enctype="multipart/form-data" >
           @Html.HiddenFor(m => m.BandName)
         <div class="row form-group">
             <div class="col-md-2">
@@ -75,6 +75,6 @@
             </div>
         </div>
 
-        <input type="button" id="CreateAlbumBtn" class="btn btn-default pull-right" value="Create album" />
+        <input type="submit" id="CreateAlbumBtn" class="btn btn-default pull-right" value="Create album" />
     </form>
 </div>

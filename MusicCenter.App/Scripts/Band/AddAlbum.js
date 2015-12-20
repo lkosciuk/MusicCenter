@@ -107,6 +107,10 @@
                 console.log('Upload Complete!');
                 console.dir(e); // This is the JSON object of the resulting track
 
+                //var so = new FormData();
+                //so.append('BandName', "");
+                //so.append('Name', e.title);
+                //so.append('UrlAddress',  e.stream_url);
                 var currentSong = {
                     BandName: "",
                     Name: e.title,
@@ -117,15 +121,27 @@
             });
         }
 
-        //var Songs = JSON.stringify({ 'Songs': Songs });
+        var Songs = JSON.stringify({ 'Songs': Songs });
 
         //var options = {
         //    data: { Songs: data }
         //}
 
-        $('#AddAlbumForm').ajaxSubmit({
+        //$('#AddAlbumForm').ajaxForm({
+        //    data: Songs
+        //}).submit();
+        //var fd = new FormData();
+        //fd.append('Songs', Songs);
+        //fd.append('Cover', $('#cover')[0].files[0]);
+        
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            //contentType: "application/json",    //bez tego w kontrolerze leci null, trzeba uzyc formdata do coveru albumu i jakos do tego dodac piosenki tylko jak?
+            url: "AddAlbum",
             data: Songs
         });
+
     }
 }
 

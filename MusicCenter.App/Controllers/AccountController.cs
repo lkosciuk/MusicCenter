@@ -1,14 +1,8 @@
+using MusicCenter.App.Filters;
 using MusicCenter.Common.ViewModels.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using MusicCenter.Services.Services;
 using MusicCenter.Services.Intefaces;
 using System.IO;
-using System.Web.Security;
-using MusicCenter.App.Filters;
+using System.Web.Mvc;
 
 namespace MusicCenter.App.Controllers
 {
