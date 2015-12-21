@@ -1,12 +1,17 @@
 ﻿AddAlbumScope = function () {
 
     var songCounter = 0;
+    var songLength = 0;
+
+    var model;
+    var uploads = [];
 
     this.Init = function () {
         this.SetupFileInput();
         this.SetupJQueryDatePicker();
         //this.UploadSong();
         $('#CreateAlbumBtn').click(this.CreateAlbum);
+        //$("#AddAlbumForm").submit(this.CreateAlbum);
         $('#cover').change(this.UpdateAlbumCover);
         //$('#AddSongBtn').click(this.AddSongInput);
     }
@@ -35,7 +40,7 @@
     }
 
     this.CreateAlbum = function () {
-        UploadSongs();       
+        UploadSongs();
     }
 
     this.UpdateAlbumCover = function () {
@@ -55,25 +60,21 @@
         }
     }
 
-    //this.AddSongInput = function () {
-
-    //    songCounter++;
-
-    //    var newSongDiv = $(document.createElement('div'))
-	//     .attr("id", 'newSongDiv' + songCounter);
-
-    //    newSongDiv.after().html('<div class="col-sm-10"><input id=songInput' + songCounter + ' name="files" type="file" data-preview-file-type="text"></div><div class="col-sm-1"><span class="glyphicon glyphicon-remove" onclick="RemoveSong(this)" id=' + songCounter + '></span></div>');
-    //    $("#songInput" + songCounter).fileinput({
-    //        showUpload: false
-    //    });
-    //    newSongDiv.appendTo("#SinglesContainer");
-    //}
-
     var UploadSongs = function () {
+
+        var popupDiv = $(document.createElement('div'))
+	                                        .attr("class", 'modal fade bs-example-modal-lg')
+                                            .attr("id", "myModal");
+        popupDiv.after().html('<div class="modal-dialog modal-lg"><div id="popUpContent" class="modal-content">xyz</div></div>');
+        popupDiv.appendTo('#BodyContent');
+        $('#myModal').modal('show');
+
+        model = new FormData($('#AddAlbumForm')[0]);
 
         var Songs = [];
 
         var songsInputs = $('#songInput')[0].files;
+        songLength = songsInputs.length;
 
         for (var i = 0, song; song = songsInputs[i]; i++) {          
 
@@ -87,7 +88,7 @@
                 url: 'https://api.soundcloud.com/tracks',
                 type: 'POST',
                 data: fd,
-                async: false,
+                async: true,
                 processData: false,
                 contentType: false,
                 xhr: function () {
@@ -95,53 +96,41 @@
                     xhr.upload.onprogress = function (e) {
                         if (e.lengthComputable) {
                             var percent = Math.floor((e.loaded / e.total) * 100);
+
+                            $('#popUpContent').append(percent);
                             console.log(percent + '% uploaded');
                         }
                     };
                     return xhr;
-                },
-                error: function (e) {
-
                 }
             }).done(function (e) {
                 console.log('Upload Complete!');
                 console.dir(e); // This is the JSON object of the resulting track
 
-                //var so = new FormData();
-                //so.append('BandName', "");
-                //so.append('Name', e.title);
-                //so.append('UrlAddress',  e.stream_url);
-                var currentSong = {
-                    BandName: "",
-                    Name: e.title,
-                    UrlAddress: e.stream_url
+                model.append('SongsNames', e.title);
+                model.append('SongsUrlAddresses', e.stream_url);
+
+                songCounter++;
+
+                if (songCounter === songLength)
+                {
+                    SendForm();
                 }
-
-                Songs.push(currentSong);
-            });
+            });           
         }
+    }
 
-        var Songs = JSON.stringify({ 'Songs': Songs });
-
-        //var options = {
-        //    data: { Songs: data }
-        //}
-
-        //$('#AddAlbumForm').ajaxForm({
-        //    data: Songs
-        //}).submit();
-        //var fd = new FormData();
-        //fd.append('Songs', Songs);
-        //fd.append('Cover', $('#cover')[0].files[0]);
-        
+    var SendForm = function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            //contentType: "application/json",    //bez tego w kontrolerze leci null, trzeba uzyc formdata do coveru albumu i jakos do tego dodac piosenki tylko jak?
+            cache: false,
+            processData: false,
+            contentType: false,
             url: "AddAlbum",
-            data: Songs
-        });
+            data: model
 
+        })
     }
 }
 

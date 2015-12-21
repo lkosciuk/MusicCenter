@@ -8,9 +8,9 @@ namespace MusicCenter.Common.ViewModels.Band
 {
     public class AddSingleViewModel
     {
-        public string BandName { get; set; }
+        // string BandName { get; set; }
 
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         public string UrlAddress { get; set; }
     }
