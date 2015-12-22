@@ -21,6 +21,7 @@
             SC.connect(function () {
                 // This gets the authenticated user's username
                 sessionStorage['scToken'] = SC.accessToken();
+                
 
                 SC.get('/me', function (me) {
                     $.post('Account/SoundCloudConnect', me, function () {
