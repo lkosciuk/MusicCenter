@@ -274,6 +274,101 @@ namespace MusicCenter.Services.Services
             
             
         }
-        
+
+
+
+        public void AddAlbum(AddAlbumViewModel model)
+        {
+            Band currentBand = _repo.GetBandByName(model.BandName, b => b.albums).FirstOrDefault();
+
+            Album newAlbum = new Album()
+            {
+                band = currentBand,
+                BandID = currentBand.Id,
+                label = model.Label,
+                name = model.Name,
+                producer = model.Producer,
+                releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null),
+                ObjectState = ObjectState.Added
+            };
+
+            List<Genre> AlbumGenres = new List<Genre>();
+
+             if (!String.IsNullOrEmpty(model.Genres))
+            {
+                Regex.Replace(model.Genres, @"\s+", "");
+                string[] Genres = model.Genres.Split(',');
+
+                foreach (var genre in Genres)
+                {
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    {
+                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        newGenre.albums.Add(newAlbum);
+                        AlbumGenres.Add(newGenre);
+                    }
+                    else
+                    {
+                            Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                            existingGenre.albums.Add(newAlbum);
+                            AlbumGenres.Add(existingGenre);                      
+                    }
+
+
+                }
+            }
+
+             newAlbum.genres = AlbumGenres;
+
+             Files albumCover = new Files();
+
+             if (model.Cover.PostedFile != null)
+             {
+                 albumCover = new Files();
+                 albumCover.album = newAlbum;
+                 albumCover.IsAvatar = true;
+                 albumCover.ObjectState = ObjectState.Added;
+                 albumCover.name = model.Cover.PostedFile.FileName;
+                 albumCover.path = "/Content/Uploads/" + model.Cover.PostedFile.FileName;
+                 model.Cover.PostedFile.SaveAs(model.Cover.RelativePathToSave);
+             }
+             else
+             {
+                 albumCover = new Files();
+                 albumCover.album = newAlbum;
+                 albumCover.IsAvatar = true;
+                 albumCover.ObjectState = ObjectState.Added;
+                 albumCover.name = "DefaultAlbumAv.jpg";
+                 albumCover.path = "/Content/Uploads/DefaultAlbumAv.png";
+             }
+
+             newAlbum.images.Add(albumCover);
+
+             List<Track> albumTracks = new List<Track>();
+
+             for (int i = 0; i < model.SongsNames.Length; i++)
+             {
+                 Track albumTrack = new Track()
+                 {
+                     name = model.SongsNames.ElementAt(i),
+                     url = model.SongsUrlAddresses.ElementAt(i),
+                     albums = new List<Album>() { newAlbum },
+                     band = currentBand,
+                     BandID = currentBand.Id,
+                     genres = AlbumGenres,
+                     ObjectState = ObjectState.Added,
+                     releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null)
+                 };
+
+                 albumTracks.Add(albumTrack);
+             }
+
+             newAlbum.trackList = albumTracks;
+
+             _unitOfWork.Repository<Album>().InsertOrUpdateGraph(newAlbum);
+             _unitOfWork.SaveChanges();
+
+            
+        }
     }
 }

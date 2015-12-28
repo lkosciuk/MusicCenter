@@ -133,8 +133,19 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult AddAlbum(AddAlbumViewModel model)
         {
+            if (model.Cover.PostedFile != null)
+            {
+                string trailingPath = model.Cover.PostedFile.FileName;
+                string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
+
+                model.Cover.RelativePathToSave = fullPath;
+            }
+
+            if (ModelState.IsValid)
+            {
+                bandService.AddAlbum(model);
+            }
             
-            model.BandName = "Gihi";
             return View(model);
         }
 

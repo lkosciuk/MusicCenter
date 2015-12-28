@@ -7,7 +7,7 @@
 @Scripts.Render("~/Scripts/jquery.form.js")
 
 @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
-@*action="@Url.Action("AddAlbum", "Band")" method="post">*@
+
 <div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
     <form id="AddAlbumForm" enctype="multipart/form-data" >
           @Html.HiddenFor(m => m.BandName)
@@ -22,12 +22,14 @@
                     </div>
                     <div class="col-sm-2">
                         @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(m => m.Name)
                     </div>
                     <div class="col-sm-2">
                         <label class="control-label input-sm">Release date:</label>
                     </div>
                     <div class="col-sm-2">
                         @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control input-sm", id = "ReleaseDate" })
+                        @Html.ValidationMessageFor(m => m.ReleaseDate)
                     </div>
                 </div>
                 <div class="row form-group">
@@ -68,8 +70,7 @@
             <div class="col-sm-11">
                 <div class="row form-group">
                     <div class="col-sm-10">
-                        <input id="songInput" type="file" multiple class="file" data-overwrite-initial="false" name="files">
-
+                        <input id="songInput" type="file" multiple class="file" data-overwrite-initial="false" name="songInput">
                     </div>
                 </div>
             </div>

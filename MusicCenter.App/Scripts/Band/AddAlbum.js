@@ -34,13 +34,33 @@
         $("#songInput").fileinput({
             uploadUrl: "error",
             showUpload: false,
+            pluginLoading: true,
             fileActionSettings: { uploadIcon: "Invisible", uploadClass: "Invisible" }
         });
+         
+        $("#AddAlbumForm").validate();//cos nie dziala, trzeba jakos pokazac error
+        $("#songInput").rules("add", {
+            required: true,
+            messages: {
+                required: "Required input"
+            }
+        });
+
+        //$("#AddAlbumForm").validate({
+        //    errorPlacement: function (error, element) {
+        //        console.log(error);
+        //        console.log(element);
+        //        var elementId = $(element).attr("id");
+        //        error.appendTo('#' + elementId + '_validate');
+        //    }
+        //});    
 
     }
 
     this.CreateAlbum = function () {
-        UploadSongs();
+        if ($('#AddAlbumForm').valid()) {
+            UploadSongs();
+        }          
     }
 
     this.UpdateAlbumCover = function () {

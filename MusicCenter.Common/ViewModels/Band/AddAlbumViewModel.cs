@@ -1,6 +1,7 @@
 ﻿using MusicCenter.Common.ViewModels.File;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,10 @@ namespace MusicCenter.Common.ViewModels.Band
     {
         public string BandName { get; set; }
 
+        [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
         public string Name { get; set; }
 
+        [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
         public string ReleaseDate { get; set; }
 
         public string Duration { get; set; }
@@ -26,6 +29,7 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public FileViewModel Cover { get; set; }
 
+        [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
         public string[] SongsNames { get; set; }
 
         public string[] SongsUrlAddresses { get; set; }
