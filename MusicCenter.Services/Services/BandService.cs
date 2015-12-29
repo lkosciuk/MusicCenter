@@ -256,23 +256,24 @@ namespace MusicCenter.Services.Services
 
         public BandAlbumListViewModel GetBandAlbums(string BandName)
         {
-            Band currentBand = _repo.GetBandByName(BandName, b => b.albums).FirstOrDefault();
+            var Albums = _unitOfWork.Repository<Album>().GeAlbumsByBandName(BandName, x => x.images, x => x.genres, x => x.band).ToList();
 
             return new BandAlbumListViewModel()
             {
-                BandName = currentBand.name,
-                Albums = currentBand.albums.Select(a => new BandAlbumViewModel()
-                                        {
-                                            BandName = currentBand.name,
-                                            Cover = new FileViewModel() { PathToShow = a.images.FirstOrDefault(i => i.IsAvatar).path },
-                                            Name = a.name,
-                                            Rating = a.rating,
-                                            ReleaseDate = a.releaseDate,
-                                            Genres = a.genres.Select(g => g.name).ToArray()
-                                        }).ToList()
+                BandName = BandName,
+                Albums = Albums.Select(a => new BandAlbumViewModel()
+                {
+                    BandName = BandName,
+                    Cover = new FileViewModel() { PathToShow = a.images.FirstOrDefault(i => i.IsAvatar).path },
+                    Genres = a.genres.Select(g => g.name).ToArray(),
+                    Name = a.name,
+                    Rating = a.rating,
+                    ReleaseDate = a.releaseDate
+
+                }).ToList()
             };
-            
-            
+
+
         }
 
 
@@ -339,7 +340,7 @@ namespace MusicCenter.Services.Services
                  albumCover.IsAvatar = true;
                  albumCover.ObjectState = ObjectState.Added;
                  albumCover.name = "DefaultAlbumAv.jpg";
-                 albumCover.path = "/Content/Uploads/DefaultAlbumAv.png";
+                 albumCover.path = "/Content/Uploads/DefaultAlbumAv.jpg";
              }
 
              newAlbum.images.Add(albumCover);

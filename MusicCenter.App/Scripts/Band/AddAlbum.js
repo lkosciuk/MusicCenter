@@ -38,29 +38,29 @@
             fileActionSettings: { uploadIcon: "Invisible", uploadClass: "Invisible" }
         });
          
-        $("#AddAlbumForm").validate();//cos nie dziala, trzeba jakos pokazac error
         $("#songInput").rules("add", {
-            required: true,
-            messages: {
-                required: "Required input"
-            }
-        });
+            required: true
+        });   
 
-        //$("#AddAlbumForm").validate({
-        //    errorPlacement: function (error, element) {
-        //        console.log(error);
-        //        console.log(element);
-        //        var elementId = $(element).attr("id");
-        //        error.appendTo('#' + elementId + '_validate');
-        //    }
-        //});    
+    }
 
+    var ShowSongsValidationMsg = function () {
+
+        if ($('#songInput')[0].files.length > 0) {
+            $('#songInput_validate').empty();
+        }
+        else {
+            $('#songInput_validate').append("Field is required");
+        }
     }
 
     this.CreateAlbum = function () {
         if ($('#AddAlbumForm').valid()) {
             UploadSongs();
-        }          
+        }
+        else {
+            ShowSongsValidationMsg();
+        }
     }
 
     this.UpdateAlbumCover = function () {

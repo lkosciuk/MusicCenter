@@ -29,7 +29,6 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public FileViewModel Cover { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
         public string[] SongsNames { get; set; }
 
         public string[] SongsUrlAddresses { get; set; }
