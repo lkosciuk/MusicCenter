@@ -8,8 +8,10 @@
 
         this.SetupSoundCloud = function () {
             var url = 'http://localhost:56536/Account/SoundCloudCallback';
+            sessionStorage['scClientId'] = '6895e74306f08ac18acb7b703672ee62';
+
             SC.initialize({
-                client_id: '6895e74306f08ac18acb7b703672ee62',
+                client_id: sessionStorage['scClientId'],
                 client_secret: 'b9b5b82f716f3322149d1fa038573e0e',
                 redirect_uri: url,
                 access_token: sessionStorage['scToken'],

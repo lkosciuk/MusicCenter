@@ -16,5 +16,10 @@ namespace MusicCenter.Dal.Repositories
         {
             return repository.Queryable().IncludeAll(includes).Where(b => b.band.name == BandName).AsQueryable();
         }
+
+        public static IQueryable<Album> GetAlbumByName(this IRepository<Album> repo, string AlbumName, params Expression<Func<Album, object>>[] includes)
+        {
+            return repo.Queryable().IncludeAll(includes).Where(a => a.name == AlbumName);
+        }
     }
 }

@@ -25,5 +25,7 @@ namespace MusicCenter.Services.Intefaces
         BandAlbumListViewModel GetBandAlbums(string BandName);
 
         void AddAlbum(AddAlbumViewModel model);
+
+        AlbumViewModel GetAlbumViewModelByName(string AlbumName);
     }
 }

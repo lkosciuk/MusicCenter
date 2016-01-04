@@ -8,6 +8,8 @@ namespace MusicCenter.Common.ViewModels.Band
 {
     public class BandSingleViewModel
     {
+        public int Id { get; set; }
+
         public string BandName { get; set; }
 
         public string Name { get; set; }

@@ -149,6 +149,12 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
+        public ActionResult Album(string AlbumName)
+        {
+            AlbumViewModel model = bandService.GetAlbumViewModelByName(AlbumName);
+ 
+            return View(model);
+        }
 
 	}
 }

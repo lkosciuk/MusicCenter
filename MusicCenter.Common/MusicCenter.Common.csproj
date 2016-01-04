@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="ViewModels\Band\AddAlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\AddSingleViewModel.cs" />
+    <Compile Include="ViewModels\Band\AlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\BandAlbumListViewModel.cs" />
     <Compile Include="ViewModels\Band\BandAlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\BandProfileViewModel.cs" />

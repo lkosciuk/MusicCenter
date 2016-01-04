@@ -1,0 +1,78 @@
+﻿@model MusicCenter.Common.ViewModels.Band.AlbumViewModel
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
+@Scripts.Render("~/Scripts/Band/Album.js")
+<div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
+        <div class="row form-group">
+            <div class="col-md-2">
+                <img src="@Model.CoverPath" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="albumCover">
+            </div>
+            <div class="col-lg-10">
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Nazwa:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Model.Name
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Release date:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DisplayFor(m => m.ReleaseDate)
+                    </div>
+                    @if (Session["user"] != null)
+                    {
+                        <div class="col-sm-2">
+                            <input type="button" id="AddAlbumToFavBtn" data-checkurl="@Url.Action("IsUserHaveAlbumInFavourites", "Favourites")" data-url="@Url.Action("AddAlbumToFavourites", "Favourites")" name="@Model.Name" value="Add to favourites" class="btn btn-default" />
+                        </div>
+                    }
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Label:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Model.Label
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Producer:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Model.Producer
+                    </div>                  
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Gatunki:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        @Model.Genres
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Utwory:</label>
+            </div>
+            <div class="col-sm-11">
+                @foreach (var item in Model.Songs)
+                {
+                    var songUrl = "http://w.soundcloud.com/player/?url=" + @item.UrlAddress;
+                         
+                    <div class="row form-group">
+                        <div class="col-sm-8" >
+                            <iframe id="widget" width="100%" src="@songUrl"></iframe>
+                        </div>
+                        @if (Session["user"] != null)
+                        {
+                            <div class="col-sm-2">
+                                <input type="button" id="@item.Id" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" name="AddSongToFav" value="Add to favourites" class="btn btn-default" />
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+</div>

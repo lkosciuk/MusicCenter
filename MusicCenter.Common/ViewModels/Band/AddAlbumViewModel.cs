@@ -19,8 +19,6 @@ namespace MusicCenter.Common.ViewModels.Band
         [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
         public string ReleaseDate { get; set; }
 
-        public string Duration { get; set; }
-
         public string Label { get; set; }
 
         public string Producer { get; set; }

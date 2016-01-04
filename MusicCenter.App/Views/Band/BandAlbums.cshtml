@@ -18,14 +18,13 @@
                         <img src="@Album.Cover.PathToShow" alt="...">
                         <div class="caption">
                             <h3>@Album.Name</h3>
-                            <p>@Album.ReleaseDate</p>
+                            <p>@Html.DisplayFor(m => Album.ReleaseDate)</p>
                             <p>
                                 @foreach (var genre in Album.Genres)
                                 {
                                     @genre
                                 }
                             </p>
-                            <p>Likes: @Album.Rating</p>
                         </div>
                     </div>
                 </a>

@@ -22,5 +22,34 @@ namespace MusicCenter.App.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [UserAuthorize]
+        public void AddAlbumToFavourites(string AlbumName)
+        {
+            favServ.AddAlbumToFavourites(Session["user"].ToString(), AlbumName);
+        }
+
+        [HttpPost]
+        [UserAuthorize]
+        public void AddSongToFavourites(int SongId)
+        {
+            favServ.AddSongToFavourites(Session["user"].ToString(), SongId);
+        }
+
+        [HttpPost]
+        [UserAuthorize]
+        public bool IsUserHaveAlbumInFavourites(string AlbumName)
+        {
+            return favServ.IsUserHaveAlbumInFavourites(Session["user"].ToString(), AlbumName);
+        }
+
+        [HttpPost]
+        [UserAuthorize]
+        public bool IsUserHaveSongInFavourites(int SongId)
+        {
+            return favServ.IsUserHaveSongInFavourites(Session["user"].ToString(), SongId);
+        }
+
 	}
 }

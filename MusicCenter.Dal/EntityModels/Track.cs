@@ -18,6 +18,12 @@ namespace MusicCenter.Dal.EntityModels
         public int BandID { get; set; }
         public virtual Band band { get; set; }
         public virtual ICollection<Album> albums { get; set; }
-        public int rating { get; set; }
+
+        public Track()
+        {
+            genres = new List<Genre>();
+            favourites = new List<Favourites>();
+            albums = new List<Album>();
+        }
     }
 }

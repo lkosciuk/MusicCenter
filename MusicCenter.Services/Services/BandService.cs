@@ -267,7 +267,6 @@ namespace MusicCenter.Services.Services
                     Cover = new FileViewModel() { PathToShow = a.images.FirstOrDefault(i => i.IsAvatar).path },
                     Genres = a.genres.Select(g => g.name).ToArray(),
                     Name = a.name,
-                    Rating = a.rating,
                     ReleaseDate = a.releaseDate
 
                 }).ToList()
@@ -371,5 +370,29 @@ namespace MusicCenter.Services.Services
 
             
         }
-    }
+
+        public AlbumViewModel GetAlbumViewModelByName(string AlbumName)
+        {
+            Album currentAlbum = _unitOfWork.Repository<Album>().GetAlbumByName(AlbumName, a => a.images, a => a.trackList, a => a.genres, a=> a.band).FirstOrDefault();
+
+            return new AlbumViewModel()
+            {
+                BandName = currentAlbum.band.name,
+                CoverPath = currentAlbum.images.FirstOrDefault(i => i.IsAvatar).path,
+                Genres = String.Join(",", currentAlbum.genres.Select(g => g.name).ToArray()),
+                Label = currentAlbum.label,
+                Name = currentAlbum.name,
+                Producer = currentAlbum.producer,
+                ReleaseDate = currentAlbum.releaseDate,
+                Songs = currentAlbum.trackList.Select(t => new BandSingleViewModel() { 
+                    UrlAddress = t.url,
+                    Id = t.Id,
+                    Name = t.name,
+                    BandName = t.band.name
+                }).ToList()
+            };
+                
+         }
+   }
 }
+

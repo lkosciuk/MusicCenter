@@ -113,6 +113,12 @@
     <Reference Include="Owin">
       <HintPath>..\Lib\MusicCenter\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\packages\RazorJS.0.4.3\lib\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorJS">
+      <HintPath>..\packages\RazorJS.0.4.3\lib\RazorJS.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -256,6 +262,7 @@
     <Content Include="img\loading.gif" />
     <Content Include="Scripts\Band\AddAlbum.js" />
     <Content Include="Scripts\Band\AddBand.js" />
+    <Content Include="Scripts\Band\Album.js" />
     <Content Include="Scripts\Band\BandProfile.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
@@ -330,6 +337,7 @@
     <Content Include="Views\Message\SendBandMessage.cshtml" />
     <Content Include="Views\Band\AddAlbum.cshtml" />
     <Content Include="Views\Band\BandSingles.cshtml" />
+    <Content Include="Views\Band\Album.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

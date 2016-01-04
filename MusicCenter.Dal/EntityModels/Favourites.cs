@@ -15,5 +15,14 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Concert> concerts { get; set; }
         public virtual ICollection<Tour> tours { get; set; }
         public virtual Users user { get; set; }
+
+        public Favourites()
+        {
+            bands = new List<Band>();
+            albums = new List<Album>();
+            tracks = new List<Track>();
+            concerts = new List<Concert>();
+            tours = new List<Tour>();
+        }
     }
 }

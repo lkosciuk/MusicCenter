@@ -129,3 +129,5 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.bandDate.r
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.bandDate2.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFiles.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
+D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
+D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.removedRating.resources

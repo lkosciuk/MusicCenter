@@ -5,10 +5,9 @@
 @Scripts.Render("~/Scripts/Band/AddAlbum.js")
 @Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
 @Scripts.Render("~/Scripts/jquery.form.js")
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
-
-<div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
+      @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })><div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
     <form id="AddAlbumForm" enctype="multipart/form-data" >
           @Html.HiddenFor(m => m.BandName)
         <div class="row form-group">
@@ -71,7 +70,7 @@
                 <div class="row form-group">
                     <div class="col-sm-10">
                         <input id="songInput" type="file" multiple class="file" data-overwrite-initial="false" name="songInput">
-                        <div id="songInput_validate"></div>
+                        <div id="songInput_validate" style="color:darkred"></div>
                     </div>
                 </div>
             </div>
