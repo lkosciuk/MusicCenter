@@ -1,6 +1,5 @@
 ﻿@model MusicCenter.Common.ViewModels.Band.UpdateAlbumViewModel
 
-@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 @Scripts.Render("~/Scripts/Band/UpdateAlbum.js")
 @Styles.Render("~/Content/Account/Register.css")
 @Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
@@ -8,9 +7,12 @@
 
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
+
 <div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
     <form id="UpdateAlbumForm" enctype="multipart/form-data">
         @Html.HiddenFor(m => m.BandName)
+        @Html.HiddenFor(m => m.AlbumId)
         <div class="row form-group">
             <div class="col-md-2">
                 <img src="@Model.Cover.PathToShow" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="albumCover">
@@ -28,7 +30,7 @@
                         <label class="control-label input-sm">Release date:</label>
                     </div>
                     <div class="col-sm-2">
-                        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control input-sm", id = "ReleaseDate" })
+                        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d}", new { @class = "form-control input-sm", id = "UpdateReleaseDate" })
                         @Html.ValidationMessageFor(m => m.ReleaseDate)
                     </div>
                 </div>
@@ -87,7 +89,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-10">
-                        <input id="songInput" type="file" multiple class="file" data-overwrite-initial="false" name="songInput">
+                        <input id="UpdatesongInput" type="file" multiple class="file" data-overwrite-initial="false" name="UpdatesongInput">
                         <div id="songInput_validate" style="color:darkred"></div>
                     </div>
                 </div>

@@ -10,6 +10,8 @@ namespace MusicCenter.Common.ViewModels.Band
 {
     public class UpdateAlbumViewModel
     {
+        public int AlbumId { get; set; }
+
         public string BandName { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]

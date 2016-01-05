@@ -33,5 +33,7 @@ namespace MusicCenter.Services.Intefaces
         void DeleteAlbum(string AlbumName);
 
         UpdateAlbumViewModel GetUpdateAlbumViewModel(string AlbumName);
+
+        void UpdateAlbum(UpdateAlbumViewModel model);
     }
 }

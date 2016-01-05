@@ -169,6 +169,21 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult UpdateAlbum(UpdateAlbumViewModel model)
         {
+            if (model.Cover.PostedFile != null)
+            {
+                string trailingPath = model.Cover.PostedFile.FileName;
+                string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
+
+                model.Cover.RelativePathToSave = fullPath;
+            }
+
+            if (ModelState.IsValid)
+            {
+                bandService.UpdateAlbum(model);
+            }
+
+            model = bandService.GetUpdateAlbumViewModel(model.Name);
+
             return View(model);
         }
 

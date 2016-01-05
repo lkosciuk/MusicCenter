@@ -365,9 +365,7 @@ namespace MusicCenter.Services.Services
                  albumTracks.Add(albumTrack);
              }
 
-             newAlbum.trackList = albumTracks;
-
-             
+             newAlbum.trackList = albumTracks;      
 
              try
              {
@@ -470,9 +468,120 @@ namespace MusicCenter.Services.Services
                     Name = t.name,
                     BandName = t.band.name
                 }).ToList(),
-                Genres = String.Join(",", currentAlbum.genres.Select(g => g.name).ToArray())
+                Genres = String.Join(",", currentAlbum.genres.Select(g => g.name).ToArray()),
+                AlbumId = currentAlbum.Id
             };
 
+        }
+
+
+        public void UpdateAlbum(UpdateAlbumViewModel model)
+        {
+            Album currentAlbum = _unitOfWork.Repository<Album>().GetById(model.AlbumId, a => a.band, a => a.genres, a => a.images, a => a.trackList);
+            currentAlbum.ObjectState = ObjectState.Modified;
+            currentAlbum.name = model.Name;
+            currentAlbum.label = model.Label;
+            currentAlbum.producer = model.Producer;
+            currentAlbum.releaseDate = model.ReleaseDate;
+
+            Files currentAvatar = currentAlbum.images.FirstOrDefault(i => i.IsAvatar);
+
+            List<Genre> AlbumGenres = new List<Genre>();
+
+            if (!String.IsNullOrEmpty(model.Genres))
+            {
+                Regex.Replace(model.Genres, @"\s+", "");
+                string[] Genres = model.Genres.Split(',');
+
+                foreach (var genre in Genres)
+                {
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    {
+                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        newGenre.albums.Add(currentAlbum);
+                        AlbumGenres.Add(newGenre);
+                    }
+                    else
+                    {
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                        existingGenre.albums.Add(currentAlbum);
+                        AlbumGenres.Add(existingGenre);
+                    }
+                }
+            }
+
+            currentAlbum.genres = AlbumGenres;
+
+            Files albumCover = new Files();
+
+            if (model.Cover.PostedFile != null)
+            {
+                currentAvatar.IsAvatar = false;
+                currentAvatar.ObjectState = ObjectState.Modified;
+
+                albumCover = new Files();
+                albumCover.album = currentAlbum;
+                albumCover.IsAvatar = true;
+                albumCover.ObjectState = ObjectState.Added;
+                albumCover.name = model.Cover.PostedFile.FileName;
+                albumCover.path = "/Content/Uploads/" + model.Cover.PostedFile.FileName;
+                model.Cover.PostedFile.SaveAs(model.Cover.RelativePathToSave);
+            }
+
+            currentAlbum.images.Add(albumCover);
+
+            List<Track> albumTracks = currentAlbum.trackList.ToList();
+
+            if ( model.NewSongsNames != null)
+            {
+                for (int i = 0; i < model.NewSongsNames.Length; i++)
+                {
+                    Track albumTrack = new Track()
+                    {
+                        name = model.NewSongsNames.ElementAt(i),
+                        url = model.NewSongsUrlAddresses.ElementAt(i),
+                        albums = new List<Album>() { currentAlbum },
+                        band = currentAlbum.band,
+                        BandID = currentAlbum.BandID,
+                        genres = AlbumGenres,
+                        ObjectState = ObjectState.Added,
+                        releaseDate = model.ReleaseDate
+                    };
+
+                    albumTracks.Add(albumTrack);
+                }
+            }
+
+            if (model.SongsToRemove != null)
+            {
+                for (int i = 0; i < model.SongsToRemove.Length; i++)
+                {
+                    Track removedSong = albumTracks.Find(t => t.Id == Int32.Parse(model.SongsToRemove.ElementAt(i)));
+                    removedSong.ObjectState = ObjectState.Deleted;
+
+                    albumTracks.Remove(removedSong);
+                }
+            }
+            
+            currentAlbum.trackList = albumTracks;
+
+            try
+             {
+                 _unitOfWork.Repository<Album>().InsertOrUpdateGraph(currentAlbum);
+                 _unitOfWork.SaveChanges();
+             }
+             catch (DbEntityValidationException dbEx)
+             {
+                 foreach (var validationErrors in dbEx.EntityValidationErrors)
+                 {
+                     foreach (var validationError in validationErrors.ValidationErrors)
+                     {
+                         Trace.TraceInformation("Property: {0} Error: {1}",
+                                                 validationError.PropertyName,
+                                                 validationError.ErrorMessage);
+                     }
+                 }
+             }
         }
     }
 }

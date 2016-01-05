@@ -4,12 +4,12 @@
     var songLength = 0;
 
     var model;
+    var songsToRemove = [];
     var uploads = [];
 
     this.Init = function () {
-        model = new FormData($('#UpdateAlbumForm')[0]);
-        this.SetupFileInput();
-        this.SetupJQueryDatePicker();
+        SetupFileInput();
+        SetupJQueryDatePicker();
         $('#UpdateAlbumBtn').click(this.UpdateAlbum);
         $('#cover').change(this.UpdateAlbumCover);
         $.each($("[name = RemoveSongBtn]"), function () {
@@ -19,13 +19,13 @@
 
     var RemoveSlectedSong = function (e) {
         var songId = $(e.currentTarget).data("songid");
-        model.append('SongsToRemove', songId);
+        songsToRemove.push(songId);
         $('div#' + songId).remove();
     }
 
-    this.SetupJQueryDatePicker = function () {
+    var SetupJQueryDatePicker = function () {
 
-        $("#ReleaseDate").datepicker({
+        $("#UpdateReleaseDate").datepicker({
 
             beforeShow: function () {
                 setTimeout(function () {
@@ -36,9 +36,9 @@
         });
     }
 
-    this.SetupFileInput = function () {
+    var SetupFileInput = function () {
 
-        $("#songInput").fileinput({
+        $("#UpdatesongInput").fileinput({
             uploadUrl: "error",
             showUpload: false,
             pluginLoading: true,
@@ -49,7 +49,7 @@
 
     var ValidateSongs = function () {
 
-        if ($('#songInput')[0].files.length > 0 || $('iframe').length > 0) {
+        if ($('#UpdatesongInput')[0].files.length > 0 || $('iframe').length > 0) {
             $('#songInput_validate').empty();
             return true;
         }
@@ -61,6 +61,8 @@
 
     this.UpdateAlbum = function () {
         if ($('#UpdateAlbumForm').valid() && ValidateSongs()) {
+            model = new FormData($('#UpdateAlbumForm')[0]);
+            model.append('SongsToRemove', songsToRemove);
             UploadSongs();
         }
     }
@@ -96,7 +98,7 @@
 
         var Songs = [];
 
-        var songsInputs = $('#songInput')[0].files;
+        var songsInputs = $('#UpdatesongInput')[0].files;
         songLength = songsInputs.length;
         songCounter = 0;
 
