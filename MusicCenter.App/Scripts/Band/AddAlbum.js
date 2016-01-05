@@ -137,7 +137,7 @@
                 $('#popUpContent').append('<b>' + e.title + '</b>' + '<b style="color:green">- Upload complete!</b></br>');
 
                 model.append('SongsNames', e.title);
-                model.append('SongsUrlAddresses', e.uri);//+ '?client_id=' + sessionStorage['scClientId']);
+                model.append('SongsUrlAddresses', e.id);//e.uri);
 
                 songCounter++;
 

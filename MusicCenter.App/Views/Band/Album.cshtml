@@ -59,16 +59,16 @@
             <div class="col-sm-11">
                 @foreach (var item in Model.Songs)
                 {
-                    var songUrl = "http://w.soundcloud.com/player/?url=" + @item.UrlAddress;
+                    var songUrl = @item.UrlAddress;
                          
                     <div class="row form-group">
                         <div class="col-sm-8" >
-                            <iframe id="widget" width="100%" src="@songUrl"></iframe>
+                            <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/@songUrl&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=false"></iframe>
                         </div>
                         @if (Session["user"] != null)
                         {
                             <div class="col-sm-2">
-                                <input type="button" id="@item.Id" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" name="AddSongToFav" value="Add to favourites" class="btn btn-default" />
+                                <input type="button" id="@item.Id" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" name="AddSongToFav" value="Add to favourites" class="btn btn-default btn-sm" />
                             </div>
                         }
                     </div>

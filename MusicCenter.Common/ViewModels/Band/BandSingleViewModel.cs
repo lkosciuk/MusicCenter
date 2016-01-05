@@ -16,6 +16,5 @@ namespace MusicCenter.Common.ViewModels.Band
 
         public string UrlAddress { get; set; }
 
-        public int Rating { get; set; }
     }
 }

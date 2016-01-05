@@ -156,10 +156,20 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
+        [HttpGet]
         [BandAuthorize]
         public ActionResult UpdateAlbum(string AlbumName)
         {
-            return View();
+            UpdateAlbumViewModel model = bandService.GetUpdateAlbumViewModel(AlbumName);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult UpdateAlbum(UpdateAlbumViewModel model)
+        {
+            return View(model);
         }
 
         [HttpPost]

@@ -14,6 +14,8 @@ using Repository.Pattern.UnitOfWork;
 using Repository.Pattern.Infrastructure;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace MusicCenter.Services.Services
 {
@@ -365,8 +367,25 @@ namespace MusicCenter.Services.Services
 
              newAlbum.trackList = albumTracks;
 
-             _unitOfWork.Repository<Album>().InsertOrUpdateGraph(newAlbum);
-             _unitOfWork.SaveChanges();
+             
+
+             try
+             {
+                 _unitOfWork.Repository<Album>().InsertOrUpdateGraph(newAlbum);
+                 _unitOfWork.SaveChanges();
+             }
+             catch (DbEntityValidationException dbEx)
+             {
+                 foreach (var validationErrors in dbEx.EntityValidationErrors)
+                 {
+                     foreach (var validationError in validationErrors.ValidationErrors)
+                     {
+                         Trace.TraceInformation("Property: {0} Error: {1}",
+                                                 validationError.PropertyName,
+                                                 validationError.ErrorMessage);
+                     }
+                 }
+             }
 
             
         }
@@ -429,6 +448,31 @@ namespace MusicCenter.Services.Services
 
             _unitOfWork.Repository<Album>().Delete(albumToRemove);
             _unitOfWork.SaveChanges();
+        }
+
+
+        public UpdateAlbumViewModel GetUpdateAlbumViewModel(string AlbumName)
+        {
+            Album currentAlbum = _unitOfWork.Repository<Album>().GetAlbumByName(AlbumName, a => a.band, a => a.genres, a => a.images, a => a.trackList).FirstOrDefault();
+
+            return new UpdateAlbumViewModel()
+            {
+                BandName = currentAlbum.band.name,
+                Cover = new FileViewModel() { PathToShow = currentAlbum.images.FirstOrDefault(i => i.IsAvatar).path },
+                Label = currentAlbum.label,
+                Name = currentAlbum.name,
+                Producer = currentAlbum.producer,
+                ReleaseDate = currentAlbum.releaseDate,
+                ExistingSongs = currentAlbum.trackList.Select(t => new BandSingleViewModel()
+                {
+                    UrlAddress = t.url,
+                    Id = t.Id,
+                    Name = t.name,
+                    BandName = t.band.name
+                }).ToList(),
+                Genres = String.Join(",", currentAlbum.genres.Select(g => g.name).ToArray())
+            };
+
         }
     }
 }

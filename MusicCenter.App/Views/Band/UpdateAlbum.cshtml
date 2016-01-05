@@ -1,2 +1,101 @@
-﻿
+﻿@model MusicCenter.Common.ViewModels.Band.UpdateAlbumViewModel
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
+@Scripts.Render("~/Scripts/Band/UpdateAlbum.js")
+@Styles.Render("~/Content/Account/Register.css")
+@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+@Styles.Render("~/Content/Band/AddAlbum.css")
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
+    <form id="UpdateAlbumForm" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.BandName)
+        <div class="row form-group">
+            <div class="col-md-2">
+                <img src="@Model.Cover.PathToShow" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="albumCover">
+            </div>
+            <div class="col-lg-10">
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Nazwa:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Release date:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.ReleaseDate, new { @class = "form-control input-sm", id = "ReleaseDate" })
+                        @Html.ValidationMessageFor(m => m.ReleaseDate)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Label:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.Label, new { @class = "form-control input-sm" })
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label input-sm">Producer:</label>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(m => m.Producer, new { @class = "form-control input-sm", name = "ResolveDate", id = "ResolveDate" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Gatunki:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = "separated by comma", style = "max-width: none" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1" style="margin-left:40px">
+                <span class="btn btn-primary btn-file">
+                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Cover.PostedFile, new { type = "file", name = "Cover", @class = "input-sm", @id = "cover" })
+                </span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Utwory:</label>
+            </div>
+            <div class="col-sm-11">
+                @foreach (var item in Model.ExistingSongs)
+                {
+                    var songUrl = @item.UrlAddress;
+                         
+                    <div class="row form-group" id="@item.Id">
+                        <div class="col-sm-8" >
+                            <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/@songUrl&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=false"></iframe>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="button" value="Remove" data-songid="@item.Id" class="btn btn-danger" name="RemoveSongBtn" />
+                        </div>
+                    </div>
+                }
+                <br />
+                <div>
+                    <b>Add songs:</b>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-10">
+                        <input id="songInput" type="file" multiple class="file" data-overwrite-initial="false" name="songInput">
+                        <div id="songInput_validate" style="color:darkred"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="button" id="UpdateAlbumBtn" class="btn btn-default pull-right" value="Save" />
+    </form>
+</div>
+
+
 

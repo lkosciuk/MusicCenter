@@ -265,6 +265,7 @@
     <Content Include="Scripts\Band\Album.js" />
     <Content Include="Scripts\Band\BandAlbums.js" />
     <Content Include="Scripts\Band\BandProfile.js" />
+    <Content Include="Scripts\Band\UpdateAlbum.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />

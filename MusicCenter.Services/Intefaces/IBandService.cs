@@ -31,5 +31,7 @@ namespace MusicCenter.Services.Intefaces
         bool IsVisitorAlbumOwner(string visitor, string AlbumName);
 
         void DeleteAlbum(string AlbumName);
+
+        UpdateAlbumViewModel GetUpdateAlbumViewModel(string AlbumName);
     }
 }
