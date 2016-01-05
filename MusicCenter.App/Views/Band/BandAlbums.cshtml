@@ -2,6 +2,7 @@
 
 
 @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
+@Scripts.Render("~/Scripts/Band/BandAlbums.js")
 
 <div id="BodyContent" style="margin-left: 50px">
     <ul class="nav nav-tabs" style="margin-bottom:10px">
@@ -28,6 +29,17 @@
                         </div>
                     </div>
                 </a>
+                @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
+                {
+                    <div class="row form-group">
+                        <div class="col-sm-2">
+                            <input type="button" data-url="@Url.Action("UpdateAlbum", "Band", new { AlbumName = @Album.Name})" class="btn btn-default" value="Edit" name="EditAlbumBtn" />
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="button" data-album="@Album.Name" class="btn btn-default" value="Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteAlbumBtn" />
+                        </div>
+                    </div>
+                }
             </div>
         }
     </div>
@@ -38,4 +50,21 @@
         </div>
     }
     
-</div>
+    <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Confirm Submit
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete <b><p style="display:inline" id="AlbumName"></p></b> album ?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button data-url="@Url.Action("DeleteAlbum", "Band")" id="DeleteConfirmBtn" class="btn btn-success success">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>

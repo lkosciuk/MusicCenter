@@ -393,6 +393,43 @@ namespace MusicCenter.Services.Services
             };
                 
          }
-   }
+
+
+        public bool IsVisitorAlbumOwner(string visitor, string AlbumName)
+        {
+            return _repo.GetBandByName(visitor, b => b.albums).FirstOrDefault().albums.Any(a => a.name == AlbumName);
+        }
+
+        public void DeleteAlbum(string AlbumName)
+        {
+            Album albumToRemove = _unitOfWork.Repository<Album>().GetAlbumByName(AlbumName, a => a.images, a => a.trackList, a => a.band, a => a.favourites, a => a.genres).FirstOrDefault();
+            albumToRemove.ObjectState = ObjectState.Deleted;
+
+            foreach (Files item in albumToRemove.images)
+            {
+                item.ObjectState = ObjectState.Deleted;
+            }
+
+            foreach (Track item in albumToRemove.trackList)
+            {
+                item.ObjectState = ObjectState.Deleted;
+            }
+
+            foreach (Favourites item in albumToRemove.favourites)
+            {
+                item.albums.Remove(albumToRemove);
+                item.ObjectState = ObjectState.Modified;
+            }
+
+            foreach (Genre item in albumToRemove.genres)
+            {
+                item.albums.Remove(albumToRemove);
+                item.ObjectState = ObjectState.Modified;
+            }
+
+            _unitOfWork.Repository<Album>().Delete(albumToRemove);
+            _unitOfWork.SaveChanges();
+        }
+    }
 }
 

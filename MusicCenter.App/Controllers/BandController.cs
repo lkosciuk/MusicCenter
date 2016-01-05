@@ -156,5 +156,23 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
+        [BandAuthorize]
+        public ActionResult UpdateAlbum(string AlbumName)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult DeleteAlbum(string AlbumName)
+        {
+            if (bandService.IsVisitorAlbumOwner(Session["band"].ToString(), AlbumName))
+            {
+                bandService.DeleteAlbum(AlbumName);
+            }
+            
+            return RedirectToAction("BandAlbums");
+        }
+
 	}
 }

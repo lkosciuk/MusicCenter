@@ -27,5 +27,9 @@ namespace MusicCenter.Services.Intefaces
         void AddAlbum(AddAlbumViewModel model);
 
         AlbumViewModel GetAlbumViewModelByName(string AlbumName);
+
+        bool IsVisitorAlbumOwner(string visitor, string AlbumName);
+
+        void DeleteAlbum(string AlbumName);
     }
 }
