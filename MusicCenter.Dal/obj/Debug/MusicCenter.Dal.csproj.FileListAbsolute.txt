@@ -132,3 +132,4 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumField
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.removedRating.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.addedIsSingle.resources
+D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.removedUnusedFromConcert.resources

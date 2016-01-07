@@ -16,16 +16,18 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.ToTable("Concert");
 
             this.Property(a => a.date).IsRequired();
-            this.Property(a => a.ticketPrice).HasMaxLength(15).IsOptional();
-            this.Property(a => a.ticketUrl).HasMaxLength(200).IsOptional();
             this.Property(a => a.address).HasMaxLength(30).IsRequired();
             this.Property(a => a.coordinatesX).IsOptional();
             this.Property(a => a.coordinatesY).IsOptional();
 
             //relationships
-            this.HasRequired(t => t.band)
-                 .WithMany(t => t.concerts)
-                 .HasForeignKey(d => d.BandID);
+            this.HasMany(t => t.bands)
+                 .WithMany(t => t.concerts).Map(m =>
+                 {
+                     m.ToTable("BandConcert");
+                     m.MapLeftKey("BandID");
+                     m.MapRightKey("ConcertID");
+                 });
 
             this.HasOptional(t => t.tour)
                  .WithMany(t => t.concerts)

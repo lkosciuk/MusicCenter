@@ -16,7 +16,7 @@
             <a href="@Url.Action("BandAlbums", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Dicography</a>
         </li>
         <li>
-            <a href="@Url.Action("BandConcerts", "Band", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Concerts</a>
+            <a href="@Url.Action("BandConcerts", "Concert", new { BandName = @Model })">@MusicCenter.Common.Resources.Global.Concerts</a>
         </li>
         <li id="MsgContainer">        
             @if (Session["band"] != null && Session["band"].ToString() == Model)

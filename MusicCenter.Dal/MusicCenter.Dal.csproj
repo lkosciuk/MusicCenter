@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201601061545464_addedIsSingle.Designer.cs">
       <DependentUpon>201601061545464_addedIsSingle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601071831397_removedUnusedFromConcert.cs" />
+    <Compile Include="Migrations\201601071831397_removedUnusedFromConcert.Designer.cs">
+      <DependentUpon>201601071831397_removedUnusedFromConcert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +163,7 @@
     <Compile Include="RepoExt\RepositoryExt.cs" />
     <Compile Include="Repositories\AlbumRepository.cs" />
     <Compile Include="Repositories\BandRepository.cs" />
+    <Compile Include="Repositories\ConcertRepository.cs" />
     <Compile Include="Repositories\FavouritesRepository.cs" />
     <Compile Include="Repositories\GenreRepository.cs" />
     <Compile Include="Repositories\TrackRepository.cs" />
@@ -225,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601061545464_addedIsSingle.resx">
       <DependentUpon>201601061545464_addedIsSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601071831397_removedUnusedFromConcert.resx">
+      <DependentUpon>201601071831397_removedUnusedFromConcert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -37,6 +37,7 @@ namespace MusicCenter.App.App_Start
             builder.RegisterType<MessageService>().As<IMessageService>().InstancePerRequest();
             builder.RegisterType<FavouritesService>().As<IFavouritesService>().InstancePerRequest();
             builder.RegisterType<BandService>().As<IBandService>().InstancePerRequest();
+            builder.RegisterType<ConcertService>().As<IConcertService>().InstancePerRequest();
 
             var container = builder.Build();
 

@@ -116,11 +116,6 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
-        public ActionResult BandConcerts(string BandName)
-        {
-            return View();
-        }
-
 
         [BandAuthorize]
         public ActionResult AddAlbum()

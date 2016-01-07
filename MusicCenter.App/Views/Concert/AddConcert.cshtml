@@ -1,0 +1,73 @@
+﻿@model MusicCenter.Common.ViewModels.Concert.AddConcertViewModel
+
+@{
+    Html.RenderAction("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+}
+
+@Scripts.Render("~/Scripts/Concert/AddConcert.js")
+@Styles.Render("~/Content/Account/Register.css")
+@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+@Scripts.Render("~/Scripts/jquery.datetimepicker.full.min.js")
+@Styles.Render("~/Content/datetimepicker.css")
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<div id="BodyContent" style="margin-left: 50px">
+    <ul class="nav nav-tabs" style="margin-bottom:10px">
+        <li role="presentation" class="active"><a href="#" id="DetailsTab">Details</a></li>
+        <li role="presentation"><a href="#" id="LocalizationTab">Localization</a></li>
+        <li role="presentation"><a href="#" id="GalleryTab">Gallery</a></li>
+    </ul>
+
+    <form id="AddAlbumForm" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.BandName)
+        <div class="row form-group">
+            <div class="col-md-2">
+                <img src="~/Content/Uploads/DefaultConcertAv.jpg" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="albumCover">
+            </div>
+            <div class="col-lg-10">
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Date:</label>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(m => m.date, new { @class = "form-control input-sm", id = "Date" })
+                        @Html.ValidationMessageFor(m => m.date)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Bands:</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input id="BandSelect" class="form-control"></input>
+                        <div id="menu-container" style="position:absolute; z-index: 99999"></div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-1">
+
+                    </div>
+                    <div class="col-sm-11" id="BandsContainer">
+                        Zespol 1
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1" style="margin-left:40px">
+                <span class="btn btn-primary btn-file">
+                    @MusicCenter.Common.Resources.Global.Browse @Html.TextBoxFor(m => m.Cover.PostedFile, new { type = "file", name = "Cover", @class = "input-sm", @id = "cover" })
+                </span>
+            </div>
+            <div class="col-sm-11" style="margin-left: 140px">
+                    <div class="col-sm-1">
+                        <label class="control-label input-sm">Description:</label>
+                    </div>
+                    <div class="col-sm-10" style="margin-left:20px">
+                        @Html.TextAreaFor(m => m.description, new { @class = "form-control", @style = "max-width:100%", @rows = "5" })
+                    </div>
+            </div>
+        </div>           
+        <input type="button" id="CreateConcertBtn" class="btn btn-default pull-right" value="Create concert" />
+    </form>
+</div>

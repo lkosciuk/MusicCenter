@@ -1,0 +1,9 @@
+﻿@model MusicCenter.Common.ViewModels.Concert.ConcertViewModel
+
+@{
+    Html.RenderAction("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+}
+
+<div id="BodyContent" style="margin-left: 50px">
+
+</div>

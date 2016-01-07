@@ -111,6 +111,12 @@
     <Compile Include="ViewModels\Band\BandSingleListViewModel.cs" />
     <Compile Include="ViewModels\Band\BandSingleViewModel.cs" />
     <Compile Include="ViewModels\Band\UpdateAlbumViewModel.cs" />
+    <Compile Include="ViewModels\Concert\AddConcertViewModel.cs" />
+    <Compile Include="ViewModels\Concert\BandConcertListViewModel.cs" />
+    <Compile Include="ViewModels\Concert\BandConcertViewModel.cs" />
+    <Compile Include="ViewModels\Concert\ConcertListItem.cs" />
+    <Compile Include="ViewModels\Concert\ConcertViewModel.cs" />
+    <Compile Include="ViewModels\Concert\UpdateConcertViewModel.cs" />
     <Compile Include="ViewModels\File\FileViewModel.cs" />
     <Compile Include="ViewModels\Message\MessageDetailsViewModel.cs" />
     <Compile Include="ViewModels\Message\MessageLisItemViewModel.cs" />

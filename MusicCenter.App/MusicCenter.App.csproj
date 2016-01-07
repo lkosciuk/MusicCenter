@@ -195,6 +195,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BandController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ConcertController.cs" />
     <Compile Include="Controllers\FavouritesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -212,6 +213,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Account\Register.css" />
+    <Content Include="Content\datetimepicker.css" />
     <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -269,9 +271,12 @@
     <Content Include="Scripts\Band\BandSingles.js" />
     <Content Include="Scripts\Band\UpdateAlbum.js" />
     <Content Include="Scripts\Band\UpdateSingle.js" />
+    <Content Include="Scripts\Concert\AddConcert.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.full.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.min.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\Layout\LoginPanel.js" />
     <Content Include="Scripts\Account\Register.js" />
@@ -338,7 +343,7 @@
     <Content Include="Views\Message\BandMessageDetails.cshtml" />
     <Content Include="Views\Band\BandProfile.cshtml" />
     <Content Include="Views\Band\BandAlbums.cshtml" />
-    <Content Include="Views\Band\BandConcerts.cshtml" />
+    <Content Include="Views\Concert\BandConcerts.cshtml" />
     <Content Include="Views\Message\SendBandMessage.cshtml" />
     <Content Include="Views\Band\AddAlbum.cshtml" />
     <Content Include="Views\Band\BandSingles.cshtml" />
@@ -346,6 +351,9 @@
     <Content Include="Views\Band\UpdateAlbum.cshtml" />
     <Content Include="Views\Band\AddSingle.cshtml" />
     <Content Include="Views\Band\UpdateSingle.cshtml" />
+    <Content Include="Views\Concert\AddConcert.cshtml" />
+    <Content Include="Views\Concert\UpdateConcert.cshtml" />
+    <Content Include="Views\Concert\Concert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

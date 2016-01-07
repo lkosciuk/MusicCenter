@@ -10,17 +10,15 @@ namespace MusicCenter.Dal.EntityModels
         : BaseEntity
     {
         public DateTime date { get; set; }
-        public string ticketPrice { get; set; }
-        public string ticketUrl { get; set; }
         public string address { get; set; }
+        public string description { get; set; }
         public float coordinatesX { get; set; }
         public float coordinatesY { get; set; }
         public virtual ICollection<Files> images { get; set; }
         public virtual ICollection<Favourites> favourites { get; set; }
         public int? TourID { get; set; }
         public virtual Tour tour { get; set; }
-        public int BandID { get; set; }
-        public virtual Band band { get; set; }
+        public virtual ICollection<Band> bands { get; set; }
 
 
     }
