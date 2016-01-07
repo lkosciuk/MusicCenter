@@ -357,6 +357,7 @@ namespace MusicCenter.Services.Services
                      albums = new List<Album>() { newAlbum },
                      band = currentBand,
                      BandID = currentBand.Id,
+                     IsSingle = false,
                      genres = AlbumGenres,
                      ObjectState = ObjectState.Added,
                      releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null)
@@ -444,6 +445,7 @@ namespace MusicCenter.Services.Services
                 item.ObjectState = ObjectState.Modified;
             }
 
+            _unitOfWork.Repository<Album>().InsertOrUpdateGraph(albumToRemove);
             _unitOfWork.Repository<Album>().Delete(albumToRemove);
             _unitOfWork.SaveChanges();
         }
@@ -503,8 +505,11 @@ namespace MusicCenter.Services.Services
                     }
                     else
                     {
-                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
-                        existingGenre.albums.Add(currentAlbum);
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre, g => g.albums);
+                        if (!existingGenre.albums.Any(a => a.Id ==currentAlbum.Id))
+                        {
+                            existingGenre.albums.Add(currentAlbum);
+                        }                      
                         AlbumGenres.Add(existingGenre);
                     }
                 }
@@ -544,6 +549,7 @@ namespace MusicCenter.Services.Services
                         band = currentAlbum.band,
                         BandID = currentAlbum.BandID,
                         genres = AlbumGenres,
+                        IsSingle = false,
                         ObjectState = ObjectState.Added,
                         releaseDate = model.ReleaseDate
                     };
@@ -582,6 +588,152 @@ namespace MusicCenter.Services.Services
                      }
                  }
              }
+        }
+
+
+        public BandSingleListViewModel GetBandSingleListViewModel(string BandName)
+        {
+            var singles = _unitOfWork.Repository<Track>().GetSinglesByBandName(BandName, t => t.genres).ToList();
+
+            return new BandSingleListViewModel()
+            {
+                BandName = BandName,
+                Singles = singles.Select(s => new BandSingleViewModel()
+                {
+                    BandName = BandName,
+                    Id = s.Id,
+                    Name = s.name,
+                    UrlAddress = s.url,
+                    Genres = String.Join(",", s.genres.Select(g => g.name).ToArray()),
+                    ReleaseDate = s.releaseDate
+                }).ToList()
+            };
+        }
+
+
+        public void AddSingle(AddSingleViewModel model)
+        {
+            Band currentBand = _repo.GetBandByName(model.BandName, b => b.singles).FirstOrDefault();
+
+            Track newTrack = new Track()
+            {
+                band = currentBand,
+                BandID = currentBand.Id,
+                IsSingle = true,
+                url = model.SongUrl,
+                name = model.SongName,
+                releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null),
+                ObjectState = ObjectState.Added
+            };
+
+            List<Genre> TrackGenres = new List<Genre>();
+
+            if (!String.IsNullOrEmpty(model.Genres))
+            {
+                Regex.Replace(model.Genres, @"\s+", "");
+                string[] Genres = model.Genres.Split(',');
+
+                foreach (var genre in Genres)
+                {
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    {
+                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        newGenre.tracks.Add(newTrack);
+                        TrackGenres.Add(newGenre);
+                    }
+                    else
+                    {
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                        existingGenre.tracks.Add(newTrack);
+                        TrackGenres.Add(existingGenre);
+                    }
+                }
+            }
+
+            newTrack.genres = TrackGenres;
+
+            _unitOfWork.Repository<Track>().InsertOrUpdateGraph(newTrack);
+            _unitOfWork.SaveChanges();
+            
+        }
+
+
+        public void DeleteSingle(int SingleId)
+        {
+            Track songToRemove = _unitOfWork.Repository<Track>().GetById(SingleId);
+            songToRemove.ObjectState = ObjectState.Deleted;
+
+            foreach (Favourites item in songToRemove.favourites)
+            {
+                item.tracks.Remove(songToRemove);
+                item.ObjectState = ObjectState.Modified;
+            }
+
+            foreach (Genre item in songToRemove.genres)
+            {
+                item.tracks.Remove(songToRemove);
+                item.ObjectState = ObjectState.Modified;
+            }
+
+            _unitOfWork.Repository<Track>().InsertOrUpdateGraph(songToRemove);
+            _unitOfWork.Repository<Track>().Delete(songToRemove);
+            _unitOfWork.SaveChanges();
+
+        }
+
+
+        public BandSingleViewModel GetBandSingleViewModel(int SingleId)
+        {
+            Track currentTrack = _unitOfWork.Repository<Track>().GetById(SingleId, t => t.band, t => t.genres);
+            return new BandSingleViewModel()
+            {
+                Id = currentTrack.Id,
+                UrlAddress = currentTrack.url,
+                BandName = currentTrack.band.name,
+                Name = currentTrack.name,
+                ReleaseDate = currentTrack.releaseDate,
+                Genres = String.Join(",", currentTrack.genres.Select(g => g.name).ToArray())
+            };
+        }
+
+
+        public void UpdateSingle(BandSingleViewModel model)
+        {
+            Track currentTrack = _unitOfWork.Repository<Track>().GetById(model.Id);
+
+            List<Genre> TrackGenres = new List<Genre>();
+
+            if (!String.IsNullOrEmpty(model.Genres))
+            {
+                Regex.Replace(model.Genres, @"\s+", "");
+                string[] Genres = model.Genres.Split(',');
+
+                foreach (var genre in Genres)
+                {
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    {
+                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        newGenre.tracks.Add(currentTrack);
+                        TrackGenres.Add(newGenre);
+                    }
+                    else
+                    {
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre, g => g.tracks);
+                        if (!existingGenre.tracks.Any(t => t.Id == currentTrack.Id))
+                        {
+                            existingGenre.tracks.Add(currentTrack);
+                        }
+                        TrackGenres.Add(existingGenre);
+                    }
+                }
+            }
+
+            currentTrack.genres = TrackGenres;
+            currentTrack.releaseDate = model.ReleaseDate;
+            currentTrack.ObjectState = ObjectState.Modified;
+
+            _unitOfWork.Repository<Track>().InsertOrUpdateGraph(currentTrack);
+            _unitOfWork.SaveChanges();
         }
     }
 }

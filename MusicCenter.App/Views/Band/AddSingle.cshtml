@@ -1,0 +1,45 @@
+﻿@model MusicCenter.Common.ViewModels.Band.AddSingleViewModel
+
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+@Scripts.Render("~/Scripts/Band/AddSingle.js")
+@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+@Scripts.Render("~/Scripts/jquery.form.js")
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<div id="BodyContent" style="margin-left: 50px">
+    <form id="AddSingleForm" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.BandName)
+        <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="control-label input-sm">Release date:</label>
+                </div>
+                <div class="col-sm-2">
+                    @Html.TextBoxFor(m => m.ReleaseDate, "{0:d}", new { @class = "form-control input-sm", id = "ReleaseDate" })
+                    @Html.ValidationMessageFor(m => m.ReleaseDate)
+                </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Gatunki:</label>
+            </div>
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = "separated by comma", style = "max-width: none" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-1">
+                <label class="control-label input-sm">Utwór:</label>
+            </div>
+            <div class="col-sm-11">
+                <div class="row form-group">
+                    <div class="col-sm-10">
+                        <input id="songInput" type="file" data-overwrite-initial="false" name="songInput">
+                        <div id="songInput_validate" style="color:darkred"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="button" id="CreateSingleBtn" class="btn btn-default pull-right" value="Add single" />
+    </form>
+</div>

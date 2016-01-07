@@ -262,10 +262,13 @@
     <Content Include="img\loading.gif" />
     <Content Include="Scripts\Band\AddAlbum.js" />
     <Content Include="Scripts\Band\AddBand.js" />
+    <Content Include="Scripts\Band\AddSingle.js" />
     <Content Include="Scripts\Band\Album.js" />
     <Content Include="Scripts\Band\BandAlbums.js" />
     <Content Include="Scripts\Band\BandProfile.js" />
+    <Content Include="Scripts\Band\BandSingles.js" />
     <Content Include="Scripts\Band\UpdateAlbum.js" />
+    <Content Include="Scripts\Band\UpdateSingle.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
@@ -341,6 +344,8 @@
     <Content Include="Views\Band\BandSingles.cshtml" />
     <Content Include="Views\Band\Album.cshtml" />
     <Content Include="Views\Band\UpdateAlbum.cshtml" />
+    <Content Include="Views\Band\AddSingle.cshtml" />
+    <Content Include="Views\Band\UpdateSingle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

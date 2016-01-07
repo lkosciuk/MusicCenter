@@ -131,3 +131,4 @@ C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFiles
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.removedRating.resources
+D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.addedIsSingle.resources

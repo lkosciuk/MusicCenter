@@ -18,6 +18,7 @@ namespace MusicCenter.Dal.EntityModels
         public int BandID { get; set; }
         public virtual Band band { get; set; }
         public virtual ICollection<Album> albums { get; set; }
+        public bool IsSingle { get; set; }
 
         public Track()
         {

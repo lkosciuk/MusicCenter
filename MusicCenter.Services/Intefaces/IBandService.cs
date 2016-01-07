@@ -35,5 +35,15 @@ namespace MusicCenter.Services.Intefaces
         UpdateAlbumViewModel GetUpdateAlbumViewModel(string AlbumName);
 
         void UpdateAlbum(UpdateAlbumViewModel model);
+
+        BandSingleListViewModel GetBandSingleListViewModel(string BandName);
+
+        void AddSingle(AddSingleViewModel model);
+
+        void DeleteSingle(int SingleId);
+
+        BandSingleViewModel GetBandSingleViewModel(int SingleId);
+
+        void UpdateSingle(BandSingleViewModel model);
     }
 }

@@ -111,7 +111,9 @@ namespace MusicCenter.App.Controllers
 
         public ActionResult BandSingles(string BandName)
         {
-            return View();
+            BandSingleListViewModel model = bandService.GetBandSingleListViewModel(BandName);
+
+            return View(model);
         }
 
         public ActionResult BandConcerts(string BandName)
@@ -141,7 +143,7 @@ namespace MusicCenter.App.Controllers
                 model.Cover.RelativePathToSave = fullPath;
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model.SongsNames.Length > 0)
             {
                 bandService.AddAlbum(model);
             }
@@ -197,6 +199,55 @@ namespace MusicCenter.App.Controllers
             }
             
             return RedirectToAction("BandAlbums");
+        }
+
+        [BandAuthorize]
+        public ActionResult AddSingle()
+        {
+            AddSingleViewModel model = new AddSingleViewModel();
+            model.BandName = Session["band"].ToString();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult AddSingle(AddSingleViewModel model)
+        {
+            if (ModelState.IsValid && !String.IsNullOrEmpty(model.SongName))
+            {
+                bandService.AddSingle(model);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult DeleteSingle(int SingleId)
+        {
+            bandService.DeleteSingle(SingleId);
+
+            return RedirectToAction("BandSingles");
+        }
+
+        [BandAuthorize]
+        public ActionResult UpdateSingle(int SingleId)
+        {
+            BandSingleViewModel model = bandService.GetBandSingleViewModel(SingleId);
+            return View(model);
+        }
+
+        [HttpPost]
+        [BandAuthorize]
+        public ActionResult UpdateSingle(BandSingleViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                bandService.UpdateSingle(model);
+            }
+            model = bandService.GetBandSingleViewModel(model.Id);
+            return View(model);
         }
 
 	}
