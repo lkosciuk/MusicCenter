@@ -45,5 +45,7 @@ namespace MusicCenter.Services.Intefaces
         BandSingleViewModel GetBandSingleViewModel(int SingleId);
 
         void UpdateSingle(BandSingleViewModel model);
+
+        string[] GetAllBandNames();
     }
 }

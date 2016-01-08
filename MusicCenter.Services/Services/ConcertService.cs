@@ -38,5 +38,20 @@ namespace MusicCenter.Services.Services
              };
              
          }
+
+
+         public BandConcertViewModel GetBandConcertViewModel(string BandName)
+         {
+             Band currentBand = _unitOfWork.Repository<Band>().GetBandByName(BandName, b => b.genres, b => b.images).FirstOrDefault();
+
+             return new BandConcertViewModel()
+             {
+                 Avatar = new FileViewModel() { PathToShow = currentBand.images.FirstOrDefault(i => i.IsAvatar).path },
+                 BandName = currentBand.name,
+                 CreationDate = currentBand.bandCreationDate,
+                 Description = currentBand.description,
+                 Genres = String.Join(",", currentBand.genres.Select(g => g.name).ToArray())
+             };
+         }
     }
 }

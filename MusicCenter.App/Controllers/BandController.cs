@@ -245,5 +245,9 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
+        public JsonResult GetAllBandNames()
+        {
+            return Json(bandService.GetAllBandNames(), JsonRequestBehavior.AllowGet);
+        }
 	}
 }

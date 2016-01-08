@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201601071831397_removedUnusedFromConcert.Designer.cs">
       <DependentUpon>201601071831397_removedUnusedFromConcert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601081218096_BandCreationDateNotNull.cs" />
+    <Compile Include="Migrations\201601081218096_BandCreationDateNotNull.Designer.cs">
+      <DependentUpon>201601081218096_BandCreationDateNotNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601071831397_removedUnusedFromConcert.resx">
       <DependentUpon>201601071831397_removedUnusedFromConcert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601081218096_BandCreationDateNotNull.resx">
+      <DependentUpon>201601081218096_BandCreationDateNotNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

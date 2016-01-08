@@ -64,7 +64,7 @@ namespace MusicCenter.Services.Services
                 email = model.Email,
                 phoneNumber = model.Phone,
                 addDate = DateTime.Now,
-                bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null),
+                bandCreationDate = DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null),
                 bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", null),
                 ObjectState = ObjectState.Added,
                 user = currentUser,
@@ -162,7 +162,7 @@ namespace MusicCenter.Services.Services
                        BandId = currentBand.Id,
                        Avatar = new FileViewModel() { PathToShow = currentBand.images.FirstOrDefault(i => i.IsAvatar).path },
                        BandMembers = currentBand.members.Select(m => m.fullName).ToArray(),
-                       CreationDate = currentBand.bandCreationDate.HasValue ? currentBand.bandCreationDate.Value.ToString("dd-MM-yyyy", null) : null ,
+                       CreationDate = currentBand.bandCreationDate.ToString("dd-MM-yyyy", null),
                        ResolveDate = currentBand.bandResolveDate.HasValue ? currentBand.bandResolveDate.Value.ToString("dd-MM-yyyy", null) : null,
                        Description = currentBand.description,
                        Email = currentBand.email,
@@ -182,7 +182,7 @@ namespace MusicCenter.Services.Services
             Band currentBand = _repo.GetById(model.BandId, b => b.images, b => b.genres, b => b.members);
 
             currentBand.name = model.Name;
-            currentBand.bandCreationDate = String.IsNullOrEmpty(model.CreationDate) ? null : (DateTime?)DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null);
+            currentBand.bandCreationDate = DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null);
             currentBand.bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", null);
             currentBand.description = model.Description;
             currentBand.email = model.Email;
@@ -734,6 +734,14 @@ namespace MusicCenter.Services.Services
 
             _unitOfWork.Repository<Track>().InsertOrUpdateGraph(currentTrack);
             _unitOfWork.SaveChanges();
+        }
+
+
+        public string[] GetAllBandNames()
+        {
+            var bandNames = _repo.Queryable().Select(b => b.name).ToArray();
+
+            return bandNames; 
         }
     }
 }

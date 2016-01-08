@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicCenter.Common.ViewModels.Concert;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace MusicCenter.Services.Intefaces
     public interface IConcertService
     {
 
-        Common.ViewModels.Concert.BandConcertListViewModel GetBandConcertListViewModel(string BandName);
+        BandConcertListViewModel GetBandConcertListViewModel(string BandName);
+
+        BandConcertViewModel GetBandConcertViewModel(string BandName);
     }
 }

@@ -354,6 +354,7 @@
     <Content Include="Views\Concert\AddConcert.cshtml" />
     <Content Include="Views\Concert\UpdateConcert.cshtml" />
     <Content Include="Views\Concert\Concert.cshtml" />
+    <Content Include="Views\Shared\BandDetailsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
