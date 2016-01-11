@@ -49,7 +49,9 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult UpdateConcert(int ConcertId)
         {
-            return View();
+            UpdateConcertViewModel model = _concertService.GetUpdateConcertViewModel(ConcertId);
+
+            return View(model);
         }
 
         [HttpPost]

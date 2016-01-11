@@ -16,7 +16,7 @@ namespace MusicCenter.Dal.EntityConfigurations
         {
             this.ToTable("BandMember");
             
-            this.Property(a => a.fullName).HasMaxLength(50).IsRequired();
+            this.Property(a => a.fullName).IsRequired();
 
             //relationships
             

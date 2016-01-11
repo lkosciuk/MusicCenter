@@ -13,5 +13,7 @@ namespace MusicCenter.Services.Intefaces
         BandConcertListViewModel GetBandConcertListViewModel(string BandName);
 
         BandConcertViewModel GetBandConcertViewModel(string BandName);
+
+        UpdateConcertViewModel GetUpdateConcertViewModel(int ConcertId);
     }
 }

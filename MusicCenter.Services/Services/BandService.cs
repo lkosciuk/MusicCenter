@@ -652,9 +652,15 @@ namespace MusicCenter.Services.Services
 
             newTrack.genres = TrackGenres;
 
-            _unitOfWork.Repository<Track>().InsertOrUpdateGraph(newTrack);
-            _unitOfWork.SaveChanges();
-            
+            try
+            {
+                _unitOfWork.Repository<Track>().InsertOrUpdateGraph(newTrack);
+                _unitOfWork.SaveChanges();
+            }
+            catch(DbEntityValidationException dbEx)
+            {
+             
+            }                 
         }
 
 

@@ -16,7 +16,7 @@ namespace MusicCenter.Dal.EntityConfigurations
             this.ToTable("Concert");
 
             this.Property(a => a.date).IsRequired();
-            this.Property(a => a.address).HasMaxLength(30).IsRequired();
+            this.Property(a => a.address).IsRequired();
             this.Property(a => a.coordinatesX).IsOptional();
             this.Property(a => a.coordinatesY).IsOptional();
 

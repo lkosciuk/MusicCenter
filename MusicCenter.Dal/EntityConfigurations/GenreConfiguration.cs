@@ -15,7 +15,7 @@ namespace MusicCenter.Dal.EntityConfigurations
         {
             this.ToTable("Genre");
 
-            this.Property(a => a.name).HasMaxLength(20).IsRequired();
+            this.Property(a => a.name).IsRequired();
 
             //relationships
             this.HasMany(t => t.tracks)

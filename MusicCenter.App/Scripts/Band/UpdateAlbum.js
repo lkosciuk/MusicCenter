@@ -4,7 +4,7 @@
     var songLength = 0;
 
     var model;
-    var songsToRemove = [];
+    var songsToRemove;
     var uploads = [];
 
     this.Init = function () {
@@ -19,8 +19,12 @@
 
     var RemoveSlectedSong = function (e) {
         var songId = $(e.currentTarget).data("songid");
-        songsToRemove.push(songId);
-        $('div#' + songId).remove();
+
+        if (songId)
+        {
+            songsToRemove.push(songId);
+            $('div#' + songId).remove();
+        }        
     }
 
     var SetupJQueryDatePicker = function () {
@@ -62,7 +66,11 @@
     this.UpdateAlbum = function () {
         if ($('#UpdateAlbumForm').valid() && ValidateSongs()) {
             model = new FormData($('#UpdateAlbumForm')[0]);
-            model.append('SongsToRemove', songsToRemove);
+
+            if (songsToRemove !== undefined) {
+                model.append('SongsToRemove', songsToRemove);
+            }
+            
             UploadSongs();
         }
     }

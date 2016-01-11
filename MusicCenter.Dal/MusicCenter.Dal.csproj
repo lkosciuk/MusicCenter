@@ -160,6 +160,10 @@
     <Compile Include="Migrations\201601081218096_BandCreationDateNotNull.Designer.cs">
       <DependentUpon>201601081218096_BandCreationDateNotNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601112043244_entityMapChanged.cs" />
+    <Compile Include="Migrations\201601112043244_entityMapChanged.Designer.cs">
+      <DependentUpon>201601112043244_entityMapChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601081218096_BandCreationDateNotNull.resx">
       <DependentUpon>201601081218096_BandCreationDateNotNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601112043244_entityMapChanged.resx">
+      <DependentUpon>201601112043244_entityMapChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,7 @@ namespace MusicCenter.Common.ViewModels.File
 {
     public class FileViewModel
     {
+        public int FileId { get; set; }
 
         [DataType(DataType.Upload)]
         public HttpPostedFileBase PostedFile { get; set; }

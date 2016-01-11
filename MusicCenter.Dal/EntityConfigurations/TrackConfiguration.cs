@@ -15,9 +15,9 @@ namespace MusicCenter.Dal.EntityConfigurations
         {
             this.ToTable("Track");
 
-            this.Property(a => a.name).HasMaxLength(20).IsRequired();
-            this.Property(a => a.duration).HasMaxLength(10).IsOptional();
-            this.Property(a => a.url).HasMaxLength(200).IsOptional();
+            this.Property(a => a.name).IsRequired();
+            this.Property(a => a.duration).IsOptional();
+            this.Property(a => a.url).IsOptional();
 
 
             //relationships

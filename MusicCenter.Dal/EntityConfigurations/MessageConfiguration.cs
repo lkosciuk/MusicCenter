@@ -15,8 +15,8 @@ namespace MusicCenter.Dal.EntityConfigurations
         {
             this.ToTable("Message");
 
-            this.Property(a => a.title).HasMaxLength(50).IsRequired();
-            this.Property(a => a.content).HasMaxLength(1000).IsRequired();
+            this.Property(a => a.title).IsRequired();
+            this.Property(a => a.content).IsRequired();
             this.Property(a => a.sentDate).IsOptional();
             this.Property(a => a.isReaded).IsRequired();
             
