@@ -43,6 +43,7 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult AddConcert(AddConcertViewModel model)
         {
+
             return View();
         }
 

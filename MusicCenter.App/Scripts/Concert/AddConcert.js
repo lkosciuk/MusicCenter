@@ -3,12 +3,12 @@
     var map;
 
     this.Init = function () {
-        
+        ShowSelectedBand($('#BandName').val());
         this.SetupAutocomplete();
         this.SetupJQueryDatePicker();
         $('#cover').change(this.UpdateAlbumCover);
-        $('#DetailsTab').click(this.ShowDetailsPanel);
-        $('#LocalizationTab').click(this.ShowLocalizationPanel);
+        $('#DetailsTab').click(ShowDetailsPanel);
+        $('#LocalizationTab').click(ShowLocalizationPanel);
         SetupGoogleMap();
         $('#CreateConcertBtn').click(this.CreateConcert);
     }
@@ -21,14 +21,30 @@
         geocoder.geocode({ 'address': address }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 $('#MapLocation').val(results[0].geometry.location);
-                $('#AddConcertForm').submit();
+
+                if ($('#AddConcertForm').valid())
+                {
+                    $('#AddConcertForm').submit();
+                }
+                else
+                {
+                    if (!$('#Date').valid())
+                    {
+                        ShowDetailsPanel();
+                    }
+                    else
+                    {
+                        ShowLocalizationPanel();
+                    }
+                }
+               
             } else {
-                alert("Geocode was not successful for the following reason: " + status);
+                ShowLocalizationPanel();               
             }
         });  
     }
 
-    this.ShowDetailsPanel = function () {
+    var ShowDetailsPanel = function () {
         $('#DetailsPanel').css("visibility", "visible");
         $('#DetailsPanel').css("height", "auto");
         $('#DetailsPanel').css("width", "auto");
@@ -41,7 +57,7 @@
         $('#LocalizationTab').attr("class", "");
     }
     
-    this.ShowLocalizationPanel = function () {
+    var ShowLocalizationPanel = function () {
         $('#DetailsPanel').css("visibility", "hidden");
         $('#DetailsPanel').css("height", 0);
         $('#DetailsPanel').css("width", 0);
@@ -54,19 +70,6 @@
         $('#LocalizationTab').attr("class", "active");
 
         google.maps.event.trigger(map, "resize");
-    }
-
-    this.ShowGalleryPanel = function () {
-        $('#DetailsPanel').css("visibility", "hidden");
-        $('#DetailsPanel').css("height", 0);
-        $('#DetailsPanel').css("width", 0);
-
-        $('#LocalizationPanel').css("height", 0);
-        $('#LocalizationPanel').css("width", 0);
-        $('#LocalizationPanel').css("visibility", "hidden");
-
-        $('#DetailsTab').attr("class", "");
-        $('#LocalizationTab').attr("class", "");
     }
 
     this.SetupJQueryDatePicker = function () {
@@ -85,6 +88,11 @@
         var bandNames = [];
 
         $.get($('#BandSelect').data('url'), null, function (data) {
+
+            var index = data.indexOf($('#BandName').val());
+            if (index !== -1) {
+                data.splice(index, 1);
+            }
             bandNames = data;
         })
 
