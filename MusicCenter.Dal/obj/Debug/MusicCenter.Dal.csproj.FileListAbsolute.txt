@@ -82,7 +82,6 @@ C:\Repository\MC\MusicCenter.Dal\bin\Debug\Repository.Pattern.Ef6.pdb
 C:\Repository\MC\MusicCenter.Dal\bin\Debug\Repository.Pattern.pdb
 C:\Repository\MC\MusicCenter.Dal\bin\Debug\EntityFramework.xml
 C:\Repository\MC\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.xml
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.start00.resources
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache
 D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.passwordNotRequired.resources
@@ -95,12 +94,8 @@ D:\Programowanie\MusicCenter\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migration
 C:\Repository\MC\MusicCenter.Dal\bin\Debug\MusicCenter.Dal.dll.config
 C:\Repository\MC\MusicCenter.Dal\bin\Debug\MusicCenter.Dal.dll
 C:\Repository\MC\MusicCenter.Dal\bin\Debug\MusicCenter.Dal.pdb
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.init.resources
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.init1.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.dll
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.pdb
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.test1.resources
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.test2.resources
 D:\Programowanie\MC\MusicCenter.Dal\bin\Debug\MusicCenter.Dal.dll.config
 D:\Programowanie\MC\MusicCenter.Dal\bin\Debug\MusicCenter.Dal.dll
 D:\Programowanie\MC\MusicCenter.Dal\bin\Debug\MusicCenter.Dal.pdb
@@ -125,13 +120,11 @@ D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateRes
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.dll
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.pdb
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFiles.resources
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.bandDate.resources
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.bandDate2.resources
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFiles.resources
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.albumFieldsNotRequ.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.removedRating.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.addedIsSingle.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.removedUnusedFromConcert.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.BandCreationDateNotNull.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.entityMapChanged.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.newInit.resources
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache

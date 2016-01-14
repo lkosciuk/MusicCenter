@@ -10,7 +10,7 @@
 @Scripts.Render("~/Scripts/jquery.datetimepicker.full.min.js")
 @Styles.Render("~/Content/datetimepicker.css")
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCkA4CEGdy_2RRIyooD80al_-NCgxr_Tg"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCkA4CEGdy_2RRIyooD80al_-NCgxr_Tg&libraries=places"></script>
 
 <div id="BodyContent" style="margin-left: 50px">
     <ul class="nav nav-tabs" style="margin-bottom:10px">
@@ -76,6 +76,7 @@
             </div>
         </div>
         <div id="LocalizationPanel" style="visibility: hidden; width: 0px; height: 0px">
+                @Html.TextBoxFor(m => m.address, new { @placeholder = "Search address", @id = "search-input", @class = "form-control" } )
                 <div id="map" style="height:400px; width:100%">
 
                 </div>

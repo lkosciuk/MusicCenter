@@ -112,57 +112,9 @@
     <Compile Include="EntityModels\Tour.cs" />
     <Compile Include="EntityModels\Track.cs" />
     <Compile Include="EntityModels\Users.cs" />
-    <Compile Include="Migrations\201512100924499_init.cs" />
-    <Compile Include="Migrations\201512100924499_init.Designer.cs">
-      <DependentUpon>201512100924499_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512100930161_init1.cs" />
-    <Compile Include="Migrations\201512100930161_init1.Designer.cs">
-      <DependentUpon>201512100930161_init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512151220310_test1.cs" />
-    <Compile Include="Migrations\201512151220310_test1.Designer.cs">
-      <DependentUpon>201512151220310_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512151243115_test2.cs" />
-    <Compile Include="Migrations\201512151243115_test2.Designer.cs">
-      <DependentUpon>201512151243115_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512151851001_bandDate.cs" />
-    <Compile Include="Migrations\201512151851001_bandDate.Designer.cs">
-      <DependentUpon>201512151851001_bandDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512151900368_bandDate2.cs" />
-    <Compile Include="Migrations\201512151900368_bandDate2.Designer.cs">
-      <DependentUpon>201512151900368_bandDate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512152142517_albumFiles.cs" />
-    <Compile Include="Migrations\201512152142517_albumFiles.Designer.cs">
-      <DependentUpon>201512152142517_albumFiles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512291221292_albumFieldsNotRequ.cs" />
-    <Compile Include="Migrations\201512291221292_albumFieldsNotRequ.Designer.cs">
-      <DependentUpon>201512291221292_albumFieldsNotRequ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601041450242_removedRating.cs" />
-    <Compile Include="Migrations\201601041450242_removedRating.Designer.cs">
-      <DependentUpon>201601041450242_removedRating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601061545464_addedIsSingle.cs" />
-    <Compile Include="Migrations\201601061545464_addedIsSingle.Designer.cs">
-      <DependentUpon>201601061545464_addedIsSingle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601071831397_removedUnusedFromConcert.cs" />
-    <Compile Include="Migrations\201601071831397_removedUnusedFromConcert.Designer.cs">
-      <DependentUpon>201601071831397_removedUnusedFromConcert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601081218096_BandCreationDateNotNull.cs" />
-    <Compile Include="Migrations\201601081218096_BandCreationDateNotNull.Designer.cs">
-      <DependentUpon>201601081218096_BandCreationDateNotNull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601112043244_entityMapChanged.cs" />
-    <Compile Include="Migrations\201601112043244_entityMapChanged.Designer.cs">
-      <DependentUpon>201601112043244_entityMapChanged.cs</DependentUpon>
+    <Compile Include="Migrations\201601141256553_newInit.cs" />
+    <Compile Include="Migrations\201601141256553_newInit.Designer.cs">
+      <DependentUpon>201601141256553_newInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
@@ -209,44 +161,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512100924499_init.resx">
-      <DependentUpon>201512100924499_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512100930161_init1.resx">
-      <DependentUpon>201512100930161_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512151220310_test1.resx">
-      <DependentUpon>201512151220310_test1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512151243115_test2.resx">
-      <DependentUpon>201512151243115_test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512151851001_bandDate.resx">
-      <DependentUpon>201512151851001_bandDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512151900368_bandDate2.resx">
-      <DependentUpon>201512151900368_bandDate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512152142517_albumFiles.resx">
-      <DependentUpon>201512152142517_albumFiles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512291221292_albumFieldsNotRequ.resx">
-      <DependentUpon>201512291221292_albumFieldsNotRequ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601041450242_removedRating.resx">
-      <DependentUpon>201601041450242_removedRating.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601061545464_addedIsSingle.resx">
-      <DependentUpon>201601061545464_addedIsSingle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601071831397_removedUnusedFromConcert.resx">
-      <DependentUpon>201601071831397_removedUnusedFromConcert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601081218096_BandCreationDateNotNull.resx">
-      <DependentUpon>201601081218096_BandCreationDateNotNull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601112043244_entityMapChanged.resx">
-      <DependentUpon>201601112043244_entityMapChanged.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601141256553_newInit.resx">
+      <DependentUpon>201601141256553_newInit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

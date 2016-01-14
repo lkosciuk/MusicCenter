@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MusicCenter.Dal.Repositories;
 using Repository.Pattern.Infrastructure;
+using MusicCenter.Dal.RepoExt;
 
 namespace MusicCenter.Services.Services
 {
@@ -37,7 +38,7 @@ namespace MusicCenter.Services.Services
         public void AddSongToFavourites(string email, int SongId)
         {
             Users currentUser = _unitOfWork.Repository<Users>().GetUserByEmail(email, u => u.favourites);
-            Track currentSong = _unitOfWork.Repository<Track>().GetTrackById(SongId, a => a.favourites).FirstOrDefault();
+            Track currentSong = _unitOfWork.Repository<Track>().GetById(SongId, a => a.favourites);
 
             currentUser.favourites.tracks.Add(currentSong);
             currentUser.ObjectState = ObjectState.Modified;
