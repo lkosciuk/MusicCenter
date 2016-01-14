@@ -1,6 +1,7 @@
 ﻿@model MusicCenter.Common.ViewModels.Concert.BandConcertViewModel
 
 <div class="row" id="@Model.BandName">
+    @Html.Hidden("Bands", @Model.BandName)
     <a href="@Url.Action("BandProfile", "Band", new {BandName = @Model.BandName })" style="">
         <div class="col-md-2">
             <img src="@Model.Avatar.PathToShow" class="img-circle" width="50" height="50" style="margin-left: 5px">

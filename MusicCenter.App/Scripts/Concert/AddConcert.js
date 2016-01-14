@@ -9,8 +9,23 @@
         $('#cover').change(this.UpdateAlbumCover);
         $('#DetailsTab').click(this.ShowDetailsPanel);
         $('#LocalizationTab').click(this.ShowLocalizationPanel);
-        $('#GalleryTab').click(this.ShowGalleryPanel);
         SetupGoogleMap();
+        $('#CreateConcertBtn').click(this.CreateConcert);
+    }
+
+    this.CreateConcert = function () {
+        var geocoder = new google.maps.Geocoder();
+
+        var address = document.getElementById("search-input").value;
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                $('#MapLocation').val(results[0].geometry.location);
+                $('#AddConcertForm').submit();
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });  
     }
 
     this.ShowDetailsPanel = function () {
@@ -22,13 +37,8 @@
         $('#LocalizationPanel').css("height", 0);
         $('#LocalizationPanel').css("width", 0);
 
-        $('#GalleryPanel').css("visibility", "hidden");
-        $('#GalleryPanel').css("height", 0);
-        $('#GalleryPanel').css("width", 0);
-
         $('#DetailsTab').attr("class", "active");
         $('#LocalizationTab').attr("class", "");
-        $('#GalleryTab').attr("class", "");
     }
     
     this.ShowLocalizationPanel = function () {
@@ -40,13 +50,8 @@
         $('#LocalizationPanel').css("height", "auto");
         $('#LocalizationPanel').css("width", "auto");
 
-        $('#GalleryPanel').css("visibility", "hidden");
-        $('#GalleryPanel').css("height", 0);
-        $('#GalleryPanel').css("width", 0);
-
         $('#DetailsTab').attr("class", "");
         $('#LocalizationTab').attr("class", "active");
-        $('#GalleryTab').attr("class", "");
 
         google.maps.event.trigger(map, "resize");
     }
@@ -60,13 +65,8 @@
         $('#LocalizationPanel').css("width", 0);
         $('#LocalizationPanel').css("visibility", "hidden");
 
-        $('#GalleryPanel').css("visibility", "visible");
-        $('#GalleryPanel').css("height", "auto");
-        $('#GalleryPanel').css("width", "auto");
-
         $('#DetailsTab').attr("class", "");
         $('#LocalizationTab').attr("class", "");
-        $('#GalleryTab').attr("class", "active");
     }
 
     this.SetupJQueryDatePicker = function () {

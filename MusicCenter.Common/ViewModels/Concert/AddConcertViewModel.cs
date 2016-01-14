@@ -20,14 +20,10 @@ namespace MusicCenter.Common.ViewModels.Concert
 
         public string description { get; set; }
 
-        public float coordinatesX { get; set; }
-
-        public float coordinatesY { get; set; }
+        public string MapLocation { get; set; }
 
         public FileViewModel Cover { get; set; }
 
-        public List<FileViewModel> Images { get; set; }
-
-        public List<BandConcertViewModel> Bands { get; set; }
+        public List<string> Bands { get; set; }
     }
 }
