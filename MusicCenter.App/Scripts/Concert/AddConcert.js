@@ -1,6 +1,7 @@
 ﻿AddConcertScope = function () {
 
     var map;
+    var markers = [];
 
     this.Init = function () {
         ShowSelectedBand($('#BandName').val());
@@ -14,13 +15,11 @@
     }
 
     this.CreateConcert = function () {
-        var geocoder = new google.maps.Geocoder();
 
-        var address = document.getElementById("search-input").value;
-
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                $('#MapLocation').val(results[0].geometry.location);
+        markers.forEach(function (marker) {
+            $('#Latitude').val(marker.getPosition().lat());
+            $('#Longitude').val(marker.getPosition().lng());
+        });
 
                 if ($('#AddConcertForm').valid())
                 {
@@ -37,11 +36,6 @@
                         ShowLocalizationPanel();
                     }
                 }
-               
-            } else {
-                ShowLocalizationPanel();               
-            }
-        });  
     }
 
     var ShowDetailsPanel = function () {
@@ -189,7 +183,6 @@
             searchBox.setBounds(map.getBounds());
         });
 
-        var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function () {

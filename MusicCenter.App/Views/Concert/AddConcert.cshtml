@@ -1,9 +1,5 @@
 ﻿@model MusicCenter.Common.ViewModels.Concert.AddConcertViewModel
 
-@{
-    Html.RenderAction("RenderBandLayout", "Band", new { BandName = @Model.BandName });
-}
-
 @Scripts.Render("~/Scripts/Concert/AddConcert.js")
 @Styles.Render("~/Content/Account/Register.css")
 @Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
@@ -11,6 +7,8 @@
 @Styles.Render("~/Content/datetimepicker.css")
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCkA4CEGdy_2RRIyooD80al_-NCgxr_Tg&libraries=places"></script>
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 
 <div id="BodyContent" style="margin-left: 50px">
     <ul class="nav nav-tabs" style="margin-bottom:10px">
@@ -20,7 +18,8 @@
 
     <form id="AddConcertForm" action="@Url.Action("AddConcert", "Concert")" method="post" enctype="multipart/form-data">
         @Html.HiddenFor(m => m.BandName)
-        @Html.HiddenFor(m => m.MapLocation, new { @id = "MapLocation" })
+        @Html.HiddenFor(m => m.Latitude, new { @id = "Latitude" })
+        @Html.HiddenFor(m => m.Longitude, new { @id = "Longitude" })
         <div class="row" id="DetailsPanel">
             <div class="row form-group">
                 <div class="col-md-2">

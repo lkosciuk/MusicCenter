@@ -20,9 +20,9 @@ namespace MusicCenter.Common.ViewModels.Concert
 
         public string description { get; set; }
 
-        public float coordinatesX { get; set; }
+        public string Latitude { get; set; }
 
-        public float coordinatesY { get; set; }
+        public string Longitude { get; set; }
 
         public FileViewModel Cover { get; set; }
 

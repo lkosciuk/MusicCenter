@@ -17,17 +17,19 @@ namespace MusicCenter.Dal.EntityConfigurations
 
             this.Property(a => a.date).IsRequired();
             this.Property(a => a.address).IsRequired();
-            this.Property(a => a.coordinatesX).IsOptional();
-            this.Property(a => a.coordinatesY).IsOptional();
 
             //relationships
             this.HasMany(t => t.bands)
-                 .WithMany(t => t.concerts).Map(m =>
+                 .WithMany(t => t.MemberConcerts).Map(m =>
                  {
-                     m.ToTable("BandConcert");
+                     m.ToTable("BandMemberConcert");
                      m.MapLeftKey("BandID");
                      m.MapRightKey("ConcertID");
                  });
+
+            this.HasRequired(t => t.ConcertOwner)
+                .WithMany(t => t.OwnedConcerts)
+                .HasForeignKey(t => t.BandID);
 
             this.HasOptional(t => t.tour)
                  .WithMany(t => t.concerts)

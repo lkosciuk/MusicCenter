@@ -7,7 +7,7 @@
 @Scripts.Render("~/Scripts/jquery.form.js")
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-      @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })>
+      @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 <div id="BodyContent" style="margin-left: 50px; margin-top: 10px">
     <form id="AddAlbumForm" enctype="multipart/form-data" >
           @Html.HiddenFor(m => m.BandName)

@@ -3,6 +3,7 @@ using MusicCenter.Common.ViewModels.Concert;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,9 +26,12 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
 
-        public ActionResult Concert(int ConcertId)
+        public ActionResult Concert(int ConcertId, string BandName)
         {
-            return View();
+            ConcertViewModel model = _concertService.GetConcertViewModel(ConcertId);
+            model.BandName = BandName;
+
+            return View(model);
         }
 
         [BandAuthorize]
@@ -43,8 +47,20 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult AddConcert(AddConcertViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                if (model.Cover.PostedFile != null)
+                {
+                    string trailingPath = model.Cover.PostedFile.FileName;
+                    string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
 
-            return View();
+                    model.Cover.RelativePathToSave = fullPath;
+                }
+
+                _concertService.AddConcert(model);
+            }
+
+            return View(model);
         }
 
         [BandAuthorize]
@@ -66,14 +82,19 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult DeleteConcert(int ConcertId)
         {
-            return View();
+            if (_concertService.IsVisitorConcertOwner(Session["band"].ToString(), ConcertId))
+            {
+                _concertService.DeleteConcert(ConcertId);
+            }
+
+            return RedirectToAction("BandConcerts");
         }
 
         public PartialViewResult GetBandDetailsPartial(string BandName)
         {
             BandConcertViewModel model = _concertService.GetBandConcertViewModel(BandName);
 
-            return PartialView("BandDetailsPartial", model);
+            return PartialView("BandDetailsRemovable", model);
         }
 	}
 }

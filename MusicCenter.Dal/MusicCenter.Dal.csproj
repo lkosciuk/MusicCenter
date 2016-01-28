@@ -112,9 +112,9 @@
     <Compile Include="EntityModels\Tour.cs" />
     <Compile Include="EntityModels\Track.cs" />
     <Compile Include="EntityModels\Users.cs" />
-    <Compile Include="Migrations\201601141256553_newInit.cs" />
-    <Compile Include="Migrations\201601141256553_newInit.Designer.cs">
-      <DependentUpon>201601141256553_newInit.cs</DependentUpon>
+    <Compile Include="Migrations\201601281947194_init.cs" />
+    <Compile Include="Migrations\201601281947194_init.Designer.cs">
+      <DependentUpon>201601281947194_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
@@ -161,8 +161,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601141256553_newInit.resx">
-      <DependentUpon>201601141256553_newInit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601281947194_init.resx">
+      <DependentUpon>201601281947194_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

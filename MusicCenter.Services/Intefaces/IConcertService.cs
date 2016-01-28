@@ -15,5 +15,13 @@ namespace MusicCenter.Services.Intefaces
         BandConcertViewModel GetBandConcertViewModel(string BandName);
 
         UpdateConcertViewModel GetUpdateConcertViewModel(int ConcertId);
+
+        void AddConcert(AddConcertViewModel model);
+
+        ConcertViewModel GetConcertViewModel(int ConcertId);
+
+        bool IsVisitorConcertOwner(string BandName, int ConcertId);
+
+        void DeleteConcert(int ConcertId);
     }
 }

@@ -1,9 +1,69 @@
 ﻿@model MusicCenter.Common.ViewModels.Concert.ConcertViewModel
 
-@{
-    Html.RenderAction("RenderBandLayout", "Band", new { BandName = @Model.BandName });
-}
+    @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+    
+    @Scripts.Render("~/Scripts/Concert/Concert.js")    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCkA4CEGdy_2RRIyooD80al_-NCgxr_Tg&libraries=places"></script>
 
-<div id="BodyContent" style="margin-left: 50px">
+    <div id="BodyContent" style="margin-left: 50px">
+        <ul class="nav nav-tabs" style="margin-bottom:10px">
+            <li role="presentation" id="DetailsTab" class="active"><a href="#">Details</a></li>
+            <li role="presentation" id="LocalizationTab"><a href="#">Localization</a></li>
+        </ul>
 
-</div>
+            <div class="row" id="DetailsPanel">
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <div class="row">
+                            <img src="~/Content/Uploads/DefaultConcertAv.jpg" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="150" height="150" id="concertCover">
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="row form-group">
+                            <div class="col-sm-1">
+                                <label class="control-label input-sm">Date:</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="control-label input-sm">@Model.date</label>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-1">
+                                <label class="control-label input-sm">Bands:</label>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-11" id="BandsContainer">
+                                @foreach (var band in Model.Bands)
+                                {
+                                    <div>
+                                        @Html.Partial("BandDetails", band)
+                                    </div>
+                                }    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-11" style="margin-left: 140px">
+                        <div class="col-sm-1">
+                            <label class="control-label input-sm">Description:</label>
+                        </div>
+                        <div class="col-sm-10" style="margin-left:20px">
+                            @Html.TextAreaFor(m => m.description, new { @class = "form-control", @readonly = true, @style = "max-width:100%", @rows = "5" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="LocalizationPanel" style="visibility: hidden; width: 0px; height: 0px">
+                @Html.HiddenFor(m => m.Latitude, new { @id = "Latitude" })
+                @Html.HiddenFor(m => m.Longitude, new { @id = "Longitude" })
+                @Html.TextBoxFor(m => m.address, new { @placeholder = "Search address",  @readonly = true,  @style = "max-width:100%; width: 100%", @id = "search-input", @class = "form-control" })
+                <div id="map" style="height:400px; width:100%">
+
+                </div>
+            </div>
+    </div>

@@ -1,0 +1,29 @@
+﻿@model MusicCenter.Common.ViewModels.Concert.BandConcertViewModel
+
+<div class="row" id="@Model.BandName">
+    <a href="@Url.Action("BandProfile", "Band", new {BandName = @Model.BandName })" style="">
+        <div class="col-md-2">
+            <img src="@Model.Avatar.PathToShow" class="img-circle" width="50" height="50" style="margin-left: 5px">
+        </div>
+        <div class="col-md-2">
+            @Model.BandName
+        </div>
+        <div class="col-md-2">
+            @foreach (var genre in Model.Genres)
+            {
+                <div style="display:inline">@genre </div>
+            }
+        </div>
+        <div class="col-md-4">
+            @Html.DisplayFor(m => m.CreationDate)
+        </div>
+    </a>
+</div>
+
+
+
+
+
+
+
+

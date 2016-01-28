@@ -22,7 +22,8 @@ namespace MusicCenter.Dal.EntityModels
         public virtual ICollection<Genre> genres { get; set; }
         public virtual ICollection<Album> albums { get; set; }
         public virtual ICollection<Track> singles { get; set; }
-        public virtual ICollection<Concert> concerts { get; set; }
+        public virtual ICollection<Concert> OwnedConcerts { get; set; }
+        public virtual ICollection<Concert> MemberConcerts { get; set; }
         public virtual ICollection<Tour> tours { get; set; }
         public virtual ICollection<Message> receivedMessages { get; set; }
         public virtual ICollection<Message> sentMessages { get; set; }
@@ -36,7 +37,8 @@ namespace MusicCenter.Dal.EntityModels
             genres = new List<Genre>();
             albums = new List<Album>();
             singles = new List<Track>();
-            concerts = new List<Concert>();
+            MemberConcerts = new List<Concert>();
+            OwnedConcerts = new List<Concert>();
             tours = new List<Tour>();
             receivedMessages = new List<Message>();
             sentMessages = new List<Message>();

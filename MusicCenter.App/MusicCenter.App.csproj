@@ -250,6 +250,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\Uploads\DefaultAlbumAv.jpg" />
     <Content Include="Content\Uploads\DefaultBandAv.png" />
+    <Content Include="Content\Uploads\DefaultConcertAv.jpg" />
     <Content Include="Content\Uploads\DefaultUserAv.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -272,6 +273,8 @@
     <Content Include="Scripts\Band\UpdateAlbum.js" />
     <Content Include="Scripts\Band\UpdateSingle.js" />
     <Content Include="Scripts\Concert\AddConcert.js" />
+    <Content Include="Scripts\Concert\BandConcerts.js" />
+    <Content Include="Scripts\Concert\Concert.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
@@ -354,7 +357,8 @@
     <Content Include="Views\Concert\AddConcert.cshtml" />
     <Content Include="Views\Concert\UpdateConcert.cshtml" />
     <Content Include="Views\Concert\Concert.cshtml" />
-    <Content Include="Views\Shared\BandDetailsPartial.cshtml" />
+    <Content Include="Views\Shared\BandDetailsRemovable.cshtml" />
+    <Content Include="Views\Shared\BandDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

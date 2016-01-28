@@ -9,7 +9,6 @@ namespace MusicCenter.Common.ViewModels.Concert
     public class BandConcertListViewModel
     {
         public string BandName { get; set; }
-
         public List<ConcertListItem> Concerts { get; set; }
     }
 }

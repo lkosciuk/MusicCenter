@@ -1,15 +1,15 @@
 ﻿@model MusicCenter.Common.ViewModels.Concert.BandConcertListViewModel
 
-@{
-    Html.RenderAction("RenderBandLayout", "Band", new { BandName = @Model.BandName });
-}
+@Scripts.Render("~/Scripts/Concert/BandConcerts.js")
+
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 
 <div id="BodyContent" style="margin-left: 50px">
     <div class="row">
         @foreach (var Concert in Model.Concerts)
         {
             <div class="col-sm-2 col-md-4">
-                <a href="@Url.Action("Concert", "Concert", new {ConcertId = Concert.Id })" style="text-decoration:none">
+                <a href="@Url.Action("Concert", "Concert", new {ConcertId = Concert.Id, BandName = Model.BandName })" style="text-decoration:none">
                     <div class="thumbnail">
                         <img src="@Concert.Cover.PathToShow" alt="...">
                         <div class="caption">
@@ -26,7 +26,7 @@
                             <input type="button" data-url="@Url.Action("UpdateConcert", "Concert", new { ConcertId = @Concert.Id})" class="btn btn-default" value="Edit" name="EditConcertBtn" />
                         </div>
                         <div class="col-sm-2">
-                            <input type="button" data-concertid="@Concert.Id" class="btn btn-default" value="Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteConcertBtn" />
+                            <input type="button" data-concertid="@Concert.Id" data-address="@Concert.address" class="btn btn-default" value="Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteConcertBtn" />
                         </div>
                     </div>
                 }
@@ -47,7 +47,7 @@
                     Confirm Submit
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete concert ?
+                    Are you sure you want to delete concert in <b><p style="display:inline" id="ConcertAddr"></p></b> ?
                 </div>
 
                 <div class="modal-footer">

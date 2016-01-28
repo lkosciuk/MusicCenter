@@ -14,7 +14,7 @@ namespace MusicCenter.Dal.Repositories
     {
         public static IQueryable<Concert> GetBandConcerts(this IRepository<Concert> repository, string BandName, params Expression<Func<Concert, object>>[] includes)
         {
-            return repository.Queryable().IncludeAll(includes).Where(b => b.bands.Any(c => c.name == BandName)).AsQueryable();
+            return repository.Queryable().IncludeAll(includes).Where(b => b.ConcertOwner.name == BandName || b.bands.Any(c => c.name == BandName)).AsQueryable();
         }
     }
 }
