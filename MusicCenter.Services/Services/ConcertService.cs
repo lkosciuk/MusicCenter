@@ -27,7 +27,7 @@ namespace MusicCenter.Services.Services
 
          public BandConcertListViewModel GetBandConcertListViewModel(string BandName)
          {
-             var BandConcerts = _repo.GetBandConcerts(BandName, c => c.bands, c => c.favourites, c => c.images).ToList();
+             var BandConcerts = _repo.GetBandConcerts(BandName, c => c.bands, c => c.favourites, c => c.images, c => c.ConcertOwner).ToList();
 
              return new BandConcertListViewModel(){
                  BandName = BandName,
@@ -131,12 +131,16 @@ namespace MusicCenter.Services.Services
                  concertAvatar.path = "/Content/Uploads/DefaultConcertAv.jpg";
              }
 
-             foreach (var bandName in model.Bands)
-             {
-                 Band concertBand = _unitOfWork.Repository<Band>().GetBandByName(bandName).FirstOrDefault();
-                 newConcert.bands.Add(concertBand);
-                 concertBand.MemberConcerts.Add(newConcert);
-             }
+            if (model.Bands != null)
+            {
+                foreach (var bandName in model.Bands)
+                {
+                    Band concertBand = _unitOfWork.Repository<Band>().GetBandByName(bandName).FirstOrDefault();
+                    newConcert.bands.Add(concertBand);
+                    concertBand.MemberConcerts.Add(newConcert);
+                }
+            }
+             
              newConcert.images.Add(concertAvatar);
 
              _repo.InsertOrUpdateGraph(newConcert);
@@ -152,6 +156,7 @@ namespace MusicCenter.Services.Services
 
              return new ConcertViewModel()
              {
+                 BandName = currentConcert.ConcertOwner.name,
                  address = currentConcert.address,
                  date = currentConcert.date,
                  description = currentConcert.description,
@@ -219,7 +224,7 @@ namespace MusicCenter.Services.Services
                  model.Cover.PostedFile.SaveAs(model.Cover.RelativePathToSave);
                  currentConcert.images.Add(concertAvatar);
              }
-
+      
              foreach (var band in currentConcert.bands)
              {
                  band.MemberConcerts.Remove(currentConcert);
@@ -228,12 +233,15 @@ namespace MusicCenter.Services.Services
 
              currentConcert.bands = new List<Band>();
 
-             foreach (var band in model.Bands)
-             {
-                 Band concertBand = _unitOfWork.Repository<Band>().GetBandByName(band.BandName).FirstOrDefault();
-                 currentConcert.bands.Add(concertBand);
-                 concertBand.MemberConcerts.Add(currentConcert);
-             }
+            if (model.Bands != null)
+            {
+                foreach (var band in model.Bands)
+                {
+                    Band concertBand = _unitOfWork.Repository<Band>().GetBandByName(band).FirstOrDefault();
+                    currentConcert.bands.Add(concertBand);
+                    concertBand.MemberConcerts.Add(currentConcert);
+                }
+            }
 
              _repo.InsertOrUpdateGraph(currentConcert);
              _unitOfWork.SaveChanges();

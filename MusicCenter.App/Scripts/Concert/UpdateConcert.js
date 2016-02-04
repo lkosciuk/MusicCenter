@@ -12,6 +12,7 @@
         $('#LocalizationTab').click(ShowLocalizationPanel);
         SetupGoogleMap();
         $('#UpdateConcertBtn').click(this.UpdateConcert);
+        //each przycisk removeband, usuwanie zespolu z listy
     }
 
     this.UpdateConcert = function () {

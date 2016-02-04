@@ -58,7 +58,9 @@
 
                         </div>
                         <div class="col-sm-11" id="BandsContainer" data-url="@Url.Action("GetBandDetailsRemovablePartial", "Concert")">
-
+                            <div>
+                                @Html.Action("GetBandDetailsPartial", new { BandName = Model.BandName })
+                            </div>
                         </div>
                     </div>
                 </div>

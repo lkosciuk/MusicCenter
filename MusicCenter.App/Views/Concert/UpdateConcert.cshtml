@@ -59,10 +59,14 @@
 
                         </div>
                         <div class="col-sm-11" id="BandsContainer" data-url="@Url.Action("GetBandDetailsRemovablePartial", "Concert")">
+                            <div>
+                                @Html.Action("GetBandDetailsPartial", new { BandName = Model.BandName })
+                            </div>
+
                             @foreach (var band in Model.Bands)
                             {
                                 <div>
-                                    @Html.Partial("BandDetailsRemovable", band)
+                                    @Html.Action("GetBandDetailsRemovablePartial", new { BandName = band})
                                 </div>
                             }
                         </div>

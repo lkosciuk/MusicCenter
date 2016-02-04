@@ -4,7 +4,7 @@
     var markers = [];
 
     this.Init = function () {
-        ShowSelectedBand($('#BandName').val());
+        //ShowSelectedBand($('#BandName').val());
         this.SetupAutocomplete();
         this.SetupJQueryDatePicker();
         $('#cover').change(this.UpdateConcertCover);

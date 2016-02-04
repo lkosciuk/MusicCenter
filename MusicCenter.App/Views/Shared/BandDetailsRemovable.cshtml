@@ -19,12 +19,9 @@
             @Html.DisplayFor(m => m.CreationDate)
         </div>
     </a>
-    @if (Session["band"].ToString() != Model.BandName)
-    {
         <div class="col-md-2">
             <input type="button" name="RemoveBand" id="@Model.BandName" class="btn btn-default pull-right" value="Remove" />
         </div>
-    }  
 </div>
 
 

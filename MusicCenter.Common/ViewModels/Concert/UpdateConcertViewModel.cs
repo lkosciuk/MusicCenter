@@ -32,6 +32,5 @@ namespace MusicCenter.Common.ViewModels.Concert
 
         public List<string> Bands { get; set; }
 
-        public List<BandConcertViewModel> OldBands { get; set; }
     }
 }

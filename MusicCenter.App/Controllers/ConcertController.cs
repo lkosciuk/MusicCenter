@@ -112,5 +112,12 @@ namespace MusicCenter.App.Controllers
 
             return PartialView("BandDetailsRemovable", model);
         }
-	}
+
+        public PartialViewResult GetBandDetailsPartial(string BandName)
+        {
+            BandConcertViewModel model = _concertService.GetBandConcertViewModel(BandName);
+
+            return PartialView("BandDetails", model);
+        }
+    }
 }
