@@ -7,7 +7,7 @@
         ShowSelectedBand($('#BandName').val());
         this.SetupAutocomplete();
         this.SetupJQueryDatePicker();
-        $('#cover').change(this.UpdateAlbumCover);
+        $('#cover').change(this.UpdateConcertCover);
         $('#DetailsTab').click(ShowDetailsPanel);
         $('#LocalizationTab').click(ShowLocalizationPanel);
         SetupGoogleMap();
@@ -147,7 +147,7 @@
             })
     }
 
-    this.UpdateAlbumCover = function () {
+    this.UpdateConcertCover = function () {
 
         var input = $('#cover')[0];
         var ext = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();

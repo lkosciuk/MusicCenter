@@ -275,6 +275,7 @@
     <Content Include="Scripts\Concert\AddConcert.js" />
     <Content Include="Scripts\Concert\BandConcerts.js" />
     <Content Include="Scripts\Concert\Concert.js" />
+    <Content Include="Scripts\Concert\UpdateConcert.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />

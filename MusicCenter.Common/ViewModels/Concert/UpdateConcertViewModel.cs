@@ -10,6 +10,8 @@ namespace MusicCenter.Common.ViewModels.Concert
 {
     public class UpdateConcertViewModel
     {
+        public int ConcertId { get; set; }
+
         public string BandName { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
@@ -28,6 +30,8 @@ namespace MusicCenter.Common.ViewModels.Concert
 
         public List<FileViewModel> Images { get; set; }
 
-        public List<BandConcertViewModel> Bands { get; set; }
+        public List<string> Bands { get; set; }
+
+        public List<BandConcertViewModel> OldBands { get; set; }
     }
 }

@@ -11,6 +11,7 @@ using MusicCenter.Dal.Repositories;
 using MusicCenter.Common.ViewModels.File;
 using System.Data.Entity;
 using System.Linq;
+using MusicCenter.Dal;
 using MusicCenter.Dal.RepoExt;
 using Repository.Pattern.Infrastructure;
 
@@ -61,19 +62,21 @@ namespace MusicCenter.Services.Services
 
          public UpdateConcertViewModel GetUpdateConcertViewModel(int ConcertId)
          {
-             Concert currentConcert = _repo.GetById(ConcertId);
-             List<BandConcertViewModel> concertBands; //trzeba wyciagnac ta liste juz tutqaj zeby miec dostep do gatunków
+             //trzeba tu przeanalizowac, o co biega
+             Concert currentConcert = _repo.GetById(ConcertId, c => c.bands, c => c.ConcertOwner, c => c.images );
+             List<string> concertBands = new List<string>();
+
+             foreach (var item in currentConcert.bands)
+	         {
+                 concertBands.Add(item.name);   		 
+	         }
 
              return new UpdateConcertViewModel()
              {
+                 ConcertId = currentConcert.Id,
+                 BandName = currentConcert.ConcertOwner.name,
                  address = currentConcert.address,
-                 Bands = new List<BandConcertViewModel>(currentConcert.bands.Select(b => new BandConcertViewModel() {
-                     Avatar = b.images.Where(i => i.IsAvatar).Select(i => new FileViewModel() { FileId = i.Id, PathToShow = i.path}).FirstOrDefault(),
-                     BandName = b.name,
-                     CreationDate = b.bandCreationDate,
-                     Description = b.description,
-                     Genres = String.Join(",", b.genres.Select(g => g.name).ToArray())//to nie przejdzie, nie ma includa do genres i obiekt dalej jest queryable wiec string.join nie zadziala
-                 })),
+                 Bands = concertBands,
                  Latitude = currentConcert.Latitude,
                  Longitude = currentConcert.Longitude,
                  Cover = new FileViewModel() { PathToShow = currentConcert.images.FirstOrDefault(i => i.IsAvatar).path },
@@ -185,6 +188,56 @@ namespace MusicCenter.Services.Services
              _repo.InsertOrUpdateGraph(concertToRemove);
              _repo.Delete(concertToRemove);
              _unitOfWork.SaveChanges();
+         }
+
+
+         public void UpdateConcert(UpdateConcertViewModel model)
+         {
+             Concert currentConcert = _repo.GetById(model.ConcertId, c => c.bands, c => c.images);
+
+             currentConcert.ObjectState = ObjectState.Modified;
+             currentConcert.date = DateTime.Parse(model.date);
+             currentConcert.address = model.address;
+             currentConcert.Latitude = model.Latitude;
+             currentConcert.Longitude = model.Longitude;
+             currentConcert.description = model.description;
+
+             Files concertAvatar;
+
+             if (model.Cover.PostedFile != null)
+             {
+                 Files oldAvatar = currentConcert.images.FirstOrDefault(i => i.IsAvatar);
+                 oldAvatar.ObjectState = ObjectState.Modified;
+                 oldAvatar.IsAvatar = false;
+
+                 concertAvatar = new Files();
+                 concertAvatar.concert = currentConcert;
+                 concertAvatar.IsAvatar = true;
+                 concertAvatar.ObjectState = ObjectState.Added;
+                 concertAvatar.name = model.Cover.PostedFile.FileName;
+                 concertAvatar.path = "/Content/Uploads/" + model.Cover.PostedFile.FileName;
+                 model.Cover.PostedFile.SaveAs(model.Cover.RelativePathToSave);
+                 currentConcert.images.Add(concertAvatar);
+             }
+
+             foreach (var band in currentConcert.bands)
+             {
+                 band.MemberConcerts.Remove(currentConcert);
+                 band.ObjectState = ObjectState.Modified;
+             }
+
+             currentConcert.bands = new List<Band>();
+
+             foreach (var band in model.Bands)
+             {
+                 Band concertBand = _unitOfWork.Repository<Band>().GetBandByName(band.BandName).FirstOrDefault();
+                 currentConcert.bands.Add(concertBand);
+                 concertBand.MemberConcerts.Add(currentConcert);
+             }
+
+             _repo.InsertOrUpdateGraph(currentConcert);
+             _unitOfWork.SaveChanges();
+             
          }
     }
 }

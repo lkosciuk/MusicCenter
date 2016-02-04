@@ -66,6 +66,7 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult UpdateConcert(int ConcertId)
         {
+
             UpdateConcertViewModel model = _concertService.GetUpdateConcertViewModel(ConcertId);
 
             return View(model);
@@ -75,7 +76,22 @@ namespace MusicCenter.App.Controllers
         [BandAuthorize]
         public ActionResult UpdateConcert(UpdateConcertViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (model.Cover.PostedFile != null)
+                {
+                    string trailingPath = model.Cover.PostedFile.FileName;
+                    string fullPath = Path.Combine(Server.MapPath("\\Content\\Uploads\\"), trailingPath);
+
+                    model.Cover.RelativePathToSave = fullPath;
+                }
+
+                _concertService.UpdateConcert(model);
+            }
+
+            model = _concertService.GetUpdateConcertViewModel(model.ConcertId);
+
+            return View(model);
         }
 
         [HttpPost]
@@ -90,7 +106,7 @@ namespace MusicCenter.App.Controllers
             return RedirectToAction("BandConcerts");
         }
 
-        public PartialViewResult GetBandDetailsPartial(string BandName)
+        public PartialViewResult GetBandDetailsRemovablePartial(string BandName)
         {
             BandConcertViewModel model = _concertService.GetBandConcertViewModel(BandName);
 

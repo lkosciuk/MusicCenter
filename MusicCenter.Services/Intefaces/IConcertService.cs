@@ -23,5 +23,7 @@ namespace MusicCenter.Services.Intefaces
         bool IsVisitorConcertOwner(string BandName, int ConcertId);
 
         void DeleteConcert(int ConcertId);
+
+        void UpdateConcert(UpdateConcertViewModel model);
     }
 }
