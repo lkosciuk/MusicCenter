@@ -142,22 +142,26 @@ namespace MusicCenter.App.Controllers
         {
             List<CalendarItemViewModel> calendarItems = new List<CalendarItemViewModel>() ;
 
-            List<ConcertViewModel> concertsInDay = new List<ConcertViewModel>();
-
             //concertsInDay = concerts.gro
-            foreach (var concert in concerts)
+            foreach (ConcertViewModel concert in concerts)
             {
-                //concertsInDay.Add(concerts.Select(c => c.date.ToShortDateString() == concert.date.ToShortDateString()));
+                List<ConcertViewModel> concertsInDay = new List<ConcertViewModel>();
 
-                //calendarItems.Add(new CalendarItemViewModel()
-                //{
-                //    badge = true,
-                //    date = concert.date.ToString("yyyy-MM-dd"),
-                //    title = "Concerts on " + concert.date.ToLongDateString() ,
-                //    footer = "",
-                //    classname = "purple-event",
-                //    body = RenderRazorViewToString("_ConcertCalendarPopup", concert)
-                //});
+                concertsInDay.AddRange(concerts.Where(c => c.date.ToShortDateString() == concert.date.ToShortDateString()).ToList());
+
+                if (!calendarItems.Any(c => c.date == concert.date.ToString("yyyy-MM-dd")))
+                {
+                    calendarItems.Add(new CalendarItemViewModel()
+                    {
+                        badge = true,
+                        date = concert.date.ToString("yyyy-MM-dd"),
+                        title = "Concerts on " + concert.date.ToLongDateString(),
+                        footer = "",
+                        classname = "purple-event",
+                        body = RenderRazorViewToString("_ConcertCalendarPopup", concertsInDay)
+                    });
+                }
+                
             }
 
             return calendarItems; 

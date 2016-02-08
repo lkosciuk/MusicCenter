@@ -155,6 +155,7 @@ namespace MusicCenter.Services.Services
 
              return new ConcertViewModel()
              {
+                 ConcertId = currentConcert.Id,
                  BandName = currentConcert.ConcertOwner.name,
                  address = currentConcert.address,
                  date = currentConcert.date,

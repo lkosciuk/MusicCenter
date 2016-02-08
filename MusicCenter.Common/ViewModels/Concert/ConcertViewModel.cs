@@ -10,6 +10,7 @@ namespace MusicCenter.Common.ViewModels.Concert
 {
     public class ConcertViewModel
     {
+        public int ConcertId { get; set; }
         public string BandName { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime date { get; set; }

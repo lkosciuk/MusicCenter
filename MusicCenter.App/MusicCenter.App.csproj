@@ -361,7 +361,6 @@
     <Content Include="Views\Concert\Concert.cshtml" />
     <Content Include="Views\Shared\BandDetailsRemovable.cshtml" />
     <Content Include="Views\Shared\BandDetails.cshtml" />
-    <Content Include="Views\Shared\_ConcertDetails.cshtml" />
     <Content Include="Views\Shared\_ConcertCalendarPopup.cshtml" />
   </ItemGroup>
   <ItemGroup>
