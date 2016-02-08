@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </a>
-                @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
+                @if (Session["band"] != null && Session["band"].ToString() == Concert.ConcertOwner)
                 {
                     <div class="row form-group">
                         <div class="col-sm-2">

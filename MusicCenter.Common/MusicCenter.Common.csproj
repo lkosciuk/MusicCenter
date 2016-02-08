@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="ViewModels\Band\AddAlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\AddSingleViewModel.cs" />
+    <Compile Include="ViewModels\Band\AlbumsPanelViewModel.cs" />
     <Compile Include="ViewModels\Band\AlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\BandAlbumListViewModel.cs" />
     <Compile Include="ViewModels\Band\BandAlbumViewModel.cs" />
@@ -110,10 +111,13 @@
     <Compile Include="ViewModels\Band\BandPanelViewModel.cs" />
     <Compile Include="ViewModels\Band\BandSingleListViewModel.cs" />
     <Compile Include="ViewModels\Band\BandSingleViewModel.cs" />
+    <Compile Include="ViewModels\Band\BandsPanelViewModel.cs" />
+    <Compile Include="ViewModels\Band\SongsPanelViewModel.cs" />
     <Compile Include="ViewModels\Band\UpdateAlbumViewModel.cs" />
     <Compile Include="ViewModels\Concert\AddConcertViewModel.cs" />
     <Compile Include="ViewModels\Concert\BandConcertListViewModel.cs" />
     <Compile Include="ViewModels\Concert\BandConcertViewModel.cs" />
+    <Compile Include="ViewModels\Concert\CalendarItemViewModel.cs" />
     <Compile Include="ViewModels\Concert\ConcertListItem.cs" />
     <Compile Include="ViewModels\Concert\ConcertViewModel.cs" />
     <Compile Include="ViewModels\Concert\UpdateConcertViewModel.cs" />

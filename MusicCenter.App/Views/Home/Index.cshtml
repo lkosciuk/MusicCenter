@@ -4,23 +4,24 @@
 }
 <head>
     @Scripts.Render("~/bundles/zabuto")
+    @Scripts.Render("~/Scripts/Concert/CalendarPanel.js")
 </head>
 
 <div class="container">
     <div class="row">
             <div class="col-md-6" id="BandsPanel">
-                @Html.Partial("_BandsPanel")
+                @Html.Action("GetBandsPanel", "Band")
             </div>
             <div class="col-md-6" id="CalendarPanel">
-                @Html.Partial("_CalendarPanel")
+                @Html.Action("GetCalendarPanel", "Concert")
             </div>
     </div>
     <div class="row">
             <div class="col-md-6" id="AlbumsPanel">
-                @Html.Partial("_AlbumsPanel")
+                @Html.Action("GetAlbumsPanel", "Band")
             </div>
             <div class="col-md-6" id="SongsPanel">
-                @Html.Partial("_SongsPanel")
+                @Html.Action("GetSongsPanel", "Band")
             </div>
     </div>
 </div>

@@ -25,5 +25,7 @@ namespace MusicCenter.Services.Intefaces
         void DeleteConcert(int ConcertId);
 
         void UpdateConcert(UpdateConcertViewModel model);
+
+        List<ConcertViewModel> GetConcertsInMonth(int year, int month);
     }
 }

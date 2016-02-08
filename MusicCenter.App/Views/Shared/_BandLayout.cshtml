@@ -23,7 +23,7 @@
             {
                 <a href="@Url.Action("BandMessages", "Message")">@MusicCenter.Common.Resources.Global.Messages</a>
             }
-            else
+            else if (Session["user"] != null)
             {
                 <a href="@Url.Action("SendBandMessage", "Message", new {Recipient = Model })">Napisz wiadomość</a>
             }

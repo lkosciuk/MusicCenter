@@ -16,5 +16,10 @@ namespace MusicCenter.Dal.Repositories
         {
             return repository.Queryable().IncludeAll(includes).Where(t => t.band.name == BandName && t.IsSingle);
         }
+
+        public static IQueryable<Track> GetNewestSingles(this IRepository<Track> repo, params Expression<Func<Track, object>>[] includes)
+        {
+            return repo.Queryable().IncludeAll(includes).Where(t => t.IsSingle).OrderByDescending(b => b.releaseDate).Take(10);
+        }
     }
 }

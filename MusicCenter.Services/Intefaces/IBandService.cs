@@ -47,5 +47,11 @@ namespace MusicCenter.Services.Intefaces
         void UpdateSingle(BandSingleViewModel model);
 
         string[] GetAllBandNames();
+
+        List<BandsPanelViewModel> GetNewestBands();
+
+        List<AlbumsPanelViewModel> GetNewestAlbums();
+
+        List<SongsPanelViewModel> GetNewestSingles();
     }
 }

@@ -21,5 +21,10 @@ namespace MusicCenter.Dal.Repositories
         {
             return repo.Queryable().IncludeAll(includes).Where(a => a.name == AlbumName);
         }
+
+        public static IQueryable<Album> GetNewestAlbums(this IRepository<Album> repo, params Expression<Func<Album, object>>[] includes)
+        {
+            return repo.Queryable().IncludeAll(includes).OrderByDescending(b => b.releaseDate).Take(3);
+        }
     }
 }

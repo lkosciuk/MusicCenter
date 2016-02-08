@@ -10,7 +10,7 @@ namespace MusicCenter.Common.ViewModels.Concert
     public class ConcertListItem
     {
         public int Id { get; set; }
-        public bool IsConcertOwner { get; set; }
+        public string ConcertOwner { get; set; }
         public DateTime date { get; set; }
         public string address { get; set; }
         public string description { get; set; }

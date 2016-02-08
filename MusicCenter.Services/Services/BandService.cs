@@ -749,6 +749,47 @@ namespace MusicCenter.Services.Services
 
             return bandNames; 
         }
+
+
+        public List<BandsPanelViewModel> GetNewestBands()
+        {
+            var newestBands = _repo.GetNewestBands(b => b.images, b => b.genres).ToList();
+
+            return newestBands.Select(b => new BandsPanelViewModel()
+            {
+                AvatarPath = b.images.FirstOrDefault(i => i.IsAvatar).path,
+                BandName = b.name,
+                Genres = String.Join(",", b.genres.Select(g => g.name).ToArray()),
+                DescriptionPart = !String.IsNullOrEmpty(b.description) && b.description.Length > 30 ? b.description.Substring(0, 30) + "..." : String.Empty  
+            }).ToList();
+        }
+
+
+        public List<AlbumsPanelViewModel> GetNewestAlbums()
+        {
+            var newestAlbums = _unitOfWork.Repository<Album>().GetNewestAlbums(a => a.images, a => a.genres).ToList();
+
+            return newestAlbums.Select(b => new AlbumsPanelViewModel()
+            {
+                CoverPath = b.images.FirstOrDefault(i => i.IsAvatar).path,
+                AlbumName = b.name,
+                Genres = String.Join(",", b.genres.Select(g => g.name).ToArray()),
+                ReleaseDate = b.releaseDate.ToShortDateString()
+            }).ToList();
+        }
+
+
+        public List<SongsPanelViewModel> GetNewestSingles()
+        {
+            var newestSingles = _unitOfWork.Repository<Track>().GetNewestSingles().ToList();
+
+            return newestSingles.Select(s => new SongsPanelViewModel()
+            {
+                BandName = s.band.name,
+                Name = s.name,
+                UrlAddress = s.url
+            }).ToList();
+        }
     }
 }
 

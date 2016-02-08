@@ -282,6 +282,7 @@
     <Content Include="Scripts\jquery.datetimepicker.full.min.js" />
     <Content Include="Scripts\jquery.datetimepicker.min.js" />
     <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\Concert\CalendarPanel.js" />
     <Content Include="Scripts\Layout\LoginPanel.js" />
     <Content Include="Scripts\Account\Register.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -360,6 +361,8 @@
     <Content Include="Views\Concert\Concert.cshtml" />
     <Content Include="Views\Shared\BandDetailsRemovable.cshtml" />
     <Content Include="Views\Shared\BandDetails.cshtml" />
+    <Content Include="Views\Shared\_ConcertDetails.cshtml" />
+    <Content Include="Views\Shared\_ConcertCalendarPopup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

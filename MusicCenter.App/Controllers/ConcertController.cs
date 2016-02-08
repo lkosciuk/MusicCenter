@@ -1,6 +1,7 @@
 ﻿using MusicCenter.App.Filters;
 using MusicCenter.Common.ViewModels.Concert;
 using MusicCenter.Services.Intefaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -119,5 +120,48 @@ namespace MusicCenter.App.Controllers
 
             return PartialView("BandDetails", model);
         }
+
+        public PartialViewResult GetCalendarPanel()
+        {
+            //List<CalendarItemViewModel> model = _concertService.GetCalendarPanelViewModel();
+
+            return PartialView("_CalendarPanel");
+        }
+
+        public ActionResult GetConcerts(int year, int month)
+        {
+            //List<CalendarPanelViewModel> model = _concertService.GetCalendarPanelViewModel();
+            var concertList = _concertService.GetConcertsInMonth(year, month);
+
+            var concertCalendarList = GetCalendarItems(concertList);
+
+            return Json(concertCalendarList, JsonRequestBehavior.AllowGet);
+        }
+        
+        public List<CalendarItemViewModel> GetCalendarItems(List<ConcertViewModel> concerts)
+        {
+            List<CalendarItemViewModel> calendarItems = new List<CalendarItemViewModel>() ;
+
+            List<ConcertViewModel> concertsInDay = new List<ConcertViewModel>();
+
+            //concertsInDay = concerts.gro
+            foreach (var concert in concerts)
+            {
+                //concertsInDay.Add(concerts.Select(c => c.date.ToShortDateString() == concert.date.ToShortDateString()));
+
+                //calendarItems.Add(new CalendarItemViewModel()
+                //{
+                //    badge = true,
+                //    date = concert.date.ToString("yyyy-MM-dd"),
+                //    title = "Concerts on " + concert.date.ToLongDateString() ,
+                //    footer = "",
+                //    classname = "purple-event",
+                //    body = RenderRazorViewToString("_ConcertCalendarPopup", concert)
+                //});
+            }
+
+            return calendarItems; 
+        }
+        
     }
 }

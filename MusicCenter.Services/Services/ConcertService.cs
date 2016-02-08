@@ -38,7 +38,7 @@ namespace MusicCenter.Services.Services
                      description = c.description,
                      InterestedCount = c.favourites.Count,
                      Cover = new FileViewModel(){PathToShow = c.images.FirstOrDefault(i => i.IsAvatar).path},
-                     IsConcertOwner = c.ConcertOwner.name == BandName
+                     ConcertOwner = c.ConcertOwner.name
                  }).ToList()
              };
              
@@ -62,7 +62,6 @@ namespace MusicCenter.Services.Services
 
          public UpdateConcertViewModel GetUpdateConcertViewModel(int ConcertId)
          {
-             //trzeba tu przeanalizowac, o co biega
              Concert currentConcert = _repo.GetById(ConcertId, c => c.bands, c => c.ConcertOwner, c => c.images );
              List<string> concertBands = new List<string>();
 
@@ -246,6 +245,21 @@ namespace MusicCenter.Services.Services
              _repo.InsertOrUpdateGraph(currentConcert);
              _unitOfWork.SaveChanges();
              
+         }
+
+
+         public List<ConcertViewModel> GetConcertsInMonth(int year, int month)
+         {
+             List<ConcertViewModel> concertsInMonth = new List<ConcertViewModel>();
+
+             var selectedConcerts = _repo.GetAllConcertsInMonth(year, month);
+
+             foreach (var item in selectedConcerts)
+	         {
+                 concertsInMonth.Add(GetConcertViewModel(item.Id));
+	         }
+
+             return concertsInMonth;          
          }
     }
 }

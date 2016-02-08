@@ -22,5 +22,10 @@ namespace MusicCenter.Dal.Repositories
         {
             return repo.Queryable().IncludeAll(includes).Where(b => b.MemberConcerts.Any(c => c.Id == ConcertId) || b.OwnedConcerts.Any(c => c.Id == ConcertId)).AsQueryable();
         }
+
+        public static IQueryable<Band> GetNewestBands(this IRepository<Band> repo, params Expression<Func<Band, object>>[] includes)
+        {
+            return repo.Queryable().IncludeAll(includes).OrderByDescending(b => b.addDate).Take(3);
+        }
     }
 }

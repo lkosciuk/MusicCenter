@@ -249,5 +249,28 @@ namespace MusicCenter.App.Controllers
         {
             return Json(bandService.GetAllBandNames(), JsonRequestBehavior.AllowGet);
         }
+
+        public PartialViewResult GetBandsPanel()
+        {
+            List<BandsPanelViewModel> model = bandService.GetNewestBands();
+
+            return PartialView("_BandsPanel", model);
+        }
+
+        public PartialViewResult GetAlbumsPanel()
+        {
+            List<AlbumsPanelViewModel> model = bandService.GetNewestAlbums();
+
+            return PartialView("_AlbumsPanel", model);
+        }
+
+        public PartialViewResult GetSongsPanel()
+        {
+            List<SongsPanelViewModel> model = bandService.GetNewestSingles();
+
+            return PartialView("_SongsPanel", model);
+        }
+        
+        
 	}
 }
