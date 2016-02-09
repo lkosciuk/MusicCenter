@@ -1,4 +1,5 @@
-﻿using MusicCenter.Common.ViewModels.Concert;
+﻿using MusicCenter.Common.ViewModels.Common;
+using MusicCenter.Common.ViewModels.Concert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,5 +28,7 @@ namespace MusicCenter.Services.Intefaces
         void UpdateConcert(UpdateConcertViewModel model);
 
         List<ConcertViewModel> GetConcertsInMonth(int year, int month);
+
+        IEnumerable<SearchViewModel> SearchConcerts(string query);
     }
 }

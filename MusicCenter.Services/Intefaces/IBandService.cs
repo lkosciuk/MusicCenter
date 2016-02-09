@@ -1,4 +1,5 @@
 ﻿using MusicCenter.Common.ViewModels.Band;
+using MusicCenter.Common.ViewModels.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,5 +54,11 @@ namespace MusicCenter.Services.Intefaces
         List<AlbumsPanelViewModel> GetNewestAlbums();
 
         List<SongsPanelViewModel> GetNewestSingles();
+
+        IEnumerable<SearchViewModel> SearchBands(string query);
+
+        IEnumerable<SearchViewModel> SearchAlbums(string query);
+
+        IEnumerable<SearchViewModel> SearchSongs(string query);
     }
 }

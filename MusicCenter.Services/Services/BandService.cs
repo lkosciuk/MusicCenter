@@ -16,6 +16,9 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using MusicCenter.Common.ViewModels.Common;
+using MusicCenter.Common.Enums;
+using MusicCenter.Common.Extensions;
 
 namespace MusicCenter.Services.Services
 {
@@ -789,6 +792,62 @@ namespace MusicCenter.Services.Services
                 Name = s.name,
                 UrlAddress = s.url
             }).ToList();
+        }
+
+
+        public IEnumerable<SearchViewModel> SearchBands(string query)
+        {
+            var result = new List<SearchViewModel>(_repo.Queryable().Where(b => b.name.IndexOf(query) != -1 
+                                                  || b.genres.Any(g => g.name.IndexOf(query) != -1)).
+                                                   Select(b => new SearchViewModel() { 
+                                                       label = b.name,
+                                                       value = b.Id.ToString()
+                                                   }).ToList());
+
+            foreach (var item in result)
+            {
+                item.category = SearchCategory.Bands.ShowResourcesString();
+            }
+
+            return result;
+        }
+
+        public IEnumerable<SearchViewModel> SearchAlbums(string query)
+        {
+            var result = new List<SearchViewModel>(_unitOfWork.Repository<Album>().Queryable().Where(b => b.name.IndexOf(query) != -1
+                                                   || b.genres.Any(g => g.name.IndexOf(query) != -1)
+                                                   || b.band.name.IndexOf(query) != -1).
+                                                   Select(b => new SearchViewModel()
+                                                   {
+                                                       label = b.name,
+                                                       value = b.Id.ToString()
+                                                   }).ToList());
+
+            foreach (var item in result)
+            {
+                item.category = SearchCategory.Albums.ShowResourcesString();
+            }
+
+            return result;
+        }
+
+        public IEnumerable<SearchViewModel> SearchSongs(string query)
+        {
+            var result = new List<SearchViewModel>(_unitOfWork.Repository<Track>().Queryable().Where(b => b.name.IndexOf(query) != -1
+                                                   || b.genres.Any(g => g.name.IndexOf(query) != -1)
+                                                   || b.band.name.IndexOf(query) != -1).
+                                                   Select(b => new SearchViewModel()
+                                                   {
+                                                       label = b.name,
+                                                       value = b.Id.ToString()
+                                                   }).ToList());
+
+            foreach (var item in result)
+            {
+                item.category = SearchCategory.Songs.ShowResourcesString();
+            }
+
+            return result;
         }
     }
 }

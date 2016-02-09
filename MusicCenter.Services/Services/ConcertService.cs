@@ -14,6 +14,9 @@ using System.Linq;
 using MusicCenter.Dal;
 using MusicCenter.Dal.RepoExt;
 using Repository.Pattern.Infrastructure;
+using MusicCenter.Common.ViewModels.Common;
+using MusicCenter.Common.Enums;
+using MusicCenter.Common.Extensions;
 
 namespace MusicCenter.Services.Services
 {
@@ -261,6 +264,26 @@ namespace MusicCenter.Services.Services
 	         }
 
              return concertsInMonth;          
+         }
+
+
+         public IEnumerable<SearchViewModel> SearchConcerts(string query)
+         {
+             var concerts = _repo.Queryable().Include(c => c.ConcertOwner).Include(c => c.bands).Where(b => b.bands.Any(c => c.name.IndexOf(query) != -1)
+                                 || b.address.IndexOf(query) != -1 || b.ConcertOwner.name.IndexOf(query) != -1).ToList();
+
+             var result = new List<SearchViewModel>(concerts.Select(b => new SearchViewModel()
+                                                   {
+                                                       label = b.ConcertOwner.name + ", " + String.Join(",", b.bands.Select(g => g.name).ToArray()),
+                                                       value = b.Id.ToString()
+                                                   }).ToList());
+
+             foreach (var item in result)
+             {
+                 item.category = SearchCategory.Concerts.ShowResourcesString();
+             }
+
+             return result;
          }
     }
 }

@@ -1,5 +1,6 @@
 
-﻿using MusicCenter.Common.ViewModels.User;
+﻿using MusicCenter.Common.ViewModels.Common;
+using MusicCenter.Common.ViewModels.User;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,14 @@ namespace MusicCenter.App.Controllers
     public class HomeController : BaseController
     {
         private IUserService UserService;
+        private IBandService BandService;
+        private IConcertService ConcertService;
 
-        public HomeController(IUserService service)
+        public HomeController(IUserService service, IConcertService concService, IBandService bandService)
         {
             UserService = service;
+            ConcertService = concService;
+            BandService = bandService;
         }
 
         public ActionResult Index()
@@ -41,7 +46,21 @@ namespace MusicCenter.App.Controllers
             }
             Response.Cookies.Add(cookie);
             return Redirect(Request.UrlReferrer.ToString());
-        }   
+        }
+
+        public ActionResult Search(string query)
+        {
+            List<SearchViewModel> searchResults = new List<SearchViewModel>();
+
+            searchResults.AddRange(BandService.SearchBands(query));
+            searchResults.AddRange(BandService.SearchAlbums(query));
+            searchResults.AddRange(BandService.SearchSongs(query));
+            searchResults.AddRange(ConcertService.SearchConcerts(query));
+
+            var jsonSearchResult = searchResults;
+
+            return Json(Json(jsonSearchResult), JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
