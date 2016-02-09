@@ -1,11 +1,57 @@
-﻿
+﻿@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
         <li>
-            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="@MusicCenter.Common.Resources.Global.SearchPlaceHolder">
+            <input type="text" class="form-control" id="searchInput" placeholder="@MusicCenter.Common.Resources.Global.SearchPlaceHolder"/>
+            <div id="menu-container" style="position:absolute; z-index: 999999"></div>
         </li>
-        <li>
+        @*<li>
             <button type="submit" class="btn btn-default">@MusicCenter.Common.Resources.Global.Search</button>
-        </li>         
+        </li>*@
 
+<script type="text/javascript">
+    var content = [];
+    content.push("LOL");
 
-@*style="margin-top: 10px; float: right; margin-left:5px; height:25px"*@
-@*style="margin-top: 10px; float: right; height: 25px"*@
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+    //http://stackoverflow.com/questions/21385892/how-to-use-source-function-and-ajax-in-jquery-ui-autocomplete dodawanie htmla 
+    //http://stackoverflow.com/questions/5077409/what-does-autocomplete-request-server-response-look-like co wyslac do autocomplete
+
+    $("#searchInput")
+          // don't navigate away from the field on tab when selecting an item
+          .bind("keydown", function (event) {
+              if (event.keyCode === $.ui.keyCode.TAB &&
+                  $(this).autocomplete("instance").menu.active) {
+                  event.preventDefault();
+              }
+          })
+          .autocomplete({
+              minLength: 0,
+              source: function (request, response) {
+                  // delegate back to autocomplete, but extract the last term
+                  response($.ui.autocomplete.filter(
+                    content, extractLast(request.term)));
+              },
+              focus: function () {
+                  // prevent value inserted on focus
+                  return false;
+              },
+              select: function (event, ui) {
+                  var terms = split(this.value);
+                  // remove the current input
+                  terms.pop();
+
+                  return false;
+              },
+              appendTo: "#menu-container"
+          }).data("ui-autocomplete")._renderItem = function (ul, item) {
+              return $("<li></li>")
+                  .data("item.autocomplete", item)
+                  .append("<img src='/Content/Uploads/DefaultConcertAv.jpg' alt='...' class='img-rounded' style='display:block;margin-left:auto;margin-right:auto;' width='150' height='150' id='concertCover'>" + item.label)
+                  .appendTo(ul);
+          };;
+</script>         
