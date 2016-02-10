@@ -1,7 +1,7 @@
 ﻿@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
         <li>
-            <input type="text" style="max-width: 100%; width: 500px " class="form-control" id="searchInput" data-url="@Url.Action("Search", "Home")" placeholder="@MusicCenter.Common.Resources.Global.SearchPlaceHolder"/>
+            <input type="text" data-partialurl="@Url.Action("GetSearchItemPartial", "Home")" style="max-width: 100%; width: 500px " class="form-control" id="searchInput" data-searchurl="@Url.Action("Search", "Home")" placeholder="@MusicCenter.Common.Resources.Global.SearchPlaceHolder"/>
             <div id="menu-container" style="position:absolute; z-index: 999999"></div>
         </li>
 
@@ -23,13 +23,33 @@
 </style>
 <script type="text/javascript">
 
+    function GetSearchItemDetails(itemId, itemCategory)
+    {
+        var result;
+
+        $.ajax({
+            url: $('#searchInput').data('partialurl'),
+            type: 'get',
+            data: {
+                searchItemId: itemId,
+                searchItemCategory: itemCategory
+            },
+            async: false,
+            success: function (data) {
+                result = data;
+            }
+        });
+
+        return result;
+    }
+
     $(document).ready(function () {
         $.ui.autocomplete.prototype._renderItem = function (ul, item) {
 
-            var SearchItemDetails = "<input type='button' />";
-
+            var SearchItemDetails = GetSearchItemDetails(item.value, item.category);      
+            debugger;
             return $("<li>")
-                    .append(item.label)
+                    .append(SearchItemDetails)
                     .appendTo(ul);
         };
 
@@ -50,7 +70,7 @@
         $("#searchInput").catcomplete({
             delay: 0,
             source: function (request, response) {
-                jQuery.get($('#searchInput').data('url'), {
+                jQuery.get($('#searchInput').data('searchurl'), {
                     query: request.term
                 }, function (data) {
                     response(data.Data);
@@ -61,7 +81,8 @@
                 var value = ui.item.value;
                 //akcja
             },
-            appendTo: '#menu-container'
+            appendTo: '#menu-container',
+            minLength: 3
         });
     })
     

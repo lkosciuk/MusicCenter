@@ -1,5 +1,6 @@
-
-﻿using MusicCenter.Common.ViewModels.Common;
+using MusicCenter.Common.Extensions;
+﻿using MusicCenter.Common.Enums;
+using MusicCenter.Common.ViewModels.Common;
 using MusicCenter.Common.ViewModels.User;
 using MusicCenter.Services.Intefaces;
 using System;
@@ -60,6 +61,14 @@ namespace MusicCenter.App.Controllers
             var jsonSearchResult = searchResults;
 
             return Json(Json(jsonSearchResult), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public string GetSearchItemPartial(int searchItemId, string searchItemCategory)
+        {
+            SearchItemDetailsViewModel model = BandService.GetSearchDetailsViewModel(searchItemId, searchItemCategory);
+
+            return this.RenderRazorViewToString("SearchItemDetails", model);    
         }
 
     }

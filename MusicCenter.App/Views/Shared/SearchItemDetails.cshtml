@@ -1,0 +1,37 @@
+﻿@model MusicCenter.Common.ViewModels.Common.SearchItemDetailsViewModel
+
+<div class="row">
+    @{
+        if (String.IsNullOrEmpty(Model.ImagePath))
+        {
+            <div class="col-sm-2">
+
+            </div>
+        }
+        else
+        {
+            <div class="col-sm-2">
+                <img src="@Model.ImagePath" alt="..." class="img-rounded" style="display:block;margin-left:auto;margin-right:auto;" width="30" height="35" id="bandAvatar">
+            </div>
+        }
+    }  
+    <div class="col-sm-10">
+        @Model.Label 
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-10" style="font-size:small">
+        @Model.SubLabel 
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-10" style="font-size:x-small">
+        @Model.Date
+    </div>
+</div>

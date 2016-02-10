@@ -60,5 +60,7 @@ namespace MusicCenter.Services.Intefaces
         IEnumerable<SearchViewModel> SearchAlbums(string query);
 
         IEnumerable<SearchViewModel> SearchSongs(string query);
+
+        SearchItemDetailsViewModel GetSearchDetailsViewModel(int searchItemId, string searchItemCategory);
     }
 }

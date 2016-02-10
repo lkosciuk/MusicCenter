@@ -251,6 +251,7 @@
     <Content Include="Content\Uploads\DefaultAlbumAv.jpg" />
     <Content Include="Content\Uploads\DefaultBandAv.png" />
     <Content Include="Content\Uploads\DefaultConcertAv.jpg" />
+    <Content Include="Content\Uploads\DefaultSongAv.png" />
     <Content Include="Content\Uploads\DefaultUserAv.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -362,6 +363,7 @@
     <Content Include="Views\Shared\BandDetailsRemovable.cshtml" />
     <Content Include="Views\Shared\BandDetails.cshtml" />
     <Content Include="Views\Shared\_ConcertCalendarPopup.cshtml" />
+    <Content Include="Views\Shared\SearchItemDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

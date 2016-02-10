@@ -849,6 +849,63 @@ namespace MusicCenter.Services.Services
 
             return result;
         }
+
+
+        public SearchItemDetailsViewModel GetSearchDetailsViewModel(int searchItemId, string searchItemCategory)
+        {
+            if (searchItemCategory == SearchCategory.Bands.ShowResourcesString())
+            {
+                var band = _repo.GetById(searchItemId, b => b.images, b => b.genres);
+
+                return new SearchItemDetailsViewModel()
+                {
+                    Id = band.Id,
+                    ImagePath = band.images.FirstOrDefault(i => i.IsAvatar).path,
+                    Label = band.name,
+                    SubLabel = String.Join(",", band.genres.Select(g => g.name).ToArray()),
+                    Date = band.bandCreationDate.ToDDMMYYYY()
+                };
+            }
+            else if (searchItemCategory == SearchCategory.Albums.ShowResourcesString())
+            {
+                var album = _unitOfWork.Repository<Album>().GetById(searchItemId, a => a.images, a => a.genres);
+
+                return new SearchItemDetailsViewModel()
+                {
+                    Id = album.Id,
+                    ImagePath = album.images.FirstOrDefault(i => i.IsAvatar).path,
+                    Label = album.name,
+                    SubLabel = String.Join(",", album.genres.Select(g => g.name).ToArray()),
+                    Date = album.releaseDate.ToDDMMYYYY()
+                };
+            }
+            else if (searchItemCategory == SearchCategory.Songs.ShowResourcesString())
+            {
+                var song = _unitOfWork.Repository<Track>().GetById(searchItemId, a => a.genres);
+
+                return new SearchItemDetailsViewModel()
+                {
+                    Id = song.Id,
+                    ImagePath = "/Content/Uploads/DefaultSongAv.png",
+                    Label = song.name,
+                    SubLabel = String.Join(",", song.genres.Select(g => g.name).ToArray()),
+                    Date = song.releaseDate.ToDDMMYYYY()
+                };
+            }
+            else
+            {
+                var concert = _unitOfWork.Repository<Concert>().GetById(searchItemId, a => a.images, a => a.bands, a => a.ConcertOwner);
+
+                return new SearchItemDetailsViewModel()
+                {
+                    Id = concert.Id,
+                    ImagePath = concert.images.FirstOrDefault(i => i.IsAvatar).path,
+                    Label = concert.ConcertOwner.name,
+                    SubLabel = concert.address,
+                    Date = concert.date.ToDDMMYYYY()
+                };
+            }
+        }
     }
 }
 
