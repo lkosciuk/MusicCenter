@@ -1,6 +1,6 @@
 ﻿@model MusicCenter.Common.ViewModels.Concert.UpdateConcertViewModel
 
-@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 
 @Scripts.Render("~/Scripts/Concert/UpdateConcert.js")
 @Styles.Render("~/Content/Account/Register.css")

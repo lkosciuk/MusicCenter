@@ -1,7 +1,7 @@
 ﻿@Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
         <li>
-            <input type="text" data-partialurl="@Url.Action("GetSearchItemPartial", "Home")" style="max-width: 100%; width: 500px " class="form-control" id="searchInput" data-searchurl="@Url.Action("Search", "Home")" placeholder="@MusicCenter.Common.Resources.Global.SearchPlaceHolder"/>
+            <input type="text" data-resulturl="@Url.Action("ShowSearchResult", "Home")" data-partialurl="@Url.Action("GetSearchItemPartial", "Home")" style="max-width: 100%; width: 500px " class="form-control" id="searchInput" data-searchurl="@Url.Action("Search", "Home")" placeholder="@MusicCenter.Common.Resources.Global.SearchPlaceHolder"/>
             <div id="menu-container" style="position:absolute; z-index: 999999"></div>
         </li>
 
@@ -47,7 +47,7 @@
         $.ui.autocomplete.prototype._renderItem = function (ul, item) {
 
             var SearchItemDetails = GetSearchItemDetails(item.value, item.category);      
-            debugger;
+
             return $("<li>")
                     .append(SearchItemDetails)
                     .appendTo(ul);
@@ -77,9 +77,19 @@
                 })
             },
             select: function (event, ui) {
-                var label = ui.item.label;
-                var value = ui.item.value;
-                //akcja
+                event.preventDefault();
+                $("#searchInput").val(ui.item.label);
+
+                jQuery.get($('#searchInput').data('resulturl'), {
+                    
+                        label: ui.item.label,
+                        value: ui.item.value,
+                        category: ui.item.category
+                    }
+                , function (data) {
+                    window.location.href = data;
+                })
+                
             },
             appendTo: '#menu-container',
             minLength: 3

@@ -1,7 +1,7 @@
 ﻿@model MusicCenter.Common.ViewModels.Band.BandSingleListViewModel
 
 
-@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 @Scripts.Render("~/Scripts/Band/BandSingles.js")
 <div id="BodyContent" style="margin-left: 50px">
     <ul class="nav nav-tabs" style="margin-bottom:10px">

@@ -1,7 +1,7 @@
 ﻿@model MusicCenter.Common.ViewModels.Band.AddSingleViewModel
 
 
-@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+@Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
 @Scripts.Render("~/Scripts/Band/AddSingle.js")
 @Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
 @Scripts.Render("~/Scripts/jquery.form.js")

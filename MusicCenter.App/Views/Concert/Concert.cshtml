@@ -1,6 +1,6 @@
 ﻿@model MusicCenter.Common.ViewModels.Concert.ConcertViewModel
 
-    @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName });
+    @Html.Action("RenderBandLayout", "Band", new { BandName = @Model.BandName })
     
     @Scripts.Render("~/Scripts/Concert/Concert.js")    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCkA4CEGdy_2RRIyooD80al_-NCgxr_Tg&libraries=places"></script>

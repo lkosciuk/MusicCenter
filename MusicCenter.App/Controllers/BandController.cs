@@ -270,6 +270,13 @@ namespace MusicCenter.App.Controllers
 
             return PartialView("_SongsPanel", model);
         }
+
+        public ActionResult Single(int SingleId)
+        {
+            var model = bandService.GetBandSingleViewModel(SingleId);
+
+            return View(model);
+        }
         
         
 	}

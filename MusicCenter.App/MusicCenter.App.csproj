@@ -364,6 +364,7 @@
     <Content Include="Views\Shared\BandDetails.cshtml" />
     <Content Include="Views\Shared\_ConcertCalendarPopup.cshtml" />
     <Content Include="Views\Shared\SearchItemDetails.cshtml" />
+    <Content Include="Views\Band\Single.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

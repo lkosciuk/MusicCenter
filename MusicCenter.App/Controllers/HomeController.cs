@@ -71,5 +71,26 @@ namespace MusicCenter.App.Controllers
             return this.RenderRazorViewToString("SearchItemDetails", model);    
         }
 
+        [HttpGet]
+        public string ShowSearchResult(SearchViewModel selectedItem)
+        {
+            if(selectedItem.category == SearchCategory.Bands.ShowResourcesString())
+            {
+                return Url.Action("BandProfile", "Band", new { BandName = selectedItem.label });
+            }
+            else if (selectedItem.category == SearchCategory.Albums.ShowResourcesString())
+            {
+                return Url.Action("Album", "Band", new { AlbumName = selectedItem.label});
+            }
+            else if (selectedItem.category == SearchCategory.Songs.ShowResourcesString())
+            {
+                return Url.Action("Single", "Band", new { SingleId = selectedItem.value});
+            }
+            else
+            {
+                return Url.Action("Concert", "Concert", new { ConcertId = selectedItem.value});
+            }
+        }
+
     }
 }
