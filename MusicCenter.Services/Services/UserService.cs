@@ -63,6 +63,7 @@ namespace MusicCenter.Services.Services
                 userAvatar = new Files();
                 userAvatar.name = "DefaultUserAv.jpg";
                 userAvatar.path = "/Content/Uploads/DefaultUserAv.jpg";
+                userAvatar.IsAvatar = true;
             }
 
             _unitOfWork.BeginTransaction();
@@ -71,11 +72,6 @@ namespace MusicCenter.Services.Services
             userAvatar.user = newUser;
 
             newUser.images.Add(userAvatar);
-
-            //Role userRole = _unitOfWork.Repository<Role>().GetRoleByName("user");
-            //userRole.ObjectState = ObjectState.Unchanged;
-            //.roles.Add(userRole);
-            //userRole.Users.Add(newUser);
 
             Favourites favourites = new Favourites();
             favourites.ObjectState = ObjectState.Added;

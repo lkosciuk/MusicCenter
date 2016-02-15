@@ -278,6 +278,11 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
         
+        public ActionResult BandList()
+        {
+            //bandService.GetAllBands();
+            return View();
+        }
         
 	}
 }
