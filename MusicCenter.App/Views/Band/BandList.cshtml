@@ -1,71 +1,15 @@
-﻿@model List< MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-sm-2">
-
-    </div>
-    <div class="col-sm-2">
-         Name
-    </div>
-    <div class="col-sm-2">
-        Genres
-    </div>
-    <div class="col-sm-2">
-        Creation date
-    </div>
-    <div class="col-sm-2">
-        Description
-    </div>
+<div id="bands">
+    @Html.Partial("_BandListPartial", Model)
 </div>
-
-@foreach (var band in Model)
+@section Scripts
 {
-    <div class="row">
-        <div class="col-sm-2">
-            <img src="@band.Avatar.PathToShow" class="img-circle" width="50" height="50" style="margin-left: 5px">
-        </div>
-        <div class="col-sm-2">
-             @band.Name
-        </div>
-        <div class="col-sm-2">
-            @if (band.Genres != null)
-            {
-                if (band.Genres.Count > 3)
-                {
-                    <div>@String.Join(",", band.Genres.Take(3).ToArray())</div>
-                }
-                else
-                {
-                    <div>@String.Join(",", band.Genres.ToArray())</div>
-                }
-            }
-        </div>
-        <div class="col-sm-2">
-            @band.CreationDate
-        </div>
-        <div class="col-sm-2">
-            @if (!String.IsNullOrEmpty(band.Description))
-	        {
-                if (band.Description.Length > 100)
-                {
-                    <div>@band.Description.Substring(0, 100) ...</div>
-                }
-                else
-                {
-                    <div>@band.Description</div>
-                }
-                
-	        }
-        </div>
-        @if (Session["user"] != null)
-        {
-            <div class="col-sm-2">
-                <input type="button" name="AddToFavBtn" data-bandname="@band.Name" class="btn btn-success" value="Add to favourites"/> 
-            </div>
-        }    
-    </div>
+    Html.RegisterMvcPagerScriptResource();
 }
+

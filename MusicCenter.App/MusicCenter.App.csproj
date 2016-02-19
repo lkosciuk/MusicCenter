@@ -110,6 +110,9 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvcPager">
+      <HintPath>..\packages\MvcPager.MVC4.CN.2.0.0.1\lib\MvcPager.dll</HintPath>
+    </Reference>
     <Reference Include="Owin">
       <HintPath>..\Lib\MusicCenter\Owin.dll</HintPath>
     </Reference>
@@ -366,6 +369,8 @@
     <Content Include="Views\Shared\SearchItemDetails.cshtml" />
     <Content Include="Views\Band\Single.cshtml" />
     <Content Include="Views\Band\BandList.cshtml" />
+    <Content Include="Views\Shared\_BandTable.cshtml" />
+    <Content Include="Views\Shared\_BandListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

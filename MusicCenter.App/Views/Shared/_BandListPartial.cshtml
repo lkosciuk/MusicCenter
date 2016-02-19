@@ -1,0 +1,9 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
+
+@{ Html.RenderPartial("_BandTable", Model); }
+<div class="text-center">
+    @Ajax.Pager(Model, new PagerOptions { CurrentPageNumberFormatString = "<li class='active'><a href='#'>{0}</a></li>", PageIndexParameterName = "id", FirstPageText="First", LastPageText="Last", NextPageText="Next", PrevPageText="Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemWrapperFormatString = "<li>{0}</li>" }, new MvcAjaxOptions { UpdateTargetId = "bands" })
+</div>
+
+@*CurrentPageNumberFormatString = "<li class='active'><a href='#'>{0}</a></li>"*@

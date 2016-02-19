@@ -48,6 +48,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\Lib\MusicCenter.Services\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="MvcPager">
+      <HintPath>..\packages\MvcPager.MVC4.CN.2.0.0.1\lib\MvcPager.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />

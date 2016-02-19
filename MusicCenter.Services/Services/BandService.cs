@@ -19,6 +19,7 @@ using System.Diagnostics;
 using MusicCenter.Common.ViewModels.Common;
 using MusicCenter.Common.Enums;
 using MusicCenter.Common.Extensions;
+using Webdiyer.WebControls.Mvc;
 
 namespace MusicCenter.Services.Services
 {
@@ -905,6 +906,18 @@ namespace MusicCenter.Services.Services
                     Date = concert.date.ToDDMMYYYY()
                 };
             }
+        }
+
+
+        public PagedList<BandListItemViewModel> GetBandListByPageNuber(int pageNumber)
+        {
+            return _repo.Queryable().OrderBy(b => b.name).Include(b => b.images).Include(b => b.genres).Select(b => new BandListItemViewModel(){
+                Avatar = new FileViewModel() { PathToShow = b.images.FirstOrDefault(i => i.IsAvatar).path},
+                Name = b.name,
+                CreationDate = b.bandCreationDate,
+                Description = b.description,
+                Genres = b.genres.Select(g => g.name).ToList()
+            }).ToPagedList(pageNumber, 2);
         }
     }
 }
