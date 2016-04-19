@@ -3,7 +3,7 @@
 
 @{ Html.RenderPartial("_BandTable", Model); }
 <div class="text-center">
-    @Ajax.Pager(Model, new PagerOptions { CurrentPageNumberFormatString = "<li class='active'><a href='#'>{0}</a></li>", PageIndexParameterName = "id", FirstPageText="First", LastPageText="Last", NextPageText="Next", PrevPageText="Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemWrapperFormatString = "<li>{0}</li>" }, new MvcAjaxOptions { UpdateTargetId = "bands" })
+    @Ajax.Pager(Model, new PagerOptions { CurrentPagerItemWrapperFormatString = "<li class='active'><a href='#'>{0}</a></li>", PageIndexParameterName = "id", FirstPageText="First", LastPageText="Last", NextPageText="Next", PrevPageText="Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemWrapperFormatString = "<li>{0}</li>" }, new MvcAjaxOptions { UpdateTargetId = "bands", OnBegin = "alert('onbegin event fired')" })
 </div>
 
-@*CurrentPageNumberFormatString = "<li class='active'><a href='#'>{0}</a></li>"*@
+@*new MvcAjaxOptions { Url= @Url.Action("BandList", "Band"), UpdateTargetId = "bands" }*@

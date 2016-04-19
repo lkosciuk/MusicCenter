@@ -112,7 +112,7 @@ D:\Programowanie\MC\MusicCenter.Dal\bin\Debug\EntityFramework.SqlServer.xml
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csprojResolveAssemblyReference.cache
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.dll
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.pdb
-C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.newInit.resources
 C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.init.resources
 D:\Programowanie\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.csproj.GenerateResource.Cache
+C:\Repository\MC\MusicCenter.Dal\obj\Debug\MusicCenter.Dal.Migrations.init.resources

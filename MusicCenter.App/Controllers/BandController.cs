@@ -59,7 +59,7 @@ namespace MusicCenter.App.Controllers
                 }
             }
 
-            return View();
+            return RedirectToAction("UserBands");
         }
 
         [BandAuthorize]
