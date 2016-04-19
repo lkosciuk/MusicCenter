@@ -22,7 +22,8 @@ namespace MusicCenter.Common.ViewModels.Band
         public string Email { get; set; }
 
         public string Phone { get; set; }
-        
+
+        [Required(ErrorMessageResourceType = typeof(Resources.Global), ErrorMessageResourceName = "FieldRequired")]
         public string CreationDate { get; set; }
 
         public string ResolveDate { get; set; }

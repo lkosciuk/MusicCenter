@@ -23,12 +23,14 @@
                 </div>
                 <div class="col-sm-2">
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
+                    @Html.ValidationMessageFor(m => m.Name)
                 </div>
                 <div class="col-sm-2">
                     <label class="control-label input-sm">Creation date:</label>
                 </div>
                 <div class="col-sm-2">
                     @Html.TextBoxFor(m => m.CreationDate, new { @class = "form-control input-sm", id="CreationDate" })
+                    @Html.ValidationMessageFor(m => m.Name)
                 </div>
             </div>
             <div class="row form-group">
@@ -37,6 +39,7 @@
                 </div>
                 <div class="col-sm-2">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm" })
+                    @Html.ValidationMessageFor(m => m.Name)
                 </div>
                 <div class="col-sm-2">
                     <label class="control-label input-sm">Resolve date:</label>
