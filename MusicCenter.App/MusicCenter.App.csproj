@@ -110,9 +110,6 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MvcPager">
-      <HintPath>..\packages\MvcPager.MVC4.CN.2.0.0.1\lib\MvcPager.dll</HintPath>
-    </Reference>
     <Reference Include="Owin">
       <HintPath>..\Lib\MusicCenter\Owin.dll</HintPath>
     </Reference>
@@ -175,6 +172,10 @@
     <Reference Include="Newtonsoft.Json">
       <Private>True</Private>
       <HintPath>..\Lib\MusicCenter\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Webdiyer.MvcPager, Version=3.0.2015.802, Culture=neutral, PublicKeyToken=f6872c5a09aed72c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Webdiyer.MvcPager.3.0.1.1\lib\Webdiyer.MvcPager.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>

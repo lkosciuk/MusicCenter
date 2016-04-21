@@ -1,15 +1,14 @@
-﻿@using Webdiyer.WebControls.Mvc
-@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="bands">
+<div id="bandList">
     @Html.Partial("_BandListPartial", Model)
 </div>
 @section Scripts
 {
-    Html.RegisterMvcPagerScriptResource();
+    @{Html.RegisterMvcPagerScriptResource();}
 }
 

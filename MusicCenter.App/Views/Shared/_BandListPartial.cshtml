@@ -1,9 +1,7 @@
-﻿@using Webdiyer.WebControls.Mvc
-@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
 
 @{ Html.RenderPartial("_BandTable", Model); }
 <div class="text-center">
-    @Ajax.Pager(Model, new PagerOptions { CurrentPagerItemWrapperFormatString = "<li class='active'><a href='#'>{0}</a></li>", PageIndexParameterName = "id", FirstPageText="First", LastPageText="Last", NextPageText="Next", PrevPageText="Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemWrapperFormatString = "<li>{0}</li>" }, new MvcAjaxOptions { UpdateTargetId = "bands", OnBegin = "alert('onbegin event fired')" })
-</div>
+    @Ajax.Pager(Model, new PagerOptions { ActionName = "BandList", ControllerName = "Band", CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "id", FirstPageText = "First", LastPageText = "Last", NextPageText = "Next", PrevPageText = "Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("bandList"))
 
-@*new MvcAjaxOptions { Url= @Url.Action("BandList", "Band"), UpdateTargetId = "bands" }*@
+</div>

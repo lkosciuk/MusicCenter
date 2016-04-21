@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
@@ -279,6 +280,7 @@ namespace MusicCenter.App.Controllers
             return View(model);
         }
         
+        [HttpGet]
         public ActionResult BandList(int id = 1)
         {
             var model = bandService.GetBandListByPageNuber(id);
@@ -286,6 +288,7 @@ namespace MusicCenter.App.Controllers
                 return PartialView("_BandListPartial", model);
             return View(model);
         }
+
         
 	}
 }
