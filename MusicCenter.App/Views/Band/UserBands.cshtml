@@ -3,6 +3,7 @@
 @{
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+@Scripts.Render("~/Scripts/Band/UserBands.js")
 
 <div class="row">
     <div class="col-md-2">
@@ -44,7 +45,7 @@
                                                               { <div style="display:inline">Present</div> }
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="btn btn-default pull-right" value="@MusicCenter.Common.Resources.Global.SignIn" />
+                    <input type="submit" name="BandLoginBtn" class="btn btn-default pull-right" value="@MusicCenter.Common.Resources.Global.SignIn" />
                 </div>
             </div>
         </form>
@@ -55,7 +56,15 @@ else
     <h1><small>@MusicCenter.Common.Resources.Global.AddBandInfo</small></h1>
 }
 
-<a class="btn btn-default pull-right" href="@Url.Action("AddBand", "Band")" role="button">@MusicCenter.Common.Resources.Global.AddBand</a>
+<div id="AddBandButton">
+    <a class="btn btn-default pull-right" href="@Url.Action("AddBand", "Band")" role="button">@MusicCenter.Common.Resources.Global.AddBand</a>
+</div>
+
+<div id="SoundCloundLogin" align="right">
+    <b>To add and manage band you need to connect your account to SoundCloud</b>
+    <br/><img id="SoundCloudLogo" soundCloundUrl="@Url.Action("SoundCloudConnect", "Account")" src="http://connect.soundcloud.com/2/btn-connect-sc-l.png" width="150" style="margin-top: 15px">
+</div>
+
 
 
 

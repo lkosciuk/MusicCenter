@@ -21,7 +21,7 @@
         </li>
         <li><button type="submit" class="btn btn-default text-center" style="margin-top:5px; margin-right:10px">@MusicCenter.Common.Resources.Global.SignIn</button></li>
         <li>@Html.ActionLink(MusicCenter.Common.Resources.Global.Register, "Register", "Account", null, new { @class = "navbar-brand col-lg-1" })</li>
-        <li><img id="SoundCloudLogo" src="http://connect.soundcloud.com/2/btn-connect-sc-l.png" width="150" style="margin-top: 15px"></li>
+        <li><img id="SoundCloudLogo" soundCloundUrl="@Url.Action("SoundCloudConnect", "Account")" src="http://connect.soundcloud.com/2/btn-connect-sc-l.png" width="150" style="margin-top: 15px"></li>
     </ul>
 </form>
 

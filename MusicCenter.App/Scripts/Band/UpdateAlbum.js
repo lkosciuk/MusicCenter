@@ -117,7 +117,7 @@
             for (var i = 0, song; song = songsInputs[i]; i++) {
 
                 var fd = new FormData();
-                fd.append('oauth_token', sessionStorage["scToken"]);
+                fd.append('oauth_token', localStorage["scToken"]);
                 fd.append('format', 'json');
                 fd.append('track[title]', song.name);
                 fd.append('track[asset_data]', song);

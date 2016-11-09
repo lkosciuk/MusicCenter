@@ -29,7 +29,7 @@
 <script>
     $(document).ready(function () {
 
-        if (sessionStorage['scToken']) {
+        if (localStorage['scToken']) {
             $("#UserProfile").attr("href", '@Url.Action("UserSoundcloudProfile", "User")')
         }
         else {

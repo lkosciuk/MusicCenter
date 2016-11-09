@@ -1,6 +1,6 @@
 ﻿
     $(document).ready(function () {
-        $('#LogOutUrl').click(function () {
-            sessionStorage['scToken'] = null;
-        })
+        $('#LogOutUrl').click(function() {
+            localStorage.removeItem('scToken');
+        });
     });

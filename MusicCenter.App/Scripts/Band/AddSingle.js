@@ -75,13 +75,13 @@
         for (var i = 0, song; song = songsInputs[i]; i++) {
 
             var fd = new FormData();
-            fd.append('oauth_token', sessionStorage["scToken"]);
+            fd.append('oauth_token', localStorage["scToken"]);
             fd.append('format', 'json');
             fd.append('track[title]', song.name);
             fd.append('track[asset_data]', song);
 
             $.ajax({
-                url: 'https://api.soundcloud.com/tracks?client_id=' + sessionStorage['scClientId'],
+                url: 'https://api.soundcloud.com/tracks?client_id=' + localStorage['scClientId'],
                 type: 'POST',
                 data: fd,
                 async: true,

@@ -8,13 +8,13 @@
 
         this.SetupSoundCloud = function () {
             var url = 'http://localhost:56536/Account/SoundCloudCallback';
-            sessionStorage['scClientId'] = '6895e74306f08ac18acb7b703672ee62';
+            localStorage['scClientId'] = '6895e74306f08ac18acb7b703672ee62';
 
             SC.initialize({
-                client_id: sessionStorage['scClientId'],
+                client_id: localStorage['scClientId'],
                 client_secret: 'b9b5b82f716f3322149d1fa038573e0e',
                 redirect_uri: url,
-                access_token: sessionStorage['scToken'],
+                access_token: localStorage['scToken'],
             });
         }
 
@@ -22,11 +22,13 @@
             // initiate authentication popup
             SC.connect(function () {
                 // This gets the authenticated user's username
-                sessionStorage['scToken'] = SC.accessToken();
+                localStorage['scToken'] = SC.accessToken();
                 
 
                 SC.get('/me', function (me) {
-                    $.post('Account/SoundCloudConnect', me, function () {
+                    var url = $('#SoundCloudLogo').attr('soundCloundUrl');
+
+                    $.post(url, me, function () {
                         window.location.reload();
                     });
                 });
