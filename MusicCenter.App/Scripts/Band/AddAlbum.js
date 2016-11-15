@@ -103,50 +103,88 @@
 
         for (var i = 0, song; song = songsInputs[i]; i++) {          
 
-            var fd = new FormData();
-            fd.append('oauth_token', localStorage["scToken"]);
-            fd.append('format', 'json');
-            fd.append('track[title]', song.name);
-            fd.append('track[asset_data]', song);
+            //var fd = new FormData();
+            //fd.append('oauth_token', localStorage["scToken"]);
+            //fd.append('format', 'json');
+            //fd.append('track[title]', song.name);
+            //fd.append('track[asset_data]', song);
 
-            $.ajax({
-                url: 'https://api.soundcloud.com/tracks/',
-                type: 'POST',
-                data: fd,
-                async: true,
-                processData: false,
-                contentType: false,
-                xhr: function () {
-                    var xhr = $.ajaxSettings.xhr();
-                    xhr.upload.onprogress = function (e) {
-                        if (e.lengthComputable) {
-                            var percent = Math.floor((e.loaded / e.total) * 100);
+            var upload = SC.upload({
+                        file: song, // a Blob of your WAV, MP3...
+                        //oauth_token: localStorage["scToken"],
+                        title: song.name
+                        //asset_data: song
+                    }).then(function () {
+                        alert("Poszło!");
+                    }).catch(function (error) {
+                        alert('There was an error ' + error.message);
+                    });
 
-                            $('#progressBar').attr("aria-valuenow", percent);
-                            $('#progressBar').empty();
-                            $('#progressBar').append(percent + '%');
-                            $('#progressBar').css('width', percent + '%');
-                            console.log(percent + '% uploaded');
-                        }
-                    };
-                    return xhr;
-                }
-            }).done(function (e) {
-                console.log('Upload Complete!');
-                console.dir(e); // This is the JSON object of the resulting track
-                $('#popUpContent').append('<b>' + e.title + '</b>' + '<b style="color:green">- Upload complete!</b></br>');
+            //upload.request.addEventListener('progress', function (e) {
+            //    var percent = (e.loaded / e.total) * 100;
+                
+            //    $('#progressBar').attr("aria-valuenow", percent);
+            //    $('#progressBar').empty();
+            //    $('#progressBar').append(percent + '%');
+            //    $('#progressBar').css('width', percent + '%');
+            //    console.log(percent + '% uploaded');
+            //});
 
-                model.append('SongsNames', e.title);
-                model.append('SongsUrlAddresses', e.id);//e.uri);
+            //upload.then(function (e) {
+            //    console.log('Upload Complete!');
+            //        console.dir(e); // This is the JSON object of the resulting track
+            //        $('#popUpContent').append('<b>' + e.title + '</b>' + '<b style="color:green">- Upload complete!</b></br>');
 
-                songCounter++;
+            //        model.append('SongsNames', e.title);
+            //        model.append('SongsUrlAddresses', e.id);//e.uri);
 
-                if (songCounter === songLength)
-                {
-                    $('#popUpContent').append('<input type="button" id="CloseUploadPopupBtn" onclick="CloseUploadPopup()" class="btn btn-info pull-right" value="Close"/> ')
-                    SendForm();
-                }
-            });           
+            //        songCounter++;
+
+            //        if (songCounter === songLength)
+            //        {
+            //            $('#popUpContent').append('<input type="button" id="CloseUploadPopupBtn" onclick="CloseUploadPopup()" class="btn btn-info pull-right" value="Close"/> ')
+            //            SendForm();
+            //        }
+            //});
+
+            //$.ajax({
+            //    url: 'https://api.soundcloud.com/tracks/',
+            //    type: 'POST',
+            //    data: fd,
+            //    async: true,
+            //    processData: false,
+            //    contentType: false,
+            //    xhr: function () {
+            //        var xhr = $.ajaxSettings.xhr();
+            //        xhr.upload.onprogress = function (e) {
+            //            if (e.lengthComputable) {
+            //                var percent = Math.floor((e.loaded / e.total) * 100);
+
+            //                $('#progressBar').attr("aria-valuenow", percent);
+            //                $('#progressBar').empty();
+            //                $('#progressBar').append(percent + '%');
+            //                $('#progressBar').css('width', percent + '%');
+            //                console.log(percent + '% uploaded');
+            //            }
+            //        };
+            //        return xhr;
+            //    }
+            //}).done(function (e) {
+            //    console.log('Upload Complete!');
+            //    console.dir(e); // This is the JSON object of the resulting track
+            //    $('#popUpContent').append('<b>' + e.title + '</b>' + '<b style="color:green">- Upload complete!</b></br>');
+
+            //    model.append('SongsNames', e.title);
+            //    model.append('SongsUrlAddresses', e.id);//e.uri);
+
+            //    songCounter++;
+
+            //    if (songCounter === songLength)
+            //    {
+            //        $('#popUpContent').append('<input type="button" id="CloseUploadPopupBtn" onclick="CloseUploadPopup()" class="btn btn-info pull-right" value="Close"/> ')
+            //        SendForm();
+            //    }
+            //});           
         }
     }
 

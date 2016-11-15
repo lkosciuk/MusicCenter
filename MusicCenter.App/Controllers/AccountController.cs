@@ -83,6 +83,8 @@ namespace MusicCenter.App.Controllers
 
         public ActionResult SoundCloudCallback()
         {
+            var scAccesCode = this.Request.Params["code"];
+            Session["scCode"] = scAccesCode;
             return PartialView();
         }
 
