@@ -123,7 +123,7 @@
                 fd.append('track[asset_data]', song);
 
                 $.ajax({
-                    url: 'https://api.soundcloud.com/tracks',
+                    url: 'https://api.soundcloud.com/tracks?client_id=' + localStorage['scClientId'],
                     type: 'POST',
                     data: fd,
                     async: true,
