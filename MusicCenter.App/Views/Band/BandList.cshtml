@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Scripts.Render("~/Scripts/Band/BandList.js")
+
 <div id="bandList">
     @Html.Partial("_BandListPartial", Model)
 </div>
-@section Scripts
+@section scripts
 {
     @{Html.RegisterMvcPagerScriptResource();}
 }
+
 

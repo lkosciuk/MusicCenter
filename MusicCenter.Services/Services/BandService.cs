@@ -20,6 +20,7 @@ using MusicCenter.Common.ViewModels.Common;
 using MusicCenter.Common.Enums;
 using MusicCenter.Common.Extensions;
 using Webdiyer.WebControls.Mvc;
+using MusicCenter.Common.Helpers;
 
 namespace MusicCenter.Services.Services
 {
@@ -785,7 +786,7 @@ namespace MusicCenter.Services.Services
 
         public List<SongsPanelViewModel> GetNewestSingles()
         {
-            var newestSingles = _unitOfWork.Repository<Track>().GetNewestSingles().ToList();
+            var newestSingles = _unitOfWork.Repository<Track>().GetNewestSingles(i => i.band).ToList();
 
             return newestSingles.Select(s => new SongsPanelViewModel()
             {
@@ -917,7 +918,7 @@ namespace MusicCenter.Services.Services
                 CreationDate = b.bandCreationDate,
                 Description = b.description,
                 Genres = b.genres.Select(g => g.name).ToList()
-            }).ToPagedList(pageNumber, 2);
+            }).ToPagedList(pageNumber, ConstHelper.GridPageSize);
         }
     }
 }

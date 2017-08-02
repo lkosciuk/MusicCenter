@@ -39,6 +39,22 @@ namespace MusicCenter.App.Controllers
 
         [HttpPost]
         [UserAuthorize]
+        public void AddBandToFavourites(string BandName)
+        {
+            var a = BandName;
+        }
+
+        [HttpPost]
+        [UserAuthorize]
+        public JsonResult IsUserHaveBandsInFavourites(List<string> BandNames)
+        {
+            var a = BandNames;
+
+            return Json("");
+        }
+
+        [HttpPost]
+        [UserAuthorize]
         public bool IsUserHaveAlbumInFavourites(string AlbumName)
         {
             return favServ.IsUserHaveAlbumInFavourites(Session["user"].ToString(), AlbumName);

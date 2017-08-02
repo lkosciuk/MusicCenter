@@ -90,6 +90,7 @@
     <Compile Include="Enums\SearchCategory.cs" />
     <Compile Include="Extensions\DateTimeExt.cs" />
     <Compile Include="Extensions\EnumExt.cs" />
+    <Compile Include="Helpers\ConstHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Global.Designer.cs">
       <DependentUpon>Global.resx</DependentUpon>
