@@ -41,16 +41,16 @@ namespace MusicCenter.App.Controllers
         [UserAuthorize]
         public void AddBandToFavourites(string BandName)
         {
-            var a = BandName;
+            favServ.AddBandToFavourites(Session["user"].ToString(), BandName);
         }
 
         [HttpPost]
         [UserAuthorize]
         public JsonResult IsUserHaveBandsInFavourites(List<string> BandNames)
         {
-            var a = BandNames;
+            var result = favServ.IsUserHaveBandsInFavourites(Session["user"].ToString(), BandNames);
 
-            return Json("");
+            return Json(result);
         }
 
         [HttpPost]

@@ -4,7 +4,7 @@
         $.each($('[name=AddBandToFavBtn]'), function () {
             $(this).click(AddBandToFavourites);
         });
-        //IfUserAddedBandsToFavourites();
+        IfUserAddedBandsToFavourites();
     };
 
     this.OnGridLoaded = function () {
@@ -15,7 +15,7 @@
         var currentButton = this;
         var bandName = $(currentButton).data('bandname');
         $.post($("#bandListData").data('addtofavurl'), { BandName: bandName }, function () {
-            $(currentButton).attr('disabled', true);
+            $(currentButton).hide();
         });
     };
 
@@ -38,9 +38,9 @@
                 dataType: "json",
                 success: function (result) {
 
-                    $.each(result, function () {
-                        if (result.BandIsInFavourites) {
-                            $('[name=AddBandToFavBtn][data-bandname=' + result.BandName + ']').attr('disabled', true);
+                    $.each(result, function (index, value) {
+                        if (value.IsInFavourites) {
+                            $("[name=AddBandToFavBtn][data-bandname='" + value.BandName + "']").hide();
                         }
                     });
 

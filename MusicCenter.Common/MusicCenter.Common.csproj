@@ -102,6 +102,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="ResponseModels\Band\FavouriteBandResult.cs" />
     <Compile Include="ViewModels\Band\AddAlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\AddSingleViewModel.cs" />
     <Compile Include="ViewModels\Band\AlbumsPanelViewModel.cs" />

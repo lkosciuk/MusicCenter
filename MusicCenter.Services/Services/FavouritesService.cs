@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MusicCenter.Dal.Repositories;
 using Repository.Pattern.Infrastructure;
 using MusicCenter.Dal.RepoExt;
+using MusicCenter.Common.ResponseModels.Band;
 
 namespace MusicCenter.Services.Services
 {
@@ -34,6 +35,19 @@ namespace MusicCenter.Services.Services
             _unitOfWork.SaveChanges();
         }
 
+        public void AddBandToFavourites(string email, string bandName)
+        {
+            Users currentUser = _unitOfWork.Repository<Users>().GetUserByEmail(email, u => u.favourites);
+            Band currentBand = _unitOfWork.Repository<Band>().GetBandByName(bandName, b => b.favourites).FirstOrDefault();
+
+            currentUser.favourites.bands.Add(currentBand);
+            currentUser.ObjectState = ObjectState.Modified;
+            currentBand.favourites.Add(_repo.GetUserFavourites(email).FirstOrDefault());
+            currentBand.ObjectState = ObjectState.Modified;
+
+            _unitOfWork.Repository<Users>().InsertOrUpdateGraph(currentUser);
+            _unitOfWork.SaveChanges();
+        }
 
         public void AddSongToFavourites(string email, int SongId)
         {
@@ -53,6 +67,27 @@ namespace MusicCenter.Services.Services
         public bool IsUserHaveAlbumInFavourites(string email, string AlbumName)
         {
             return _repo.GetUserFavourites(email, f => f.albums).FirstOrDefault().albums.Any(a => a.name == AlbumName);
+        }
+
+        public List<FavouriteBandResult> IsUserHaveBandsInFavourites(string email, List<string> bandNames)
+        {
+            var result = new List<FavouriteBandResult>();
+            var userFavourites = _repo.GetUserFavourites(email, f => f.bands).FirstOrDefault();
+
+            foreach (var bandName in bandNames)
+            {
+                var isInUserFavourites = userFavourites.bands.Any(b => b.name == bandName);
+
+                var tempResult = new FavouriteBandResult()
+                {
+                    BandName = bandName,
+                    IsInFavourites = isInUserFavourites
+                };
+
+                result.Add(tempResult);
+            }
+
+            return result;
         }
 
         public bool IsUserHaveSongInFavourites(string email, int SongId)

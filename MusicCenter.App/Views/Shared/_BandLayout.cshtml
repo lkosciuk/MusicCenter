@@ -3,6 +3,7 @@
 @Styles.Render("~/Content/User/UserPage.css")
 @Styles.Render("~/Content/fileinput.min.css")
 @Scripts.Render("~/Scripts/fileinput.min.js")
+@Scripts.Render("~/Scripts/Layout/BandLayout.js")
 
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
@@ -26,6 +27,12 @@
             else if (Session["user"] != null)
             {
                 <a href="@Url.Action("SendBandMessage", "Message", new {Recipient = Model })">Napisz wiadomość</a>
+            }
+        </li>
+        <li>
+            @if (Session["user"] != null)
+            {
+                    <input type="button" id="AddBandToFavBtn" data-addtofavurl="@Url.Action("AddBandToFavourites", "Favourites")" data-bandname="@Model" data-user="@Session["user"].ToString()"  data-checkfavurl="@Url.Action("IsUserHaveBandsInFavourites", "Favourites")" class="btn-sm btn-success" value="Add to favourites" />
             }
         </li>
     </ul>
