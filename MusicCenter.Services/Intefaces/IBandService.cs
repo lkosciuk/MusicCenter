@@ -1,4 +1,5 @@
-﻿using MusicCenter.Common.ViewModels.Band;
+﻿using MusicCenter.Common.RequestModels;
+using MusicCenter.Common.ViewModels.Band;
 using MusicCenter.Common.ViewModels.Common;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,10 @@ namespace MusicCenter.Services.Intefaces
 
         SearchItemDetailsViewModel GetSearchDetailsViewModel(int searchItemId, string searchItemCategory);
 
-        PagedList<BandListItemViewModel> GetBandListByPageNuber(int pageNumber);
+        PagedList<BandListItemViewModel> GetBandListByPageNuber(DataListFilterModel filter, int pageNumber);
+
+        List<string> SearchGenreNames(string query);
+
+        List<string> SearchBandNames(string query);
     }
 }

@@ -2,6 +2,6 @@
 {
     public static class ConstHelper
     {
-        public const int GridPageSize = 2;
+        public const int GridPageSize = 1;
     }
 }

@@ -44,31 +44,10 @@
     }
 
     $(document).ready(function () {
-        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
 
-            var SearchItemDetails = GetSearchItemDetails(item.value, item.category);      
-
-            return $("<li>")
-                    .append(SearchItemDetails)
-                    .appendTo(ul);
-        };
-
-        $.widget("custom.catcomplete", $.ui.autocomplete, {
-            _renderMenu: function (ul, items) {
-                var that = this,
-                    currentCategory = "";
-                $.each(items, function (index, item) {
-                    if (item.category != currentCategory) {
-                        ul.append("<li class='' style='pointer-events: none;font-weight: bold; padding: .2em .4em; margin: .8em 0 .2em;line-height: 1.5;'>" + item.category + "</li>");
-                        currentCategory = item.category;
-                    }
-                    that._renderItemData(ul, item);
-                });
-            }
-        });
-
-        $("#searchInput").catcomplete({
+        $("#searchInput").autocomplete({
             delay: 0,
+            minLength: 3,
             source: function (request, response) {
                 jQuery.get($('#searchInput').data('searchurl'), {
                     query: request.term
@@ -81,19 +60,40 @@
                 $("#searchInput").val(ui.item.label);
 
                 jQuery.get($('#searchInput').data('resulturl'), {
-                    
-                        label: ui.item.label,
-                        value: ui.item.value,
-                        category: ui.item.category
-                    }
+
+                    label: ui.item.label,
+                    value: ui.item.value,
+                    category: ui.item.category
+                }
                 , function (data) {
                     window.location.href = data;
                 })
-                
+
             },
-            appendTo: '#menu-container',
-            minLength: 3
+            appendTo: '#menu-container'
         });
+
+        var searchAutcompleteInstance = $("#searchInput").autocomplete('instance');
+        searchAutcompleteInstance._renderItem = function (ul, item) {
+
+            var SearchItemDetails = GetSearchItemDetails(item.value, item.category);
+
+            return $("<li>")
+                    .append(SearchItemDetails)
+                    .appendTo(ul);
+        };
+
+        searchAutcompleteInstance._renderMenu = function (ul, items) {
+            var that = this,
+                currentCategory = "";
+            $.each(items, function (index, item) {
+                if (item.category != currentCategory) {
+                    ul.append("<li class='' style='pointer-events: none;font-weight: bold; padding: .2em .4em; margin: .8em 0 .2em;line-height: 1.5;'>" + item.category + "</li>");
+                    currentCategory = item.category;
+                }
+                that._renderItemData(ul, item);
+            });
+        };
     })
     
 </script>         

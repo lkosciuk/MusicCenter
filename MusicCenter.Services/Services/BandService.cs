@@ -21,6 +21,7 @@ using MusicCenter.Common.Enums;
 using MusicCenter.Common.Extensions;
 using Webdiyer.WebControls.Mvc;
 using MusicCenter.Common.Helpers;
+using MusicCenter.Common.RequestModels;
 
 namespace MusicCenter.Services.Services
 {
@@ -910,15 +911,64 @@ namespace MusicCenter.Services.Services
         }
 
 
-        public PagedList<BandListItemViewModel> GetBandListByPageNuber(int pageNumber)
+        public PagedList<BandListItemViewModel> GetBandListByPageNuber(DataListFilterModel filter, int pageNumber)
         {
-            return _repo.Queryable().OrderBy(b => b.name).Include(b => b.images).Include(b => b.genres).Select(b => new BandListItemViewModel(){
-                Avatar = new FileViewModel() { PathToShow = b.images.FirstOrDefault(i => i.IsAvatar).path},
-                Name = b.name,
-                CreationDate = b.bandCreationDate,
-                Description = b.description,
-                Genres = b.genres.Select(g => g.name).ToList()
-            }).ToPagedList(pageNumber, ConstHelper.GridPageSize);
+            if (filter != null && filter.HasValue)
+            {
+                var bands = _repo.Queryable().OrderBy(b => b.name).Include(b => b.images).Include(b => b.genres).Select(b => new BandListItemViewModel()
+                {
+                    Avatar = new FileViewModel() { PathToShow = b.images.FirstOrDefault(i => i.IsAvatar).path },
+                    Name = b.name,
+                    CreationDate = b.bandCreationDate,
+                    Description = b.description,
+                    Genres = b.genres.Select(g => g.name).ToList()
+                });
+
+                if (filter.DateFrom.HasValue)
+                {
+                    bands = bands.Where(b => b.CreationDate >= filter.DateFrom.Value);
+                }
+
+                if (filter.DateTo.HasValue)
+                {
+                    bands = bands.Where(b => b.CreationDate <= filter.DateTo.Value);
+                }
+
+                if (!string.IsNullOrEmpty(filter.BandNames))
+                {
+                    var bandNames = filter.BandNames.Split(',');
+                    bands = bands.Where(b => bandNames.Contains(b.Name));
+                }
+
+                if (!string.IsNullOrEmpty(filter.GenreNames))
+                {
+                    var genreNames = filter.GenreNames.Split(',');
+                    bands = bands.Where(b => genreNames.Any(filterGenre => b.Genres.Any(genre => genre == filterGenre)));
+                }
+
+                return bands.ToPagedList(1, ConstHelper.GridPageSize);
+            }
+            else
+            {
+                return _repo.Queryable().OrderBy(b => b.name).Include(b => b.images).Include(b => b.genres).Select(b => new BandListItemViewModel()
+                {
+                    Avatar = new FileViewModel() { PathToShow = b.images.FirstOrDefault(i => i.IsAvatar).path },
+                    Name = b.name,
+                    CreationDate = b.bandCreationDate,
+                    Description = b.description,
+                    Genres = b.genres.Select(g => g.name).ToList()
+                }).ToPagedList(pageNumber, ConstHelper.GridPageSize);
+            }
+        }
+
+        public List<string> SearchGenreNames(string query)
+        {
+            return _unitOfWork.Repository<Genre>().Queryable().Where(g => g.name.Contains(query)).Select(g => g.name).ToList();
+        }
+
+        public List<string> SearchBandNames(string query)
+        {
+            return _repo.Queryable().Where(g => g.name.Contains(query)).Select(g => g.name).ToList();
         }
     }
 }

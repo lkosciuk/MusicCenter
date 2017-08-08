@@ -5,6 +5,8 @@
 }
 
 @Scripts.Render("~/Scripts/Band/BandList.js")
+@Scripts.Render("~/Scripts/Layout/DataFilter.js")
+@Html.Partial("_DataFilter", Model)
 
 <div id="bandList">
     @Html.Partial("_BandListPartial", Model)

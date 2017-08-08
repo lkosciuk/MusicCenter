@@ -1,4 +1,5 @@
 ﻿using MusicCenter.App.Filters;
+using MusicCenter.Common.RequestModels;
 using MusicCenter.Common.ViewModels.Band;
 using MusicCenter.Services.Intefaces;
 using System;
@@ -283,12 +284,18 @@ namespace MusicCenter.App.Controllers
         [HttpGet]
         public ActionResult BandList(int id = 1)
         {
-            var model = bandService.GetBandListByPageNuber(id);
+            var model = bandService.GetBandListByPageNuber(null, id);
             if (Request.IsAjaxRequest())
                 return PartialView("_BandListPartial", model);
             return View(model);
         }
 
-        
-	}
+        [HttpPost]
+        public ActionResult BandList(DataListFilterModel filter, int id = 1)
+        {
+            var model = bandService.GetBandListByPageNuber(filter, id);
+
+            return PartialView("_BandListPartial", model);
+        }
+    }
 }

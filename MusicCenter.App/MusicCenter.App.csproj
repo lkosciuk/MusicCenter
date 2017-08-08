@@ -326,6 +326,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\Layout\BandLayout.js" />
+    <Content Include="Scripts\Layout\DataFilter.js" />
     <Content Include="Scripts\Layout\LoginPanel.js" />
     <Content Include="Scripts\Account\Register.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -410,6 +411,7 @@
     <Content Include="Views\Band\BandList.cshtml" />
     <Content Include="Views\Shared\_BandTable.cshtml" />
     <Content Include="Views\Shared\_BandListPartial.cshtml" />
+    <Content Include="Views\Shared\_DataFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

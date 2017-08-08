@@ -92,5 +92,21 @@ namespace MusicCenter.App.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult SearchGenre(string query)
+        {
+            var result = BandService.SearchGenreNames(query);
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        public ActionResult SearchBand(string query)
+        {
+            var result = BandService.SearchBandNames(query);
+
+            return Json(result);
+        }
+
     }
 }
