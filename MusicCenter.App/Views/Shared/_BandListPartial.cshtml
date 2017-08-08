@@ -1,7 +1,8 @@
 ﻿@model PagedList<MusicCenter.Common.ViewModels.Band.BandListItemViewModel>
 
 @{ Html.RenderPartial("_BandTable", Model); }
+
 <div class="text-center">
-    @Ajax.Pager(Model, new PagerOptions { ActionName = "BandList", ControllerName = "Band", CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "id", FirstPageText = "First", LastPageText = "Last", NextPageText = "Next", PrevPageText = "Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li name='pagerPage'>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("bandList")).AjaxOptions(a => a.SetOnSuccess("bandListScope.OnGridLoaded"))
+    @Ajax.Pager(Model, new PagerOptions { CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "id", FirstPageText = "First", LastPageText = "Last", NextPageText = "Next", PrevPageText = "Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li name='pagerPage'>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("bandList")).AjaxOptions(a => a.SetDataFormId("dataFilterForm").SetOnSuccess("bandListScope.OnGridLoaded"))
 
 </div>

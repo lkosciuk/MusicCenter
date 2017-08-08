@@ -946,7 +946,7 @@ namespace MusicCenter.Services.Services
                     bands = bands.Where(b => genreNames.Any(filterGenre => b.Genres.Any(genre => genre == filterGenre)));
                 }
 
-                return bands.ToPagedList(1, ConstHelper.GridPageSize);
+                return bands.ToPagedList(pageNumber, ConstHelper.GridPageSize);
             }
             else
             {

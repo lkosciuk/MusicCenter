@@ -284,18 +284,18 @@ namespace MusicCenter.App.Controllers
         [HttpGet]
         public ActionResult BandList(int id = 1)
         {
-            var model = bandService.GetBandListByPageNuber(null, id);
+            DataListFilterModel filter = new DataListFilterModel()
+            {
+                BandNames = this.Request.QueryString["BandNames"],
+                GenreNames = this.Request.QueryString["GenreNames"],
+                DateFrom = string.IsNullOrEmpty(this.Request.QueryString["DateFrom"]) ? (DateTime?)null : DateTime.Parse(this.Request.QueryString["DateFrom"]),
+                DateTo = string.IsNullOrEmpty(this.Request.QueryString["DateFrom"]) ? (DateTime?)null : DateTime.Parse(this.Request.QueryString["DateTo"])
+            };
+
+            var model = bandService.GetBandListByPageNuber(filter, id);
             if (Request.IsAjaxRequest())
                 return PartialView("_BandListPartial", model);
             return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult BandList(DataListFilterModel filter, int id = 1)
-        {
-            var model = bandService.GetBandListByPageNuber(filter, id);
-
-            return PartialView("_BandListPartial", model);
         }
     }
 }

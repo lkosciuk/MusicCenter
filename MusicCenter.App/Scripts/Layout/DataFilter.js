@@ -112,27 +112,29 @@
     };
 
     var FilterData = function () {
-        var filterData = {
-            BandNames: $("#filterSearch").val(),
-            GenreNames: $("#filterGenres").val(),
-            DateFrom: $("#filterDateFrom").val(),
-            DateTo: $("#filterDateTo").val()
-        };
+        var form = $("#dataFilterForm");
+        form.submit();
+        //var filterData = {
+        //    BandNames: $("#filterSearch").val(),
+        //    GenreNames: $("#filterGenres").val(),
+        //    DateFrom: $("#filterDateFrom").val(),
+        //    DateTo: $("#filterDateTo").val()
+        //};
 
-        var url = $("#filterUrl").val();
+        //var url = $("#filterUrl").val();
 
-        $.ajax({
-            url:url,
-            type:"POST",
-            data: JSON.stringify({ filter: filterData }),
-            contentType:"application/json; charset=utf-8",
-            success: function (data) {
-                $("#bandList").html(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + textStatus); alert("Error: " + errorThrown);
-            }
-        });
+        //$.ajax({
+        //    url:url,
+        //    type:"GET",
+        //    data:{ filter: filterData },
+        //    contentType:"application/json; charset=utf-8",
+        //    success: function (data) {
+        //        $("#bandList").html(data);
+        //    },
+        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //        alert("Status: " + textStatus); alert("Error: " + errorThrown);
+        //    }
+        //});
 
         //$.post(url, JSON.stringify({ filter: filterData }), function (data) {
             
