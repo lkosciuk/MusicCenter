@@ -4,6 +4,7 @@ using MusicCenter.Common.ViewModels.Band;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -284,12 +285,15 @@ namespace MusicCenter.App.Controllers
         [HttpGet]
         public ActionResult BandList(int id = 1)
         {
+            string dateFrom = this.Request.QueryString["DateFrom"];
+            string dateTo = this.Request.QueryString["DateTo"];
+
             DataListFilterModel filter = new DataListFilterModel()
             {
                 BandNames = this.Request.QueryString["BandNames"],
                 GenreNames = this.Request.QueryString["GenreNames"],
-                DateFrom = string.IsNullOrEmpty(this.Request.QueryString["DateFrom"]) ? (DateTime?)null : DateTime.Parse(this.Request.QueryString["DateFrom"]),
-                DateTo = string.IsNullOrEmpty(this.Request.QueryString["DateFrom"]) ? (DateTime?)null : DateTime.Parse(this.Request.QueryString["DateTo"])
+                DateFrom = string.IsNullOrEmpty(dateFrom) ? (DateTime?)null : DateTime.Parse(dateFrom),
+                DateTo = string.IsNullOrEmpty(dateTo) ? (DateTime?)null : DateTime.Parse(dateTo)
             };
 
             var model = bandService.GetBandListByPageNuber(filter, id);

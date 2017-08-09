@@ -10,7 +10,11 @@
                 setTimeout(function () {
                     $('.ui-datepicker').css('z-index', 99999999999999);
                 }, 0);
-            }
+            },
+            onSelect: function () {
+                FilterData();
+            },
+            dateFormat: 'dd-mm-yy'
         });
 
         $("#filterDateTo").datepicker({
@@ -18,7 +22,11 @@
                 setTimeout(function () {
                     $('.ui-datepicker').css('z-index', 99999999999999);
                 }, 0);
-            }
+            },
+            onSelect: function () {
+                FilterData();
+            },
+            dateFormat: 'dd-mm-yy'
         });
     };
 
@@ -100,6 +108,9 @@
                   // add placeholder to get the comma-and-space at the end
                   terms.push("");
                   this.value = terms.join(", ");
+
+                  FilterData();
+
                   return false;
               }
           });
@@ -114,31 +125,6 @@
     var FilterData = function () {
         var form = $("#dataFilterForm");
         form.submit();
-        //var filterData = {
-        //    BandNames: $("#filterSearch").val(),
-        //    GenreNames: $("#filterGenres").val(),
-        //    DateFrom: $("#filterDateFrom").val(),
-        //    DateTo: $("#filterDateTo").val()
-        //};
-
-        //var url = $("#filterUrl").val();
-
-        //$.ajax({
-        //    url:url,
-        //    type:"GET",
-        //    data:{ filter: filterData },
-        //    contentType:"application/json; charset=utf-8",
-        //    success: function (data) {
-        //        $("#bandList").html(data);
-        //    },
-        //    error: function (XMLHttpRequest, textStatus, errorThrown) {
-        //        alert("Status: " + textStatus); alert("Error: " + errorThrown);
-        //    }
-        //});
-
-        //$.post(url, JSON.stringify({ filter: filterData }), function (data) {
-            
-        //}, 'json');
     };
 
     function split(val) {

@@ -937,12 +937,16 @@ namespace MusicCenter.Services.Services
                 if (!string.IsNullOrEmpty(filter.BandNames))
                 {
                     var bandNames = filter.BandNames.Split(',');
+                    bandNames = bandNames.Select(g => g.Trim()).ToArray();
+
                     bands = bands.Where(b => bandNames.Contains(b.Name));
                 }
 
                 if (!string.IsNullOrEmpty(filter.GenreNames))
                 {
                     var genreNames = filter.GenreNames.Split(',');
+                    genreNames = genreNames.Select(g => g.Trim()).ToArray();
+
                     bands = bands.Where(b => genreNames.Any(filterGenre => b.Genres.Any(genre => genre == filterGenre)));
                 }
 
