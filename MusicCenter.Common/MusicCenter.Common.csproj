@@ -118,6 +118,7 @@
     <Compile Include="ViewModels\Band\BandSingleListViewModel.cs" />
     <Compile Include="ViewModels\Band\BandSingleViewModel.cs" />
     <Compile Include="ViewModels\Band\BandsPanelViewModel.cs" />
+    <Compile Include="ViewModels\Band\SongListItemViewModel.cs" />
     <Compile Include="ViewModels\Band\SongsPanelViewModel.cs" />
     <Compile Include="ViewModels\Band\UpdateAlbumViewModel.cs" />
     <Compile Include="ViewModels\Common\SearchItemDetailsViewModel.cs" />

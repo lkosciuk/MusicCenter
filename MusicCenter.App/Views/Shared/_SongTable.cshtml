@@ -1,0 +1,48 @@
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.SongListItemViewModel>
+
+<div class="row">
+    <div class="col-sm-6">
+        Name
+    </div>
+    <div class="col-sm-2">
+        Genres
+    </div>
+    <div class="col-sm-2">
+        Creation date
+    </div>
+</div>
+
+@foreach (var song in Model)
+{
+    var songUrl = @song.Url;
+
+    <div class="row">
+            <div class="col-sm-6">
+                <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/@songUrl&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=false"></iframe>
+            </div>
+            <div class="col-sm-2">
+                @if (song.Genres != null)
+                {
+                    if (song.Genres.Count > 3)
+                    {
+                        <div>@String.Join(",", song.Genres.Take(3).ToArray())</div>
+                    }
+                    else
+                    {
+                        <div>@String.Join(",", song.Genres.ToArray())</div>
+                    }
+                }
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(m => song.CreationDate)
+            </div>
+        @if (Session["user"] != null)
+        {
+            <div class="col-sm-2">
+                <input type="button" name="AddSongToFavBtn" data-songid="@song.Id" class="btn btn-success" value="Add to favourites" />
+            </div>
+        }
+    </div>
+}
+<div id="songListData" data-user="@Session["user"]" data-addtofavurl="@Url.Action("AddSongToFavourites", "Favourites")" data-checkfavurl="@Url.Action("IsUserHaveSongsInFavourites", "Favourites")" />
+

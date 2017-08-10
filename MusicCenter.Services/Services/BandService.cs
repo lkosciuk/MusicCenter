@@ -22,6 +22,7 @@ using MusicCenter.Common.Extensions;
 using Webdiyer.WebControls.Mvc;
 using MusicCenter.Common.Helpers;
 using MusicCenter.Common.RequestModels;
+using System.IO;
 
 namespace MusicCenter.Services.Services
 {
@@ -358,7 +359,7 @@ namespace MusicCenter.Services.Services
              {
                  Track albumTrack = new Track()
                  {
-                     name = model.SongsNames.ElementAt(i),
+                     name = Path.GetFileNameWithoutExtension(model.SongsNames.ElementAt(i)),
                      url = model.SongsUrlAddresses.ElementAt(i),
                      albums = new List<Album>() { newAlbum },
                      band = currentBand,
@@ -627,7 +628,7 @@ namespace MusicCenter.Services.Services
                 BandID = currentBand.Id,
                 IsSingle = true,
                 url = model.SongUrl,
-                name = model.SongName,
+                name = Path.GetFileNameWithoutExtension(model.SongName),
                 releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null),
                 ObjectState = ObjectState.Added
             };
@@ -1030,6 +1031,65 @@ namespace MusicCenter.Services.Services
         public List<string> SearchAlbumNames(string query)
         {
             return _unitOfWork.Repository<Album>().Queryable().Where(g => g.name.Contains(query)).Select(g => g.name).ToList();
+        }
+
+        public PagedList<SongListItemViewModel> GetSongListByPageNuber(DataListFilterModel filter, int pageNumber)
+        {
+            if (filter != null && filter.HasValue)
+            {
+                var songs = _unitOfWork.Repository<Track>().Queryable().OrderBy(b => b.name).Include(b => b.genres).Select(b => new SongListItemViewModel()
+                {
+                    Id = b.Id,
+                    Url = b.url,
+                    Name = b.name,
+                    CreationDate = b.releaseDate,
+                    Genres = b.genres.Select(g => g.name).ToList()
+                });
+
+                if (filter.DateFrom.HasValue)
+                {
+                    songs = songs.Where(b => b.CreationDate >= filter.DateFrom.Value);
+                }
+
+                if (filter.DateTo.HasValue)
+                {
+                    songs = songs.Where(b => b.CreationDate <= filter.DateTo.Value);
+                }
+
+                if (!string.IsNullOrEmpty(filter.Names))
+                {
+                    var bandNames = filter.Names.Split(',');
+                    bandNames = bandNames.Select(g => g.Trim()).ToArray();
+
+                    songs = songs.Where(b => bandNames.Contains(b.Name));
+                }
+
+                if (!string.IsNullOrEmpty(filter.GenreNames))
+                {
+                    var genreNames = filter.GenreNames.Split(',');
+                    genreNames = genreNames.Select(g => g.Trim()).ToArray();
+
+                    songs = songs.Where(b => genreNames.Any(filterGenre => b.Genres.Any(genre => genre == filterGenre)));
+                }
+
+                return songs.ToPagedList(pageNumber, ConstHelper.GridPageSize);
+            }
+            else
+            {
+                return _unitOfWork.Repository<Track>().Queryable().OrderBy(b => b.name).Include(b => b.genres).Select(b => new SongListItemViewModel()
+                {
+                    Id = b.Id,
+                    Url = b.url,
+                    Name = b.name,
+                    CreationDate = b.releaseDate,
+                    Genres = b.genres.Select(g => g.name).ToList()
+                }).ToPagedList(pageNumber, ConstHelper.GridPageSize);
+            }
+        }
+
+        public List<string> SearchSongNames(string query)
+        {
+            return _unitOfWork.Repository<Track>().Queryable().Where(g => g.name.Contains(query)).Select(g => g.name).ToList();
         }
     }
 }

@@ -74,5 +74,9 @@ namespace MusicCenter.Services.Intefaces
         PagedList<AlbumListItemViewModel> GetAlbumListByPageNuber(DataListFilterModel filter, int pageNumber);
 
         List<string> SearchAlbumNames(string query);
+
+        PagedList<SongListItemViewModel> GetSongListByPageNuber(DataListFilterModel filter, int pageNumber);
+
+        List<string> SearchSongNames(string query);
     }
 }

@@ -40,7 +40,7 @@
 
                     $.each(result, function (index, value) {
                         if (value.IsInFavourites) {
-                            $("[name=AddBandToFavBtn][data-albumname='" + value.AlbumName + "']").hide();
+                            $("[name=AddBandToFavBtn][data-albumname='" + value.Name + "']").hide();
                         }
                     });
 

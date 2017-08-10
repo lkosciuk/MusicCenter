@@ -310,7 +310,7 @@ namespace MusicCenter.App.Controllers
 
             DataListFilterModel filter = new DataListFilterModel()
             {
-                Names = this.Request.QueryString["BandNames"],
+                Names = this.Request.QueryString["Names"],
                 GenreNames = this.Request.QueryString["GenreNames"],
                 DateFrom = string.IsNullOrEmpty(dateFrom) ? (DateTime?)null : DateTime.Parse(dateFrom),
                 DateTo = string.IsNullOrEmpty(dateTo) ? (DateTime?)null : DateTime.Parse(dateTo)
@@ -319,6 +319,26 @@ namespace MusicCenter.App.Controllers
             var model = bandService.GetAlbumListByPageNuber(filter, id);
             if (Request.IsAjaxRequest())
                 return PartialView("_AlbumListPartial", model);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult SongList(int id = 1)
+        {
+            string dateFrom = this.Request.QueryString["DateFrom"];
+            string dateTo = this.Request.QueryString["DateTo"];
+
+            DataListFilterModel filter = new DataListFilterModel()
+            {
+                Names = this.Request.QueryString["Names"],
+                GenreNames = this.Request.QueryString["GenreNames"],
+                DateFrom = string.IsNullOrEmpty(dateFrom) ? (DateTime?)null : DateTime.Parse(dateFrom),
+                DateTo = string.IsNullOrEmpty(dateTo) ? (DateTime?)null : DateTime.Parse(dateTo)
+            };
+
+            var model = bandService.GetSongListByPageNuber(filter, id);
+            if (Request.IsAjaxRequest())
+                return PartialView("_SongListPartial", model);
             return View(model);
         }
     }

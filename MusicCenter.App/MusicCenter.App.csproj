@@ -310,6 +310,7 @@
     <Content Include="Scripts\Band\BandList.js" />
     <Content Include="Scripts\Band\BandProfile.js" />
     <Content Include="Scripts\Band\BandSingles.js" />
+    <Content Include="Scripts\Band\SongList.js" />
     <Content Include="Scripts\Band\UpdateAlbum.js" />
     <Content Include="Scripts\Band\UpdateSingle.js" />
     <Content Include="Scripts\Band\UserBands.js" />
@@ -416,6 +417,9 @@
     <Content Include="Views\Band\AlbumList.cshtml" />
     <Content Include="Views\Shared\_AlbumListPartial.cshtml" />
     <Content Include="Views\Shared\_AlbumTable.cshtml" />
+    <Content Include="Views\Band\SongList.cshtml" />
+    <Content Include="Views\Shared\_SongListPartial.cshtml" />
+    <Content Include="Views\Shared\_SongTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
