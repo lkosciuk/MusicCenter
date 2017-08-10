@@ -77,7 +77,21 @@
     };
 
     var InitBandsAutocomplete = function () {
-        var searchBandsUrl = $("#filterSearch").data('searchbandsurl');
+
+        var viewName = $("#filterSearch").data('viewname');
+        var searchUrl = $("#filterSearch").data('searchbandsurl');
+
+        if (viewName == "AlbumList") {
+            searchUrl = $("#filterSearch").data('searchalbumsurl');
+        }
+
+        if (viewName == "SongList") {
+            searchUrl = $("#filterSearch").data('searchsongsurl');
+        }
+
+        if (viewName == "ConcertList") {
+            searchUrl = $("#filterSearch").data('searchconcertsurl');
+        }
 
         $("#filterSearch")
           .on("keydown", function (event) {
@@ -89,7 +103,7 @@
           .autocomplete({
               minLength: 0,
               source: function (request, response) {
-                  jQuery.post(searchBandsUrl, {
+                  jQuery.post(searchUrl, {
                       query: extractLast(request.term)
                   }, function (data) {
                       response(data);

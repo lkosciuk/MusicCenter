@@ -1,0 +1,53 @@
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.AlbumListItemViewModel>
+
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-2">
+        Name
+    </div>
+    <div class="col-sm-2">
+        Genres
+    </div>
+    <div class="col-sm-2">
+        Creation date
+    </div>
+</div>
+
+@foreach (var album in Model)
+{
+    <div class="row">
+        <a href="@Url.Action("Album", "Band", new { AlbumName = album.Name})" style="text-decoration: none;">
+            <div class="col-sm-2">
+                <img src="@album.Avatar.PathToShow" class="img-circle" width="50" height="50" style="margin-left: 5px">
+            </div>
+            <div class="col-sm-2">
+                @album.Name
+            </div>
+            <div class="col-sm-2">
+                @if (album.Genres != null)
+                {
+                    if (album.Genres.Count > 3)
+                    {
+                        <div>@String.Join(",", album.Genres.Take(3).ToArray())</div>
+                    }
+                    else
+                    {
+                        <div>@String.Join(",", album.Genres.ToArray())</div>
+                    }
+                }
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(m => album.CreationDate)
+            </div>
+        </a>
+        @if (Session["user"] != null)
+        {
+            <div class="col-sm-2">
+                <input type="button" name="AddAlbumToFavBtn" data-albumname="@album.Name" class="btn btn-success" value="Add to favourites" />
+            </div>
+        }
+    </div>
+}
+<div id="albumListData" data-user="@Session["user"]" data-addtofavurl="@Url.Action("AddAlbumsToFavourites", "Favourites")" data-checkfavurl="@Url.Action("IsUserHaveAlbumsInFavourites", "Favourites")" />

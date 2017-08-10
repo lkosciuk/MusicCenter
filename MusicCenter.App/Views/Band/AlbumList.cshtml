@@ -1,0 +1,19 @@
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.AlbumListItemViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_DataFilter", "AlbumList")
+
+<div id="dataList">
+    @Html.Partial("_AlbumListPartial", Model)
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/Band/AlbumList.js")
+    @Scripts.Render("~/Scripts/Layout/DataFilter.js")
+    @{Html.RegisterMvcPagerScriptResource();}
+}
+
+

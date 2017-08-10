@@ -5,7 +5,7 @@ namespace MusicCenter.Common.RequestModels
 {
     public class DataListFilterModel
     {
-        public string BandNames { get; set; }
+        public string Names { get; set; }
         public string GenreNames { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
@@ -14,7 +14,7 @@ namespace MusicCenter.Common.RequestModels
         {
             get
             {
-                return (!string.IsNullOrEmpty(BandNames) || !string.IsNullOrEmpty(GenreNames) || DateFrom.HasValue || DateTo.HasValue);
+                return (!string.IsNullOrEmpty(Names) || !string.IsNullOrEmpty(GenreNames) || DateFrom.HasValue || DateTo.HasValue);
             }
         }
     }

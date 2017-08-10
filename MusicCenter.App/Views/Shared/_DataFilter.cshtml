@@ -5,7 +5,7 @@
     <div class="container" style="margin-top: 20px; margin-bottom: 20px">
         <div class="row">
             <div class="col-lg-12">
-                <input type="text" name="BandNames" id="filterSearch" data-searchbandsurl="@Url.Action("SearchBand", "Home")" class="form-control" style="width:100%" placeholder="search by name" />
+                <input type="text" name="Names" data-viewname="@Model" id="filterSearch" data-searchbandsurl="@Url.Action("SearchBand", "Home")" data-searchalbumsurl="@Url.Action("SearchAlbum", "Home")" data-searchsongsurl="@Url.Action("SearchSong", "Home")" data-searchconcertssurl="@Url.Action("SearchConcert", "Home")" class="form-control" style="width:100%" placeholder="search by name" />
             </div>
         </div>
         <div class="row" style="margin-top: 20px">

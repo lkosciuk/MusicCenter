@@ -62,6 +62,15 @@ namespace MusicCenter.App.Controllers
 
         [HttpPost]
         [UserAuthorize]
+        public JsonResult IsUserHaveAlbumsInFavourites(List<string> AlbumNames)
+        {
+            var result = favServ.IsUserHaveAlbumsInFavourites(Session["user"].ToString(), AlbumNames);
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        [UserAuthorize]
         public bool IsUserHaveSongInFavourites(int SongId)
         {
             return favServ.IsUserHaveSongInFavourites(Session["user"].ToString(), SongId);

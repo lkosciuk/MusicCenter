@@ -106,6 +106,7 @@
     <Compile Include="ResponseModels\Band\FavouriteBandResult.cs" />
     <Compile Include="ViewModels\Band\AddAlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\AddSingleViewModel.cs" />
+    <Compile Include="ViewModels\Band\AlbumListItemViewModel.cs" />
     <Compile Include="ViewModels\Band\AlbumsPanelViewModel.cs" />
     <Compile Include="ViewModels\Band\AlbumViewModel.cs" />
     <Compile Include="ViewModels\Band\BandAlbumListViewModel.cs" />

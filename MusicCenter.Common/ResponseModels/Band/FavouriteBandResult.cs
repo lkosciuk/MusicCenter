@@ -1,8 +1,8 @@
 ﻿namespace MusicCenter.Common.ResponseModels.Band
 {
-    public class FavouriteBandResult
+    public class FavouriteCheckResult
     {
-        public string BandName { get; set; }
+        public string Name { get; set; }
         public bool IsInFavourites { get; set; }
     }
 }

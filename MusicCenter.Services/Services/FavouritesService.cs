@@ -69,18 +69,39 @@ namespace MusicCenter.Services.Services
             return _repo.GetUserFavourites(email, f => f.albums).FirstOrDefault().albums.Any(a => a.name == AlbumName);
         }
 
-        public List<FavouriteBandResult> IsUserHaveBandsInFavourites(string email, List<string> bandNames)
+        public List<FavouriteCheckResult> IsUserHaveAlbumsInFavourites(string email, List<string> albumNames)
         {
-            var result = new List<FavouriteBandResult>();
+            var result = new List<FavouriteCheckResult>();
+            var userFavourites = _repo.GetUserFavourites(email, f => f.albums).FirstOrDefault();
+
+            foreach (var album in albumNames)
+            {
+                var isInUserFavourites = userFavourites.albums.Any(b => b.name == album);
+
+                var tempResult = new FavouriteCheckResult()
+                {
+                    Name = album,
+                    IsInFavourites = isInUserFavourites
+                };
+
+                result.Add(tempResult);
+            }
+
+            return result;
+        }
+
+        public List<FavouriteCheckResult> IsUserHaveBandsInFavourites(string email, List<string> bandNames)
+        {
+            var result = new List<FavouriteCheckResult>();
             var userFavourites = _repo.GetUserFavourites(email, f => f.bands).FirstOrDefault();
 
             foreach (var bandName in bandNames)
             {
                 var isInUserFavourites = userFavourites.bands.Any(b => b.name == bandName);
 
-                var tempResult = new FavouriteBandResult()
+                var tempResult = new FavouriteCheckResult()
                 {
-                    BandName = bandName,
+                    Name = bandName,
                     IsInFavourites = isInUserFavourites
                 };
 

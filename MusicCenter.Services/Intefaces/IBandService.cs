@@ -70,5 +70,9 @@ namespace MusicCenter.Services.Intefaces
         List<string> SearchGenreNames(string query);
 
         List<string> SearchBandNames(string query);
+
+        PagedList<AlbumListItemViewModel> GetAlbumListByPageNuber(DataListFilterModel filter, int pageNumber);
+
+        List<string> SearchAlbumNames(string query);
     }
 }

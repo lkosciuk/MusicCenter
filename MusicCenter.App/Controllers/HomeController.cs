@@ -108,5 +108,13 @@ namespace MusicCenter.App.Controllers
             return Json(result);
         }
 
+        [HttpPost]
+        public ActionResult SearchAlbum(string query)
+        {
+            var result = BandService.SearchAlbumNames(query);
+
+            return Json(result);
+        }
+
     }
 }

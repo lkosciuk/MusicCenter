@@ -17,8 +17,10 @@ namespace MusicCenter.Services.Intefaces
 
         bool IsUserHaveSongInFavourites(string email, int SongId);
 
-        List<FavouriteBandResult> IsUserHaveBandsInFavourites(string email, List<string> bandNames);
+        List<FavouriteCheckResult> IsUserHaveBandsInFavourites(string email, List<string> bandNames);
 
         void AddBandToFavourites(string email, string bandName);
+
+        List<FavouriteCheckResult> IsUserHaveAlbumsInFavourites(string email, List<string> albumNames);
     }
 }
