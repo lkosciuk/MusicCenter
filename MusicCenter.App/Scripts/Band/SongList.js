@@ -26,7 +26,7 @@
             var url = $("#songListData").data('checkfavurl');
             var currentPageSongIds = new Array();
 
-            $.each($('[name=AddBandToFavBtn]'), function () {
+            $.each($('[name=AddSongToFavBtn]'), function () {
                 currentPageSongIds.push($(this).data('songid'));
             });
 
@@ -40,7 +40,7 @@
 
                     $.each(result, function (index, value) {
                         if (value.IsInFavourites) {
-                            $("[name=AddBandToFavBtn][data-songid='" + value.Name + "']").hide();
+                            $("[name=AddSongToFavBtn][data-songid='" + value.Name + "']").hide();
                         }
                     });
 

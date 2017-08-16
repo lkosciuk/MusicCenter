@@ -21,5 +21,10 @@ namespace MusicCenter.Dal.Repositories
         {
             return repository.Queryable().IncludeAll(includes).Where(c => c.date.Year == year && c.date.Month == month).AsQueryable();
         }
+
+        public static IQueryable<Concert> GetConcertById(this IRepository<Concert> repository, int id, params Expression<Func<Concert, object>>[] includes)
+        {
+            return repository.Queryable().IncludeAll(includes).Where(c => c.Id == id);
+        }
     }
 }

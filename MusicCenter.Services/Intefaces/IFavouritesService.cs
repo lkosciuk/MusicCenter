@@ -22,5 +22,11 @@ namespace MusicCenter.Services.Intefaces
         void AddBandToFavourites(string email, string bandName);
 
         List<FavouriteCheckResult> IsUserHaveAlbumsInFavourites(string email, List<string> albumNames);
+
+        List<FavouriteCheckResult> IsUserHaveSongsInFavourites(string email, List<int> songIds);
+
+        List<FavouriteCheckResult> IsUserHaveConcertsInFavourites(string email, List<int> concertIds);
+
+        void AddConcertToFavourites(string email, int concertId);
     }
 }

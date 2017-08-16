@@ -89,10 +89,6 @@
             searchUrl = $("#filterSearch").data('searchsongsurl');
         }
 
-        if (viewName == "ConcertList") {
-            searchUrl = $("#filterSearch").data('searchconcertsurl');
-        }
-
         $("#filterSearch")
           .on("keydown", function (event) {
               if (event.keyCode === $.ui.keyCode.TAB &&

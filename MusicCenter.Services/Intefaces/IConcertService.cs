@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicCenter.Common.RequestModels;
+using Webdiyer.WebControls.Mvc;
 
 namespace MusicCenter.Services.Intefaces
 {
@@ -30,5 +32,7 @@ namespace MusicCenter.Services.Intefaces
         List<ConcertViewModel> GetConcertsInMonth(int year, int month);
 
         IEnumerable<SearchViewModel> SearchConcerts(string query);
+
+        PagedList<ConcertListItemViewModel> GetConcertListByPageNuber(DataListFilterModel filter, int pageNumber);
     }
 }

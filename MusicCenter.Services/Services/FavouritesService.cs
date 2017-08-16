@@ -49,6 +49,20 @@ namespace MusicCenter.Services.Services
             _unitOfWork.SaveChanges();
         }
 
+        public void AddConcertToFavourites(string email, int concertId)
+        {
+            Users currentUser = _unitOfWork.Repository<Users>().GetUserByEmail(email, u => u.favourites);
+            Concert currentConcert = _unitOfWork.Repository<Concert>().GetConcertById(concertId, a => a.favourites).FirstOrDefault();
+
+            currentUser.favourites.concerts.Add(currentConcert);
+            currentUser.ObjectState = ObjectState.Modified;
+            currentConcert.favourites.Add(_repo.GetUserFavourites(email).FirstOrDefault());
+            currentConcert.ObjectState = ObjectState.Modified;
+
+            _unitOfWork.Repository<Users>().InsertOrUpdateGraph(currentUser);
+            _unitOfWork.SaveChanges();
+        }
+
         public void AddSongToFavourites(string email, int SongId)
         {
             Users currentUser = _unitOfWork.Repository<Users>().GetUserByEmail(email, u => u.favourites);
@@ -111,9 +125,51 @@ namespace MusicCenter.Services.Services
             return result;
         }
 
+        public List<FavouriteCheckResult> IsUserHaveConcertsInFavourites(string email, List<int> concertIds)
+        {
+            var result = new List<FavouriteCheckResult>();
+            var userFavourites = _repo.GetUserFavourites(email, f => f.concerts).FirstOrDefault();
+
+            foreach (var concertId in concertIds)
+            {
+                var isInUserFavourites = userFavourites.concerts.Any(b => b.Id == concertId);
+
+                var tempResult = new FavouriteCheckResult()
+                {
+                    Name = concertId.ToString(),
+                    IsInFavourites = isInUserFavourites
+                };
+
+                result.Add(tempResult);
+            }
+
+            return result;
+        }
+
         public bool IsUserHaveSongInFavourites(string email, int SongId)
         {
             return _repo.GetUserFavourites(email, f => f.tracks).FirstOrDefault().tracks.Any(a => a.Id == SongId);
+        }
+
+        public List<FavouriteCheckResult> IsUserHaveSongsInFavourites(string email, List<int> songIds)
+        {
+            var result = new List<FavouriteCheckResult>();
+            var userFavourites = _repo.GetUserFavourites(email, f => f.tracks).FirstOrDefault();
+
+            foreach (var songId in songIds)
+            {
+                var isInUserFavourites = userFavourites.tracks.Any(b => b.Id == songId);
+
+                var tempResult = new FavouriteCheckResult()
+                {
+                    Name = songId.ToString(),
+                    IsInFavourites = isInUserFavourites
+                };
+
+                result.Add(tempResult);
+            }
+
+            return result;
         }
     }
 }

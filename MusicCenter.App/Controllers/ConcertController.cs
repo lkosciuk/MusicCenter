@@ -1,4 +1,5 @@
 ﻿using MusicCenter.App.Filters;
+using MusicCenter.Common.RequestModels;
 using MusicCenter.Common.ViewModels.Concert;
 using MusicCenter.Services.Intefaces;
 using Newtonsoft.Json;
@@ -166,6 +167,26 @@ namespace MusicCenter.App.Controllers
 
             return calendarItems; 
         }
-        
+
+        [HttpGet]
+        public ActionResult ConcertList(int id = 1)
+        {
+            string dateFrom = this.Request.QueryString["DateFrom"];
+            string dateTo = this.Request.QueryString["DateTo"];
+
+            DataListFilterModel filter = new DataListFilterModel()
+            {
+                Names = this.Request.QueryString["Names"],
+                GenreNames = this.Request.QueryString["GenreNames"],
+                DateFrom = string.IsNullOrEmpty(dateFrom) ? (DateTime?)null : DateTime.Parse(dateFrom),
+                DateTo = string.IsNullOrEmpty(dateTo) ? (DateTime?)null : DateTime.Parse(dateTo)
+            };
+
+            var model = _concertService.GetConcertListByPageNuber(filter, id);
+            if (Request.IsAjaxRequest())
+                return PartialView("_ConcertListPartial", model);
+            return View(model);
+        }
+
     }
 }

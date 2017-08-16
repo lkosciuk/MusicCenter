@@ -128,6 +128,7 @@
     <Compile Include="ViewModels\Concert\BandConcertViewModel.cs" />
     <Compile Include="ViewModels\Concert\CalendarItemViewModel.cs" />
     <Compile Include="ViewModels\Concert\ConcertListItem.cs" />
+    <Compile Include="ViewModels\Concert\ConcertListItemViewModel.cs" />
     <Compile Include="ViewModels\Concert\ConcertViewModel.cs" />
     <Compile Include="ViewModels\Concert\UpdateConcertViewModel.cs" />
     <Compile Include="ViewModels\File\FileViewModel.cs" />

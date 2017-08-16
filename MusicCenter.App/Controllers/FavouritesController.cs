@@ -76,5 +76,30 @@ namespace MusicCenter.App.Controllers
             return favServ.IsUserHaveSongInFavourites(Session["user"].ToString(), SongId);
         }
 
-	}
+        [HttpPost]
+        [UserAuthorize]
+        public JsonResult IsUserHaveSongsInFavourites(List<int> SongIds)
+        {
+            var result = favServ.IsUserHaveSongsInFavourites(Session["user"].ToString(), SongIds);
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        [UserAuthorize]
+        public JsonResult IsUserHaveConcertsInFavourites(List<int> ConcertIds)
+        {
+            var result = favServ.IsUserHaveConcertsInFavourites(Session["user"].ToString(), ConcertIds);
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        [UserAuthorize]
+        public void AddConcertToFavourites(int ConcertId)
+        {
+            favServ.AddConcertToFavourites(Session["user"].ToString(), ConcertId);
+        }
+
+    }
 }

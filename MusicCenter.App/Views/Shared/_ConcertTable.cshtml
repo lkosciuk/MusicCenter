@@ -1,0 +1,69 @@
+﻿@model PagedList<MusicCenter.Common.ViewModels.Concert.ConcertListItemViewModel>
+
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-2">
+        Band names
+    </div>
+    <div class="col-sm-2">
+        Genres
+    </div>
+    <div class="col-sm-2">
+        Address
+    </div>
+    <div class="col-sm-2">
+        Concert date
+    </div>
+</div>
+
+@foreach (var concert in Model)
+{
+    <div class="row">
+        <a href="@Url.Action("Concert", "Concert", new { ConcertId = concert.Id, BandName = concert.ConcertOwner})" style="text-decoration: none;">
+            <div class="col-sm-2">
+                <img src="@concert.Image.PathToShow" class="img-circle" width="50" height="50" style="margin-left: 5px">
+            </div>
+            <div class="col-sm-2">
+                @if (concert.BandNames != null)
+                {
+                    if (concert.BandNames.Count > 3)
+                    {
+                        <div>@String.Join(",", concert.BandNames.Take(3).ToArray())</div>
+                    }
+                    else
+                    {
+                        <div>@String.Join(",", concert.BandNames.ToArray())</div>
+                    }
+                }
+            </div>
+            <div class="col-sm-2">
+                @if (concert.Genres != null)
+                {
+                    if (concert.Genres.Count > 3)
+                    {
+                        <div>@String.Join(",", concert.Genres.Take(3).ToArray())</div>
+                    }
+                    else
+                    {
+                        <div>@String.Join(",", concert.Genres.ToArray())</div>
+                    }
+                }
+            </div>
+            <div class="col-sm-2">
+                @concert.Address
+            </div>
+            <div class="col-sm-2">
+                @Html.DisplayFor(c => concert.Date)
+            </div>
+        </a>
+        @if (Session["user"] != null)
+        {
+            <div class="col-sm-2">
+                <input type="button" name="AddConcertToFavBtn" data-concertid="@concert.Id" class="btn btn-success" value="Add to favourites" />
+            </div>
+        }
+    </div>
+}
+<div id="concertListData" data-user="@Session["user"]" data-addtofavurl="@Url.Action("AddConcertToFavourites", "Favourites")" data-checkfavurl="@Url.Action("IsUserHaveConcertsInFavourites", "Favourites")" />

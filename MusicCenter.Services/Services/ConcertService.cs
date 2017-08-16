@@ -17,6 +17,9 @@ using Repository.Pattern.Infrastructure;
 using MusicCenter.Common.ViewModels.Common;
 using MusicCenter.Common.Enums;
 using MusicCenter.Common.Extensions;
+using MusicCenter.Common.RequestModels;
+using Webdiyer.WebControls.Mvc;
+using MusicCenter.Common.Helpers;
 
 namespace MusicCenter.Services.Services
 {
@@ -285,5 +288,75 @@ namespace MusicCenter.Services.Services
 
              return result;
          }
+
+        public PagedList<ConcertListItemViewModel> GetConcertListByPageNuber(DataListFilterModel filter, int pageNumber)
+        {
+            if (filter != null && filter.HasValue)
+            {
+                var concerts = from concertQuery in _repo.Queryable()
+                               let bands = concertQuery.bands
+                               let genres = bands.SelectMany(b => b.genres)
+                               let file = concertQuery.images.FirstOrDefault(i => i.IsAvatar)
+                               orderby concertQuery.date descending
+                               select new ConcertListItemViewModel()
+                               {
+                                   Id = concertQuery.Id,
+                                   ConcertOwner = concertQuery.ConcertOwner.name,
+                                   Image = new FileViewModel() { PathToShow = file.path },
+                                   BandNames = bands.Select(b => b.name).Concat(new string[] { concertQuery.ConcertOwner.name }).ToList(),
+                                   Date = concertQuery.date,
+                                   Genres = genres.Select(a => a.name).Concat(concertQuery.ConcertOwner.genres.Select(g => g.name)).ToList(),
+                                   Address = concertQuery.address
+                               };
+
+                if (filter.DateFrom.HasValue)
+                {
+                    concerts = concerts.Where(b => b.Date >= filter.DateFrom.Value);
+                }
+
+                if (filter.DateTo.HasValue)
+                {
+                    concerts = concerts.Where(b => b.Date <= filter.DateTo.Value);
+                }
+
+                if (!string.IsNullOrEmpty(filter.Names))
+                {
+                    var bandNames = filter.Names.Split(',');
+                    bandNames = bandNames.Select(g => g.Trim()).ToArray();
+
+                    concerts = concerts.Where(b => bandNames.Any(filterBand => b.BandNames.Any(band => band == filterBand)));
+                }
+
+                if (!string.IsNullOrEmpty(filter.GenreNames))
+                {
+                    var genreNames = filter.GenreNames.Split(',');
+                    genreNames = genreNames.Select(g => g.Trim()).ToArray();
+
+                    concerts = concerts.Where(b => genreNames.Any(filterGenre => b.Genres.Any(genre => genre == filterGenre)));
+                }
+
+                return concerts.ToPagedList(pageNumber, ConstHelper.GridPageSize);
+            }
+            else
+            {
+                var concerts = from concertQuery in _repo.Queryable()
+                               let bands = concertQuery.bands
+                               let genres = bands.SelectMany(b => b.genres)
+                               let file = concertQuery.images.FirstOrDefault(i => i.IsAvatar)
+                               orderby concertQuery.date descending
+                               select new ConcertListItemViewModel()
+                               {
+                                   Id = concertQuery.Id,
+                                   ConcertOwner = concertQuery.ConcertOwner.name,
+                                   Image = new FileViewModel() { PathToShow = file.path },
+                                   BandNames = bands.Select(b => b.name).Concat(new string[] { concertQuery.ConcertOwner.name }).ToList(),
+                                   Date = concertQuery.date,
+                                   Genres = genres.Select(a => a.name).Concat(concertQuery.ConcertOwner.genres.Select(g => g.name)).ToList(),
+                                   Address = concertQuery.address
+                               };
+
+                return concerts.ToPagedList(pageNumber, ConstHelper.GridPageSize);
+            }
+        }
     }
 }
