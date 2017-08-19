@@ -13,9 +13,9 @@
                     <div class="thumbnail">
                         <img src="@Concert.Cover.PathToShow" alt="...">
                         <div class="caption">
-                            <p>Concert date: @Html.DisplayFor(m => Concert.date)</p>
-                            <p>Address: @Concert.address</p>
-                            <p>Interested: @Concert.InterestedCount</p>
+                            <p>@MusicCenter.Common.Resources.Global.Date: @Html.DisplayFor(m => Concert.date)</p>
+                            <p>@MusicCenter.Common.Resources.Global.Address: @Concert.address</p>
+                            <p>@MusicCenter.Common.Resources.Global.InterestedUsers: @Concert.InterestedCount</p>
                         </div>
                     </div>
                 </a>
@@ -23,10 +23,10 @@
                 {
                     <div class="row form-group">
                         <div class="col-sm-2">
-                            <input type="button" data-url="@Url.Action("UpdateConcert", "Concert", new { ConcertId = @Concert.Id})" class="btn btn-default" value="Edit" name="EditConcertBtn" />
+                            <input type="button" data-url="@Url.Action("UpdateConcert", "Concert", new { ConcertId = @Concert.Id})" class="btn btn-default" value="@MusicCenter.Common.Resources.Global.Edit" name="EditConcertBtn" />
                         </div>
                         <div class="col-sm-2">
-                            <input type="button" data-concertid="@Concert.Id" data-address="@Concert.address" class="btn btn-default" value="Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteConcertBtn" />
+                            <input type="button" data-concertid="@Concert.Id" data-address="@Concert.address" class="btn btn-default" value="@MusicCenter.Common.Resources.Global.Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteConcertBtn" />
                         </div>
                     </div>
                 }
@@ -36,7 +36,7 @@
     @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
     {
         <div class="row pull-right">
-            <a href="@Url.Action("AddConcert", "Concert")" class="btn btn-default">Add concert</a>
+            <a href="@Url.Action("AddConcert", "Concert")" class="btn btn-default">@MusicCenter.Common.Resources.Global.AddConcert</a>
         </div>
     }
 
@@ -44,15 +44,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    Confirm Submit
+                    @MusicCenter.Common.Resources.Global.Confirm
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete concert in <b><p style="display:inline" id="ConcertAddr"></p></b> ?
+                    @MusicCenter.Common.Resources.Global.ConfirmDeleteConcert <b><p style="display:inline" id="ConcertAddr"></p></b> ?
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button data-url="@Url.Action("DeleteConcert", "Concert")" id="DeleteConfirmBtn" class="btn btn-success success">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@MusicCenter.Common.Resources.Global.Cancel</button>
+                    <button data-url="@Url.Action("DeleteConcert", "Concert")" id="DeleteConfirmBtn" class="btn btn-success success">OK</button>
                 </div>
             </div>
         </div>

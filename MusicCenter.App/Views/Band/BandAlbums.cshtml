@@ -6,8 +6,8 @@
 
 <div id="BodyContent" style="margin-left: 50px">
     <ul class="nav nav-tabs" style="margin-bottom:10px">
-        <li role="presentation" class="active"><a href="@Url.Action("BandAlbums", "Band", new { BandName = @Model.BandName })">Albums</a></li>
-        <li role="presentation"><a href="@Url.Action("BandSingles", "Band", new { BandName = @Model.BandName })">Singles</a></li>
+        <li role="presentation" class="active"><a href="@Url.Action("BandAlbums", "Band", new { BandName = @Model.BandName })">@MusicCenter.Common.Resources.Global.Albums</a></li>
+        <li role="presentation"><a href="@Url.Action("BandSingles", "Band", new { BandName = @Model.BandName })">@MusicCenter.Common.Resources.Global.Songs</a></li>
     </ul>
 
     <div class="row">
@@ -33,10 +33,10 @@
                 {
                     <div class="row form-group">
                         <div class="col-sm-2">
-                            <input type="button" data-url="@Url.Action("UpdateAlbum", "Band", new { AlbumName = @Album.Name})" class="btn btn-default" value="Edit" name="EditAlbumBtn" />
+                            <input type="button" data-url="@Url.Action("UpdateAlbum", "Band", new { AlbumName = @Album.Name})" class="btn btn-default" value="@MusicCenter.Common.Resources.Global.Edit" name="EditAlbumBtn" />
                         </div>
                         <div class="col-sm-2">
-                            <input type="button" data-album="@Album.Name" class="btn btn-default" value="Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteAlbumBtn" />
+                            <input type="button" data-album="@Album.Name" class="btn btn-default" value="@MusicCenter.Common.Resources.Global.Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteAlbumBtn" />
                         </div>
                     </div>
                 }
@@ -46,7 +46,7 @@
     @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
     {
         <div class="row pull-right">
-            <a href="@Url.Action("AddAlbum", "Band")" class="btn btn-default">Add album</a>
+            <a href="@Url.Action("AddAlbum", "Band")" class="btn btn-default">@MusicCenter.Common.Resources.Global.AddAlbum</a>
         </div>
     }
     
@@ -54,15 +54,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    Confirm Submit
+                    @MusicCenter.Common.Resources.Global.Confirm
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete <b><p style="display:inline" id="AlbumName"></p></b> album ?
+                    @MusicCenter.Common.Resources.Global.ConfirmDelete <b><p style="display:inline" id="AlbumName"></p></b> ?
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button data-url="@Url.Action("DeleteAlbum", "Band")" id="DeleteConfirmBtn" class="btn btn-success success">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@MusicCenter.Common.Resources.Global.Cancel</button>
+                    <button data-url="@Url.Action("DeleteAlbum", "Band")" id="DeleteConfirmBtn" class="btn btn-success success">OK</button>
                 </div>
             </div>
         </div>

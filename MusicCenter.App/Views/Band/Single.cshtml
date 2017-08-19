@@ -8,18 +8,18 @@
             <div class="thumbnail">
                 <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/@Model.UrlAddress&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=false"></iframe>
                 <div class="caption">
-                    <p>Genres: @Model.Genres</p>
-                    <p>Release date: @Html.DisplayFor(m => m.ReleaseDate)</p>
+                    <p>@MusicCenter.Common.Resources.Global.Genres: @Model.Genres</p>
+                    <p>@MusicCenter.Common.Resources.Global.ReleaseDate: @Html.DisplayFor(m => m.ReleaseDate)</p>
                 </div>
             </div>
             @if (Session["band"] != null && Session["band"].ToString() == Model.BandName)
             {
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <input type="button" data-url="@Url.Action("UpdateSingle", "Band", new { SingleId = @Model.Id})" class="btn btn-default" value="Edit" name="EditSingleBtn" />
+                        <input type="button" data-url="@Url.Action("UpdateSingle", "Band", new { SingleId = @Model.Id})" class="btn btn-default" value="@MusicCenter.Common.Resources.Global.Edit" name="EditSingleBtn" />
                     </div>
                     <div class="col-sm-1">
-                        <input type="button" data-singleid="@Model.Id" data-singlename="@Model.Name" class="btn btn-default" value="Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteSingleBtn" />
+                        <input type="button" data-singleid="@Model.Id" data-singlename="@Model.Name" class="btn btn-default" value="@MusicCenter.Common.Resources.Global.Delete" data-toggle="modal" data-target="#confirm-submit" name="DeleteSingleBtn" />
                     </div>
                 </div>
             }
@@ -27,7 +27,7 @@
         @if (Session["user"] != null)
         {
             <div class="col-sm-2">
-                <input type="button" class="btn btn-default" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" value="Add to favourites" id="@Model.Id" name="AddSongToFavBtn" />
+                <input type="button" class="btn btn-default" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" value="@MusicCenter.Common.Resources.Global.AddToFavourites" id="@Model.Id" name="AddSongToFavBtn" />
             </div>
         }
     </div>

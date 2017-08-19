@@ -12,7 +12,7 @@
         @Html.HiddenFor(m => m.BandName)
         <div class="row form-group">
                 <div class="col-sm-2">
-                    <label class="control-label input-sm">Release date:</label>
+                    <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.ReleaseDate:</label>
                 </div>
                 <div class="col-sm-2">
                     @Html.TextBoxFor(m => m.ReleaseDate, "{0:d}", new { @class = "form-control input-sm", id = "ReleaseDate" })
@@ -21,15 +21,15 @@
         </div>
         <div class="row form-group">
             <div class="col-sm-1">
-                <label class="control-label input-sm">Gatunki:</label>
+                <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Genres:</label>
             </div>
             <div class="col-sm-6">
-                @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = "separated by comma", style = "max-width: none" })
+                @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = @MusicCenter.Common.Resources.Global.SeparatedByComma, style = "max-width: none" })
             </div>
         </div>
         <div class="row form-group">
             <div class="col-sm-1">
-                <label class="control-label input-sm">Utwór:</label>
+                <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Song:</label>
             </div>
             <div class="col-sm-11">
                 <div class="row form-group">

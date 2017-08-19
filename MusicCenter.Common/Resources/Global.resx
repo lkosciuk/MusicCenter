@@ -117,11 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddAlbum" xml:space="preserve">
+    <value>Dodaj album</value>
+  </data>
   <data name="AddBand" xml:space="preserve">
     <value>Dodaj zespół</value>
   </data>
   <data name="AddBandInfo" xml:space="preserve">
     <value>Nie posiadasz żadnego zespołu, kliknij przycisk poniżej aby jakiś dodać...</value>
+  </data>
+  <data name="AddBandSoundCloudNeeded" xml:space="preserve">
+    <value>Aby dodać zespół i zarządzać dyskografią należy połączyć konto z witryną SoundCloud</value>
+  </data>
+  <data name="AddConcert" xml:space="preserve">
+    <value>Dodaj koncert</value>
+  </data>
+  <data name="AddMusician" xml:space="preserve">
+    <value>Dodaj muzyka</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="AddSongs" xml:space="preserve">
+    <value>Dodaj utwory</value>
+  </data>
+  <data name="AddToFavourites" xml:space="preserve">
+    <value>Dodaj do ulubionych</value>
+  </data>
+  <data name="Album" xml:space="preserve">
+    <value>Album</value>
   </data>
   <data name="Albums" xml:space="preserve">
     <value>Albumy</value>
@@ -129,11 +153,17 @@
   <data name="AppName" xml:space="preserve">
     <value>MusicCenter</value>
   </data>
+  <data name="Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
   <data name="Bands" xml:space="preserve">
     <value>Zespoły</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Wybierz...</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
   </data>
   <data name="ChangeLanguageEn" xml:space="preserve">
     <value>en</value>
@@ -144,11 +174,38 @@
   <data name="Concerts" xml:space="preserve">
     <value>Koncerty</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potwierdź operacje</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Na pewno usunąć</value>
+  </data>
+  <data name="ConfirmDeleteConcert" xml:space="preserve">
+    <value>Czy na pewno usunąć koncert w dniu</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Data utworzenia</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Opis</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
   <data name="Dicography" xml:space="preserve">
     <value>Dyskografia</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Adres email</value>
@@ -162,6 +219,9 @@
   <data name="EmailValid" xml:space="preserve">
     <value>To nie jest poprawny adres email</value>
   </data>
+  <data name="EnterBandNames" xml:space="preserve">
+    <value>Wpisz nazwy zespołów</value>
+  </data>
   <data name="Favourites" xml:space="preserve">
     <value>Ulubione</value>
   </data>
@@ -174,11 +234,23 @@
   <data name="Genres" xml:space="preserve">
     <value>Gatunki</value>
   </data>
+  <data name="InterestedUsers" xml:space="preserve">
+    <value>Zaintersowani użytkownicy</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Wydawnictwo</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Nazwisko</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalizacja</value>
+  </data>
   <data name="LogOut" xml:space="preserve">
     <value>Wyloguj</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Wiadomość</value>
   </data>
   <data name="MessageRecipientsError" xml:space="preserve">
     <value>Odbiorcy muszą być oddzieleni przecinkami</value>
@@ -186,14 +258,26 @@
   <data name="Messages" xml:space="preserve">
     <value>Wiadomości</value>
   </data>
+  <data name="Musicians" xml:space="preserve">
+    <value>Muzycy</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
+  </data>
+  <data name="NewMessage" xml:space="preserve">
+    <value>Nowa wiadomość</value>
   </data>
   <data name="NewMessages" xml:space="preserve">
     <value>Nowe wiadomości:</value>
   </data>
   <data name="NewPassword" xml:space="preserve">
     <value>Nowe hasło</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="NoMessages" xml:space="preserve">
+    <value>Brak wiadomości...</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
     <value>Stare hasło</value>
@@ -216,14 +300,35 @@
   <data name="PasswordRequired" xml:space="preserve">
     <value>Hasło jest wymagane</value>
   </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Numer telefonu</value>
+  </data>
+  <data name="Producer" xml:space="preserve">
+    <value>Producent</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
+  </data>
+  <data name="Readed" xml:space="preserve">
+    <value>Przeczytana</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Odebrane</value>
+  </data>
+  <data name="Recipients" xml:space="preserve">
+    <value>Odbiorcy</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Rejestracja</value>
   </data>
+  <data name="ReleaseDate" xml:space="preserve">
+    <value>Data wydania</value>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Zapamiętaj mnie</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Odpowiedz</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
@@ -231,17 +336,38 @@
   <data name="Search" xml:space="preserve">
     <value>Szukaj</value>
   </data>
+  <data name="SearchAddress" xml:space="preserve">
+    <value>Szukaj adresu</value>
+  </data>
   <data name="SearchPlaceHolder" xml:space="preserve">
     <value>szukaj...</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Wyślij</value>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Wysłane</value>
+  </data>
+  <data name="SeparatedByComma" xml:space="preserve">
+    <value>Oddzielane przecinkami</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Zaloguj</value>
   </data>
+  <data name="Song" xml:space="preserve">
+    <value>Utwór</value>
+  </data>
   <data name="Songs" xml:space="preserve">
     <value>Utwory</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
   <data name="YearsActive" xml:space="preserve">
     <value>Lata aktywności</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Tak</value>
   </data>
   <data name="YourBands" xml:space="preserve">
     <value>Twoje zespoły</value>

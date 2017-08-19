@@ -21,16 +21,6 @@ AddBandScope = function () {
             },
             dateFormat: 'dd-mm-yy'
         });
-
-        $("#ResolveDate").datepicker({
-
-            beforeShow: function () {
-                setTimeout(function () {
-                    $('.ui-datepicker').css('z-index', 99999999999999);
-                }, 0);
-            },
-            dateFormat: 'dd-mm-yy'
-        });
     };
 
     this.UpdateBandAvatar = function () {

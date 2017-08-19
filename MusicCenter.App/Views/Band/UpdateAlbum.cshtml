@@ -20,14 +20,14 @@
             <div class="col-lg-10">
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <label class="control-label input-sm">Nazwa:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Name:</label>
                     </div>
                     <div class="col-sm-2">
                         @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm" })
                         @Html.ValidationMessageFor(m => m.Name)
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label input-sm">Release date:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.ReleaseDate:</label>
                     </div>
                     <div class="col-sm-2">
                         @Html.TextBoxFor(m => m.ReleaseDate, "{0:d}", new { @class = "form-control input-sm", id = "UpdateReleaseDate" })
@@ -36,13 +36,13 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <label class="control-label input-sm">Label:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Label:</label>
                     </div>
                     <div class="col-sm-2">
                         @Html.TextBoxFor(m => m.Label, new { @class = "form-control input-sm" })
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label input-sm">Producer:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Producer:</label>
                     </div>
                     <div class="col-sm-2">
                         @Html.TextBoxFor(m => m.Producer, new { @class = "form-control input-sm", name = "ResolveDate", id = "ResolveDate" })
@@ -50,10 +50,10 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <label class="control-label input-sm">Gatunki:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Genres:</label>
                     </div>
                     <div class="col-sm-6">
-                        @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = "separated by comma", style = "max-width: none" })
+                        @Html.TextBoxFor(m => m.Genres, new { @class = "form-control input-sm", name = "Genres", placeholder = @MusicCenter.Common.Resources.Global.SeparatedByComma, style = "max-width: none" })
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="row form-group">
             <div class="col-sm-1">
-                <label class="control-label input-sm">Utwory:</label>
+                <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Songs:</label>
             </div>
             <div class="col-sm-11">
                 @foreach (var item in Model.ExistingSongs)
@@ -79,13 +79,13 @@
                             <iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/@songUrl&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=false"></iframe>
                         </div>
                         <div class="col-sm-2">
-                            <input type="button" value="Remove" data-songid="@item.Id" class="btn btn-danger" name="RemoveSongBtn" />
+                            <input type="button" value="@MusicCenter.Common.Resources.Global.Delete" data-songid="@item.Id" class="btn btn-danger" name="RemoveSongBtn" />
                         </div>
                     </div>
                 }
                 <br />
                 <div>
-                    <b>Add songs:</b>
+                    <b>@MusicCenter.Common.Resources.Global.AddSongs:</b>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-10">
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <input type="button" id="UpdateAlbumBtn" class="btn btn-default pull-right" value="Save" />
+        <input type="button" id="UpdateAlbumBtn" class="btn btn-default pull-right" value="@MusicCenter.Common.Resources.Global.Save" />
     </form>
 </div>
 

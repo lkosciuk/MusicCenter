@@ -7,8 +7,8 @@
 
     <div id="BodyContent" style="margin-left: 50px">
         <ul class="nav nav-tabs" style="margin-bottom:10px">
-            <li role="presentation" id="DetailsTab" class="active"><a href="#">Details</a></li>
-            <li role="presentation" id="LocalizationTab"><a href="#">Localization</a></li>
+            <li role="presentation" id="DetailsTab" class="active"><a href="#">@MusicCenter.Common.Resources.Global.Details</a></li>
+            <li role="presentation" id="LocalizationTab"><a href="#">@MusicCenter.Common.Resources.Global.Localization</a></li>
         </ul>
 
             <div class="row" id="DetailsPanel">
@@ -21,7 +21,7 @@
                     <div class="col-lg-10">
                         <div class="row form-group">
                             <div class="col-sm-1">
-                                <label class="control-label input-sm">Date:</label>
+                                <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Date:</label>
                             </div>
                             <div class="col-sm-3">
                                 <label class="control-label input-sm">@Model.date</label>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-sm-1">
-                                <label class="control-label input-sm">Bands:</label>
+                                <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Bands:</label>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -50,7 +50,7 @@
                 <div class="row form-group">
                     <div class="col-sm-11" style="margin-left: 140px">
                         <div class="col-sm-1">
-                            <label class="control-label input-sm">Description:</label>
+                            <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Description:</label>
                         </div>
                         <div class="col-sm-10" style="margin-left:20px">
                             @Html.TextAreaFor(m => m.description, new { @class = "form-control", @readonly = true, @style = "max-width:100%", @rows = "5" })
@@ -61,7 +61,7 @@
             <div id="LocalizationPanel" style="visibility: hidden; width: 0px; height: 0px">
                 @Html.HiddenFor(m => m.Latitude, new { @id = "Latitude" })
                 @Html.HiddenFor(m => m.Longitude, new { @id = "Longitude" })
-                @Html.TextBoxFor(m => m.address, new { @placeholder = "Search address",  @readonly = true,  @style = "max-width:100%; width: 100%", @id = "search-input", @class = "form-control" })
+                @Html.TextBoxFor(m => m.address, new { @placeholder = @MusicCenter.Common.Resources.Global.SearchAddress,  @readonly = true,  @style = "max-width:100%; width: 100%", @id = "search-input", @class = "form-control" })
                 <div id="map" style="height:400px; width:100%">
 
                 </div>

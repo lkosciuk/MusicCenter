@@ -61,6 +61,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj album.
+        /// </summary>
+        public static string AddAlbum {
+            get {
+                return ResourceManager.GetString("AddAlbum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodaj zespół.
         /// </summary>
         public static string AddBand {
@@ -75,6 +84,69 @@ namespace MusicCenter.Common.Resources {
         public static string AddBandInfo {
             get {
                 return ResourceManager.GetString("AddBandInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aby dodać zespół i zarządzać dyskografią należy połączyć konto z witryną SoundCloud.
+        /// </summary>
+        public static string AddBandSoundCloudNeeded {
+            get {
+                return ResourceManager.GetString("AddBandSoundCloudNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj koncert.
+        /// </summary>
+        public static string AddConcert {
+            get {
+                return ResourceManager.GetString("AddConcert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj muzyka.
+        /// </summary>
+        public static string AddMusician {
+            get {
+                return ResourceManager.GetString("AddMusician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adres.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj utwory.
+        /// </summary>
+        public static string AddSongs {
+            get {
+                return ResourceManager.GetString("AddSongs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj do ulubionych.
+        /// </summary>
+        public static string AddToFavourites {
+            get {
+                return ResourceManager.GetString("AddToFavourites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Album.
+        /// </summary>
+        public static string Album {
+            get {
+                return ResourceManager.GetString("Album", resourceCulture);
             }
         }
         
@@ -97,6 +169,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Autor.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zespoły.
         /// </summary>
         public static string Bands {
@@ -111,6 +192,15 @@ namespace MusicCenter.Common.Resources {
         public static string Browse {
             get {
                 return ResourceManager.GetString("Browse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anuluj.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
@@ -142,6 +232,69 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Potwierdź operacje.
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Na pewno usunąć.
+        /// </summary>
+        public static string ConfirmDelete {
+            get {
+                return ResourceManager.GetString("ConfirmDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czy na pewno usunąć koncert w dniu.
+        /// </summary>
+        public static string ConfirmDeleteConcert {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteConcert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utwórz.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data utworzenia.
+        /// </summary>
+        public static string CreateDate {
+            get {
+                return ResourceManager.GetString("CreateDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuń.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Opis.
         /// </summary>
         public static string Description {
@@ -151,11 +304,29 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Szczegóły.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dyskografia.
         /// </summary>
         public static string Dicography {
             get {
                 return ResourceManager.GetString("Dicography", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edytuj.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -196,6 +367,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wpisz nazwy zespołów.
+        /// </summary>
+        public static string EnterBandNames {
+            get {
+                return ResourceManager.GetString("EnterBandNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ulubione.
         /// </summary>
         public static string Favourites {
@@ -232,6 +412,24 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zaintersowani użytkownicy.
+        /// </summary>
+        public static string InterestedUsers {
+            get {
+                return ResourceManager.GetString("InterestedUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wydawnictwo.
+        /// </summary>
+        public static string Label {
+            get {
+                return ResourceManager.GetString("Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nazwisko.
         /// </summary>
         public static string LastName {
@@ -241,11 +439,29 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lokalizacja.
+        /// </summary>
+        public static string Localization {
+            get {
+                return ResourceManager.GetString("Localization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyloguj.
         /// </summary>
         public static string LogOut {
             get {
                 return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wiadomość.
+        /// </summary>
+        public static string Message {
+            get {
+                return ResourceManager.GetString("Message", resourceCulture);
             }
         }
         
@@ -268,11 +484,29 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Muzycy.
+        /// </summary>
+        public static string Musicians {
+            get {
+                return ResourceManager.GetString("Musicians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nazwa.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa wiadomość.
+        /// </summary>
+        public static string NewMessage {
+            get {
+                return ResourceManager.GetString("NewMessage", resourceCulture);
             }
         }
         
@@ -291,6 +525,24 @@ namespace MusicCenter.Common.Resources {
         public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brak wiadomości....
+        /// </summary>
+        public static string NoMessages {
+            get {
+                return ResourceManager.GetString("NoMessages", resourceCulture);
             }
         }
         
@@ -358,11 +610,56 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Numer telefonu.
+        /// </summary>
+        public static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Producent.
+        /// </summary>
+        public static string Producer {
+            get {
+                return ResourceManager.GetString("Producer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profil.
         /// </summary>
         public static string Profile {
             get {
                 return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Przeczytana.
+        /// </summary>
+        public static string Readed {
+            get {
+                return ResourceManager.GetString("Readed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odebrane.
+        /// </summary>
+        public static string Received {
+            get {
+                return ResourceManager.GetString("Received", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odbiorcy.
+        /// </summary>
+        public static string Recipients {
+            get {
+                return ResourceManager.GetString("Recipients", resourceCulture);
             }
         }
         
@@ -376,11 +673,29 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data wydania.
+        /// </summary>
+        public static string ReleaseDate {
+            get {
+                return ResourceManager.GetString("ReleaseDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zapamiętaj mnie.
         /// </summary>
         public static string RememberMe {
             get {
                 return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odpowiedz.
+        /// </summary>
+        public static string Reply {
+            get {
+                return ResourceManager.GetString("Reply", resourceCulture);
             }
         }
         
@@ -403,11 +718,47 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Szukaj adresu.
+        /// </summary>
+        public static string SearchAddress {
+            get {
+                return ResourceManager.GetString("SearchAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to szukaj....
         /// </summary>
         public static string SearchPlaceHolder {
             get {
                 return ResourceManager.GetString("SearchPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyślij.
+        /// </summary>
+        public static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wysłane.
+        /// </summary>
+        public static string Sent {
+            get {
+                return ResourceManager.GetString("Sent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oddzielane przecinkami.
+        /// </summary>
+        public static string SeparatedByComma {
+            get {
+                return ResourceManager.GetString("SeparatedByComma", resourceCulture);
             }
         }
         
@@ -421,6 +772,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utwór.
+        /// </summary>
+        public static string Song {
+            get {
+                return ResourceManager.GetString("Song", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utwory.
         /// </summary>
         public static string Songs {
@@ -430,11 +790,29 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tytuł.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lata aktywności.
         /// </summary>
         public static string YearsActive {
             get {
                 return ResourceManager.GetString("YearsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tak.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

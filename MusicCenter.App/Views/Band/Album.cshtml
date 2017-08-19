@@ -10,13 +10,13 @@
             <div class="col-lg-10">
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <label class="control-label input-sm">Nazwa:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Name:</label>
                     </div>
                     <div class="col-sm-2">
                         @Model.Name
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label input-sm">Release date:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.ReleaseDate:</label>
                     </div>
                     <div class="col-sm-2">
                         @Html.DisplayFor(m => m.ReleaseDate)
@@ -24,19 +24,19 @@
                     @if (Session["user"] != null)
                     {
                         <div class="col-sm-2">
-                            <input type="button" id="AddAlbumToFavBtn" data-checkurl="@Url.Action("IsUserHaveAlbumInFavourites", "Favourites")" data-url="@Url.Action("AddAlbumToFavourites", "Favourites")" name="@Model.Name" value="Add to favourites" class="btn btn-default" />
+                            <input type="button" id="AddAlbumToFavBtn" data-checkurl="@Url.Action("IsUserHaveAlbumInFavourites", "Favourites")" data-url="@Url.Action("AddAlbumToFavourites", "Favourites")" name="@Model.Name" value="@MusicCenter.Common.Resources.Global.AddToFavourites" class="btn btn-default" />
                         </div>
                     }
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <label class="control-label input-sm">Label:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Label:</label>
                     </div>
                     <div class="col-sm-2">
                         @Model.Label
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label input-sm">Producer:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Producer:</label>
                     </div>
                     <div class="col-sm-2">
                         @Model.Producer
@@ -44,7 +44,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-1">
-                        <label class="control-label input-sm">Gatunki:</label>
+                        <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Genres:</label>
                     </div>
                     <div class="col-sm-6">
                         @Model.Genres
@@ -54,7 +54,7 @@
         </div>
         <div class="row form-group">
             <div class="col-sm-1">
-                <label class="control-label input-sm">Utwory:</label>
+                <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Songs:</label>
             </div>
             <div class="col-sm-11">
                 @foreach (var item in Model.Songs)
@@ -68,7 +68,7 @@
                         @if (Session["user"] != null)
                         {
                             <div class="col-sm-2">
-                                <input type="button" id="@item.Id" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" name="AddSongToFav" value="Add to favourites" class="btn btn-default btn-sm" />
+                                <input type="button" id="@item.Id" data-checkurl="@Url.Action("IsUserHaveSongInFavourites", "Favourites")" data-url="@Url.Action("AddSongToFavourites", "Favourites")" name="AddSongToFav" value="@MusicCenter.Common.Resources.Global.AddToFavourites" class="btn btn-default btn-sm" />
                             </div>
                         }
                     </div>

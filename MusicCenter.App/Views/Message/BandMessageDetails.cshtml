@@ -6,26 +6,26 @@
 <div id="BodyContent" style="margin-left: 50px">
 
     <ul class="nav nav-tabs" style="margin-bottom:10px">
-        <li role="presentation"><a href="@Url.Action("BandMessages", "Message")">Received</a></li>
-        <li role="presentation"><a href="@Url.Action("BandSentMessages", "Message")">Sent</a></li>
-        <li role="presentation" class="active"><a href="@Url.Action("BandNewMessage", "Message")">New message</a></li>
+        <li role="presentation"><a href="@Url.Action("BandMessages", "Message")">@MusicCenter.Common.Resources.Global.Received</a></li>
+        <li role="presentation"><a href="@Url.Action("BandSentMessages", "Message")">@MusicCenter.Common.Resources.Global.Sent</a></li>
+        <li role="presentation" class="active"><a href="@Url.Action("BandNewMessage", "Message")">@MusicCenter.Common.Resources.Global.NewMessage</a></li>
     </ul>
 
     <div class="form-group">
-        <label>Author</label>
-        @Html.TextBoxFor(m => m.Author, new { @class = "form-control", disabled = "disabled", @placeholder = "separated by comma" })
+        <label>@MusicCenter.Common.Resources.Global.Author</label>
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control", disabled = "disabled", @placeholder = @MusicCenter.Common.Resources.Global.SeparatedByComma })
     </div>
     <div class="form-group">
-        <label>Title</label>
+        <label>@MusicCenter.Common.Resources.Global.Title</label>
         @Html.TextBoxFor(m => m.Title, new { @class = "form-control", disabled = "disabled" })
         @Html.ValidationMessageFor(m => m.Title)
     </div>
     <div class="form-group">
-        <label>Message</label>
+        <label>@MusicCenter.Common.Resources.Global.Message</label>
         @Html.TextAreaFor(m => m.Content, new { @class = "form-control", disabled = "disabled", @rows = "4" })
     </div>
     <div class="form-group">
-        <a class="btn btn-default" href="@Url.Action("BandNewMessage", "Message", new { MessageId = @Model.Id })" role="button">Reply</a>
+        <a class="btn btn-default" href="@Url.Action("BandNewMessage", "Message", new { MessageId = @Model.Id })" role="button">@MusicCenter.Common.Resources.Global.Reply</a>
     </div>
 </div>
 

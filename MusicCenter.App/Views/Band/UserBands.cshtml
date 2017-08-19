@@ -16,7 +16,7 @@
         <label>@MusicCenter.Common.Resources.Global.Genres</label>
     </div>
     <div class="col-md-2">
-        <label>@MusicCenter.Common.Resources.Global.YearsActive</label>
+        <label>@MusicCenter.Common.Resources.Global.CreateDate</label>
     </div>
 </div>
 
@@ -38,11 +38,8 @@
                         <div style="display:inline">@genre </div>
                     }
                 </div>
-                <div class="col-md-4">
-                    @Html.DisplayFor(m =>item.CreationDate) - @if (item.ResolveDate != null)
-                                                              { <div style="display:inline">@Html.DisplayFor(m => item.ResolveDate)</div> }
-                                                              else
-                                                              { <div style="display:inline">Present</div> }
+                <div class="col-md-2">
+                    @Html.DisplayFor(m =>item.CreationDate)
                 </div>
                 <div class="col-md-2">
                     <input type="submit" name="BandLoginBtn" class="btn btn-default pull-right" value="@MusicCenter.Common.Resources.Global.SignIn" />
@@ -61,7 +58,7 @@ else
 </div>
 
 <div id="SoundCloundLogin" align="right">
-    <b>To add and manage band you need to connect your account to SoundCloud</b>
+    <b>@MusicCenter.Common.Resources.Global.AddBandSoundCloudNeeded</b>
     <br/><img id="SoundCloudLogo" soundCloundUrl="@Url.Action("SoundCloudConnect", "Account")" src="http://connect.soundcloud.com/2/btn-connect-sc-l.png" width="150" style="margin-top: 15px">
 </div>
 

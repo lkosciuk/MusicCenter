@@ -15,7 +15,7 @@
             </div>
             <div class="row form-group">
                 <div class="col-sm-1">
-                    Genres:
+                    @MusicCenter.Common.Resources.Global.Genres:
                 </div>
                 <div class="col-sm-11">
                     @Html.TextBoxFor(m => m.Genres, new { @class = "form-control" })
@@ -23,13 +23,13 @@
             </div>
             <div class="row form-group">
                 <div class="col-sm-2">
-                    Release date:
+                    @MusicCenter.Common.Resources.Global.ReleaseDate:
                 </div>
                 <div class="col-sm-2" style="left: -90px" >
                     @Html.TextBoxFor(m => m.ReleaseDate, "{0:d}", new { @class = "form-control", @id = "ReleaseDate" })
                 </div>
             </div>
         </div>
-        <input type="submit" value="Save" class="btn btn-default pull-right" />
+        <input type="submit" value="@MusicCenter.Common.Resources.Global.Save" class="btn btn-default pull-right" />
     </form>
 </div>
