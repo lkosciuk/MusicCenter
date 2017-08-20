@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicCenter.Common.ViewModels.Band;
+using Webdiyer.WebControls.Mvc;
 
 namespace MusicCenter.Services.Intefaces
 {
@@ -28,5 +30,7 @@ namespace MusicCenter.Services.Intefaces
         List<FavouriteCheckResult> IsUserHaveConcertsInFavourites(string email, List<int> concertIds);
 
         void AddConcertToFavourites(string email, int concertId);
+
+        PagedList<BandListItemViewModel> GetUserFavouriteBandsByPageNumber(int id, string userEmail);
     }
 }

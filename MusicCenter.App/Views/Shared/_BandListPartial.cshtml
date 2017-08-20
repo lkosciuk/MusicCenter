@@ -4,5 +4,4 @@
 
 <div style="bottom:0; position:fixed; width:100%; text-align:center;">
     @Ajax.Pager(Model, new PagerOptions { ActionName = "BandList", ControllerName = "Band", CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "id", FirstPageText = "First", LastPageText = "Last", NextPageText = "Next", PrevPageText = "Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li name='pagerPage'>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("dataList").SetDataFormId("dataFilterForm").SetOnSuccess("bandListScope.OnGridLoaded"))
-
 </div>

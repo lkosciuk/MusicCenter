@@ -1,5 +1,26 @@
 ﻿@{
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+@Scripts.Render("~/Scripts/Favourites/UserFavourites.js")
 
+<div style="margin-left: 50px">
+        <ul class="nav nav-tabs" style="margin-bottom:10px">
+            <li name="favTab" id="bands" role="presentation" class="active"><a>@MusicCenter.Common.Resources.Global.Bands</a></li>
+            <li name="favTab" id="albums" role="presentation"><a>@MusicCenter.Common.Resources.Global.Albums</a></li>
+            <li name="favTab" id="songs" role="presentation"><a>@MusicCenter.Common.Resources.Global.Songs</a></li>
+            <li name="favTab" id="concerts" role="presentation"><a>@MusicCenter.Common.Resources.Global.Concerts</a></li>
+        </ul>
+</div>
 
+<section id="favouritesBands" name="tabContent">
+        @Html.Action("UserFavouriteBands", "Favourites")
+</section>
+<section id="favouritesAlbums" name="tabContent">
+        @Html.Action("UserFavouriteAlbums", "Favourites")
+</section>
+<section id="favouritesSongs" name="tabContent">
+        @Html.Action("UserFavouriteSongs", "Favourites")
+</section>
+<section id="favouritesConcerts" name="tabContent">
+        @Html.Action("UserFavouriteConcerts", "Favourites")
+</section>

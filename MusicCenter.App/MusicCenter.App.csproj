@@ -319,6 +319,7 @@
     <Content Include="Scripts\Concert\Concert.js" />
     <Content Include="Scripts\Concert\ConcertList.js" />
     <Content Include="Scripts\Concert\UpdateConcert.js" />
+    <Content Include="Scripts\Favourites\UserFavourites.js" />
     <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
@@ -424,6 +425,11 @@
     <Content Include="Views\Concert\ConcertList.cshtml" />
     <Content Include="Views\Shared\_ConcertListPartial.cshtml" />
     <Content Include="Views\Shared\_ConcertTable.cshtml" />
+    <Content Include="Views\Favourites\UserFavouriteBands.cshtml" />
+    <Content Include="Views\Shared\_FavouriteBandsPartial.cshtml" />
+    <Content Include="Views\Favourites\UserFavouriteAlbums.cshtml" />
+    <Content Include="Views\Favourites\UserFavouriteSongs.cshtml" />
+    <Content Include="Views\Favourites\UserFavouriteConcerts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -10,6 +10,10 @@ using MusicCenter.Dal.Repositories;
 using Repository.Pattern.Infrastructure;
 using MusicCenter.Dal.RepoExt;
 using MusicCenter.Common.ResponseModels.Band;
+using MusicCenter.Common.ViewModels.Band;
+using Webdiyer.WebControls.Mvc;
+using MusicCenter.Common.ViewModels.File;
+using MusicCenter.Common.Helpers;
 
 namespace MusicCenter.Services.Services
 {
@@ -77,6 +81,25 @@ namespace MusicCenter.Services.Services
             _unitOfWork.SaveChanges();
         }
 
+        public PagedList<BandListItemViewModel> GetUserFavouriteBandsByPageNumber(int id, string userEmail)
+        {
+            var result = (from user in _unitOfWork.Repository<Users>().Queryable()
+                         join favourites in _unitOfWork.Repository<Favourites>().Queryable() on user.Id equals favourites.user.Id
+                         from band in favourites.bands
+                         where user.email == userEmail
+                         orderby band.name
+                         select new BandListItemViewModel()
+                         {
+                             Avatar = new FileViewModel() { PathToShow = band.images.FirstOrDefault(i => i.IsAvatar).path },
+                             Name = band.name,
+                             CreationDate = band.bandCreationDate,
+                             Description = band.description,
+                             Genres = band.genres.Select(g => g.name).ToList()
+                         }).ToPagedList(id, ConstHelper.GridPageSize);
+
+            return result;
+                         
+        }
 
         public bool IsUserHaveAlbumInFavourites(string email, string AlbumName)
         {
@@ -107,6 +130,10 @@ namespace MusicCenter.Services.Services
         public List<FavouriteCheckResult> IsUserHaveBandsInFavourites(string email, List<string> bandNames)
         {
             var result = new List<FavouriteCheckResult>();
+            if (bandNames == null)
+            {
+                bandNames = new List<string>();
+            }
             var userFavourites = _repo.GetUserFavourites(email, f => f.bands).FirstOrDefault();
 
             foreach (var bandName in bandNames)

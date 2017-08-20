@@ -59,12 +59,23 @@
                 }
             </div>
        </a>
-            @if (Session["user"] != null)
+        @{
+            var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+
+            if (Session["user"] != null && controllerName == "Band")
             {
                 <div class="col-sm-2">
                     <input type="button" name="AddBandToFavBtn" data-bandname="@band.Name" class="btn btn-success" value="Add to favourites" />
                 </div>
             }
+            else if(Session["user"] != null && controllerName == "Favourites")
+            {
+                <div class="col-sm-2">
+                    <input type="button" name="DeleteBandFav" data-bandname="@band.Name" class="btn btn-success" value="@MusicCenter.Common.Resources.Global.Delete" />
+                </div>
+            }
+
+        }
 </div>
 }
 <div id="bandListData" data-user="@Session["user"]" data-addtofavurl="@Url.Action("AddBandToFavourites", "Favourites")" data-checkfavurl="@Url.Action("IsUserHaveBandsInFavourites", "Favourites")"/>
