@@ -15,6 +15,7 @@ using Webdiyer.WebControls.Mvc;
 using MusicCenter.Common.ViewModels.File;
 using MusicCenter.Common.Helpers;
 using MusicCenter.Common.ViewModels.Concert;
+using System.Data.Entity;
 
 namespace MusicCenter.Services.Services
 {

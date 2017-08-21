@@ -1,1 +1,13 @@
-﻿Koncerty
+﻿@model PagedList<MusicCenter.Common.ViewModels.Concert.ConcertListItemViewModel>
+
+<div id="concertList">
+    @Html.Partial("_FavouriteConcertsPartial", Model)
+</div>
+
+
+
+
+
+
+
+
