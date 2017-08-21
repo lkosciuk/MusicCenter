@@ -61,7 +61,7 @@
         @{
             var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
 
-            if (Session["user"] != null && controllerName == "Band")
+            if (Session["user"] != null && controllerName == "Concert")
             {
                 <div class="col-sm-2">
                     <input type="button" name="AddConcertToFavBtn" data-concertid="@concert.Id" class="btn btn-success" value="Add to favourites" />

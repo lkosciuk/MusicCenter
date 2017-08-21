@@ -9,6 +9,9 @@
 
     this.OnGridLoaded = function () {
         IfUserAddedAlbumsToFavourites();
+        $.each($('[name=AddAlbumToFavBtn]'), function () {
+            $(this).click(AddAlbumToFavourites);
+        });
     }
 
     var AddAlbumToFavourites = function () {
@@ -26,7 +29,7 @@
             var url = $("#albumListData").data('checkfavurl');
             var currentPageAlbumNames = new Array();
 
-            $.each($('[name=AddBandToFavBtn]'), function () {
+            $.each($('[name=AddAlbumToFavBtn]'), function () {
                 currentPageAlbumNames.push($(this).data('albumname'));
             });
 
@@ -40,7 +43,7 @@
 
                     $.each(result, function (index, value) {
                         if (value.IsInFavourites) {
-                            $("[name=AddBandToFavBtn][data-albumname='" + value.Name + "']").hide();
+                            $("[name=AddAlbumToFavBtn][data-albumname='" + value.Name + "']").hide();
                         }
                     });
 

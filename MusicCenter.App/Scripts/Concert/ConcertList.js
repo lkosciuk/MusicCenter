@@ -9,6 +9,9 @@
 
     this.OnGridLoaded = function () {
         IfUserAddedConcertsToFavourites();
+        $.each($('[name=AddConcertToFavBtn]'), function () {
+            $(this).click(AddConcertToFavourites);
+        });
     }
 
     var AddConcertToFavourites = function () {

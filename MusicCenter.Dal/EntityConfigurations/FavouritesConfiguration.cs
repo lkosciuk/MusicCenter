@@ -22,8 +22,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("BandFavourites");
-                    m.MapLeftKey("BandID");
-                    m.MapRightKey("FavouritesID");
+                    m.MapRightKey("BandID");
+                    m.MapLeftKey("FavouritesID");
                 });
 
             this.HasMany(t => t.albums)
@@ -31,8 +31,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("AlbumFavourites");
-                    m.MapLeftKey("AlbumID");
-                    m.MapRightKey("FavouritesID");
+                    m.MapRightKey("AlbumID");
+                    m.MapLeftKey("FavouritesID");
                 });
 
             this.HasMany(t => t.tracks)
@@ -40,8 +40,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("TrackFavourites");
-                    m.MapLeftKey("TrackID");
-                    m.MapRightKey("FavouritesID");
+                    m.MapRightKey("TrackID");
+                    m.MapLeftKey("FavouritesID");
                 });
 
             this.HasMany(t => t.concerts)
@@ -49,8 +49,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("ConcertFavourites");
-                    m.MapLeftKey("ConcertID");
-                    m.MapRightKey("FavouritesID");
+                    m.MapRightKey("ConcertID");
+                    m.MapLeftKey("FavouritesID");
                 });
 
             this.HasMany(t => t.tours)
@@ -58,8 +58,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("TourFavourites");
-                    m.MapLeftKey("TourID");
-                    m.MapRightKey("FavouritesID");
+                    m.MapRightKey("TourID");
+                    m.MapLeftKey("FavouritesID");
                 });
         }
     }
