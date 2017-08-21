@@ -1,1 +1,5 @@
-﻿Utwory
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.SongListItemViewModel>
+
+<div id="songList">
+    @Html.Partial("_FavouriteSongsPartial", Model)
+</div>

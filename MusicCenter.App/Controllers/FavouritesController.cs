@@ -126,12 +126,12 @@ namespace MusicCenter.App.Controllers
 
         [HttpGet]
         [UserAuthorize]
-        public ActionResult UserFavouriteSongs(int id = 1)
+        public ActionResult UserFavouriteSongs(int songsPageId = 1)
         {
-            //PagedList<SongListItemViewModel> model = favServ.GetUserFavouriteSongsByPageNumber(id, Session["user"].ToString());
-            //if (Request.IsAjaxRequest())
-            //    return PartialView("_FavouriteSongsPartial", model);
-            return PartialView();
+            PagedList<SongListItemViewModel> model = favServ.GetUserFavouriteSongsByPageNumber(songsPageId, Session["user"].ToString());
+            if (Request.IsAjaxRequest())
+                return PartialView("_FavouriteSongsPartial", model);
+            return View(model);
         }
 
         [HttpGet]

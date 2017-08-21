@@ -54,7 +54,7 @@
             else if (Session["user"] != null && controllerName == "Favourites")
             {
                 <div class="col-sm-2">
-                    <input type="button" name="DeleteAlbumFav" data-bandname="@album.Name" class="btn btn-danger" value="@MusicCenter.Common.Resources.Global.Delete" />
+                    <input type="button" name="DeleteAlbumFav" data-albumname="@album.Name" class="btn btn-danger" value="@MusicCenter.Common.Resources.Global.Delete" />
                 </div>
             }
 

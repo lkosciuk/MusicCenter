@@ -1,0 +1,7 @@
+﻿@model PagedList<MusicCenter.Common.ViewModels.Band.SongListItemViewModel>
+
+@{ Html.RenderPartial("_SongTable", Model); }
+
+<div style="bottom:0; position:fixed; width:100%; text-align:center;">
+    @Ajax.Pager(Model, new PagerOptions { ActionName = "UserFavouriteSongs", ControllerName = "Favourites", CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "songsPageId", FirstPageText = "First", LastPageText = "Last", NextPageText = "Next", PrevPageText = "Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li name='pagerPage'>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("songList"))
+</div>

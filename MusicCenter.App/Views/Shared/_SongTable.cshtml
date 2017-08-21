@@ -36,11 +36,22 @@
             <div class="col-sm-2">
                 @Html.DisplayFor(m => song.CreationDate)
             </div>
-        @if (Session["user"] != null)
-        {
-            <div class="col-sm-2">
-                <input type="button" name="AddSongToFavBtn" data-songid="@song.Id" class="btn btn-success" value="Add to favourites" />
-            </div>
+        @{
+            var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+
+            if (Session["user"] != null && controllerName == "Band")
+            {
+                <div class="col-sm-2">
+                    <input type="button" name="AddSongToFavBtn" data-songid="@song.Id" class="btn btn-success" value="Add to favourites" />
+                </div>
+            }
+            else if (Session["user"] != null && controllerName == "Favourites")
+            {
+                <div class="col-sm-2">
+                    <input type="button" name="DeleteAlbumFav" data-songid="@song.Id" class="btn btn-danger" value="@MusicCenter.Common.Resources.Global.Delete" />
+                </div>
+            }
+
         }
     </div>
 }
