@@ -430,6 +430,7 @@
     <Content Include="Views\Favourites\UserFavouriteAlbums.cshtml" />
     <Content Include="Views\Favourites\UserFavouriteSongs.cshtml" />
     <Content Include="Views\Favourites\UserFavouriteConcerts.cshtml" />
+    <Content Include="Views\Shared\_FavouriteAlbumsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

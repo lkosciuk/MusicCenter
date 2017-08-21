@@ -1,5 +1,6 @@
 ﻿using MusicCenter.App.Filters;
 using MusicCenter.Common.ViewModels.Band;
+using MusicCenter.Common.ViewModels.Concert;
 using MusicCenter.Services.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -105,9 +106,9 @@ namespace MusicCenter.App.Controllers
 
         [HttpGet]
         [UserAuthorize]
-        public ActionResult UserFavouriteBands(int id = 1)
+        public ActionResult UserFavouriteBands(int bandPageId = 1)
         {
-            PagedList<BandListItemViewModel> model = favServ.GetUserFavouriteBandsByPageNumber(id, Session["user"].ToString());
+            PagedList<BandListItemViewModel> model = favServ.GetUserFavouriteBandsByPageNumber(bandPageId, Session["user"].ToString());
             if (Request.IsAjaxRequest())
                 return PartialView("_FavouriteBandsPartial", model);
             return View(model);
@@ -115,17 +116,21 @@ namespace MusicCenter.App.Controllers
 
         [HttpGet]
         [UserAuthorize]
-        public ActionResult UserFavouriteAlbums(int id = 1)
+        public ActionResult UserFavouriteAlbums(int albumsPageId = 1)
         {
-            //PagedList<BandListItemViewModel> model = favServ.GetUserFavouriteBandsByPageNumber(id, Session["user"].ToString());
-            return PartialView();
+            PagedList<AlbumListItemViewModel> model = favServ.GetUserFavouriteAlbumsByPageNumber(albumsPageId, Session["user"].ToString());
+            if (Request.IsAjaxRequest())
+                return PartialView("_FavouriteAlbumsPartial", model);
+            return View(model);
         }
 
         [HttpGet]
         [UserAuthorize]
         public ActionResult UserFavouriteSongs(int id = 1)
         {
-            //PagedList<BandListItemViewModel> model = favServ.GetUserFavouriteBandsByPageNumber(id, Session["user"].ToString());
+            //PagedList<SongListItemViewModel> model = favServ.GetUserFavouriteSongsByPageNumber(id, Session["user"].ToString());
+            //if (Request.IsAjaxRequest())
+            //    return PartialView("_FavouriteSongsPartial", model);
             return PartialView();
         }
 
@@ -133,7 +138,9 @@ namespace MusicCenter.App.Controllers
         [UserAuthorize]
         public ActionResult UserFavouriteConcerts(int id = 1)
         {
-            //PagedList<BandListItemViewModel> model = favServ.GetUserFavouriteBandsByPageNumber(id, Session["user"].ToString());
+            //PagedList<ConcertListItemViewModel> model = favServ.GetUserFavouriteConcertsByPageNumber(id, Session["user"].ToString());
+            //if (Request.IsAjaxRequest())
+            //    return PartialView("_FavouriteConcertsPartial", model);
             return PartialView();
         }
 

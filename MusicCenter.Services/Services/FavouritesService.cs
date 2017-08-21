@@ -14,6 +14,7 @@ using MusicCenter.Common.ViewModels.Band;
 using Webdiyer.WebControls.Mvc;
 using MusicCenter.Common.ViewModels.File;
 using MusicCenter.Common.Helpers;
+using MusicCenter.Common.ViewModels.Concert;
 
 namespace MusicCenter.Services.Services
 {
@@ -81,6 +82,24 @@ namespace MusicCenter.Services.Services
             _unitOfWork.SaveChanges();
         }
 
+        public PagedList<AlbumListItemViewModel> GetUserFavouriteAlbumsByPageNumber(int id, string userEmail)
+        {
+            var result = (from user in _unitOfWork.Repository<Users>().Queryable()
+                          join favourites in _unitOfWork.Repository<Favourites>().Queryable() on user.Id equals favourites.user.Id
+                          from album in favourites.albums
+                          where user.email == userEmail
+                          orderby album.name
+                          select new AlbumListItemViewModel()
+                          {
+                              Avatar = new FileViewModel() { PathToShow = album.images.FirstOrDefault(i => i.IsAvatar).path },
+                              Name = album.name,
+                              CreationDate = album.releaseDate,
+                              Genres = album.genres.Select(g => g.name).ToList()
+                          }).ToPagedList(id, ConstHelper.GridPageSize);
+
+            return result;
+        }
+
         public PagedList<BandListItemViewModel> GetUserFavouriteBandsByPageNumber(int id, string userEmail)
         {
             var result = (from user in _unitOfWork.Repository<Users>().Queryable()
@@ -99,6 +118,48 @@ namespace MusicCenter.Services.Services
 
             return result;
                          
+        }
+
+        public PagedList<ConcertListItemViewModel> GetUserFavouriteConcertsByPageNumber(int id, string userEmail)
+        {
+            var result = (from user in _unitOfWork.Repository<Users>().Queryable()
+                          join favourites in _unitOfWork.Repository<Favourites>().Queryable() on user.Id equals favourites.user.Id
+                          from concert in favourites.concerts
+                          let genres = concert.bands.SelectMany(b => b.genres)
+                          let file = concert.images.FirstOrDefault(i => i.IsAvatar)
+                          where user.email == userEmail
+                          orderby concert.date descending
+                          select new ConcertListItemViewModel()
+                          {
+                              Id = concert.Id,
+                              ConcertOwner = concert.ConcertOwner.name,
+                              Image = new FileViewModel() { PathToShow = file.path },
+                              BandNames = concert.bands.Select(b => b.name).Concat(new string[] { concert.ConcertOwner.name }).ToList(),
+                              Date = concert.date,
+                              Genres = genres.Select(a => a.name).Concat(concert.ConcertOwner.genres.Select(g => g.name)).ToList(),
+                              Address = concert.address
+                          }).ToPagedList(id, ConstHelper.GridPageSize);
+
+            return result;
+        }
+
+        public PagedList<SongListItemViewModel> GetUserFavouriteSongsByPageNumber(int id, string userEmail)
+        {
+            var result = (from user in _unitOfWork.Repository<Users>().Queryable()
+                          join favourites in _unitOfWork.Repository<Favourites>().Queryable() on user.Id equals favourites.user.Id
+                          from song in favourites.tracks
+                          where user.email == userEmail
+                          orderby song.name
+                          select new SongListItemViewModel()
+                          {
+                              Id = song.Id,
+                              Url = song.url,
+                              Name = song.name,
+                              CreationDate = song.releaseDate,
+                              Genres = song.genres.Select(g => g.name).ToList()
+                          }).ToPagedList(id, ConstHelper.GridPageSize);
+
+            return result;
         }
 
         public bool IsUserHaveAlbumInFavourites(string email, string AlbumName)

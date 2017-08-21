@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MusicCenter.Common.ViewModels.Band;
 using Webdiyer.WebControls.Mvc;
+using MusicCenter.Common.ViewModels.Concert;
 
 namespace MusicCenter.Services.Intefaces
 {
@@ -32,5 +33,11 @@ namespace MusicCenter.Services.Intefaces
         void AddConcertToFavourites(string email, int concertId);
 
         PagedList<BandListItemViewModel> GetUserFavouriteBandsByPageNumber(int id, string userEmail);
+
+        PagedList<AlbumListItemViewModel> GetUserFavouriteAlbumsByPageNumber(int id, string userEmail);
+
+        PagedList<SongListItemViewModel> GetUserFavouriteSongsByPageNumber(int id, string userEmail);
+
+        PagedList<ConcertListItemViewModel> GetUserFavouriteConcertsByPageNumber(int id, string userEmail);
     }
 }

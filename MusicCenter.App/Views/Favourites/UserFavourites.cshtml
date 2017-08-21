@@ -15,12 +15,14 @@
 <section id="favouritesBands" name="tabContent">
         @Html.Action("UserFavouriteBands", "Favourites")
 </section>
-<section id="favouritesAlbums" name="tabContent">
+<section id="favouritesAlbums" name="tabContent" style="display: none">
         @Html.Action("UserFavouriteAlbums", "Favourites")
 </section>
-<section id="favouritesSongs" name="tabContent">
+<section id="favouritesSongs" name="tabContent" style="display: none">
         @Html.Action("UserFavouriteSongs", "Favourites")
 </section>
-<section id="favouritesConcerts" name="tabContent">
+<section id="favouritesConcerts" name="tabContent" style="display: none">
         @Html.Action("UserFavouriteConcerts", "Favourites")
 </section>
+
+@{Html.RegisterMvcPagerScriptResource();}
