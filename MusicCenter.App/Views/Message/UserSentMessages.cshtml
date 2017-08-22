@@ -4,25 +4,25 @@
 
 
 <ul class="nav nav-tabs" style="margin-bottom:10px">
-    <li role="presentation"><a href="@Url.Action("UserMessages", "Message")">Received</a></li>
-    <li role="presentation" class="active"><a href="@Url.Action("UserSentMessages", "Message")">Sent</a></li>
-    <li role="presentation"><a href="@Url.Action("UserNewMessage", "Message")">New message</a></li>
+    <li role="presentation"><a href="@Url.Action("UserMessages", "Message")">@MusicCenter.Common.Resources.Global.Received</a></li>
+    <li role="presentation" class="active"><a href="@Url.Action("UserSentMessages", "Message")">@MusicCenter.Common.Resources.Global.Sent</a></li>
+    <li role="presentation"><a href="@Url.Action("UserNewMessage", "Message")">@MusicCenter.Common.Resources.Global.NewMessage</a></li>
 </ul>
 <div class="row">
     <div class="col-md-2">
-        Author
+        @MusicCenter.Common.Resources.Global.Author
     </div>
     <div class="col-md-2">
-        Sent date
+        @MusicCenter.Common.Resources.Global.Date
     </div>
     <div class="col-md-2">
-        Title
+        @MusicCenter.Common.Resources.Global.Title
     </div>
     <div class="col-md-2">
-        Recipients
+        @MusicCenter.Common.Resources.Global.Recipients
     </div>
     <div class="col-md-2">
-        Readed
+        @MusicCenter.Common.Resources.Global.Readed
     </div>
 </div>
 
@@ -47,12 +47,12 @@
                 </div>
                 <div class="col-md-1">
                     @if (item.IsReaded)
-                    {<label>Yes</label>}
+                    {<label>@MusicCenter.Common.Resources.Global.Yes</label>}
                     else
-                    {<label>No</label>}
+                    {<label>@MusicCenter.Common.Resources.Global.No</label>}
                 </div>
                 <div class="col-md-1">
-                    <a class="btn btn-default pull-right" href="@Url.Action("UserMessageDetails", "Message", new { MessageId = @item.Id })" role="button">Details</a>
+                    <a class="btn btn-default pull-right" href="@Url.Action("UserMessageDetails", "Message", new { MessageId = @item.Id })" role="button">@MusicCenter.Common.Resources.Global.Details</a>
                 </div>
             </div>
         }
@@ -73,12 +73,12 @@
                 </div>
                 <div class="col-md-1">
                     @if (item.IsReaded)
-                    {<label>Yes</label>}
+                    {<label>@MusicCenter.Common.Resources.Global.Yes</label>}
                     else
-                    {<label>No</label>}
+                    {<label>@MusicCenter.Common.Resources.Global.No</label>}
                 </div>
                 <div class="col-md-1">
-                    <a class="btn btn-default pull-right" href="@Url.Action("UserMessageDetails", "Message", new { MessageId = @item.Id })" role="button">Details</a>
+                    <a class="btn btn-default pull-right" href="@Url.Action("UserMessageDetails", "Message", new { MessageId = @item.Id })" role="button">@MusicCenter.Common.Resources.Global.Details</a>
                 </div>
             </div>
         }

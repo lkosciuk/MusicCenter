@@ -5,18 +5,18 @@
     <div class="container" style="margin-top: 20px; margin-bottom: 20px">
         <div class="row">
             <div class="col-lg-12">
-                <input type="text" name="Names" data-viewname="@Model" id="filterSearch" data-searchbandsurl="@Url.Action("SearchBand", "Home")" data-searchalbumsurl="@Url.Action("SearchAlbum", "Home")" data-searchsongsurl="@Url.Action("SearchSong", "Home")" class="form-control" style="width:100%" placeholder="search by name" />
+                <input type="text" name="Names" data-viewname="@Model" id="filterSearch" data-searchbandsurl="@Url.Action("SearchBand", "Home")" data-searchalbumsurl="@Url.Action("SearchAlbum", "Home")" data-searchsongsurl="@Url.Action("SearchSong", "Home")" class="form-control" style="width:100%" placeholder="@MusicCenter.Common.Resources.Global.SearchByBandName" />
             </div>
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-md-4 ui-widget">
-                <input type="text" name="GenreNames" id="filterGenres" data-searchgenresurl="@Url.Action("SearchGenre", "Home")" class="form-control" placeholder="select genres" />
+                <input type="text" name="GenreNames" id="filterGenres" data-searchgenresurl="@Url.Action("SearchGenre", "Home")" class="form-control" placeholder="@MusicCenter.Common.Resources.Global.SearchByGenre" />
             </div>
             <div class="col-md-4">
-                <input name="DateFrom" type="text" placeholder="date from" class="form-control" id="filterDateFrom">
+                <input name="DateFrom" type="text" placeholder="@MusicCenter.Common.Resources.Global.DateFrom" class="form-control" id="filterDateFrom">
             </div>
             <div class="col-md-4">
-                <input name="DateTo" type="text" placeholder="date to" class="form-control" id="filterDateTo">
+                <input name="DateTo" type="text" placeholder="@MusicCenter.Common.Resources.Global.DateTo" class="form-control" id="filterDateTo">
             </div>
         </div>
     </div>

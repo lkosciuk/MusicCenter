@@ -1,7 +1,7 @@
 ﻿@model List<MusicCenter.Common.ViewModels.Band.AlbumsPanelViewModel>
 
 <ul class="nav nav-tabs" style="margin-bottom:10px">
-    <li role="presentation" class="active"><a href="#">New albums</a></li>
+    <li role="presentation" class="active"><a href="#">@MusicCenter.Common.Resources.Global.NewAlbums</a></li>
 </ul>
 
 @if (Model != null)
@@ -21,10 +21,6 @@
         </a>
     </div>
     }
-}
-else
-{
-    <h1><small>No albums to show</small></h1>    
 }
 
 

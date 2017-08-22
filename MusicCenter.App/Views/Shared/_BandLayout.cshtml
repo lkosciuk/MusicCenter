@@ -26,13 +26,13 @@
             }
             else if (Session["user"] != null)
             {
-                <a href="@Url.Action("SendBandMessage", "Message", new {Recipient = Model })">Napisz wiadomość</a>
+                <a href="@Url.Action("SendBandMessage", "Message", new {Recipient = Model })">@MusicCenter.Common.Resources.Global.WriteMessage</a>
             }
         </li>
         <li>
             @if (Session["user"] != null)
             {
-                    <input type="button" id="AddBandToFavBtn" data-addtofavurl="@Url.Action("AddBandToFavourites", "Favourites")" data-bandname="@Model" data-user="@Session["user"].ToString()"  data-checkfavurl="@Url.Action("IsUserHaveBandsInFavourites", "Favourites")" class="btn-sm btn-success" value="Add to favourites" />
+                    <input type="button" id="AddBandToFavBtn" data-addtofavurl="@Url.Action("AddBandToFavourites", "Favourites")" data-bandname="@Model" data-user="@Session["user"].ToString()"  data-checkfavurl="@Url.Action("IsUserHaveBandsInFavourites", "Favourites")" class="btn-sm btn-success" value="@MusicCenter.Common.Resources.Global.AddToFavourites" />
             }
         </li>
     </ul>

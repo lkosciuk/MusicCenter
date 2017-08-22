@@ -5,16 +5,16 @@
 
     </div>
     <div class="col-sm-2">
-        Name
+        @MusicCenter.Common.Resources.Global.Name
     </div>
     <div class="col-sm-2">
-        Genres
+        @MusicCenter.Common.Resources.Global.Genres
     </div>
     <div class="col-sm-2">
-        Creation date
+        @MusicCenter.Common.Resources.Global.CreateDate
     </div>
     <div class="col-sm-2">
-        Description
+        @MusicCenter.Common.Resources.Global.Description
     </div>
 </div>
 
@@ -65,7 +65,7 @@
             if (Session["user"] != null && controllerName == "Band")
             {
                 <div class="col-sm-2">
-                    <input type="button" name="AddBandToFavBtn" data-bandname="@band.Name" class="btn btn-success" value="Add to favourites" />
+                    <input type="button" name="AddBandToFavBtn" data-bandname="@band.Name" class="btn btn-success" value="@MusicCenter.Common.Resources.Global.AddToFavourites" />
                 </div>
             }
             else if(Session["user"] != null && controllerName == "Favourites")

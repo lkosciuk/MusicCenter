@@ -9,7 +9,7 @@
         var currentButton = this;
         var bandName = $(currentButton).data('bandname');
         $.post($(currentButton).data('addtofavurl'), { BandName: bandName }, function () {
-            $(currentButton).attr('disabled', true);
+            $(currentButton).hide();
         });
     };
 

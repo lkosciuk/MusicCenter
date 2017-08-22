@@ -375,4 +375,40 @@
   <data name="AddSong" xml:space="preserve">
     <value>Add song</value>
   </data>
+  <data name="DateFrom" xml:space="preserve">
+    <value>Date from</value>
+  </data>
+  <data name="DateTo" xml:space="preserve">
+    <value>Date to</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="NewAlbums" xml:space="preserve">
+    <value>New albums</value>
+  </data>
+  <data name="NewBands" xml:space="preserve">
+    <value>New bands</value>
+  </data>
+  <data name="NewSingles" xml:space="preserve">
+    <value>New singles</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="SearchByBandName" xml:space="preserve">
+    <value>Search band name</value>
+  </data>
+  <data name="SearchByGenre" xml:space="preserve">
+    <value>Search genre name</value>
+  </data>
+  <data name="WriteMessage" xml:space="preserve">
+    <value>Write a message</value>
+  </data>
 </root>

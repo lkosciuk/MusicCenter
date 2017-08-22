@@ -3,5 +3,5 @@
 @{ Html.RenderPartial("_ConcertTable", Model); }
 
 <div style="bottom:0; position:fixed; width:100%; text-align:center;">
-    @Ajax.Pager(Model, new PagerOptions { ActionName = "UserFavouriteConcerts", ControllerName = "Favourites", CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "bandPageId", FirstPageText = "First", LastPageText = "Last", NextPageText = "Next", PrevPageText = "Previous", ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li name='pagerPage'>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("concertList"))
+    @Ajax.Pager(Model, new PagerOptions { ActionName = "UserFavouriteConcerts", ControllerName = "Favourites", CurrentPagerItemTemplate = "<li class='active'><a href='#'>{0}</a></li>", DisabledPagerItemTemplate = "<li class='disabled'><a>{0}</a></li>", PageIndexParameterName = "bandPageId", FirstPageText = @MusicCenter.Common.Resources.Global.First, LastPageText = @MusicCenter.Common.Resources.Global.Last, NextPageText = @MusicCenter.Common.Resources.Global.Next, PrevPageText = @MusicCenter.Common.Resources.Global.Previous, ContainerTagName = "ul", CssClass = "pagination", PagerItemTemplate = "<li name='pagerPage'>{0}</li>" }).AjaxOptions(a => a.SetUpdateTargetId("concertList"))
 </div>

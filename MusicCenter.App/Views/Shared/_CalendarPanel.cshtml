@@ -1,8 +1,2 @@
-﻿@*@model List<MusicCenter.Common.ViewModels.Concert.CalendarPanelViewModel>*@
-
-<div id="my-calendar" data-url="@Url.Action("GetConcerts", "Concert")"></div>
-@*@foreach (var concert in Model)
-{
-    <input type="hidden" data-bands="@concert.Bands" data-concertid="@concert.ConcertId" data-concertdate="@concert.Date" name="ConcertItem" />
-}*@
+﻿<div id="my-calendar" data-url="@Url.Action("GetConcerts", "Concert")"></div>
 
