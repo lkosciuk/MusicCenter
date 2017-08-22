@@ -14,7 +14,7 @@
             onSelect: function () {
                 FilterData();
             },
-            dateFormat: 'dd-mm-yy'
+            dateFormat: 'yy-mm-dd'
         });
 
         $("#filterDateTo").datepicker({
@@ -26,8 +26,13 @@
             onSelect: function () {
                 FilterData();
             },
-            dateFormat: 'dd-mm-yy'
+            dateFormat: 'yy-mm-dd'
         });
+
+        $("#filterDateFrom").blur(FilterData);
+        $("#filterDateTo").blur(FilterData);
+        $("#filterGenres").blur(FilterData);
+        $("#filterSearch").blur(FilterData);
     };
 
     var InitGenresAutocomplete = function () {

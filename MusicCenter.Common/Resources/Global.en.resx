@@ -372,4 +372,7 @@
   <data name="YourBands" xml:space="preserve">
     <value>Your bands</value>
   </data>
+  <data name="AddSong" xml:space="preserve">
+    <value>Add song</value>
+  </data>
 </root>

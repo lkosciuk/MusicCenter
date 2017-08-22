@@ -93,15 +93,17 @@ namespace MusicCenter.Services.Services
 
                 foreach (var genre in Genres)
                 {
-                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    var tempGenre = genre.Trim();
+
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(tempGenre))
                     {
-                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        Genre newGenre = new Genre() { name = tempGenre, ObjectState = ObjectState.Added };
                         newGenre.bands.Add(newBand);
                         BandGenres.Add(newGenre);
                     }
                     else
                     {
-                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(tempGenre);
                         existingGenre.bands.Add(newBand);
                         BandGenres.Add(existingGenre);
                     }
@@ -208,15 +210,16 @@ namespace MusicCenter.Services.Services
 
                 foreach (var genre in Genres)
                 {
-                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    var tempGenre = genre.Trim();
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(tempGenre))
                     {
-                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        Genre newGenre = new Genre() { name = tempGenre, ObjectState = ObjectState.Added };
                         newGenre.bands.Add(currentBand);
                         BandGenres.Add(newGenre);
                     }
                     else
                     {
-                            Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                            Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(tempGenre);
                             existingGenre.bands.Add(currentBand);
                             BandGenres.Add(existingGenre);                      
                     }
@@ -310,15 +313,17 @@ namespace MusicCenter.Services.Services
 
                 foreach (var genre in Genres)
                 {
-                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    var tempGenre = genre.Trim();
+
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(tempGenre))
                     {
-                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        Genre newGenre = new Genre() { name = tempGenre, ObjectState = ObjectState.Added };
                         newGenre.albums.Add(newAlbum);
                         AlbumGenres.Add(newGenre);
                     }
                     else
                     {
-                            Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                            Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(tempGenre);
                             existingGenre.albums.Add(newAlbum);
                             AlbumGenres.Add(existingGenre);                      
                     }
@@ -504,15 +509,17 @@ namespace MusicCenter.Services.Services
 
                 foreach (var genre in Genres)
                 {
-                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    var tempGenre = genre.Trim();
+
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(tempGenre))
                     {
-                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        Genre newGenre = new Genre() { name = tempGenre, ObjectState = ObjectState.Added };
                         newGenre.albums.Add(currentAlbum);
                         AlbumGenres.Add(newGenre);
                     }
                     else
                     {
-                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre, g => g.albums);
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(tempGenre, g => g.albums);
                         if (!existingGenre.albums.Any(a => a.Id ==currentAlbum.Id))
                         {
                             existingGenre.albums.Add(currentAlbum);
@@ -642,15 +649,17 @@ namespace MusicCenter.Services.Services
 
                 foreach (var genre in Genres)
                 {
-                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    var tempGenre = genre.Trim();
+
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(tempGenre))
                     {
-                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        Genre newGenre = new Genre() { name = tempGenre, ObjectState = ObjectState.Added };
                         newGenre.tracks.Add(newTrack);
                         TrackGenres.Add(newGenre);
                     }
                     else
                     {
-                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre);
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(tempGenre);
                         existingGenre.tracks.Add(newTrack);
                         TrackGenres.Add(existingGenre);
                     }
@@ -723,15 +732,16 @@ namespace MusicCenter.Services.Services
 
                 foreach (var genre in Genres)
                 {
-                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(genre))
+                    var tempGenre = genre.Trim();
+                    if (!_unitOfWork.Repository<Genre>().IsGenreExists(tempGenre))
                     {
-                        Genre newGenre = new Genre() { name = genre, ObjectState = ObjectState.Added };
+                        Genre newGenre = new Genre() { name = tempGenre, ObjectState = ObjectState.Added };
                         newGenre.tracks.Add(currentTrack);
                         TrackGenres.Add(newGenre);
                     }
                     else
                     {
-                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(genre, g => g.tracks);
+                        Genre existingGenre = _unitOfWork.Repository<Genre>().GetGenreByName(tempGenre, g => g.tracks);
                         if (!existingGenre.tracks.Any(t => t.Id == currentTrack.Id))
                         {
                             existingGenre.tracks.Add(currentTrack);

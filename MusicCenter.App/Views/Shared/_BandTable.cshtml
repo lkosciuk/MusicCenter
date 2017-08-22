@@ -47,9 +47,9 @@
             <div class="col-sm-2">
                 @if (!String.IsNullOrEmpty(band.Description))
                 {
-                    if (band.Description.Length > 100)
+                    if (band.Description.Length > 50)
                     {
-                        <div>@band.Description.Substring(0, 100) ...</div>
+                        <div>@band.Description.Substring(0, 50) ...</div>
                     }
                     else
                     {

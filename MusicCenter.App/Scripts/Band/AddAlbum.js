@@ -25,7 +25,7 @@
                     $('.ui-datepicker').css('z-index', 99999999999999);
                 }, 0);
             },
-            dateFormat: 'dd-mm-yy'
+            dateFormat: 'yy-mm-dd'
         });
     }
 

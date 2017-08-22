@@ -372,4 +372,7 @@
   <data name="YourBands" xml:space="preserve">
     <value>Twoje zespoły</value>
   </data>
+  <data name="AddSong" xml:space="preserve">
+    <value>Dodaj utwór</value>
+  </data>
 </root>

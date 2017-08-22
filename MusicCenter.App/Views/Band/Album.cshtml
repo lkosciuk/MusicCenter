@@ -9,44 +9,44 @@
             </div>
             <div class="col-lg-10">
                 <div class="row form-group">
-                    <div class="col-sm-1">
+                    <div class="col-md-2">
                         <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Name:</label>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         @Model.Name
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.ReleaseDate:</label>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         @Html.DisplayFor(m => m.ReleaseDate)
                     </div>
                     @if (Session["user"] != null)
                     {
-                        <div class="col-sm-2">
+                        <div class="col-md-2">
                             <input type="button" id="AddAlbumToFavBtn" data-checkurl="@Url.Action("IsUserHaveAlbumInFavourites", "Favourites")" data-url="@Url.Action("AddAlbumToFavourites", "Favourites")" name="@Model.Name" value="@MusicCenter.Common.Resources.Global.AddToFavourites" class="btn btn-default" />
                         </div>
                     }
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-1">
+                    <div class="col-md-2">
                         <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Label:</label>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         @Model.Label
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Producer:</label>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         @Model.Producer
                     </div>                  
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-1">
+                    <div class="col-md-2">
                         <label class="control-label input-sm">@MusicCenter.Common.Resources.Global.Genres:</label>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         @Model.Genres
                     </div>
                 </div>

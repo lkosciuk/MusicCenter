@@ -23,8 +23,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("TrackGenre");
-                    m.MapLeftKey("TrackID");
-                    m.MapRightKey("GenreID");
+                    m.MapRightKey("TrackID");
+                    m.MapLeftKey("GenreID");
                 });
 
             this.HasMany(t => t.bands)
@@ -32,8 +32,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("BandGenre");
-                    m.MapLeftKey("BandID");
-                    m.MapRightKey("GenreID");
+                    m.MapRightKey("BandID");
+                    m.MapLeftKey("GenreID");
                 });
 
             this.HasMany(t => t.albums)
@@ -41,8 +41,8 @@ namespace MusicCenter.Dal.EntityConfigurations
                 .Map(m =>
                 {
                     m.ToTable("AlbumGenre");
-                    m.MapLeftKey("AlbumID");
-                    m.MapRightKey("GenreID");
+                    m.MapRightKey("AlbumID");
+                    m.MapLeftKey("GenreID");
                 });
         }
     }

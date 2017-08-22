@@ -124,6 +124,15 @@ namespace MusicCenter.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodaj utwór.
+        /// </summary>
+        public static string AddSong {
+            get {
+                return ResourceManager.GetString("AddSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodaj utwory.
         /// </summary>
         public static string AddSongs {
