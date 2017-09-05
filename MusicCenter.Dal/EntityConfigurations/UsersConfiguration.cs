@@ -9,18 +9,15 @@ using System.Threading.Tasks;
 
 namespace MusicCenter.Dal.EntityConfigurations
 {
-    class UsersConfiguration 
-        : BaseEntityMap<Users>
+    class UsersConfiguration : BaseEntityMap<Users>
     {
         public UsersConfiguration() : base()
         {
             this.ToTable("Users");
             this.Property(f => f.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            this.Property(a => a.password);
+            this.Property(a => a.password).IsRequired();
             this.Property(a => a.email).IsRequired();
 
-            //relationships
-            //HasOptional(u => u.profilePhoto).WithRequired();
             HasOptional(u => u.favourites).WithRequired();
         }
     }

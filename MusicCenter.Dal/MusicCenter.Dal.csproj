@@ -124,6 +124,10 @@
     <Compile Include="Migrations\201708221753478_genresFix.Designer.cs">
       <DependentUpon>201708221753478_genresFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709040857068_entitiesFix.cs" />
+    <Compile Include="Migrations\201709040857068_entitiesFix.Designer.cs">
+      <DependentUpon>201709040857068_entitiesFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicCenterDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708221753478_genresFix.resx">
       <DependentUpon>201708221753478_genresFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709040857068_entitiesFix.resx">
+      <DependentUpon>201709040857068_entitiesFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

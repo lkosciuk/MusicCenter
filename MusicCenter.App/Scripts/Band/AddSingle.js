@@ -104,12 +104,10 @@
                 }
             }).done(function (e) {
                 console.log('Upload Complete!');
-                console.dir(e); // This is the JSON object of the resulting track
+                console.dir(e);
                 $('#popUpContent').append('<b>' + e.title + '</b>' + '<b style="color:green">- Upload complete!</b></br>');
-
                 model.append('SongName', e.title);
                 model.append('SongUrl', e.id);
-
                 $('#popUpContent').append('<input type="button" id="CloseUploadPopupBtn" onclick="CloseUploadPopup()" class="btn btn-info pull-right" value="Close"/> ')
                 SendForm();
                 

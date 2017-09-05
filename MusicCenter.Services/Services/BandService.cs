@@ -71,8 +71,8 @@ namespace MusicCenter.Services.Services
                 email = model.Email,
                 phoneNumber = model.Phone,
                 addDate = DateTime.Now,
-                bandCreationDate = DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null),
-                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", null),
+                bandCreationDate = DateTime.Parse(model.CreationDate),
+                bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.Parse(model.ResolveDate),
                 ObjectState = ObjectState.Added,
                 user = currentUser,
                 UserID = currentUser.Id,
@@ -191,8 +191,8 @@ namespace MusicCenter.Services.Services
             Band currentBand = _repo.GetById(model.BandId, b => b.images, b => b.genres, b => b.members);
 
             currentBand.name = model.Name;
-            currentBand.bandCreationDate = DateTime.ParseExact(model.CreationDate, "dd-MM-yyyy", null);
-            currentBand.bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.ParseExact(model.ResolveDate, "dd-MM-yyyy", null);
+            currentBand.bandCreationDate = DateTime.Parse(model.CreationDate);
+            currentBand.bandResolveDate = String.IsNullOrEmpty(model.ResolveDate) ? null : (DateTime?)DateTime.Parse(model.ResolveDate);
             currentBand.description = model.Description;
             currentBand.email = model.Email;
             currentBand.phoneNumber = model.Phone;
@@ -300,7 +300,7 @@ namespace MusicCenter.Services.Services
                 label = model.Label,
                 name = model.Name,
                 producer = model.Producer,
-                releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null),
+                releaseDate = DateTime.Parse(model.ReleaseDate),
                 ObjectState = ObjectState.Added
             };
 
@@ -372,7 +372,7 @@ namespace MusicCenter.Services.Services
                      IsSingle = false,
                      genres = AlbumGenres,
                      ObjectState = ObjectState.Added,
-                     releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null)
+                     releaseDate = DateTime.Parse(model.ReleaseDate)
                  };
 
                  albumTracks.Add(albumTrack);
@@ -636,7 +636,7 @@ namespace MusicCenter.Services.Services
                 IsSingle = true,
                 url = model.SongUrl,
                 name = Path.GetFileNameWithoutExtension(model.SongName),
-                releaseDate = DateTime.ParseExact(model.ReleaseDate, "dd-MM-yyyy", null),
+                releaseDate = DateTime.Parse(model.ReleaseDate),
                 ObjectState = ObjectState.Added
             };
 
@@ -978,7 +978,10 @@ namespace MusicCenter.Services.Services
 
         public List<string> SearchGenreNames(string query)
         {
-            return _unitOfWork.Repository<Genre>().Queryable().Where(g => g.name.Contains(query)).Select(g => g.name).ToList();
+            return _unitOfWork.Repository<Genre>()
+                   .Queryable().Where(g => g.name.Contains(query))
+                   .Select(g => g.name)
+                   .ToList();
         }
 
         public List<string> SearchBandNames(string query)
